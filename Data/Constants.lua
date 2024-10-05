@@ -40,7 +40,7 @@ local constants = { }
 private.constants = constants
 
 -- Initialization
-ATLAS_VERSION = GetAddOnMetadata(private.addon_name, "Version")
+ATLAS_VERSION = C_AddOns.GetAddOnMetadata(private.addon_name, "Version")
 ATLAS_PLAYER_FACTION = UnitFactionGroup("player")
 ATLAS_DROPDOWNS = {}
 ATLAS_INST_ENT_DROPDOWN = {}

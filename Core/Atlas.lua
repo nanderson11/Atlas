@@ -77,8 +77,8 @@ addon.Templates = private.Templates
 --addon.dropdowns. = private.dropdowns
 addon.constants.addon_name = private.addon_name
 addon.Name = FOLDER_NAME
-addon.LocName = select(2, GetAddOnInfo(addon.Name))
-addon.Notes = select(3, GetAddOnInfo(addon.Name))
+addon.LocName = select(2, C_AddOns.GetAddOnInfo(addon.Name))
+addon.Notes = select(3, C_AddOns.GetAddOnInfo(addon.Name))
 _G.Atlas = addon
 
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
@@ -579,10 +579,10 @@ local function process_Deprecated()
 	-- Check for outdated modules, build a list of them, then disable them and tell the player
 	local OldList = {}
 	for k, v in pairs(Deprecated_List) do
-		if ( addon:CheckAddonStatus(GetAddOnInfo(v[1])) ) then
+		if ( addon:CheckAddonStatus(C_AddOns.GetAddOnInfo(v[1])) ) then
 			local outdated = false
 			local compatibleVer
-			local currVer = GetAddOnMetadata(v[1], "Version")
+			local currVer = C_AddOns.GetAddOnMetadata(v[1], "Version")
 			if (v[3] and (strsub(currVer, 1, 1) == "r")) then
 				compatibleVer = tonumber(string.sub(v[3], 2))
 				currVer = tonumber(string.sub(currVer, 2))
@@ -642,7 +642,7 @@ function Atlas_OnEvent(self, event, ...)
 	local arg1 = ...
 	if (event=="ADDON_LOADED" and (arg1=="Atlas" or arg1=="Blizzard_EncounterJournal")) then
 		--Blizzard_EncounterJournal
-		if (IsAddOnLoaded("Blizzard_EncounterJournal") and IsAddOnLoaded("Atlas")) then
+		if (C_AddOns.IsAddOnLoaded("Blizzard_EncounterJournal") and C_AddOns.IsAddOnLoaded("Atlas")) then
 			-- Added Atlas button to Encounter Journal
 			--addon:EncounterJournal_Binding()
 		end
@@ -1498,8 +1498,8 @@ function Atlas_MapRefresh(mapID)
 	AtlasMapS_Text:SetPoint("CENTER", "AtlasFrameSmall", "LEFT", 256, -32)
 	-- Check if the map image is available, if not replace with black and Map Not Found text
 	if (base.Module) then
-		local loadable = select(4, GetAddOnInfo(base.Module))
-		local enabled = GetAddOnEnableState(UnitName("player"), base.Module)
+		local loadable = select(4, C_AddOns.GetAddOnInfo(base.Module))
+		local enabled = C_AddOns.GetAddOnEnableState(base.Module, UnitName("player"))
 		if ((enabled == 0) or (not loadable)) then
 			-- AtlasMap:SetTexture(0, 0, 0)
 			-- Legion changes: texture:SetTexture(r, g, b, a) changes into texture:SetColorTexture(r, g, b, a)
@@ -1872,12 +1872,12 @@ function addon:CheckAddonStatus(addonName)
 	if not addonName then return nil end
 	-- name, title, notes, loadable, reason, security, newVersion = GetAddOnInfo(index or "name")
 	--    loadable : Boolean - Indicates if the AddOn is loaded or eligible to be loaded, true if it is, false if it is not.
-	local loadable = select(4, GetAddOnInfo(addonName))
+	local loadable = select(4, C_AddOns.GetAddOnInfo(addonName))
 	-- GetAddOnEnableState("character", index): 
 	--	0: addon is disabled
 	--	1: partially enabled (only when querying all characters)
 	-- 	2: fully enabled
-	local enabled = GetAddOnEnableState(UnitName("player"), addonName)
+	local enabled = C_AddOns.GetAddOnEnableState(addonName, UnitName("player"))
 	if (enabled > 0 and loadable) then
 		return true
 	else
@@ -1896,7 +1896,7 @@ local function check_Modules()
 	local List = {}
 	for _, module in pairs(Module_List) do
 		local loadable = select(4, GetAddOnInfo(module))
-		local enabled = GetAddOnEnableState(UnitName("player"), module)
+		local enabled = GetAddOnEnableState(module, UnitName("player"))
 		if ( (enabled == 0) or (not loadable) ) then
 			tinsert(List, module)
 		end

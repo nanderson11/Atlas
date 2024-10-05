@@ -72,7 +72,7 @@ Global Atlas Strings
 --]]
 ATLAS_TITLE			= L["ATLAS_TITLE"]
 
-ATLAS_VERSION_TEXT		= "v"..GetAddOnMetadata("Atlas", "Version");
+ATLAS_VERSION_TEXT		= "v"..C_AddOns.GetAddOnMetadata("Atlas", "Version");
 
 BINDING_HEADER_ATLAS_TITLE	= L["BINDING_HEADER_ATLAS_TITLE"]
 BINDING_NAME_ATLAS_TOGGLE	= L["BINDING_NAME_ATLAS_TOGGLE"]
