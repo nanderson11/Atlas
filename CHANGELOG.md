@@ -1,19 +1,19 @@
-$Id: ChangeLog.txt 437 2023-07-29 03:19:49Z arithmandar $
-Atlas, a World of Warcraft instance map browser
-Copyright 2005 ~ 2010 - Dan Gilbert <dan.b.gilbert at gmail dot com>
-Copyright 2010 - Lothaer <lothayer at gmail dot com>, Atlas Team
-Copyright 2011 ~ 2023 - Arith Hsu, Atlas Team <atlas.addon at gmail dot com>
+# Changelog
 
-==============
-Known Issues:
-==============
-- User might see the boss loots are not fully loaded and showing item info 
-  is retrieving. If that's the case, user will need to close and open the
-  loot window again. 
+## 2.0.0 - October 5, 2024
 
-==============
-= Change Log =
-==============
+After Atlas broke with TWW, I reached out to the Atlas team about maintaining Atlas. I didn't get a response, so I decided to fork Atlas and get it working again. I hope to add Cataclysm support soon as well.
+
+### Changed
+
+- Classic Era: Update TOC to 1.15.4
+- Retail: Update TOC to 11.0.2
+- Retail: Update functions to use C_AddOns namespace
+- Update Options button to use new Settings API
+
+### Fixed
+
+- Classic Era: Close button is now the correct size
 
 v1.52.08 (Jul. 29, 2023)
 ------------------------
@@ -254,15 +254,15 @@ v1.44.03 (Aug. 12, 2018)
 
 v1.44.02 (Aug. 11, 2018)
 ------------------------
-- Libs update: 
+- Libs update:
   - LibUIDropDownMenu
 
 v1.44.01 (Aug. 11, 2018)
 ------------------------
 - Fixed old function call GetCurrentMapAreaID() and remove it as no longer needed
-- Fixed issues when Atlas was previously loaded with more map modules and was selected in the later one 
+- Fixed issues when Atlas was previously loaded with more map modules and was selected in the later one
   from the dropdown, but then less map modules were loaded in the fresh login
-- Libs update: 
+- Libs update:
   - LibDBIcon
 
 v1.44.00 (Aug. 09, 2018)
@@ -280,13 +280,13 @@ v1.43.06 (Apr. 24, 2018)
 
 v1.43.05 (Mar. 04, 2018)
 ------------------------
-- Libs update: 
+- Libs update:
   - LibDBIcon
   - AceConfig
 
 v1.43.04 (Feb. 22, 2018)
 ------------------------
-- Libs update: 
+- Libs update:
   - LibBabble-Boss
   - LibBabble-Faction
 
@@ -310,7 +310,7 @@ v1.43.00 (Aug. 30, 2017)
 
 v1.42.05 (Aug. 16, 2017)
 ------------------------
-- Added exception handling for maps' auto-selection while player is in Dalaran. 
+- Added exception handling for maps' auto-selection while player is in Dalaran.
   If Dalaran is in Northrend, then the selection will be Violet Hold.
 - Lib update: Ace3
 - Localization update:
@@ -344,24 +344,24 @@ v1.42.01 (Jun. 29, 2017)
 
 v1.42.00 (Jun. 29, 2017)
 ------------------------
-- Modulized Atlas' module data like map entries and association database. 
+- Modulized Atlas' module data like map entries and association database.
   Now these data won't be kept inside Atlas core addon. Those will be stored
   and maintained in Atlas modules.
   For user who didn't install old map modules like Outland, the corresponding
-  map menu also won't appeared. 
+  map menu also won't appeared.
 - Renamed Atlas_RegisterPlugin() to Atlas:RegisterPlugin()
   Plugin author will need to make corresponding changes.
 - Renamed Atlas_DropDownLayouts_Order table to Atlas.dropdowns.DropDownLayouts_Order
 - Renamed Atlas_DropDownLayouts table to Atlas.dropdowns.DropDownLayouts
 - Fixed plugin map image hasn't been set properly
-- Enhanced map menus' presentation. 
+- Enhanced map menus' presentation.
   While one of the map category has more than 30 maps, it will be split to another
   category automatically
 
 v1.41.18 (Jun. 22, 2017)
 ------------------------
 - Added achievement's icon while displaying map's corresponding achievements
-- Enhanced Atlas frame's displaying to not to impact with WorldMap's displaying 
+- Enhanced Atlas frame's displaying to not to impact with WorldMap's displaying
   and zooming in/out
 
 v1.41.18 (Jun. 21, 2017)
@@ -370,7 +370,7 @@ v1.41.18 (Jun. 21, 2017)
 
 v1.41.17 (Jun. 18, 2017)
 ------------------------
-- Enhanced the addon loading status check for detecting AtlasLoot 
+- Enhanced the addon loading status check for detecting AtlasLoot
   and other Atlas plugins
 
 v1.41.16 (Jun. 16, 2017)
@@ -388,7 +388,7 @@ v1.41.14 (Jun. 16, 2017)
 
 v1.41.13 (Jun. 04, 2017)
 ------------------------
-- Prevent from error popping up while clicking on boss button before Adventure 
+- Prevent from error popping up while clicking on boss button before Adventure
   Journal is available to current character.
 
 v1.41.12 (May 25, 2017)
@@ -402,7 +402,7 @@ v1.41.11 (May 20, 2017)
   - NoTaint_UIDropDown
 - Localization update:
   - German (pas06)
-  
+
 v1.41.10 (May 18, 2017)
 ------------------------
 - Adjusted GetCreatureName function's lookup behavior to ignore BabbleBoss's looking up
@@ -443,8 +443,8 @@ v1.41.04 (Apr. 25, 2017)
 v1.41.03 (Apr. 18, 2017)
 ------------------------
 - Added map data of Gul'dan's chamber
-- Added feature to retrieve creature name from server and get displayed on 
-  map's legend panel and tooltip. 
+- Added feature to retrieve creature name from server and get displayed on
+  map's legend panel and tooltip.
   This should improve the issue for those lack of translation
 
 v1.41.02 (Apr. 17, 2017)
@@ -467,13 +467,13 @@ v1.41.00 (Apr. 14, 2017)
 
 v1.40.06 (Apr. 13, 2017)
 ------------------------
-- Checking deprecated plugins now will recognize the alpha build's version 
+- Checking deprecated plugins now will recognize the alpha build's version
   if specifed; or will ignore those set "@project-version@" as the version
   number to be changed by CurseForge's auto-packaging.
 
 v1.40.05 (Apr. 13, 2017)
 ------------------------
-- Now Atlas won't force to disable deprecated plugins. 
+- Now Atlas won't force to disable deprecated plugins.
 - Translation update:
   - Korean
   - Latin American Spanish (MrCook1e)
@@ -515,7 +515,7 @@ v1.40.00 (Mar. 31, 2017)
 v1.39.00 (Mar. 28, 2017)
 ------------------------
 - ToC update to support WoW 7.2
-- Fixed issue when AtlasLoot link is clicked but the corresponding 
+- Fixed issue when AtlasLoot link is clicked but the corresponding
   entry is not available.
 - Added to support to lookup run-time item name and show in map's legend
   panel and map's tooltip
@@ -539,7 +539,7 @@ v1.38.04 (Mar. 21, 2017)
 - Translation update:
   - Korean
   - German
-  
+
 v1.38.03 (Mar. 16, 2017)
 ------------------------
 - Library update:
@@ -599,7 +599,7 @@ v1.37.00 (Jan. 22, 2017)
 - Added to support in showing achievement info
 - Fixed the issue for old raids which the boss does not have overview information
   in Adventure Journal but while previously browsing new dungeon / raid and then
-  old raid, the boss is still showing the overview info from wrong boss when 
+  old raid, the boss is still showing the overview info from wrong boss when
   mouse hover the boss button
 - Enhanced tooltip handling
 - Added boss overview's - character role's section details
@@ -610,19 +610,19 @@ v1.36.04 (Jan. 20, 2017)
 ------------------------
 - Remove Highmaul from Outland when categorize map with continent
 - New feature: Now Atlas will remember your last map selected from each category.
-  For example: You select Legion - Neltharion's Lair; 
+  For example: You select Legion - Neltharion's Lair;
   and then Transportation - Broken Isles;
   and then Outdoor Raids - Broken Isles;
   now when you change to Legion again, it will by-default select Neltharion's Lair
 
 v1.36.03 (Jan. 16, 2017)
 ------------------------
-- Added to support quick map switching by clicking the Next or 
+- Added to support quick map switching by clicking the Next or
   Previous map button
 
 v1.36.02 (Jan. 05, 2017)
 ------------------------
-- Fixed the issue that left-click on boss name in right-side legend panel 
+- Fixed the issue that left-click on boss name in right-side legend panel
   won't open adventure journal
 - Translation update:
   - Korean
@@ -630,10 +630,10 @@ v1.36.02 (Jan. 05, 2017)
 v1.36.01 (Jan. 01, 2017)
 ------------------------
 - Enhanced Adventure Journal features' integration / linking:
-  - setup instanceID, encounterID, mapID, dungeonLevel info to be passed 
-    from AtlasMap or buttons instead of re-retrieve them from map data 
+  - setup instanceID, encounterID, mapID, dungeonLevel info to be passed
+    from AtlasMap or buttons instead of re-retrieve them from map data
     while calling encounter journal related functions
-- Fixed to call Atlas_EncounterJournal_SetLootButton() inside 
+- Fixed to call Atlas_EncounterJournal_SetLootButton() inside
   Atlas_EncounterJournal_LootCallback()
 - Disable EJ_LOOT_DATA_RECIEVED event as it seems to be impact to the official
   Adventure Journal
@@ -647,16 +647,16 @@ v1.36.00 (Dec. 28, 2016)
 - Translation update:
   - Korean
   - Simplified Chinese
-  
+
 v1.35.04 (Nov. 16, 2016)
 ------------------------
-- Enhanced Journal Encounter related codes to prevent from trying to open 
+- Enhanced Journal Encounter related codes to prevent from trying to open
   adventure journal when it's not yet available due to user's level is too low
-- Enhanced gear level's tooltip and prevent it from showing up when the map 
+- Enhanced gear level's tooltip and prevent it from showing up when the map
   is non-relative to gear level
 - Added dungeon / raid / heroci / mythic icon text to instance maps' information panel
-- Enhanced codes related to Atlas' dropdown and instance map's level related 
-  information displaying to better deal with the situation that only heroic 
+- Enhanced codes related to Atlas' dropdown and instance map's level related
+  information displaying to better deal with the situation that only heroic
   or mythic mode is available for specific instance
 - Fixed issues that NavBar in Adventure Journal window was wrongly nested while
   launching from Atlas multiple times with different instances / bosses
@@ -666,15 +666,15 @@ v1.35.04 (Nov. 16, 2016)
 v1.35.03 (Oct. 28, 2016)
 ------------------------
 - Added Xavius to the Emerald Nightmare
-- Added feature to show player's current gear level when hovering over the 
+- Added feature to show player's current gear level when hovering over the
   instance's minimum gear level line
-- Library update: 
+- Library update:
   - LibBabble-SubZone-3.0
 
 v1.35.02 (Oct. 28, 2016)
 ------------------------
 - Added Gul'dan to the Nighthold
-- Translation update: 
+- Translation update:
   - Simplified Chinese (ananhaid)
 
 v1.35.01 (Oct. 27, 2016)
@@ -685,7 +685,7 @@ v1.35.01 (Oct. 27, 2016)
 v1.35.00 (Oct. 27, 2016)
 ------------------------
 - Toc update to support WoW 7.1.0
-- Library update: 
+- Library update:
   - LibBabble-SubZone-3.0
   - LibBabble-Boss-3.0
   - NoTaint_UIDropDownMenu
@@ -706,7 +706,7 @@ v1.34.04 (Oct. 04, 2016)
   - Korean (netaras)
   - Portuguese (MetalFlavio)
   - Russian (dartraiden)
-  
+
 v1.34.03 (Sep. 20, 2016)
 ------------------------
 - Slightly enhanced maps' loading process to prevent from nil data being feed
@@ -751,7 +751,7 @@ v1.33.02 (Jul. 26, 2016)
 - Revamped Atlas frame and slightly enlarge the info panel.
 - Removed AtlasLoot related codes as it no longer depends on Atlas
 - Library update: LibDBIcon
-- New features: 
+- New features:
   - Now mouse hover over the boss entry in the right info panel will show the boss' description when it is available.
     If you click on the boss line, it will open the boss' detail page in Adventure Journal
   - On the instance maps, now mouse hover over the encounter's ID and click on it will open the boss' detail page in Adventure Journal.
@@ -759,7 +759,7 @@ v1.33.02 (Jul. 26, 2016)
 
 v1.33.01 (Jul. 25, 2016)
 ------------------------
-- Slightly enhanced the detection of old modules / plugins and notification of missing those. 
+- Slightly enhanced the detection of old modules / plugins and notification of missing those.
 - Translation update:
   - Simplified Chinese (lilyhewitt)
   - French (Stuxz)
@@ -775,15 +775,15 @@ v1.33.00 (Jul. 19, 2016)
   - texture:SetTexture(r, g, b, a) changes into texture:SetColorTexture(r, g, b, a)
 - Adjusted map info layout to split recommended level into individual line
 - Added instance's mythic info
-- Instance's level info will be showing with difficulty color based on your current 
+- Instance's level info will be showing with difficulty color based on your current
   level against the instance's level
 - Added Siege of Niuzao Temple's heroic info
 - Added Warlords of Draenor instances' mythic info
 - Added instance and boss info for the following old ones:
-  - Ruins of Ahn'Qiraj, Temple of Ahn'Qiraj, Blackwing Lair, The Molten Core, 
-    Black Temple, Serpentshrine Cavern, Hyjal Summit, Gruul's Lair, Magtheridon's Lair, 
-    Karazhan, Sunwell Plateau, Tempest Keep, Icecrown Citadel, Naxxramas, 
-    The Obsidian Sanctum, Onyxia's Lair, The Ruby Sanctum, The Eye of Eternity, 
+  - Ruins of Ahn'Qiraj, Temple of Ahn'Qiraj, Blackwing Lair, The Molten Core,
+    Black Temple, Serpentshrine Cavern, Hyjal Summit, Gruul's Lair, Magtheridon's Lair,
+    Karazhan, Sunwell Plateau, Tempest Keep, Icecrown Citadel, Naxxramas,
+    The Obsidian Sanctum, Onyxia's Lair, The Ruby Sanctum, The Eye of Eternity,
     Trial of the Crusader, Ulduar, Vault of Archavon
 - Removed the faction section in AtlasIngameLocales
 - Translation update:
@@ -796,13 +796,13 @@ v1.33.00 (Jul. 19, 2016)
 
 v1.32.10 (Jul. 15, 2016)
 ------------------------
-- Added LibBabble-Faction lib to replace the faction looking-up with AtlasIngameLocales's 
+- Added LibBabble-Faction lib to replace the faction looking-up with AtlasIngameLocales's
   GetFactionInfoByID.
   The faction section in AtlasIngameLocales will be removed in later release
-- Re-ordered Hellfire Citadel map series. 
+- Re-ordered Hellfire Citadel map series.
   - Archimonde is now in the last map
   - Added Mannoroth and Hellfire Assault
-- Added symbols' definition so that localization is more flexible when presenting symbols 
+- Added symbols' definition so that localization is more flexible when presenting symbols
   (punctuations) in other languages
 - Bug fix: map series button is now working again
   (Lib_ToggleDropDownMenu should be used after introducing NoTaint_UIDropDownMenu)
@@ -862,14 +862,14 @@ v1.32.03 (May 9, 2016)
 v1.32.02 (Apr. 28, 2016)
 ------------------------
 - Added Supreme Lord Kazzak NPC info
-- Enhance NPC text displaying codes to support non-boss description to be shown 
+- Enhance NPC text displaying codes to support non-boss description to be shown
   in tooltip
-- Added maps' additional tooltips: 
+- Added maps' additional tooltips:
     - Dungeon entrance maps
     - Draenor maps
     - Pandaria maps
 
-  
+
 v1.32.01 (Apr. 25, 2016)
 ------------------------
 - Added Hellfire NPC data
@@ -879,7 +879,7 @@ v1.32.00 (Jul. 13, 2015)
 ------------------------
 - TOC update to support WoW 6.2
 - Move out Draenor maps to individual mape module
-- Remove plugins and modules from the main repository as they have been in 
+- Remove plugins and modules from the main repository as they have been in
   individual repositories
 - Added Hellfire Citadel map data
 
@@ -909,9 +909,9 @@ v1.31.00 (Nov. 10, 2014)
     - Upper Blackrock Spire
 - Split Mists of Pandaria maps to independent module
 - Split entrance maps from Atlas core addon
-- Added boss's overview info (if available) to the game tooltip while hover to 
+- Added boss's overview info (if available) to the game tooltip while hover to
   the boss location on the dungeon map
-- Added the codes back to check the Atlas modules, when not available, put a 
+- Added the codes back to check the Atlas modules, when not available, put a
   placeholder map with notification text
 - Translation updates:
     - deDE (Dynaletik)
@@ -920,7 +920,7 @@ v1.31.00 (Nov. 10, 2014)
     - zhCN/zhTW (ananhaid / Arith)
     - ruRU (StingerSoft)
 
-    
+
 v1.30.01 (Oct. 29, 2014)
 ------------------------
 - Update libraries: AceDB-3.0, LibBabble-SubZone-3.0, LibDialog-1.0, CallbackHandler-1.0, LibStub
@@ -935,13 +935,13 @@ v1.30.00 (Oct. 15, 2014)
 v1.26.02 (Sep. 17, 2013)
 -----------------------
 - Restore back the simple search feature
-- Added Atlas_MapSeries array and new feature, when an instance have series 
+- Added Atlas_MapSeries array and new feature, when an instance have series
   map, additional button will appear so that user will be easier to switch
   to other maps
 - Enhance Atlas_GetBossName() to lookup minibosses' name
-- Enhance dungoen list to show difficulties based on the dungeon's recommended 
+- Enhance dungoen list to show difficulties based on the dungeon's recommended
   minimum level the player's level
-- Map updated: 
+- Map updated:
     - Siege of Orgrimmar
 - Translation update
     - deDE (Dynaletik)
@@ -949,17 +949,17 @@ v1.26.02 (Sep. 17, 2013)
     - frFR (Khiria)
     - zhCN/zhTW (ananhaid / Arith)
     - ruRU (StingerSoft)
- 
- 
+
+
 v1.26.01 (Sep. 12, 2013)
 -----------------------
 - Fix the issue that CheckModule will always through a warning window
-- Fix the issue while clicking the Option button the first time won't lead you 
+- Fix the issue while clicking the Option button the first time won't lead you
   to the Atlas option panel
-- Translation minor update to correct the description on how to drag the 
+- Translation minor update to correct the description on how to drag the
   minimap button
 
-  
+
 v1.26.00 (Sep. 09, 2013)
 -----------------------
 - TOC update to support WoW 5.4
@@ -974,7 +974,7 @@ v1.26.00 (Sep. 09, 2013)
 - Minor enhancemnet:
     - Codes cleanup
 
-    
+
 v1.25.00 (May 21, 2013)
 -----------------------
 - TOC update to support WoW 5.3
@@ -998,7 +998,7 @@ v1.25.00 (May 21, 2013)
     - frFR (Khiria)
     - zhCN/zhTW (ananhaid)
 
-    
+
 v1.24.00 (Mar. 05, 2013)
 -----------------------
 - TOC update to support WoW 5.2
@@ -1015,7 +1015,7 @@ v1.24.00 (Mar. 05, 2013)
 - Minor issues fixed
     - WotLK map's info
 
-    
+
 v1.23.0 (Dec. 07, 2012)
 -----------------------
 - TOC update to support WoW 5.1
@@ -1066,7 +1066,7 @@ v1.22.0 (Sep. 25, 2012)
         - Maraudon
         - Razorfen Kraul
         - Drak'Tharon Keep
-- New Calalycsm module created, core module only to keep the current expansion 
+- New Calalycsm module created, core module only to keep the current expansion
   new and revised maps
 - Updated lots of boss names to use the dungeon journal
 - Added Atlas Information window when the addon is loaded
@@ -1077,7 +1077,7 @@ v1.22.0 (Sep. 25, 2012)
     - ruRU (StingerSoft)
     - frFR (Khiria)
     - zhCN (ananhaid)
-- added the use of following Libs: AceAddon-3.0, AceConsole-3.0, AceDB-3.0, 
+- added the use of following Libs: AceAddon-3.0, AceConsole-3.0, AceDB-3.0,
   LibDBIcon-1.0;
     - Minimap button now rendering with LibDBIcon
     - New chatcommand '/atlasbutton' to toggle the Atlas minimap button
@@ -1086,7 +1086,7 @@ v1.22.0 (Sep. 25, 2012)
 
 v1.21.1 (Dec. 06, 2011)
 -----------------------
-- Maps Updated: 
+- Maps Updated:
     - Dragon Soul (dubca7, Dynaletik)
     - End Time (dubca7, Dynaletik)
     - Well of Eternity (dubca7, Dynaletik)
@@ -1112,24 +1112,24 @@ v1.21.0 (Nov. 29, 2011)
     - Atlas_OutdoorRaids
     - Atlas_Transportation
 - Split dungeon maps into separated modules based on the expansion sets;
-  *** NOTE that if you would like to have all the dungeon maps to be displayed 
+  *** NOTE that if you would like to have all the dungeon maps to be displayed
       in Atlas, you have to download all the modules.
     - Atlas_BurningCrusade
     - Atlas_ClassicWoW
     - Atlas_WrathoftheLichKing
 - New Feature:
-    - Added boss description as game tooltip to the map which was associated 
+    - Added boss description as game tooltip to the map which was associated
       with Dungeon Journal
 - Fixed Frozen Halls dungeons missing in level categorizing method (Celellach)
-- Dungeon information enhancement: now the dungeons' level range, recommended 
-  level range, minimum level, and player limit will be synchronized with 
+- Dungeon information enhancement: now the dungeons' level range, recommended
+  level range, minimum level, and player limit will be synchronized with
   Dungeon Finder info.
 - New Maps Added:
     - The Dragon Soul (dubca7, Dynaletik)
     - Well of Eternity (dubca7, Dynaletik)
     - Hour of Twilight (dubca7, Dynaletik)
     - End Time (dubca7, Dynaletik)
-- Maps Updated: 
+- Maps Updated:
     - Firelands (dubca7)
     - Baradin Hold (dubca7)
     - Caverns of Time Dungeon Entrance (dubca7)
@@ -1145,7 +1145,7 @@ v1.21.0 (Nov. 29, 2011)
     - Spanish (maqjav)
     - Russian (StingerSoft)
 
-    
+
 v1.20.1 (Sep. 09, 2011)
 -----------------------
 - Added Journal Encounter button to Atlas frame (lag, arith, Dynaletik)
@@ -1167,7 +1167,7 @@ v1.20.1 (Sep. 09, 2011)
   - Spanish (maqjav)
   - Russian (StingerSoft)
 
-  
+
 v1.20.0 (Jun. 28, 2011)
 -----------------------
 - TOC update to support WoW 4.2
@@ -1180,7 +1180,7 @@ v1.20.0 (Jun. 28, 2011)
     - Zul'Gurub map update (arith, Dynaletik)
     - Zul'Aman map update (dubca7, Dynaletik)
 - Remove dungeon keys (Dynaletik)
-- Boss name translation enhancement by using Encounter Journal feature 
+- Boss name translation enhancement by using Encounter Journal feature
   (Dynaletik, arith)
 - Fixed some dungeon level ranges (Dynaletik)
 - Translation update
@@ -1190,10 +1190,10 @@ v1.20.0 (Jun. 28, 2011)
   - French (Dynaletik)
   - Traditional Chinese (zhTW, arith)
 
-  
+
 v1.19.2 (May 30, 2011)
 -----------------------
-- Dungeon maps' auto-select feature fixed for Throne of Tides, 
+- Dungeon maps' auto-select feature fixed for Throne of Tides,
   Blackrock Spire, and Wailing Caverns
 - Maps' auto-select database enhancement
 - Transportation map update:
@@ -1201,7 +1201,7 @@ v1.19.2 (May 30, 2011)
 - Translation minor update
   - Spanish (maqjav)
 
-  
+
 v1.19.1 (May 06, 2011)
 -----------------------
 - Updated Wailing Caverns map (dubca7)
@@ -1213,7 +1213,7 @@ v1.19.1 (May 06, 2011)
   - Traditional Chinese (arith)
   - Spanish (maqjav)
 
-  
+
 v1.19.0 (Apr. 28, 2011)
 -----------------------
 - Support WoW 4.1
@@ -1249,8 +1249,8 @@ v1.18.1 (Jan. 06, 2011)
   - Spanish (maqjav)
 - Maps and NPCs update for several dungeons and continents
 - Resolve Eastern Kingdom dungeon menu display issue by spliting into two parts
-  
-  
+
+
 v1.18.0 (Dec. 07, 2010)
 -----------------------
 - Prepared Atlas for the Cataclysm Maps
@@ -1282,7 +1282,7 @@ v1.18.0 (Dec. 07, 2010)
   - Spanish (maqjav)
   - Traditional Chinese (arith)
 
-  
+
 v1.17.2 (Oct. 18, 2010)
 -----------------------
 - Hotfix to resolve the plugins maps won't show when AtlasLoot is enabled.
@@ -1304,7 +1304,7 @@ v1.17.0 (Aug. 15, 2010)
 - improved auto-selection feature for foreign languages (Dynaletik, arith, Lothaer)
 - introduced LibBabble-Zone and LibBabble-SubZone to Atlas (arith, Dynaletik)
 - new map: Hellfire Citadel dungeon entrace map (arith)
-- new maps: Halaa PvP, Hellfire Peninsula PvP, Zangarmarsh PvP, 
+- new maps: Halaa PvP, Hellfire Peninsula PvP, Zangarmarsh PvP,
             Terokkar Forest PvP, Wintergrasp PvP, Game of Tower, Silithyst Must Flow (arith)
 - cleaned up and tweaked some code
 - translation update for several languages
@@ -2371,7 +2371,7 @@ v0.9
 -------------------------
 - added Obsidian Sentinel to Uldaman map (thanks Bhaerau)
 - new options window: type '/atlas options' to bring it up
-- new minimap button, moveable and hideable (thanks CTMod code) 
+- new minimap button, moveable and hideable (thanks CTMod code)
 - transparency control slider
 
 

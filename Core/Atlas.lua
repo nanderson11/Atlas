@@ -1941,7 +1941,7 @@ function addon:OnEnable()
 		registerModule(k)
 	end
 
-	-- On Classic, fix the close button
+	-- On Classic Era, fix the close button
 	if (WoWClassicEra) then
 		AtlasFrameCloseButton:SetSize(32, 32);
 		AtlasFrameCloseButton:SetPoint("TOPRIGHT", "AtlasFrame", "TOPRIGHT", 5, -7);
