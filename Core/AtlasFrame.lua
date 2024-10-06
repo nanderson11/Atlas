@@ -30,21 +30,21 @@
 -- Localized Lua globals.
 -- ----------------------------------------------------------------------------
 -- Functions
-local _G = getfenv(0)
+local _G                  = getfenv(0)
 local pairs, select, wipe = _G.pairs, _G.select, _G.wipe
 -- Libraries
-local string = _G.string
-local table = _G.table
-local getn, tinsert, tsort = table.getn, table.insert, table.sort
+local string              = _G.string
+local table               = _G.table
+local getn, tsort         = table.getn, table.sort
 
 -- Determine WoW TOC Version
 local WoWClassicEra, WoWClassicTBC, WoWWOTLKC, WoWRetail
-local wowversion  = select(4, GetBuildInfo())
+local wowversion          = select(4, GetBuildInfo())
 if wowversion < 20000 then
 	WoWClassicEra = true
-elseif wowversion < 30000 then 
+elseif wowversion < 30000 then
 	WoWClassicTBC = true
-elseif wowversion < 40000 then 
+elseif wowversion < 40000 then
 	WoWWOTLKC = true
 elseif wowversion > 90000 then
 	WoWRetail = true
@@ -70,10 +70,10 @@ end
 
 -- Updates the appearance of the lock button based on the status of AtlasLocked
 function addon:UpdateLock()
-	local btnLckUp = 	"Interface\\AddOns\\Atlas\\Images\\LockButton-Locked-Up"
-	local btnLckDn = 	"Interface\\AddOns\\Atlas\\Images\\LockButton-Locked-Down"
-	local btnUlckUp = 	"Interface\\AddOns\\Atlas\\Images\\LockButton-Unlocked-Up"
-	local btnUnlckDn = 	"Interface\\AddOns\\Atlas\\Images\\LockButton-Unlocked-Down"
+	local btnLckUp = "Interface\\AddOns\\Atlas\\Images\\LockButton-Locked-Up"
+	local btnLckDn = "Interface\\AddOns\\Atlas\\Images\\LockButton-Locked-Down"
+	local btnUlckUp = "Interface\\AddOns\\Atlas\\Images\\LockButton-Unlocked-Up"
+	local btnUnlckDn = "Interface\\AddOns\\Atlas\\Images\\LockButton-Unlocked-Down"
 	if (addon.db.profile.options.frames.lock) then
 		AtlasLockNorm:SetTexture(btnLckUp)
 		AtlasLockPush:SetTexture(btnLckDn)
@@ -134,7 +134,7 @@ function addon:PrevNextMap_OnClick(self)
 end
 
 function addon:ToggleWindowSize()
-	if ( AtlasFrameLarge:IsVisible() ) then
+	if (AtlasFrameLarge:IsVisible()) then
 		if (ATLAS_SMALLFRAME_SELECTED) then
 			AtlasFrameLarge:Hide()
 			AtlasFrameSmall:Show()
@@ -154,7 +154,7 @@ function addon:ToggleWindowSize()
 end
 
 function addon:ToggleLegendPanel()
-	if ( AtlasFrameSmall:IsVisible() ) then
+	if (AtlasFrameSmall:IsVisible()) then
 		ATLAS_SMALLFRAME_SELECTED = false
 		AtlasFrameSmall:Hide()
 		AtlasFrame:Show()
@@ -167,7 +167,7 @@ end
 
 function AtlasEntry_OnUpdate(self)
 	if (WoWRetail) then
-		if( AtlasEJLootFrame:IsShown() ) then return; end
+		if (AtlasEJLootFrame:IsShown()) then return; end
 	end
 	if (MouseIsOver(self)) then
 		if (IsControlKeyDown() and addon.db.profile.options.frames.controlClick) then
@@ -192,8 +192,8 @@ function AtlasEntry_OnUpdate(self)
 				GameTooltip:SetOwner(self, "ANCHOR_TOPRIGHT")
 				GameTooltip.NineSlice:SetCenterColor(0, 0, 0, 1 * addon.db.profile.options.frames.alpha)
 				GameTooltip:SetText(self.tooltiptitle, 1, 1, 1, 1)
-				if (self.tooltiptext) then 
-					GameTooltip:AddLine(self.tooltiptext, nil, nil, nil, 1) 
+				if (self.tooltiptext) then
+					GameTooltip:AddLine(self.tooltiptext, nil, nil, nil, 1)
 				end
 				if (self.overviewDescription) then
 					GameTooltip:AddLine("\n"..OVERVIEW, 1, 1, 1, 1)
@@ -207,13 +207,13 @@ function AtlasEntry_OnUpdate(self)
 					if (not disabled) then
 						GameTooltip:AddLine(ATLAS_OPEN_ADVENTURE, 0.5, 0.5, 1, true)
 					end
-					if (addon:CheckAddonStatus("AtlasLoot")) then 
+					if (addon:CheckAddonStatus("AtlasLoot")) then
 						GameTooltip:AddLine(ATLAS_ROPEN_ATLASLOOT_WINDOW, 0.5, 0.5, 1, true)
 					end
 				end
 				GameTooltip:SetScale(addon.db.profile.options.frames.boss_description_scale * addon.db.profile.options.frames.scale)
 				GameTooltip:Show()
-			end			
+			end
 		end
 	end
 end
@@ -241,16 +241,16 @@ function AtlasFrameDropDownType_Initialize()
 	local i = 1
 	local catName = addon.dropdowns.DropDownLayouts_Order[addon.db.profile.options.dropdowns.menuType]
 	local subcatOrder = addon.dropdowns.DropDownLayouts_Order[catName]
-	if (subcatOrder and type(subcatOrder) == "table") then 
-		tsort(subcatOrder) 
+	if (subcatOrder and type(subcatOrder) == "table") then
+		tsort(subcatOrder)
 		for n = 1, getn(subcatOrder), 1 do
 			local subcatItems = addon.dropdowns.DropDownLayouts[catName][subcatOrder[n]]
-			local q = (#subcatItems-(#subcatItems%ATLAS_MAX_MENUITEMS))/ATLAS_MAX_MENUITEMS
-			
+			local q = (#subcatItems - (#subcatItems % ATLAS_MAX_MENUITEMS)) / ATLAS_MAX_MENUITEMS
+
 			if (q > 0) then
 				for p = 0, q do
-					ATLAS_DROPDOWN_TYPES[i+p] = {
-						text = subcatOrder[n]..format(" %d/%d", p+1, q+1),
+					ATLAS_DROPDOWN_TYPES[i + p] = {
+						text = subcatOrder[n]..format(" %d/%d", p + 1, q + 1),
 						func = AtlasFrameDropDownType_OnClick,
 					}
 				end
@@ -271,7 +271,7 @@ function AtlasFrameDropDownType_Initialize()
 		}
 		i = i + 1
 	end
-	
+
 	for k = 1, #ATLAS_DROPDOWN_TYPES do
 		LibDD:UIDropDownMenu_AddButton(ATLAS_DROPDOWN_TYPES[k])
 	end
@@ -326,33 +326,33 @@ function AtlasFrameDropDown_Initialize()
 			local colortag
 			local info = LibDD:UIDropDownMenu_CreateInfo()
 			local level = 1
-			
+
 			if (addon.db.profile.options.dropdowns.color and AtlasMaps[v].DungeonID) then
 				local minLevel, minRecLevel
-				if (GetLFGDungeonInfo) then 
+				if (GetLFGDungeonInfo) then
 					_, _, _, minLevel, _, _, minRecLevel = GetLFGDungeonInfo(AtlasMaps[v].DungeonID)
 				end
-				if (minRecLevel == 0) then 
+				if (minRecLevel == 0) then
 					minRecLevel = minLevel
 				end
 				local dungeon_difficulty = addon:GetDungeonDifficultyColor(minRecLevel)
 				colortag = addon:FormatColor(dungeon_difficulty)
 			elseif (addon.db.profile.options.dropdowns.color and AtlasMaps[v].DungeonHeroicID) then
 				local minLevelH, minRecLevelH
-				if (GetLFGDungeonInfo) then 
+				if (GetLFGDungeonInfo) then
 					_, _, _, minLevelH, _, _, minRecLevelH = GetLFGDungeonInfo(AtlasMaps[v].DungeonHeroicID)
 				end
-				if (minRecLevelH == 0) then 
+				if (minRecLevelH == 0) then
 					minRecLevelH = minLevelH
 				end
 				local dungeon_difficulty = addon:GetDungeonDifficultyColor(minRecLevelH)
 				colortag = addon:FormatColor(dungeon_difficulty)
 			elseif (addon.db.profile.options.dropdowns.color and AtlasMaps[v].DungeonMythicID) then
 				local minLevelM, minRecLevelM
-				if (GetLFGDungeonInfo) then 
+				if (GetLFGDungeonInfo) then
 					_, _, _, minLevelM, _, _, minRecLevelM = GetLFGDungeonInfo(AtlasMaps[v].DungeonMythicID)
 				end
-				if (minRecLevelM == 0) then 
+				if (minRecLevelM == 0) then
 					minRecLevelM = minLevelM
 				end
 				local dungeon_difficulty = addon:GetDungeonDifficultyColor(minRecLevelM)
@@ -367,24 +367,24 @@ function AtlasFrameDropDown_Initialize()
 			else
 				--colortag = ""
 			end
-			
-			local zoneID = AtlasMaps[v]
-			local zoneName = AtlasMaps[v].ZoneName[1]
 
-			local parentZoneName = AtlasMaps[v].ZoneName[2] or nil
-			local instanceID = AtlasMaps[v].JournalInstanceID or nil
-			local DungeonID = AtlasMaps[v].DungeonID or nil
-			local DungeonHeroicID = AtlasMaps[v].DungeonHeroicID or nil
-			local DungeonMythicID = AtlasMaps[v].DungeonMythicID or nil 
+			local zoneID           = AtlasMaps[v]
+			local zoneName         = AtlasMaps[v].ZoneName[1]
+
+			local parentZoneName   = AtlasMaps[v].ZoneName[2] or nil
+			local instanceID       = AtlasMaps[v].JournalInstanceID or nil
+			local DungeonID        = AtlasMaps[v].DungeonID or nil
+			local DungeonHeroicID  = AtlasMaps[v].DungeonHeroicID or nil
+			local DungeonMythicID  = AtlasMaps[v].DungeonMythicID or nil
 
 			local typeID, subtypeID, minLevel, maxLevel, minRecLevel, maxRecLevel, maxPlayers, minGearLevel
 			local typeIDH, subtypeIDH, minLevelH, maxLevelH, minRecLevelH, maxRecLevelH, maxPlayersH, minGearLevelH
 			local typeIDM, subtypeIDM, minLevelM, maxLevelM, minRecLevelM, maxRecLevelM, maxPlayersM, minGearLevelM
 			local colortagL, dungeon_difficulty
-			local icontext_heroic 	= " |TInterface\\EncounterJournal\\UI-EJ-HeroicTextIcon:0:0|t"
-			local icontext_mythic 	= " |TInterface\\AddOns\\Atlas\\Images\\\UI-EJ-MythicTextIcon:0:0|t"
-			local icontext_dungeon 	= "|TInterface\\MINIMAP\\Dungeon:0:0|t"
-			local icontext_raid 	= "|TInterface\\MINIMAP\\Raid:0:0|t"
+			local icontext_heroic  = " |TInterface\\EncounterJournal\\UI-EJ-HeroicTextIcon:0:0|t"
+			local icontext_mythic  = " |TInterface\\AddOns\\Atlas\\Images\\UI-EJ-MythicTextIcon:0:0|t"
+			local icontext_dungeon = "|TInterface\\MINIMAP\\Dungeon:0:0|t"
+			local icontext_raid    = "|TInterface\\MINIMAP\\Raid:0:0|t"
 			local icontext_instance
 
 			if (DungeonID) then
@@ -392,7 +392,7 @@ function AtlasFrameDropDown_Initialize()
 					_, typeID, subtypeID, minLevel, maxLevel, _, minRecLevel, maxRecLevel, _, _, _, _, maxPlayers, _, _, _, _, _, _, minGearLevel = GetLFGDungeonInfo(DungeonID)
 				end
 
-				if (minRecLevel == 0) then 
+				if (minRecLevel == 0) then
 					minRecLevel = minLevel
 				end
 				if (maxRecLevel == 0) then
@@ -433,7 +433,7 @@ function AtlasFrameDropDown_Initialize()
 			local levelString = ""
 			if (minLevel or minLevelH or minLevelM) then
 				local tmp_LR = " - "
-				if (minLevel) then 
+				if (minLevel) then
 					dungeon_difficulty = addon:GetDungeonDifficultyColor(minLevel)
 					colortagL = addon:FormatColor(dungeon_difficulty)
 					if (minLevel ~= maxLevel) then
@@ -481,7 +481,7 @@ function AtlasFrameDropDown_Initialize()
 				EJ_SelectInstance(instanceID)
 				tooltipTitle, tooltipText = EJ_GetInstanceInfo()
 			end
-			if (tooltipTitle and levelString) then 
+			if (tooltipTitle and levelString) then
 				tooltipTitle = tooltipTitle..levelString
 			end
 
@@ -582,4 +582,3 @@ end
 function AtlasFrameLarge_OnShow(self)
 	addon:MapAddNPCButtonLarge()
 end
-

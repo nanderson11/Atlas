@@ -1,4 +1,3 @@
-<!-- $Id: Atlas.xml 431 2023-03-20 14:46:49Z arithmandar $ -->
 <!--
 
 	Atlas, a World of Warcraft instance map browser
@@ -24,8 +23,7 @@
 
 -->
 
-<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
-..\FrameXML\UI.xsd">
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ https://raw.githubusercontent.com/Meorawr/wow-ui-schema/main/UI.xsd">
 	<Frame name="AtlasFrame" toplevel="true" enableMouse="true" movable="true" parent="UIParent" hidden="true">
 		<Size>
 			<AbsDimension x="1023" y="631"/>
@@ -44,8 +42,6 @@
 				<PushedTexture name="AtlasLockPush"/>
 			</Button>
 			<Button name="$parentOptionsButton" inherits="AtlasFrameOptionsButtonTemplate"/>
-<!--			<Button name="$parentDropDownType" inherits="AtlasFrameDropDownTypeTemplate"/>
-			<Button name="$parentDropDown" inherits="AtlasFrameDropDownTemplate"/>-->
 			<EditBox name="AtlasSearchEditBox" inherits="InputBoxTemplate" letters="80">
 				<Size>
 					<AbsDimension x="150" y="32"/>
@@ -68,7 +64,6 @@
 					</OnEnterPressed>
 				</Scripts>
 			</EditBox>
-<!--			<Frame name="AtlasSwitchDD" inherits="UIDropDownMenuTemplate" />-->
   			<Button name="AtlasSwitchButton" inherits="UIPanelButtonTemplate" parent="AtlasSearchEditBox">
 				<Size>
 					<AbsDimension x="120" y="24"/>
@@ -136,7 +131,7 @@
 				</Anchors>
 				<Scripts>
 					<OnVerticalScroll>
-						FauxScrollFrame_OnVerticalScroll(self, offset, 15, Atlas_ScrollBar_Update); 
+						FauxScrollFrame_OnVerticalScroll(self, offset, 15, Atlas_ScrollBar_Update);
 					</OnVerticalScroll>
 					<OnShow>
 						Atlas_ScrollBar_Update()
@@ -325,16 +320,6 @@
 						</Anchor>
 					</Anchors>
 				</FontString>
-<!--				<FontString inherits="GameFontNormalSmall" text="ATLAS_VERSION_TEXT">
-					<Color r="0.4" g="0.4" b="0.4"/>
-					<Anchors>
-						<Anchor point="TOPRIGHT">
-							<Offset>
-								<AbsDimension x="-132" y="-18"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</FontString>-->
 			</Layer>
 		</Layers>
 		<Scripts>
@@ -395,8 +380,6 @@
 				<PushedTexture name="AtlasLockLargePush"/>
 			</Button>
 			<Button name="$parentOptionsButton" inherits="AtlasFrameOptionsButtonTemplate"/>
-<!--			<Button name="$parentDropDownType" inherits="AtlasFrameDropDownTypeTemplate"/>
-			<Button name="$parentDropDown" inherits="AtlasFrameDropDownTemplate"/>-->
 			<Button name="$parentSizeDownButton" inherits="AtlasFrameSizeDownButtonTemplate"/>
 			<Button name="$parentNextMapButton" parentKey="NextMap" inherits="AtlasFrameNextMapButtonTemplate"/>
 			<Button name="$parentPrevMapButton" parentKey="PrevMap" inherits="AtlasFramePrevMapButtonTemplate"/>
@@ -458,23 +441,6 @@
 				</Scripts>
 			</Button>
 			<Button name="$parentAtlasLootButton" parentKey="AtlasLoot" inherits="AtlasFrameAtlasLootButtonTemplate"/>
-<!--			<Button name="$parentLetterB">
-				<Size>
-					<AbsDimension x="20" y="20"/>
-				</Size>
-				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="$parentLetterA" relativePoint="TOPLEFT">
-						<Offset>
-							<AbsDimension x="40" y="0"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-				<Layers>
-					<Layer level="ARTWORK">
-						<Texture inherits="Atlas_Letter_White_B"/>
-					</Layer>
-				</Layers>
-			</Button>-->
 			<Button name="$parentMapZoneName" parentKey="ZoneName">
 				<Size>
 					<AbsDimension x="10" y="60"/>
@@ -675,16 +641,6 @@
 						</Anchor>
 					</Anchors>
 				</FontString>
-<!--				<FontString inherits="GameFontNormalSmall" text="ATLAS_VERSION_TEXT">
-					<Color r="0.4" g="0.4" b="0.4"/>
-					<Anchors>
-						<Anchor point="TOPRIGHT">
-							<Offset>
-								<AbsDimension x="-132" y="-18"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</FontString>-->
 			</Layer>
 			<Layer level="BACKGROUND">
 				<Texture name="AtlasMapLarge1">
@@ -820,8 +776,6 @@
 				<PushedTexture name="AtlasLockSmallPush"/>
 			</Button>
 			<Button name="$parentOptionsButton" inherits="AtlasFrameOptionsButtonTemplate"/>
-<!--			<Button name="$parentDropDownType" inherits="AtlasFrameDropDownTypeTemplate"/>
-			<Button name="$parentDropDown" inherits="AtlasFrameDropDownTemplate"/>-->
 			<Button name="$parentNextMapButton" parentKey="NextMap" inherits="AtlasFrameNextMapButtonTemplate"/>
 			<Button name="$parentPrevMapButton" parentKey="PrevMap" inherits="AtlasFramePrevMapButtonTemplate"/>
 			<Button name="$parentAdventureJournalMapButton" parentKey="AdventureJournalMap" inherits="AtlasFrameAdventureJournalMapButtonTemplate"/>
@@ -914,16 +868,6 @@
 						</Anchor>
 					</Anchors>
 				</FontString>
-<!--				<FontString inherits="GameFontNormalSmall" text="ATLAS_VERSION_TEXT">
-					<Color r="0.4" g="0.4" b="0.4"/>
-					<Anchors>
-						<Anchor point="TOPRIGHT">
-							<Offset>
-								<AbsDimension x="-132" y="-18"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</FontString>-->
 			</Layer>
 		</Layers>
 		<Scripts>
@@ -962,5 +906,4 @@
 			</OnMouseUp>
 		</Scripts>
 	</Frame>
-
 </Ui>

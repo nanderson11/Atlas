@@ -33,7 +33,7 @@ local WoWClassicEra, WoWClassicTBC, WoWRetail
 local wowtocversion  = select(4, GetBuildInfo())
 if wowtocversion < 20000 then
 	WoWClassicEra = true
-elseif wowtocversion > 19999 and wowtocversion < 90000 then 
+elseif wowtocversion > 19999 and wowtocversion < 90000 then
 	WoWClassicTBC = true
 else
 	WoWRetail = true
@@ -132,7 +132,7 @@ ATLAS_MINIMAPLDB_HINT		= L["ATLAS_MINIMAPLDB_HINT"]
 ATLAS_OPTIONS_CATDD		= L["ATLAS_OPTIONS_CATDD"] -- Sort Instance Maps by
 -- Continent
 ATLAS_DDL_CONTINENT		= L["ATLAS_DDL_CONTINENT"]
-if (WoWClassicEra or WoWClassicTBC) then 
+if (WoWClassicEra or WoWClassicTBC) then
 	ATLAS_DDL_CONTINENT_EASTERN	= L["ATLAS_DDL_CONTINENT_EASTERN"]
 	ATLAS_DDL_CONTINENT_KALIMDOR	= L["ATLAS_DDL_CONTINENT_KALIMDOR"]
 	ATLAS_DDL_CONTINENT_OUTLAND	= L["ATLAS_DDL_CONTINENT_OUTLAND"]
@@ -194,7 +194,7 @@ ATLAS_DDL_PARTYSIZE_10		= L["ATLAS_DDL_PARTYSIZE_10"]
 ATLAS_DDL_PARTYSIZE_20TO40	= L["ATLAS_DDL_PARTYSIZE_20TO40"]
 ATLAS_DDL_EXPANSION		= L["ATLAS_DDL_EXPANSION"]
 -- Expansion
-if (WoWClassicEra or WoWClassicTBC) then 
+if (WoWClassicEra or WoWClassicTBC) then
 	ATLAS_DDL_EXPANSION_OLD		= L["ATLAS_DDL_EXPANSION_OLD"]
 	ATLAS_DDL_EXPANSION_BC		= L["ATLAS_DDL_EXPANSION_BC"]
 	ATLAS_DDL_EXPANSION_WOTLK	= L["ATLAS_DDL_EXPANSION_WOTLK"]
