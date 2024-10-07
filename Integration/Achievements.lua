@@ -24,20 +24,9 @@
 
 --]]
 
--- ----------------------------------------------------------------------------
--- Localized Lua globals.
--- ----------------------------------------------------------------------------
--- Functions
-local _G                                                                                            = getfenv(0)
--- Libraries
-local bit, string                                                                                   = _G.bit, _G.string
-local format                                                                                        = string.format
-local GetAchievementInfo, GetAchievementNumCriteria, GetAchievementCriteriaInfo, GetAchievementLink = _G.GetAchievementInfo, _G.GetAchievementNumCriteria, _G.GetAchievementCriteriaInfo, _G.GetAchievementLink
-local AchievementFrame_SelectAchievement                                                            = _G.AchievementFrame_SelectAchievement
-
 -- Determine WoW TOC Version
 local WoWClassicEra, WoWClassicTBC, WoWWOTLKC, WoWRetail
-local wowversion                                                                                    = select(4, GetBuildInfo())
+local wowversion = select(4, GetBuildInfo())
 if wowversion < 20000 then
 	WoWClassicEra = true
 elseif wowversion < 30000 then

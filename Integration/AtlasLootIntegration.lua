@@ -1,4 +1,3 @@
--- $Id: AtlasLootIntegration.lua 431 2023-03-20 14:46:49Z arithmandar $
 --[[
 
 	Atlas, a World of Warcraft instance map browser
@@ -24,21 +23,11 @@
 
 --]]
 
--- ----------------------------------------------------------------------------
--- Localized Lua globals.
--- ----------------------------------------------------------------------------
--- Functions
-local _G            = getfenv(0)
-local pairs         = _G.pairs
-local select        = _G.select
-local type          = _G.type
-local tonumber      = _G.tonumber
--- Libraries
 local WoWClassicEra, WoWClassicTBC, WoWRetail
-local wowtocversion = select(4, GetBuildInfo())
-if wowtocversion < 20000 then
+local wowversion = select(4, GetBuildInfo())
+if wowversion < 20000 then
 	WoWClassicEra = true
-elseif wowtocversion > 19999 and wowtocversion < 90000 then
+elseif wowversion > 19999 and wowversion < 90000 then
 	WoWClassicTBC = true
 else
 	WoWRetail = true

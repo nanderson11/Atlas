@@ -20,7 +20,7 @@
 ## Notes-zhCN: |cff00CC33副本地图浏览器|r
 ## Notes-zhTW: |cff00CC33Atlas 地圖集主程式|r
 ## Author: nanderson11
-## Version: 2.0.1
+## Version: 2.0.2
 ## X-Website: https://github.com/nanderson11/Atlas
 ## X-Category: Map
 ## X-License: GPLv2

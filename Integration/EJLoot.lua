@@ -1,4 +1,3 @@
--- $Id: EJLoot.lua 431 2023-03-20 14:46:49Z arithmandar $
 --[[
 
 	Atlas, a World of Warcraft instance map browser
@@ -28,26 +27,11 @@
 -- AtlasEJLootFrame.lootScroll to replace EncounterJournal.encounter.info.lootScroll
 -- ////////////////////////////////////////////////////////////////////////////////////////
 
--- ----------------------------------------------------------------------------
--- Localized Lua globals.
--- ----------------------------------------------------------------------------
--- Functions
-local _G = getfenv(0)
-local ipairs = _G.ipairs
-local pairs = _G.pairs
-local select = _G.select
-local tonumber = _G.tonumber
-local string = _G.string
-local math = _G.math
--- Libraries
-local floor = math.floor
-local format = string.format
-
 local WoWClassicEra, WoWClassicTBC, WoWRetail
-local wowtocversion  = select(4, GetBuildInfo())
+local wowtocversion = select(4, GetBuildInfo())
 if wowtocversion < 20000 then
 	WoWClassicEra = true
-elseif wowtocversion > 19999 and wowtocversion < 90000 then 
+elseif wowtocversion > 19999 and wowtocversion < 90000 then
 	WoWClassicTBC = true
 else
 	WoWRetail = true
@@ -72,21 +56,21 @@ local EJ_GetEncounterInfo, EJ_GetNumLoot = EJ_GetEncounterInfo, EJ_GetNumLoot
 
 local NO_INV_TYPE_FILTER = 0;
 
-local ATLAS_EJ_DIFFICULTIES = 
+local ATLAS_EJ_DIFFICULTIES =
 {
-	{ size = "5", prefix = PLAYER_DIFFICULTY1, difficultyID = 1 },
-	{ size = "5", prefix = PLAYER_DIFFICULTY2, difficultyID = 2 },
-	{ size = "5", prefix = PLAYER_DIFFICULTY6, difficultyID = 23 },
-	{ size = "5", prefix = PLAYER_DIFFICULTY_TIMEWALKER, difficultyID = 24 },
-	{ size = "25", prefix = PLAYER_DIFFICULTY3, difficultyID = 7 },
-	{ size = "10", prefix = PLAYER_DIFFICULTY1, difficultyID = 3 },
-	{ size = "10", prefix = PLAYER_DIFFICULTY2, difficultyID = 5 },
-	{ size = "25", prefix = PLAYER_DIFFICULTY1, difficultyID = 4 },
-	{ size = "25", prefix = PLAYER_DIFFICULTY2, difficultyID = 6 },
-	{ prefix = PLAYER_DIFFICULTY3, difficultyID = 17 },
-	{ prefix = PLAYER_DIFFICULTY1, difficultyID = 14 },
-	{ prefix = PLAYER_DIFFICULTY2, difficultyID = 15 },
-	{ prefix = PLAYER_DIFFICULTY6, difficultyID = 16 },
+	{ size = "5",                            prefix = PLAYER_DIFFICULTY1,           difficultyID = 1 },
+	{ size = "5",                            prefix = PLAYER_DIFFICULTY2,           difficultyID = 2 },
+	{ size = "5",                            prefix = PLAYER_DIFFICULTY6,           difficultyID = 23 },
+	{ size = "5",                            prefix = PLAYER_DIFFICULTY_TIMEWALKER, difficultyID = 24 },
+	{ size = "25",                           prefix = PLAYER_DIFFICULTY3,           difficultyID = 7 },
+	{ size = "10",                           prefix = PLAYER_DIFFICULTY1,           difficultyID = 3 },
+	{ size = "10",                           prefix = PLAYER_DIFFICULTY2,           difficultyID = 5 },
+	{ size = "25",                           prefix = PLAYER_DIFFICULTY1,           difficultyID = 4 },
+	{ size = "25",                           prefix = PLAYER_DIFFICULTY2,           difficultyID = 6 },
+	{ prefix = PLAYER_DIFFICULTY3,           difficultyID = 17 },
+	{ prefix = PLAYER_DIFFICULTY1,           difficultyID = 14 },
+	{ prefix = PLAYER_DIFFICULTY2,           difficultyID = 15 },
+	{ prefix = PLAYER_DIFFICULTY6,           difficultyID = 16 },
 	{ prefix = PLAYER_DIFFICULTY_TIMEWALKER, difficultyID = 33 },
 }
 
@@ -122,95 +106,34 @@ end
 function Atlas_EncounterJournal_DisplayLoot(instanceID, encounterId)
 	AtlasEJLootFrame.instanceID = instanceID
 	AtlasEJLootFrame.encounterID = encounterId
---	EncounterJournal.instanceID = instanceID
---	EncounterJournal.encounterID = encounterId
---	EJ_SelectInstance(instanceID)
 	AtlasEJLootFrame:Show()
 end
 
 function Atlas_EncounterJournal_OnLoad(self)
 	if (WoWClassicEra or WoWClassicTBC) then return end
---	EncounterJournalTitleText:SetText(ADVENTURE_JOURNAL)
---	SetPortraitToTexture(EncounterJournalPortrait,"Interface\\EncounterJournal\\UI-EJ-PortraitIcon")
---	self:RegisterEvent("EJ_LOOT_DATA_RECIEVED")
 	self:RegisterEvent("EJ_DIFFICULTY_UPDATE")
---	self:RegisterEvent("UNIT_PORTRAIT_UPDATE")
---	self:RegisterEvent("SEARCH_DB_LOADED")
---	self:RegisterEvent("UI_MODEL_SCENE_INFO_UPDATED")
 
---	self.encounter.freeHeaders = {}
---	self.encounter.usedHeaders = {}
-
---	self.encounter.overviewFrame = self.encounter.info.overviewScroll.child
---	self.encounter.overviewFrame.isOverview = true
---	self.encounter.overviewFrame.overviews = {}
---	self.encounter.info.overviewScroll.ScrollBar.scrollStep = 30
-
---	self.encounter.infoFrame = self.encounter.info.detailsScroll.child
---	self.encounter.info.detailsScroll.ScrollBar.scrollStep = 30
-
---	self.encounter.bossesFrame = self.encounter.info.bossesScroll.child
---	self.encounter.info.bossesScroll.ScrollBar.scrollStep = 30
-
---	self.encounter.info.overviewTab:Click()
-
--- ////////////////////////////////////////////////////////////////////////////////////////
--- AtlasEJLootFrame.lootScroll to replace EncounterJournal.encounter.info.lootScroll
--- ////////////////////////////////////////////////////////////////////////////////////////
+	-- ////////////////////////////////////////////////////////////////////////////////////////
+	-- AtlasEJLootFrame.lootScroll to replace EncounterJournal.encounter.info.lootScroll
+	-- ////////////////////////////////////////////////////////////////////////////////////////
 	self.lootScroll.update = Atlas_EncounterJournal_LootUpdate
 	self.lootScroll.scrollBar.doNotHide = true
 	self.lootScroll.dynamic = Atlas_EncounterJournal_LootCalcScroll
 	HybridScrollFrame_CreateButtons(self.lootScroll, "AtlasEncounterItemTemplate", 0, 0)
 
-
---	self.searchResults.scrollFrame.update = EncounterJournal_SearchUpdate
---	self.searchResults.scrollFrame.scrollBar.doNotHide = true
---	HybridScrollFrame_CreateButtons(self.searchResults.scrollFrame, "EncounterSearchLGTemplate", 0, 0)
-
---[[
-	local homeData = {
-		name = HOME,
-		OnClick = function()
-			if ( not EncounterJournal.instanceSelect.suggestTab:IsEnabled() ) then
-				EJSuggestFrame_OpenFrame();
-			else
-				EncounterJournal_ListInstances();
-			end
-		end,
-	}
-]]
---	NavBar_Initialize(self.navBar, "NavButtonTemplate", homeData, self.navBar.home, self.navBar.overflow)
 	LibDD:UIDropDownMenu_Initialize(self.lootScroll.lootFilter, Atlas_EncounterJournal_InitLootFilter, "MENU")
 	LibDD:UIDropDownMenu_Initialize(self.lootScroll.lootSlotFilter, Atlas_EncounterJournal_InitLootSlotFilter, "MENU")
-
-	-- initialize tabs
---	local instanceSelect = base.JournalInstanceID
---	local tierName = EJ_GetTierInfo(EJ_GetCurrentTier())
---	UIDropDownMenu_SetText(instanceSelect.tierDropDown, tierName)
-
-	-- check if tabs are active
---	local dungeonInstanceID = EJ_GetInstanceByIndex(1, false)
---	if( not dungeonInstanceID ) then
---		instanceSelect.dungeonsTab.grayBox:Show()
---	end
---	local raidInstanceID = EJ_GetInstanceByIndex(1, true)
---	if( not raidInstanceID ) then
---		instanceSelect.raidsTab.grayBox:Show()
---	end
-
-	-- set the suggestion panel frame to open by default
---	EJSuggestFrame_OpenFrame()
 end
 
 function Atlas_EncounterJournal_OnLeave(self)
---	self:UnregisterEvent("EJ_LOOT_DATA_RECIEVED");
+	--	self:UnregisterEvent("EJ_LOOT_DATA_RECIEVED");
 end
 
 function Atlas_EncounterJournal_HasChangedContext(instanceID, instanceType, difficultyID)
-	if ( instanceType == "none" ) then
+	if (instanceType == "none") then
 		-- we've gone from a dungeon to the open world
 		return EncounterJournal.lastInstance ~= nil
-	elseif ( instanceID ~= 0 and (instanceID ~= EncounterJournal.lastInstance or EncounterJournal.lastDifficulty ~= difficultyID) ) then
+	elseif (instanceID ~= 0 and (instanceID ~= EncounterJournal.lastInstance or EncounterJournal.lastDifficulty ~= difficultyID)) then
 		-- dungeon or difficulty has changed
 		return true
 	end
@@ -218,7 +141,7 @@ function Atlas_EncounterJournal_HasChangedContext(instanceID, instanceType, diff
 end
 
 function Atlas_EncounterJournal_ResetDisplay(instanceID, instanceType, difficultyID)
-	if ( instanceType == "none" ) then
+	if (instanceType == "none") then
 		EncounterJournal.lastInstance = nil
 		EncounterJournal.lastDifficulty = nil
 		EJSuggestFrame_OpenFrame()
@@ -228,7 +151,7 @@ function Atlas_EncounterJournal_ResetDisplay(instanceID, instanceType, difficult
 		EncounterJournal_DisplayInstance(instanceID)
 		EncounterJournal.lastInstance = instanceID
 		-- try to set difficulty to current instance difficulty
-		if ( EJ_IsValidInstanceDifficulty(difficultyID) ) then
+		if (EJ_IsValidInstanceDifficulty(difficultyID)) then
 			EJ_SetDifficulty(difficultyID)
 		end
 		EncounterJournal.lastDifficulty = difficultyID
@@ -236,8 +159,8 @@ function Atlas_EncounterJournal_ResetDisplay(instanceID, instanceType, difficult
 end
 
 function Atlas_EncounterJournal_OnShow(self)
-	if ( tonumber(GetCVar("advJournalLastOpened")) == 0 ) then
-		SetCVar("advJournalLastOpened", GetServerTime() );
+	if (tonumber(GetCVar("advJournalLastOpened")) == 0) then
+		SetCVar("advJournalLastOpened", GetServerTime());
 	end
 	MainMenuMicroButton_HideAlert(EJMicroButton);
 	MicroButtonPulseStop(EJMicroButton);
@@ -246,83 +169,20 @@ function Atlas_EncounterJournal_OnShow(self)
 	PlaySound(839);
 	Atlas_EncounterJournal_LootUpdate();
 	Atlas_EncounterJournal_UpdateDifficulty();
-	--LibDD:UIDropDownMenu_Initialize(self.lootScroll.lootFilter, Atlas_EncounterJournal_InitLootFilter, "MENU");
-	--LibDD:UIDropDownMenu_Initialize(self.lootScroll.lootSlotFilter, Atlas_EncounterJournal_InitLootSlotFilter, "MENU");
-
---	local instanceSelect = EncounterJournal.instanceSelect;
 
 	--automatically navigate to the current dungeon if you are in one;
 	local mapID = C_Map.GetBestMapForUnit("player")
 	local instanceID = mapID and EJ_GetInstanceForMap(mapID) or 0
 	local _, instanceType, difficultyID = GetInstanceInfo()
-	if ( Atlas_EncounterJournal_HasChangedContext(instanceID, instanceType, difficultyID) ) then
+	if (Atlas_EncounterJournal_HasChangedContext(instanceID, instanceType, difficultyID)) then
 		Atlas_EncounterJournal_ResetDisplay(instanceID, instanceType, difficultyID);
---[[
-	elseif ( EncounterJournal.queuedPortraitUpdate ) then
-		-- fixes portraits when switching between fullscreen and windowed mode
-		EncounterJournal_UpdatePortraits();
-		EncounterJournal.queuedPortraitUpdate = false;
-	elseif ( self.encounter.overviewFrame:IsShown() and EncounterJournal.overviewDefaultRole and not EncounterJournal.encounter.overviewFrame.linkSection ) then
-		local spec, role;
-
-		spec = GetSpecialization();
-		if (spec) then
-			role = GetSpecializationRole(spec);
-		else
-			role = "DAMAGER";
-		end
-
-		if ( EncounterJournal.overviewDefaultRole ~= role ) then
-			EncounterJournal_ToggleHeaders(EncounterJournal.encounter.overviewFrame);
-		end
-]]
 	end
-
---	local tierData = EJ_TIER_DATA[EJ_GetCurrentTier()];
---	if ( not instanceSelect.suggestTab:IsEnabled() or EncounterJournal.suggestFrame:IsShown() ) then
---		tierData = EJ_TIER_DATA[EJSuggestTab_GetPlayerTierIndex()];
---	end
---	instanceSelect.bg:SetTexture(tierData.backgroundTexture);
---	instanceSelect.raidsTab.selectedGlow:SetVertexColor(tierData.r, tierData.g, tierData.b);
---	instanceSelect.dungeonsTab.selectedGlow:SetVertexColor(tierData.r, tierData.g, tierData.b);
 end
 
 function Atlas_EncounterJournal_OnEvent(self, event, ...)
---	if  event == "EJ_LOOT_DATA_RECIEVED" then
---		local itemID = ...
---		if itemID and not EJ_IsLootListOutOfDate() then
---			Atlas_EncounterJournal_LootCallback(itemID);
---[[
-			if EncounterJournal.searchResults:IsShown() then
-				EncounterJournal_SearchUpdate();
-			elseif EncounterJouranl_IsSearchPreviewShown() then
-				EncounterJournal_UpdateSearchPreview();
-			end
-]]
---		else
---			Atlas_EncounterJournal_LootUpdate();
---		end
---	elseif event == "EJ_DIFFICULTY_UPDATE" then
 	if event == "EJ_DIFFICULTY_UPDATE" then
 		--fix the difficulty buttons
 		Atlas_EncounterJournal_UpdateDifficulty(...);
---[[
-	elseif event == "UNIT_PORTRAIT_UPDATE" then
-		local unit = ...;
-		if not unit then
-			EncounterJournal_UpdatePortraits();
-		end
-	elseif event == "SEARCH_DB_LOADED" then
-		EncounterJournal_RestartSearchTracking();
-	elseif event == "PLAYER_LEVEL_UP" and EncounterJournal:IsShown() then
-		EncounterJournal_CheckLevelAndDisplayLootTab();
-	elseif event == "UI_MODEL_SCENE_INFO_UPDATED" then
-		local forceUpdate = true;
-		EncounterJournal_ShowCreatures(forceUpdate);
-	elseif event == "SPELL_TEXT_UPDATE" then
-		local spellID = ...;
-		EncounterJournal_UpdateSpellText(self, spellID);
-]]
 	end
 end
 
@@ -342,7 +202,7 @@ end
 
 function Atlas_EncounterJournal_SetLootButton(item)
 	local itemInfo = EJ_GetLootInfoByIndex(item.index);
-	if ( itemInfo and itemInfo.name ) then
+	if (itemInfo and itemInfo.name) then
 		item.name:SetText(WrapTextInColorCode(itemInfo.name, itemInfo.itemQuality));
 		item.icon:SetTexture(itemInfo.icon);
 		if itemInfo.handError then
@@ -359,20 +219,19 @@ function Atlas_EncounterJournal_SetLootButton(item)
 		local numEncounters = EJ_GetNumEncountersForLootByIndex(item.index);
 		if (numEncounters == 1) then
 			item.boss:SetFormattedText(BOSS_INFO_STRING, EJ_GetEncounterInfo(itemInfo.encounterID));
-		elseif ( numEncounters == 2) then
+		elseif (numEncounters == 2) then
 			local itemInfoSecond = EJ_GetLootInfoByIndex(item.index, 2);
 			local secondEncounterID = itemInfoSecond and itemInfoSecond.encounterID;
-			if ( itemInfo.encounterID and secondEncounterID ) then
+			if (itemInfo.encounterID and secondEncounterID) then
 				item.boss:SetFormattedText(BOSS_INFO_STRING_TWO, EJ_GetEncounterInfo(itemInfo.encounterID), EJ_GetEncounterInfo(secondEncounterID));
 			end
-		elseif ( numEncounters > 2 ) then
+		elseif (numEncounters > 2) then
 			item.boss:SetFormattedText(BOSS_INFO_STRING_MANY, EJ_GetEncounterInfo(itemInfo.encounterID));
 		end
 
 		local itemName, _, quality = GetItemInfo(itemInfo.link);
 		SetItemButtonQuality(item, quality, itemInfo.link);
 	else
-		--item.name:SetText(RETRIEVING_ITEM_INFO);
 		item.name:SetText(L["ATLAS_REOPEN_LOOT_AGAIN"]);
 		item.icon:SetTexture("Interface\\Icons\\INV_Misc_QuestionMark");
 		item.slot:SetText("");
@@ -408,7 +267,7 @@ function Atlas_EncounterJournal_LootUpdate()
 	local numLoot = EJ_GetNumLoot();
 	local buttonSize = BOSS_LOOT_BUTTON_HEIGHT;
 
-	for i = 1,#items do
+	for i = 1, #items do
 		item = items[i];
 		index = offset + i;
 		if index <= numLoot then
@@ -443,8 +302,8 @@ function Atlas_EncounterJournal_LootCalcScroll(offset)
 		buttonHeight = INSTANCE_LOOT_BUTTON_HEIGHT;
 	end
 
-	local index = floor(offset/buttonHeight)
-	return index, offset - (index*buttonHeight);
+	local index = floor(offset / buttonHeight)
+	return index, offset - (index * buttonHeight);
 end
 
 function Atlas_EncounterJournal_Loot_OnUpdate(self)
@@ -480,13 +339,6 @@ end
 
 function Atlas_EncounterJournal_Refresh(self)
 	Atlas_EncounterJournal_LootUpdate();
---[[
-	if EncounterJournal.encounterID then
-		EncounterJournal_DisplayEncounter(EncounterJournal.encounterID, true)
-	elseif EncounterJournal.instanceID then
-		EncounterJournal_DisplayInstance(EncounterJournal.instanceID, true);
-	end
-]]
 end
 
 function Atlas_EncounterJournal_SelectDifficulty(self, value)
@@ -496,7 +348,7 @@ end
 function Atlas_EncounterJournal_DifficultyInit(self, level)
 	local currDifficulty = EJ_GetDifficulty and EJ_GetDifficulty() or nil
 	local info = LibDD:UIDropDownMenu_CreateInfo();
-	for i=1,#ATLAS_EJ_DIFFICULTIES do
+	for i = 1, #ATLAS_EJ_DIFFICULTIES do
 		local entry = ATLAS_EJ_DIFFICULTIES[i];
 		if EJ_IsValidInstanceDifficulty and EJ_IsValidInstanceDifficulty(entry.difficultyID) then
 			info.func = Atlas_EncounterJournal_SelectDifficulty;
@@ -511,6 +363,7 @@ function Atlas_EncounterJournal_DifficultyInit(self, level)
 		end
 	end
 end
+
 function Atlas_EncounterJournal_OnFilterChanged(self)
 	LibDD:CloseDropDownMenus(1);
 	Atlas_EncounterJournal_LootUpdate();
@@ -526,7 +379,7 @@ function Atlas_EncounterJournal_RefreshSlotFilterText(self)
 	local slotFilter = C_EncounterJournal.GetSlotFilter();
 	if slotFilter ~= Enum.ItemSlotFilterType.NoFilter then
 		for _, filter in pairs(Enum.ItemSlotFilterType) do
-			if ( filter == slotFilter ) then
+			if (filter == slotFilter) then
 				text = SlotFilterToSlotName[filter];
 				break;
 			end
@@ -595,15 +448,15 @@ function Atlas_EncounterJournal_InitLootFilter(self, level)
 
 	if (level == 1) then
 		info.text = CLASS;
-		info.func =  nil;
+		info.func = nil;
 		info.notCheckable = true;
 		info.hasArrow = true;
 		info.value = CLASS_DROPDOWN;
 		LibDD:UIDropDownMenu_AddButton(info, level)
 
-		if ( filterClassID > 0 ) then
+		if (filterClassID > 0) then
 			classID = filterClassID;
-			
+
 			local classInfo = C_CreatureInfo.GetClassInfo(filterClassID);
 			if classInfo then
 				classDisplayName = classInfo.className;
@@ -616,7 +469,7 @@ function Atlas_EncounterJournal_InitLootFilter(self, level)
 		info.notCheckable = true;
 		info.arg1 = nil;
 		info.arg2 = nil;
-		info.func =  nil;
+		info.func = nil;
 		info.hasArrow = false;
 		LibDD:UIDropDownMenu_AddButton(info, level);
 
@@ -659,13 +512,13 @@ function Atlas_EncounterJournal_InitLootSlotFilter(self, level)
 	for i = 1, numLoot do
 		local itemInfo = EJ_GetLootInfoByIndex(i);
 		local filterType = itemInfo and itemInfo.filterType;
-		if ( filterType ) then
+		if (filterType) then
 			isLootSlotPresent[filterType] = true;
 		end
 	end
 	C_EncounterJournal.SetSlotFilter(slotFilter);
 	for _, filter in pairs(Enum.ItemSlotFilterType) do
-		if ( (isLootSlotPresent[filter] or filter == slotFilter) and filter ~= Enum.ItemSlotFilterType.NoFilter ) then
+		if ((isLootSlotPresent[filter] or filter == slotFilter) and filter ~= Enum.ItemSlotFilterType.NoFilter) then
 			info.text = SlotFilterToSlotName[filter];
 			info.checked = slotFilter == filter;
 			info.arg1 = filter;

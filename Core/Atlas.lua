@@ -1,4 +1,3 @@
--- $Id: Atlas.lua 434 2023-03-28 14:39:00Z arithmandar $
 --[[
 
 	Atlas, a World of Warcraft instance map browser
@@ -24,26 +23,9 @@
 
 --]]
 
--- ----------------------------------------------------------------------------
--- Localized Lua globals.
--- ----------------------------------------------------------------------------
--- Functions
-local _G                                                 = getfenv(0)
-local pairs, select, type, unpack, next                  = pairs, select, type, unpack, next
-local string, table, math, tonumber                      = string, table, math, tonumber
--- Libraries
-local bit                                                = bit
-local strfind, strsub, format, gsub, strlower, strgmatch = string.find, string.sub, string.format, string.gsub, string.lower, string.gmatch
-local strlen, strgfind                                   = string.len, string.gfind
-local strtrim                                            = strtrim
-local floor, fmod                                        = math.floor, math.fmod
-local getn, tinsert, tsort                               = table.getn, table.insert, table.sort
-local UnitLevel, GetBuildInfo                            = _G.UnitLevel, _G.GetBuildInfo
-local GetLFGDungeonInfo                                  = _G.GetLFGDungeonInfo
-
 -- Determine WoW TOC Version
 local WoWClassicEra, WoWClassicTBC, WoWWOTLKC, WoWRetail
-local wowversion                                         = select(4, GetBuildInfo())
+local wowversion = select(4, GetBuildInfo())
 if wowversion < 20000 then
 	WoWClassicEra = true
 elseif wowversion < 30000 then
@@ -54,14 +36,6 @@ elseif wowversion > 90000 then
 	WoWRetail = true
 else
 end
-
-local GetQuestGreenRange, UnitQuestTrivialLevelRange
-if (WoWClassicEra or WoWClassicTBC or WoWWOTLKC) then
-	GetQuestGreenRange = _G.GetQuestGreenRange
-else
-	UnitQuestTrivialLevelRange = _G.UnitQuestTrivialLevelRange
-end
-
 
 -- ----------------------------------------------------------------------------
 -- AddOn namespace.
@@ -150,7 +124,7 @@ local Atlas_CoreMapsKey_Index = 0
 
 function addon:RegisterPlugin(name, myCategory, myData, myNPCData)
 	ATLAS_PLUGINS[name] = {}
-	local i = getn(Atlas_MapTypes) + 1
+	local i = #Atlas_MapTypes + 1
 	Atlas_MapTypes[i] = ATLAS_PLUGINS_COLOR..myCategory -- Plugin category name to be added with green color, and then added to array
 
 	for k, v in pairs(myData) do
@@ -167,7 +141,7 @@ function addon:RegisterPlugin(name, myCategory, myData, myNPCData)
 		end
 	end
 
-	if (ATLAS_OLD_TYPE and ATLAS_OLD_TYPE <= ATLAS_MODULE_MENUS + getn(Atlas_MapTypes)) then
+	if (ATLAS_OLD_TYPE and ATLAS_OLD_TYPE <= ATLAS_MODULE_MENUS + #Atlas_MapTypes) then
 		profile.options.dropdowns.module = ATLAS_OLD_TYPE
 		profile.options.dropdowns.zone = ATLAS_OLD_ZONE
 	end
@@ -297,25 +271,7 @@ local function bossButtonUpdate(button, encounterID, instanceID, b_iconImage, mo
 		button.link = link
 
 		local sectionInfo = C_EncounterJournal.GetSectionInfo(rootSectionID)
-		--[[
-      Name = "EncounterJournalSectionInfo",
-      Type = "Structure",
-      Fields =
-      {
-        { Name = "spellID", Type = "number", Nilable = false },
-        { Name = "title", Type = "string", Nilable = false },
-        { Name = "description", Type = "string", Nilable = true },
-        { Name = "headerType", Type = "number", Nilable = false },
-        { Name = "abilityIcon", Type = "number", Nilable = false },
-        { Name = "creatureDisplayID", Type = "number", Nilable = false },
-        { Name = "uiModelSceneID", Type = "number", Nilable = false },
-        { Name = "siblingSectionID", Type = "number", Nilable = true },
-        { Name = "firstChildSectionID", Type = "number", Nilable = true },
-        { Name = "filteredByDifficulty", Type = "bool", Nilable = false },
-        { Name = "link", Type = "string", Nilable = false },
-        { Name = "startsOpen", Type = "bool", Nilable = false },
-      },
-]]
+
 		if (sectionInfo and addon:EncounterJournal_IsHeaderTypeOverview(sectionInfo.headerType)) then
 			button.overviewDescription = sectionInfo.description or nil
 			local nextSectionID = sectionInfo.firstChildSectionID or nil
@@ -456,11 +412,7 @@ local function simpleSearch(data, text)
 	n = i
 	while i do
 		if (type(i) == "number") then
-			if (strgmatch) then
-				fmatch = strgmatch(strlower(data[i][1]), search_text)()
-			else
-				fmatch = strgfind(strlower(data[i][1]), search_text)();
-			end
+			fmatch = gmatch(strlower(data[i][1]), search_text)()
 			if (fmatch) then
 				new[n] = {}
 				new[n][1] = data[i][1]
@@ -479,12 +431,7 @@ local function sanitizeName(text)
 	text = strlower(text)
 	if (AtlasSortIgnore) then
 		for _, v in pairs(AtlasSortIgnore) do
-			local fmatch;
-			if (strgmatch) then
-				fmatch = strgmatch(text, v)()
-			else
-				fmatch = strgfind(text, v)()
-			end
+			local fmatch = gmatch(text, v)()
 			if (fmatch) and ((strlen(text) - strlen(fmatch)) <= 4) then
 				return fmatch
 			end
@@ -506,10 +453,10 @@ function addon:PopulateDropdowns()
 	local catName = addon.dropdowns.DropDownLayouts_Order[profile.options.dropdowns.menuType]
 	local subcatOrder = addon.dropdowns.DropDownLayouts_Order[catName]
 	if (subcatOrder and type(subcatOrder) == "table") then
-		tsort(subcatOrder)
-		for n = 1, getn(subcatOrder), 1 do
+		sort(subcatOrder)
+		for n = 1, #subcatOrder, 1 do
 			local subcatItems = addon.dropdowns.DropDownLayouts[catName][subcatOrder[n]]
-			tsort(subcatItems, sortZonesAlpha)
+			sort(subcatItems, sortZonesAlpha)
 
 			local q = (#subcatItems - (#subcatItems % ATLAS_MAX_MENUITEMS)) / ATLAS_MAX_MENUITEMS or 0
 			for p = 0, q do
@@ -535,7 +482,7 @@ function addon:PopulateDropdowns()
 				end
 			end
 
-			tsort(ATLAS_DROPDOWNS[i], sortZonesAlpha)
+			sort(ATLAS_DROPDOWNS[i], sortZonesAlpha)
 
 			i = i + 1
 		end
@@ -566,7 +513,7 @@ local function process_Deprecated()
 			end
 		end
 	end
-	if table.getn(OldList) > 0 then
+	if #OldList > 0 then
 		local textList = ""
 		for k, v in pairs(OldList) do
 			textList = textList.."\n"..v..", "..C_AddOns.GetAddOnMetadata(v, "Version")
@@ -811,8 +758,8 @@ function addon:MapAddNPCButton()
 						if (v[2] == info_id) then
 							tip_title = v[1]
 							if (v[3] and v[3] == "item") then
-								local itemName = GetItemInfo(v[2])
-								itemName = itemName or GetItemInfo(v[2])
+								local itemName = C_Item.GetItemInfo(v[2])
+								itemName = itemName or C_Item.GetItemInfo(v[2])
 
 								button.tooltiptitle = itemName or nil
 								buttonS.tooltiptitle = itemName or nil
@@ -1574,7 +1521,7 @@ function Atlas_Refresh(mapID)
 		for k, v in pairs(matchFound) do
 			tinsert(ATLAS_INST_ENT_DROPDOWN, v)
 		end
-		tsort(ATLAS_INST_ENT_DROPDOWN, AtlasSwitchDD_Sort)
+		sort(ATLAS_INST_ENT_DROPDOWN, AtlasSwitchDD_Sort)
 		if (isEntrance) then
 			AtlasSwitchButton:SetText(ATLAS_ENTRANCE_BUTTON)
 		else
@@ -1802,7 +1749,7 @@ local function check_Modules()
 			tinsert(List, module)
 		end
 	end
-	if (table.getn(List) > 0) then
+	if (#List > 0) then
 		local textList = ""
 		for _, str in pairs(List) do
 			textList = textList.."\n"..str

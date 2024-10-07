@@ -1,4 +1,3 @@
-<!-- $Id: EJLoot.xml 431 2023-03-20 14:46:49Z arithmandar $ -->
 <!--
 
 	Atlas, a World of Warcraft instance map browser
@@ -24,8 +23,7 @@
 
 -->
 
-<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
-..\FrameXML\UI.xsd">
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ https://raw.githubusercontent.com/Meorawr/wow-ui-schema/main/UI.xsd">
 	<Script file="EJLoot.lua"/>
 
 	<!-- Tiled textures size=64,512-->
@@ -389,15 +387,6 @@
 							</OnLoad>
 						</Scripts>
 					</Button>
-<!--					<Frame name="$parentDifficultyDD" parentKey="difficultyDD" inherits="L_UIDropDownMenuTemplate" clampedToScreen="true" hidden="true">
-						<Scripts>
-							<OnLoad>
-								L_UIDropDownMenu_Initialize(self, Atlas_EncounterJournal_DifficultyInit, "MENU");
-							</OnLoad>
-						</Scripts>
-					</Frame>
-					<Frame name="$parentLootFilter" inherits="L_UIDropDownMenuTemplate" parentKey="lootFilter" hidden="true"/>
-					<Frame name="$parentLootSlotFilter" inherits="L_UIDropDownMenuTemplate" parentKey="lootSlotFilter" hidden="true"/>-->
 					<Slider name="$parentScrollBar" inherits="MinimalHybridScrollBarTemplate" parentKey="scrollBar">
 						<Anchors>
 							<Anchor point="TOPRIGHT" relativeTo="$parent" x="0" y="-18"/>
@@ -422,7 +411,7 @@
 				local LibDD = LibStub:GetLibrary("LibUIDropDownMenu-4.0")
 				self.lootScroll.difficultyDD = LibDD:Create_UIDropDownMenu("AtlasEJLootFrameDifficultyDD", AtlasEJLootFrameLootScrollFrame)
 				LibDD:UIDropDownMenu_Initialize(self.lootScroll.difficultyDD, Atlas_EncounterJournal_DifficultyInit, "MENU")
-				
+
 				self.lootScroll.lootFilter = LibDD:Create_UIDropDownMenu("AtlasEJLootFrameLootFilter", AtlasEJLootFrameLootScrollFrame)
 				self.lootScroll.lootSlotFilter = LibDD:Create_UIDropDownMenu("AtlasEJLootFrameLootSlotFilter", AtlasEJLootFrameLootScrollFrame)
 				Atlas_EncounterJournal_OnLoad(self, encounterID);

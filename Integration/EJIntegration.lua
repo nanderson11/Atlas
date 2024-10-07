@@ -1,4 +1,3 @@
--- $Id: EJIntegration.lua 431 2023-03-20 14:46:49Z arithmandar $
 --[[
 
 	Atlas, a World of Warcraft instance map browser
@@ -25,20 +24,10 @@
 --]]
 
 -- Atlas JournalEncounter Integration
--- ----------------------------------------------------------------------------
--- Localized Lua globals.
--- ----------------------------------------------------------------------------
--- Functions
-local _G                        = getfenv(0)
-local pairs                     = _G.pairs
-local select                    = _G.select
-local tonumber                  = _G.tonumber
--- Libraries
-local GameTooltip, GetBuildInfo = _G.GameTooltip, _G.GetBuildInfo
 
 -- Determine WoW TOC Version
 local WoWClassicEra, WoWClassicTBC, WoWWOTLKC, WoWRetail
-local wowversion                = select(4, GetBuildInfo())
+local wowversion = select(4, GetBuildInfo())
 if wowversion < 20000 then
 	WoWClassicEra = true
 elseif wowversion < 30000 then

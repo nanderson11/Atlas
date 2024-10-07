@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.2 - October 7, 2024
+
+### Fixed
+
+- Fixed a few missed C_AddOns functions in integrations
+
 ## 2.0.1 - October 6, 2024
 
 ### Changed

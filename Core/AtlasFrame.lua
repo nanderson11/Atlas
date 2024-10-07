@@ -1,4 +1,3 @@
--- $Id: AtlasFrame.lua 431 2023-03-20 14:46:49Z arithmandar $
 --[[
 
 	Atlas, a World of Warcraft instance map browser
@@ -26,20 +25,9 @@
 
 -- AtlasFrame's related handling to be managed here
 
--- ----------------------------------------------------------------------------
--- Localized Lua globals.
--- ----------------------------------------------------------------------------
--- Functions
-local _G                  = getfenv(0)
-local pairs, select, wipe = _G.pairs, _G.select, _G.wipe
--- Libraries
-local string              = _G.string
-local table               = _G.table
-local getn, tsort         = table.getn, table.sort
-
 -- Determine WoW TOC Version
 local WoWClassicEra, WoWClassicTBC, WoWWOTLKC, WoWRetail
-local wowversion          = select(4, GetBuildInfo())
+local wowversion = select(4, GetBuildInfo())
 if wowversion < 20000 then
 	WoWClassicEra = true
 elseif wowversion < 30000 then
@@ -242,8 +230,8 @@ function AtlasFrameDropDownType_Initialize()
 	local catName = addon.dropdowns.DropDownLayouts_Order[addon.db.profile.options.dropdowns.menuType]
 	local subcatOrder = addon.dropdowns.DropDownLayouts_Order[catName]
 	if (subcatOrder and type(subcatOrder) == "table") then
-		tsort(subcatOrder)
-		for n = 1, getn(subcatOrder), 1 do
+		sort(subcatOrder)
+		for n = 1, #subcatOrder, 1 do
 			local subcatItems = addon.dropdowns.DropDownLayouts[catName][subcatOrder[n]]
 			local q = (#subcatItems - (#subcatItems % ATLAS_MAX_MENUITEMS)) / ATLAS_MAX_MENUITEMS
 
@@ -263,7 +251,7 @@ function AtlasFrameDropDownType_Initialize()
 			i = i + q + 1
 		end
 	end
-	for j = 1, getn(Atlas_MapTypes), 1 do
+	for j = 1, #Atlas_MapTypes, 1 do
 		ATLAS_DROPDOWN_TYPES[i] = {
 			text = Atlas_MapTypes[j],
 			value = Atlas_MapTypes[j],
@@ -298,8 +286,6 @@ end
 function AtlasFrameDropDownType_OnClick(self)
 	local typeID = self:GetID()
 	local profile = addon.db.profile
-	local catName = addon.dropdowns.DropDownLayouts_Order[profile.options.dropdowns.menuType]
-	local subcatOrder = addon.dropdowns.DropDownLayouts_Order[catName]
 
 	LibDD:UIDropDownMenu_SetSelectedID(AtlasFrameDropDownType, typeID)
 	LibDD:UIDropDownMenu_SetSelectedID(AtlasFrameLargeDropDownType, typeID)
@@ -322,10 +308,8 @@ end
 function AtlasFrameDropDown_Initialize()
 	if (ATLAS_DROPDOWNS[addon.db.profile.options.dropdowns.module]) then
 		for k, v in pairs(ATLAS_DROPDOWNS[addon.db.profile.options.dropdowns.module]) do
-			--if (not AtlasMaps[v]) then return end
 			local colortag
 			local info = LibDD:UIDropDownMenu_CreateInfo()
-			local level = 1
 
 			if (addon.db.profile.options.dropdowns.color and AtlasMaps[v].DungeonID) then
 				local minLevel, minRecLevel
@@ -533,7 +517,7 @@ end
 -- Find it, set it, then update menus and the maps
 function AtlasSwitchButton_OnClick()
 	local zoneID = ATLAS_DROPDOWNS[addon.db.profile.options.dropdowns.module][addon.db.profile.options.dropdowns.zone]
-	if (getn(ATLAS_INST_ENT_DROPDOWN) == 1) then
+	if (#ATLAS_INST_ENT_DROPDOWN == 1) then
 		-- One link, so we can just go there right away
 		AtlasSwitchDD_Set(1)
 	else
