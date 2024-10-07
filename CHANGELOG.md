@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.0.1 - October 6, 2024
+
+### Changed
+
+- Updated Ace libraries
+
+### Fixed
+
+- Fixed error when creating a dialog
+
 ## 2.0.0 - October 5, 2024
 
 After Atlas broke with TWW, I reached out to the Atlas team about maintaining Atlas. I didn't get a response, so I decided to fork Atlas and get it working again. I hope to add Cataclysm support soon as well.
