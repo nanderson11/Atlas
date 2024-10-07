@@ -28,17 +28,17 @@
 -- Localized Lua globals.
 -- ----------------------------------------------------------------------------
 -- Functions
-local _G = getfenv(0)
-local pairs = _G.pairs
-local select = _G.select
-local type = _G.type
-local tonumber = _G.tonumber
+local _G            = getfenv(0)
+local pairs         = _G.pairs
+local select        = _G.select
+local type          = _G.type
+local tonumber      = _G.tonumber
 -- Libraries
 local WoWClassicEra, WoWClassicTBC, WoWRetail
-local wowtocversion  = select(4, GetBuildInfo())
+local wowtocversion = select(4, GetBuildInfo())
 if wowtocversion < 20000 then
 	WoWClassicEra = true
-elseif wowtocversion > 19999 and wowtocversion < 90000 then 
+elseif wowtocversion > 19999 and wowtocversion < 90000 then
 	WoWClassicTBC = true
 else
 	WoWRetail = true
@@ -56,32 +56,32 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name);
 local modules = {}
 if WoWClassicEra then
 	modules = {
-		Atlas_ClassicWoW		= "AtlasLoot_Classic",
+		Atlas_ClassicWoW = "AtlasLoot_Classic",
 	}
 elseif WoWClassicTBC then
 	modules = {
-		Atlas_ClassicWoW		= "AtlasLoot_Classic",
-		Atlas_BurningCrusade		= "AtlasLoot_BurningCrusade",
+		Atlas_ClassicWoW     = "AtlasLoot_Classic",
+		Atlas_BurningCrusade = "AtlasLoot_BurningCrusade",
 	}
 else
 	modules = {
-		Atlas_ClassicWoW		= "AtlasLoot_Classic",
-		Atlas_BurningCrusade		= "AtlasLoot_BurningCrusade",
-		Atlas_WrathoftheLichKing	= "AtlasLoot_WrathoftheLichKing",	
-		Atlas_Cataclysm			= "AtlasLoot_Cataclysm",
-		Atlas_MistsofPandaria		= "AtlasLoot_MistsofPandaria",
-		Atlas_WarlordsofDraenor		= "AtlasLoot_WarlordsofDraenor",
-		Atlas_Legion			= "AtlasLoot_Legion",
-		Atlas_BattleforAzeroth		= "AtlasLoot_BattleforAzeroth",
+		Atlas_ClassicWoW         = "AtlasLoot_Classic",
+		Atlas_BurningCrusade     = "AtlasLoot_BurningCrusade",
+		Atlas_WrathoftheLichKing = "AtlasLoot_WrathoftheLichKing",
+		Atlas_Cataclysm          = "AtlasLoot_Cataclysm",
+		Atlas_MistsofPandaria    = "AtlasLoot_MistsofPandaria",
+		Atlas_WarlordsofDraenor  = "AtlasLoot_WarlordsofDraenor",
+		Atlas_Legion             = "AtlasLoot_Legion",
+		Atlas_BattleforAzeroth   = "AtlasLoot_BattleforAzeroth",
 	}
 end
 
 function addon:EnableAtlasLootButton(base, zoneID)
-	if (addon:CheckAddonStatus("AtlasLoot")) then 
+	if (addon:CheckAddonStatus("AtlasLoot")) then
 		local showbutton = false;
-		
+
 		if (modules[base.Module] or modules[base.ALModule]) then
-			local enabled = GetAddOnEnableState(UnitName("player"), modules[base.Module] or modules[base.ALModule]);
+			local enabled = C_AddOns.GetAddOnEnableState(modules[base.Module] or modules[base.ALModule], UnitName("player"));
 			if (enabled > 0) then
 				showbutton = true;
 			end
@@ -97,13 +97,13 @@ function addon:EnableAtlasLootButton(base, zoneID)
 			AtlasFrameSmall.AtlasLoot.AtlasMapID = zoneID;
 			AtlasFrameSmall.AtlasLoot.AtlasModule = base.Module or base.ALModule;
 
-			AtlasFrameAtlasLootButton:Show(); 
-			AtlasFrameLargeAtlasLootButton:Show(); 
-			AtlasFrameSmallAtlasLootButton:Show(); 
+			AtlasFrameAtlasLootButton:Show();
+			AtlasFrameLargeAtlasLootButton:Show();
+			AtlasFrameSmallAtlasLootButton:Show();
 		else
-			AtlasFrameAtlasLootButton:Hide(); 
-			AtlasFrameLargeAtlasLootButton:Hide(); 
-			AtlasFrameSmallAtlasLootButton:Hide(); 
+			AtlasFrameAtlasLootButton:Hide();
+			AtlasFrameLargeAtlasLootButton:Hide();
+			AtlasFrameSmallAtlasLootButton:Hide();
 		end
 	end
 end
@@ -121,7 +121,7 @@ function addon:AtlasLootButton_OnClick(self, button)
 		local ALModule = modules[self.AtlasModule] or nil;
 		local encounterID = self.encounterID or nil;
 		local bossID = self.bossID or nil;
-		
+
 		if (not instanceID) then return; end
 		if (not ALModule) then return; end
 
@@ -134,7 +134,7 @@ function addon:AtlasLootButton_OnClick(self, button)
 		if (ALModule ~= db.selected[1]) then
 			AtlasLoot.GUI.frame.moduleSelect:SetSelected(ALModule); -- this should also force AtlasLoot to load the module data
 		end
-		
+
 		local moduleData = AtlasLoot.ItemDB:Get(ALModule);
 		local dataID;
 		-- to search the right instance
@@ -154,30 +154,19 @@ function addon:AtlasLootButton_OnClick(self, button)
 		if (dataID ~= db.selected[2]) then
 			AtlasLoot.GUI.frame.subCatSelect:SetSelected(dataID);
 		end
-		
+
 		for count = 1, #moduleData[dataID].items do
 			if (encounterID and moduleData[dataID].items[count].EncounterJournalID and moduleData[dataID].items[count].EncounterJournalID == encounterID) then
 				bossID = count;
 				break;
 			end
 		end
+
 		-- Set boss selection
 		if (bossID and bossID ~= db.selected[3]) then
 			AtlasLoot.GUI.frame.boss:SetSelected(bossID)
 		end
---[[		
-		local difficulties = moduleData:GetDifficultys()
-		local difficultyID;
-		-- look for the 1st difficulty
-		for count = 1, #difficulties do
-			if moduleData[dataID].items[1][count] then
-				difficultyID = count;
-				break;
-			end
-		end
-		-- Set difficulty
-		--AtlasLoot.GUI.frame.difficulty:SetSelected(difficultyID)
-]]
+
 		AtlasLoot.GUI.ItemFrame:Refresh(true);
 	end
 end

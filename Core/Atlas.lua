@@ -28,22 +28,22 @@
 -- Localized Lua globals.
 -- ----------------------------------------------------------------------------
 -- Functions
-local _G                                                         = getfenv(0)
-local pairs, select, type, unpack, next                          = pairs, select, type, unpack, next
-local string, table, math, tonumber                              = string, table, math, tonumber
+local _G                                                 = getfenv(0)
+local pairs, select, type, unpack, next                  = pairs, select, type, unpack, next
+local string, table, math, tonumber                      = string, table, math, tonumber
 -- Libraries
-local bit                                                        = bit
-local strfind, strsub, format, gsub, strlower, strgmatch         = string.find, string.sub, string.format, string.gsub, string.lower, string.gmatch
-local strlen, strgfind                                           = string.len, string.gfind
-local strtrim                                                    = strtrim
-local floor, fmod                                                = math.floor, math.fmod
-local getn, tinsert, tsort                                       = table.getn, table.insert, table.sort
-local GetAddOnInfo, GetAddOnEnableState, UnitLevel, GetBuildInfo = C_AddOns.GetAddOnInfo, C_AddOns.GetAddOnEnableState, _G.UnitLevel, _G.GetBuildInfo
-local GetLFGDungeonInfo                                          = _G.GetLFGDungeonInfo
+local bit                                                = bit
+local strfind, strsub, format, gsub, strlower, strgmatch = string.find, string.sub, string.format, string.gsub, string.lower, string.gmatch
+local strlen, strgfind                                   = string.len, string.gfind
+local strtrim                                            = strtrim
+local floor, fmod                                        = math.floor, math.fmod
+local getn, tinsert, tsort                               = table.getn, table.insert, table.sort
+local UnitLevel, GetBuildInfo                            = _G.UnitLevel, _G.GetBuildInfo
+local GetLFGDungeonInfo                                  = _G.GetLFGDungeonInfo
 
 -- Determine WoW TOC Version
 local WoWClassicEra, WoWClassicTBC, WoWWOTLKC, WoWRetail
-local wowversion                                                 = select(4, GetBuildInfo())
+local wowversion                                         = select(4, GetBuildInfo())
 if wowversion < 20000 then
 	WoWClassicEra = true
 elseif wowversion < 30000 then
@@ -570,7 +570,6 @@ local function process_Deprecated()
 		local textList = ""
 		for k, v in pairs(OldList) do
 			textList = textList.."\n"..v..", "..C_AddOns.GetAddOnMetadata(v, "Version")
-			--DisableAddOn(v)
 		end
 
 		LibDialog:Register("ATLAS_OLD_MODULES", {
@@ -1778,13 +1777,7 @@ end
 
 function addon:CheckAddonStatus(addonName)
 	if not addonName then return nil end
-	-- name, title, notes, loadable, reason, security, newVersion = GetAddOnInfo(index or "name")
-	--    loadable : Boolean - Indicates if the AddOn is loaded or eligible to be loaded, true if it is, false if it is not.
 	local loadable = select(4, C_AddOns.GetAddOnInfo(addonName))
-	-- GetAddOnEnableState("character", index):
-	--	0: addon is disabled
-	--	1: partially enabled (only when querying all characters)
-	-- 	2: fully enabled
 	local enabled = C_AddOns.GetAddOnEnableState(addonName, UnitName("player"))
 	if (enabled > 0 and loadable) then
 		return true
@@ -1803,8 +1796,8 @@ local function check_Modules()
 	-- Check for outdated modules, build a list of them, then disable them and tell the player
 	local List = {}
 	for _, module in pairs(Module_List) do
-		local loadable = select(4, GetAddOnInfo(module))
-		local enabled = GetAddOnEnableState(module, UnitName("player"))
+		local loadable = select(4, C_AddOns.GetAddOnInfo(module))
+		local enabled = C_AddOns.GetAddOnEnableState(module, UnitName("player"))
 		if ((enabled == 0) or (not loadable)) then
 			tinsert(List, module)
 		end
