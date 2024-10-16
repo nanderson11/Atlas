@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.0-alpha2 - October 16, 2024
+
+### Changed
+
+- Testing new changelog
+
 ## 3.0.0-alpha1 - October 16, 2024
 
 ### Added

@@ -3,6 +3,6 @@
 # Check expansion specific TOC files for the correct data.
 ## Interface: 00000
 ## Title: Atlas|cFFFF0000 game client not supported|r
-## Notes: This version of Atlas only supports Classic Era and Retail
+## Notes: This version of Atlas only supports Classic Era, Classic and Retail
 
-WrongVersion.lua
+Core\WrongVersion.lua
