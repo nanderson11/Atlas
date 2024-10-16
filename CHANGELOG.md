@@ -1,10 +1,10 @@
 # Changelog
 
-## 3.0.0-alpha4 - October 16, 2024
+## 3.0.0-alpha5 - October 16, 2024
 
 ### Changed
 
-- Testing new changelog
+- Testing upload to CF
 
 ## 3.0.0-alpha1 - October 16, 2024
 
