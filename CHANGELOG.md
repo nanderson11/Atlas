@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.0.0-alpha1 - October 16, 2024
+
+### Added
+
+- Added Cataclysm Support
+
+### Changed
+
+- Maps have been merged into Atlas (fork) itself. The map addons are no longer used. While this increases the minimum download size, it greatly simplifies installation and maintainability.
+
 ## 2.0.2 - October 7, 2024
 
 ### Fixed
