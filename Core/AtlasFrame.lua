@@ -26,18 +26,14 @@
 -- AtlasFrame's related handling to be managed here
 
 -- Determine WoW TOC Version
-local WoWClassicEra, WoWClassicTBC, WoWWOTLKC, WoWRetail
+local WoWClassicEra, WoWClassic, WoWRetail
 local wowversion = select(4, GetBuildInfo())
 if wowversion < 20000 then
 	WoWClassicEra = true
-elseif wowversion < 30000 then
-	WoWClassicTBC = true
-elseif wowversion < 40000 then
-	WoWWOTLKC = true
+elseif wowversion > 30000 and wowversion < 90000 then
+	WoWClassic = true
 elseif wowversion > 90000 then
 	WoWRetail = true
-else
-	-- n/a
 end
 -- ----------------------------------------------------------------------------
 -- AddOn namespace

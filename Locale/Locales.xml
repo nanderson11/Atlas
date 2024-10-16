@@ -1,6 +1,6 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
 	<Script file="LibBabble.lua"/>
-	
+
 	<Script file="Atlas-enUS.lua"/>
 	<Script file="Atlas-ruRU.lua"/>
 	<Script file="Atlas-deDE.lua"/>
@@ -14,4 +14,13 @@
 	<Script file="Atlas-koKR.lua"/>
 
 	<Script file="Atlas_GlobalStrings.lua"/>
+
+	<Script file="Atlas_ClassicWoW-enUS.lua"/>
+	<Script file="Atlas_BurningCrusade-enUS.lua"/>
+	<Script file="Atlas_WrathoftheLichKing-enUS.lua"/>
+	<Script file="Atlas_Cataclysm-enUS.lua"/>
+	<Script file="Atlas_MistsofPandaria-enUS.lua"/>
+	<Script file="Atlas_WarlordsofDraenor-enUS.lua"/>
+	<Script file="Atlas_Legion-enUS.lua"/>
+	<Script file="Atlas_BattleforAzeroth-enUS.lua"/>
 </Ui>

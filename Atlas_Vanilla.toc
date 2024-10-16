@@ -57,3 +57,5 @@ Integration\WorldMap.xml
 Integration\WorldMap.lua
 Integration\Achievements.lua
 Integration\AtlasLootIntegration.lua
+
+Data\Classic-ClassicEra.lua
