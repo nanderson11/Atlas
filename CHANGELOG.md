@@ -1,6 +1,6 @@
 # Changelog
 
-## 3.0.0-alpha2 - October 16, 2024
+## 3.0.0-alpha3 - October 16, 2024
 
 ### Changed
 

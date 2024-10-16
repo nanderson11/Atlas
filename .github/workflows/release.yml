@@ -18,5 +18,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      - uses: kemayo/actions-recent-changelog@v1
+        with:
+          input: CHANGELOG.md
+          output: RECENT_CHANGES.md
+
       - name: Package and release
         uses: BigWigsMods/packager@v2
