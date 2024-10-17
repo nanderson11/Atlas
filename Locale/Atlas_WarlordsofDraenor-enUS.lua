@@ -1,4 +1,3 @@
--- $Id: Atlas_WarlordsofDraenor-enUS.lua 80 2023-03-20 15:10:47Z arithmandar $
 --[[
 
 	Atlas, a World of Warcraft instance map browser
@@ -24,9 +23,9 @@
 
 --]]
 
-local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
-local L = AceLocale:NewLocale("Atlas_WarlordsofDraenor", "enUS", true, true);
-if L then
+local L = LibStub("AceLocale-3.0"):NewLocale("Atlas_WarlordsofDraenor", "enUS", true, true);
+if not L then return end
+
 L["BRF"] = "BRF"
 L["BSM"] = "BSM"
 L["EB"] = "EB"
@@ -37,5 +36,3 @@ L["SBG"] = "SBG"
 L["SR"] = "SR"
 L["Train Ride"] = "Train Ride"
 L["UBRS"] = "UBRS"
-
-end

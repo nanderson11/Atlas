@@ -45,6 +45,7 @@
 		"AtlasNoSearch",
 		"AtlasLoot",
 		"ElvPrivateDB",
-		"ChatEdit_InsertLink"
+		"ChatEdit_InsertLink",
+		"ACHIEVEMENT_TOOLTIP_COMPLETE"
 	]
 }

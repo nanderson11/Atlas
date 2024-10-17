@@ -1,4 +1,3 @@
--- $Id: Atlas-frFR.lua 431 2023-03-20 14:46:49Z arithmandar $
 --[[
 
 	Atlas, a World of Warcraft instance map browser
@@ -24,27 +23,23 @@
 
 --]]
 
-local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
-local L = AceLocale:NewLocale("Atlas", "frFR", false);
--- Localize file must set above to false, for example:
---    local AL = AceLocale:NewLocale("Atlas", "deDE", false);
--- Sur un travail de Wysiwyg, Khiria, TrAsHeR entre 2007 et 2017. Many thanks to all contributors !
--- Atlas French Localization.
-if ( GetLocale() ==		"frFR" ) then
+local L = LibStub("AceLocale-3.0"):NewLocale("Atlas", "frFR");
+
+if (GetLocale() == "frFR") then
 	-- Define the leading strings to be ignored while sorting
 	-- Ex: The Stockade
-	AtlasSortIgnore = {"le (.+)", "la (.+)", "les (.+)"};
+	AtlasSortIgnore = { "le (.+)", "la (.+)", "les (.+)" };
 
 	-- Syntax: ["real_zone_name"] = "localized map zone name"
 	AtlasZoneSubstitutions = {
-		["Ahn'Qiraj"] = "Temple d'Ahn'Qiraj";
-		["The Temple of Atal'Hakkar"] = "Le temple d'Atal'Hakkar";
-	--	["Throne of Tides"] = "The Abyssal Maw: Throne of the Tides";
+		["Ahn'Qiraj"] = "Temple d'Ahn'Qiraj",
+		["The Temple of Atal'Hakkar"] = "Le temple d'Atal'Hakkar",
+		--	["Throne of Tides"] = "The Abyssal Maw: Throne of the Tides";
 	};
 end
 
+if not L then return end
 
-if L then
 L[" 1/2"] = "1/2"
 L[" 2/2"] = "2/2"
 L["Adult"] = "Adulte"
@@ -109,28 +104,28 @@ L["ATLAS_DEP_MSG3"] = "Les supprimer de votre dossier AddOns."
 L["ATLAS_DEP_OK"] = "Ok"
 L["ATLAS_ENTRANCE_BUTTON"] = "Entrée"
 L["ATLAS_INFO"] = "Atlas Information"
-L["ATLAS_INFO_12200"] = [=[Information importante : 
+L["ATLAS_INFO_12200"] = [=[Information importante :
 
-Suite à l'augmentation de la taille des fichiers de l'addon, nous avons déplacé 
-une partie de nos cartes des donjons et créé des modules séparés avec. 
+Suite à l'augmentation de la taille des fichiers de l'addon, nous avons déplacé
+une partie de nos cartes des donjons et créé des modules séparés avec.
 
-Les utilisateurs qui téléchargent nos addons à partir de fameux sites tiers 
-pourraient n'avoir que l'addon principal qui ne contient que les fonctions de 
-base et les cartes de la dernière extension de WoW. 
+Les utilisateurs qui téléchargent nos addons à partir de fameux sites tiers
+pourraient n'avoir que l'addon principal qui ne contient que les fonctions de
+base et les cartes de la dernière extension de WoW.
 
-Si vous souhaitez également voir les cartes des vieilles extensions, et donc 
-avoir tous ces modules Atlas que nous avons fait, vous devez les télécharger 
-et les installer séparément. 
+Si vous souhaitez également voir les cartes des vieilles extensions, et donc
+avoir tous ces modules Atlas que nous avons fait, vous devez les télécharger
+et les installer séparément.
 
-Pour plus d'information, lire le sujet suivant sur notre forum : 
-|cff6666ffhttp://www.atlasmod.com/phpBB3/viewtopic.php?t=1522|cffffffff 
+Pour plus d'information, lire le sujet suivant sur notre forum :
+|cff6666ffhttp://www.atlasmod.com/phpBB3/viewtopic.php?t=1522|cffffffff
 
-Ou visiter notre site web pour voir où les télécharger. 
+Ou visiter notre site web pour voir où les télécharger.
 |cff6666ffhttp://www.atlasmod.com/]=]
-L["ATLAS_INFO_12201"] = [=[Veuillez noter que nous avons créé un nouveau plug-in - |cff6666ffAtlas Scenarios|cffffffff, 
-afin de fournir les cartes des scénarios introduits dans WoW 5.0. 
+L["ATLAS_INFO_12201"] = [=[Veuillez noter que nous avons créé un nouveau plug-in - |cff6666ffAtlas Scenarios|cffffffff,
+afin de fournir les cartes des scénarios introduits dans WoW 5.0.
 
-Visitez notre site web pour plus de détail, et n'oubliez pas de le 
+Visitez notre site web pour plus de détail, et n'oubliez pas de le
 télécharger/installer séparément.]=]
 L["ATLAS_INSTANCE_BUTTON"] = "Instance"
 L["ATLAS_LDB_HINT"] = [=[Clic-Gauche pour ouvrir Atlas.
@@ -294,5 +289,3 @@ L["Wave 6"] = "Vague 6"
 L["West"] = "Ouest"
 L["Yarley <Armorer>"] = "Yarley <Armurier>"
 L["Zaladormu"] = "Zaladormu"
-
-end

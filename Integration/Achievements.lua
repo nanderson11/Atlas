@@ -1,4 +1,3 @@
--- $Id: Achievements.lua 431 2023-03-20 14:46:49Z arithmandar $
 --[[
 
 	Atlas, a World of Warcraft instance map browser
@@ -94,8 +93,6 @@ function addon:AchievementButtonUpdate(button, achievementID)
 		end
 		button.Text:SetText(name)
 		button.tooltiptext = tooltiptext --.."\n|CFF8080FF"..L["ATLAS_OPEN_ACHIEVEMENT"].."|R"
-	else
-		-- do nothing
 	end
 end
 

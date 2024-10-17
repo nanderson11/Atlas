@@ -1,4 +1,3 @@
--- $Id: Config.lua 434 2023-03-28 14:39:00Z arithmandar $
 --[[
 
 	Atlas, a World of Warcraft instance map browser
@@ -25,19 +24,10 @@
 --]]
 
 -- ----------------------------------------------------------------------------
--- Localized Lua globals.
--- ----------------------------------------------------------------------------
--- Functions
-local _G                   = getfenv(0)
-local select               = select
-local pairs                = _G.pairs
--- Libraries
-local GetBuildInfo         = _G.GetBuildInfo
--- ----------------------------------------------------------------------------
 -- AddOn namespace.
 -- ----------------------------------------------------------------------------
 local FOLDER_NAME, private = ...
-local LibStub              = _G.LibStub
+
 local addon                = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L                    = LibStub("AceLocale-3.0"):GetLocale(private.addon_name);
 
@@ -52,8 +42,6 @@ elseif wowversion < 40000 then
 	WoWWOTLKC = true
 elseif wowversion > 90000 then
 	WoWRetail = true
-else
-	-- n/a
 end
 
 local AceConfigReg = LibStub("AceConfigRegistry-3.0")

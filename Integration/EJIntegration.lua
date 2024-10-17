@@ -36,15 +36,12 @@ elseif wowversion < 40000 then
 	WoWWOTLKC = true
 elseif wowversion > 90000 then
 	WoWRetail = true
-else
-	-- n/a
 end
 
 -- ----------------------------------------------------------------------------
 -- AddOn namespace.
 -- ----------------------------------------------------------------------------
 local _, private = ...
-local LibStub = _G.LibStub
 local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BB = Atlas_GetLocaleLibBabble("LibBabble-Boss-3.0")
@@ -197,7 +194,6 @@ function addon:AdventureJournal_MapButton_OnClick(frame)
 	if (WoWClassicEra or WoWClassicTBC or WoWWOTLKC) then return end
 
 	local uiMapID = frame.mapID
-	local dungeonLevel = frame.dungeonLevel
 
 	HideUIPanel(AtlasFrame)
 	local disabled = not C_AdventureJournal.CanBeShown()
@@ -289,5 +285,3 @@ function addon:EncounterJournal_Binding()
 		button:SetScript("OnShow", toggleFromEncounterJournal_OnShow)
 	end
 end
-
--- End of Encounter Journal's button bidding

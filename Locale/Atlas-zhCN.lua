@@ -1,4 +1,3 @@
--- $Id: Atlas-zhCN.lua 431 2023-03-20 14:46:49Z arithmandar $
 --[[
 
 	Atlas, a World of Warcraft instance map browser
@@ -23,27 +22,23 @@
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 --]]
--- Atlas Localization Data (Simplified Chinese)
--- Initial translation by DiabloHu
--- Maintained by DiabloHu, arith, Ananhaid
 
-local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
-local L = AceLocale:NewLocale("Atlas", "zhCN", false);
+local L = LibStub("AceLocale-3.0"):NewLocale("Atlas", "zhCN");
 
-if ( GetLocale() == "zhCN" ) then
--- Define the leading strings to be ignored while sorting
--- Ex: The Stockade
-AtlasSortIgnore = {};
+if (GetLocale() == "zhCN") then
+	-- Define the leading strings to be ignored while sorting
+	-- Ex: The Stockade
+	AtlasSortIgnore = {};
 
--- Syntax: ["real_zone_name"] = "localized map zone name"
-AtlasZoneSubstitutions = {
-	["Ahn'Qiraj"] = "安其拉神殿";
-	["The Temple of Atal'Hakkar"] = "阿塔哈卡神庙";
-};
+	-- Syntax: ["real_zone_name"] = "localized map zone name"
+	AtlasZoneSubstitutions = {
+		["Ahn'Qiraj"] = "安其拉神殿",
+		["The Temple of Atal'Hakkar"] = "阿塔哈卡神庙",
+	};
 end
 
+if not L then return end
 
-if L then
 L[" 1/2"] = "1/2"
 L[" 2/2"] = "2/2"
 L["%s Dungeons"] = "%s地下城"
@@ -151,7 +146,7 @@ L["ATLAS_INFO_12200"] = [=[重要提示：
 
 或访问我们的网站查看下载：
 |cff6666ffhttp://www.atlasmod.com/|cffffffff]=]
-L["ATLAS_INFO_12201"] = [=[我们最近新增了一个新的 Atlas 插件 - |cff6666ffAtlas 情景战役|cffffffff，用以提供 WoW 5.0 
+L["ATLAS_INFO_12201"] = [=[我们最近新增了一个新的 Atlas 插件 - |cff6666ffAtlas 情景战役|cffffffff，用以提供 WoW 5.0
 起新增的情景战役的地图。
 
 请详见我们的网站以取得更详细的信息，并请记得分别下载并安装此插件。
@@ -353,5 +348,3 @@ L["Wave 6"] = "第6波"
 L["West"] = "西"
 L["Yarley <Armorer>"] = "亚尔雷 <护甲商>"
 L["Zaladormu"] = "扎拉多姆"
-
-end

@@ -1,4 +1,3 @@
--- $Id: Data.lua 79 2023-03-20 14:56:15Z arithmandar $
 --[[
 
 	Atlas, a World of Warcraft instance map browser
@@ -21,19 +20,9 @@
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 --]]
------------------------------------------------------------------------
--- Upvalued Lua API.
------------------------------------------------------------------------
--- Functions
-local _G = getfenv(0)
-local pairs = _G.pairs
--- Libraries
 
--- ----------------------------------------------------------------------------
--- AddOn namespace.
--- ----------------------------------------------------------------------------
 local FOLDER_NAME, private = ...
-local LibStub = _G.LibStub
+
 local BZ = Atlas_GetLocaleLibBabble("LibBabble-SubZone-3.0")
 local BF = Atlas_GetLocaleLibBabble("LibBabble-Faction-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
@@ -41,7 +30,6 @@ local ALC = LibStub("AceLocale-3.0"):GetLocale("Atlas")
 local ALIL = Atlas_IngameLocales
 local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
 local addon = Atlas:NewModule(private.module_name)
-
 
 local function Atlas_GetBossName(bossname, encounterID, creatureIndex)
 	return Atlas:GetBossName(bossname, encounterID, creatureIndex, private.module_name)

@@ -38,9 +38,8 @@ end
 -- AddOn namespace.
 -- ----------------------------------------------------------------------------
 local FOLDER_NAME, private = ...
-
-local LibStub = _G.LibStub
 local addon = LibStub("AceAddon-3.0"):NewAddon(private.addon_name, "AceConsole-3.0")
+
 addon.constants = private.constants
 addon.Templates = private.Templates
 addon.constants.addon_name = private.addon_name
@@ -54,7 +53,6 @@ local BZ = Atlas_GetLocaleLibBabble("LibBabble-SubZone-3.0")
 local BB = Atlas_GetLocaleLibBabble("LibBabble-Boss-3.0")
 local LibDialog = LibStub("LibDialog-1.0")
 local AceDB = LibStub("AceDB-3.0")
--- UIDropDownMenu
 local LibDD = LibStub:GetLibrary("LibUIDropDownMenu-4.0")
 
 local profile

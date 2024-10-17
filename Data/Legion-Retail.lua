@@ -1,4 +1,3 @@
--- $Id: Data.lua 181 2023-03-20 15:03:40Z arithmandar $
 --[[
 
 	Atlas, a World of Warcraft instance map browser
@@ -21,22 +20,12 @@
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 --]]
------------------------------------------------------------------------
--- Upvalued Lua API.
------------------------------------------------------------------------
--- Functions
-local _G = getfenv(0)
-local pairs = _G.pairs
--- Libraries
--- ----------------------------------------------------------------------------
--- AddOn namespace.
--- ----------------------------------------------------------------------------
+
 local FOLDER_NAME, private = ...
 
 private.addon_name = "Atlas_Legion"
 private.module_name = "Legion"
 
-local LibStub = _G.LibStub
 local BZ = Atlas_GetLocaleLibBabble("LibBabble-SubZone-3.0")
 local BF = Atlas_GetLocaleLibBabble("LibBabble-Faction-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
@@ -64,7 +53,7 @@ local YLOW = "|cffcccc33"
 local INDENT = "      "
 
 db.AtlasMaps = {
---    [1188] = { mapFile = "ArgusRaid", [1] = 910, [2] = 911, [3] = 912, [4] = 913, [5] = 914, [6] = 915, [7] = 916, [8] = 917, [9] = 918, [10] = 919, [11] = 920, [0] = 909},
+	--    [1188] = { mapFile = "ArgusRaid", [1] = 910, [2] = 911, [3] = 912, [4] = 913, [5] = 914, [6] = 915, [7] = 916, [8] = 917, [9] = 918, [10] = 919, [11] = 920, [0] = 909},
 	AntorustheBurningThroneA = {
 		ZoneName = { BZ["Antorus, the Burning Throne"]..ALC["MapA"] },
 		Location = { BZ["Antoran Wastes"] },
@@ -78,10 +67,10 @@ db.AtlasMaps = {
 		--MinGearLevel = "860",
 		Module = "Atlas_Legion",
 		NextMap = "AntorustheBurningThroneB",
-		{ BLUE.." A) "..ALC["Entrance"], 10001 },
-		{ WHIT.." 1) "..Atlas_GetBossName("Garothi Worldbreaker", 1992), 1992 },
+		{ BLUE.." A) "..ALC["Entrance"],                                  10001 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Garothi Worldbreaker", 1992),  1992 },
 		{ WHIT.." 2) "..Atlas_GetBossName("Felhounds of Sargeras", 1987), 1987 },
-		{ WHIT.." 3) "..Atlas_GetBossName("Antoran High Command", 1997), 1997 },
+		{ WHIT.." 3) "..Atlas_GetBossName("Antoran High Command", 1997),  1997 },
 	},
 	AntorustheBurningThroneB = {
 		ZoneName = { BZ["Antorus, the Burning Throne"]..ALC["MapB"] },
@@ -146,7 +135,7 @@ db.AtlasMaps = {
 		PrevMap = "AntorustheBurningThroneD",
 		NextMap = "AntorustheBurningThroneF",
 		{ WHIT.." 6) "..Atlas_GetBossName("Imonar the Soulhunter", 2009), 2009 },
-		{ WHIT.." 7) "..Atlas_GetBossName("Kin'garoth", 2004), 2004 },
+		{ WHIT.." 7) "..Atlas_GetBossName("Kin'garoth", 2004),            2004 },
 	},
 	AntorustheBurningThroneF = {
 		ZoneName = { BZ["Antorus, the Burning Throne"]..ALC["MapF"] },
@@ -163,8 +152,8 @@ db.AtlasMaps = {
 		PrevMap = "AntorustheBurningThroneE",
 		NextMap = "AntorustheBurningThroneG",
 		{ WHIT.." 8) "..Atlas_GetBossName("The Coven of Shivarra", 1986), 1986 },
-		{ WHIT.." 9) "..Atlas_GetBossName("Varimathras", 1983), 1983 },
-		{ WHIT.."10) "..Atlas_GetBossName("Aggramar", 1984), 1984 },
+		{ WHIT.." 9) "..Atlas_GetBossName("Varimathras", 1983),           1983 },
+		{ WHIT.."10) "..Atlas_GetBossName("Aggramar", 1984),              1984 },
 	},
 	AntorustheBurningThroneG = {
 		ZoneName = { BZ["Antorus, the Burning Throne"]..ALC["MapG"] },
@@ -190,25 +179,25 @@ db.AtlasMaps = {
 		JournalInstanceID = 777,
 		Module = "Atlas_Legion",
 		LargeMap = "AssaultonVioletHold1_",
-		{ BLUE.." A) "..ALC["Entrance"], 10001 },
-		{ WHIT.." 1) "..Atlas_GetBossName("Shivermaw", 1694), 1694 },
+		{ BLUE.." A) "..ALC["Entrance"],                                    10001 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Shivermaw", 1694),               1694 },
 		{ WHIT.." 2) "..Atlas_GetBossName("Blood-Princess Thal'ena", 1702), 1702 },
-		{ WHIT.." 3) "..Atlas_GetBossName("Festerface", 1693), 1693 },
-		{ WHIT.." 4) "..Atlas_GetBossName("Millificent Manastorm", 1688), 1688 },
-		{ WHIT.." 5) "..Atlas_GetBossName("Mindflayer Kaahrj", 1686), 1686 },
-		{ WHIT.." 6) "..Atlas_GetBossName("Anub'esset", 1696), 1696 },
-		{ WHIT.." 7) "..Atlas_GetBossName("Sael'orn", 1697), 1697 },
-		{ WHIT.." 8) "..Atlas_GetBossName("Fel Lord Betrug", 1711), 1711 },
+		{ WHIT.." 3) "..Atlas_GetBossName("Festerface", 1693),              1693 },
+		{ WHIT.." 4) "..Atlas_GetBossName("Millificent Manastorm", 1688),   1688 },
+		{ WHIT.." 5) "..Atlas_GetBossName("Mindflayer Kaahrj", 1686),       1686 },
+		{ WHIT.." 6) "..Atlas_GetBossName("Anub'esset", 1696),              1696 },
+		{ WHIT.." 7) "..Atlas_GetBossName("Sael'orn", 1697),                1697 },
+		{ WHIT.." 8) "..Atlas_GetBossName("Fel Lord Betrug", 1711),         1711 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "You're Just Making It WORSE!", "ac=10553" },
-		{ "I Made a Food", "ac=10554" },
-		{ "Assault on Violet Hold", "ac=10798" },
-		{ "Heroic: Assault on Violet Hold", "ac=10799" },
-		{ "Mythic: Assault on Violet Hold", "ac=10800" },
-		{ "Mythic: Assault on Violet Hold Guild Run", "ac=10860" },
+		{ "You're Just Making It WORSE!",                                   "ac=10553" },
+		{ "I Made a Food",                                                  "ac=10554" },
+		{ "Assault on Violet Hold",                                         "ac=10798" },
+		{ "Heroic: Assault on Violet Hold",                                 "ac=10799" },
+		{ "Mythic: Assault on Violet Hold",                                 "ac=10800" },
+		{ "Mythic: Assault on Violet Hold Guild Run",                       "ac=10860" },
 	},
---    [1081] = { mapFile = "BlackRookHoldDungeon", [1] = 751, [2] = 752, [3] = 753, [4] = 754, [5] = 755, [6] = 756},
+	--    [1081] = { mapFile = "BlackRookHoldDungeon", [1] = 751, [2] = 752, [3] = 753, [4] = 754, [5] = 755, [6] = 756},
 	BlackRookHoldA = {
 		ZoneName = { BZ["Black Rook Hold"]..ALC["MapA"] },
 		Location = { BZ["Val'sharah"] },
@@ -220,23 +209,23 @@ db.AtlasMaps = {
 		Module = "Atlas_Legion",
 		LargeMap = "BlackRookHold1_",
 		NextMap = "BlackRookHoldB",
-		{ BLUE.." A) "..ALC["Entrance"], 10001 },
-		{ BLUE.." B) "..ALC["Connection"], 10002 },
-		{ WHIT.." 1) "..Atlas_GetBossName("The Amalgam of Souls", 1518), 1518 },
+		{ BLUE.." A) "..ALC["Entrance"],                                              10001 },
+		{ BLUE.." B) "..ALC["Connection"],                                            10002 },
+		{ WHIT.." 1) "..Atlas_GetBossName("The Amalgam of Souls", 1518),              1518 },
 		{ ORNG.." 1) "..Atlas:GetCreatureName(L["Lady Velandras Ravencrest"], 98538), 98538 },
 		{ ORNG.." 2) "..Atlas:GetCreatureName(L["Lord Etheldrin Ravencrest"], 98521), 98521 },
-		{ ORNG.." 3) "..Atlas:GetCreatureName(L["General Tel'arn"], 110993), 110993 },
+		{ ORNG.." 3) "..Atlas:GetCreatureName(L["General Tel'arn"], 110993),          110993 },
 		{ INDENT..ORNG..Atlas:GetCreatureName(L["Ranger General Feleor"], 110995) },
-		{ ORNG.." 4) "..Atlas:GetCreatureName(L["Ancient Widow"], 98637), 98637 },
-		{ GREN.." 1') "..L["Torn Page"], 10003 },
+		{ ORNG.." 4) "..Atlas:GetCreatureName(L["Ancient Widow"], 98637),             98637 },
+		{ GREN.." 1') "..L["Torn Page"],                                              10003 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Black Rook Moan", "ac=10710" },
-		{ "You Used to Scrawl Me In Your Fel Tome", "ac=10709" },
-		{ "Black Rook Hold", "ac=10804" },
-		{ "Heroic: Black Rook Hold", "ac=10805" },
-		{ "Mythic: Black Rook Hold", "ac=10806" },
-		{ "Mythic: Black Rook Hold Guild Run", "ac=10862" },
+		{ "Black Rook Moan",                                                          "ac=10710" },
+		{ "You Used to Scrawl Me In Your Fel Tome",                                   "ac=10709" },
+		{ "Black Rook Hold",                                                          "ac=10804" },
+		{ "Heroic: Black Rook Hold",                                                  "ac=10805" },
+		{ "Mythic: Black Rook Hold",                                                  "ac=10806" },
+		{ "Mythic: Black Rook Hold Guild Run",                                        "ac=10862" },
 	},
 	BlackRookHoldB = {
 		ZoneName = { BZ["Black Rook Hold"]..ALC["MapB"] },
@@ -250,19 +239,19 @@ db.AtlasMaps = {
 		LargeMap = "BlackRookHold2_",
 		PrevMap = "BlackRookHoldA",
 		NextMap = "BlackRookHoldC",
-		{ BLUE.." B-D) "..ALC["Connection"], 10001 },
-		{ WHIT.." 2) "..Atlas_GetBossName("Illysanna Ravencrest", 1653), 1653 },
+		{ BLUE.." B-D) "..ALC["Connection"],                                  10001 },
+		{ WHIT.." 2) "..Atlas_GetBossName("Illysanna Ravencrest", 1653),      1653 },
 		{ ORNG.." 5) "..Atlas:GetCreatureName(L["Archmage Galeorn"], 111068), 111068 },
-		{ GREN.." 2') "..L["Worn-Edged Page"], 10002 },
-		{ GREN.." 3') "..L["Dog-Eared Page"], 10003 },
+		{ GREN.." 2') "..L["Worn-Edged Page"],                                10002 },
+		{ GREN.." 3') "..L["Dog-Eared Page"],                                 10003 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Black Rook Moan", "ac=10710" },
-		{ "You Used to Scrawl Me In Your Fel Tome", "ac=10709" },
-		{ "Black Rook Hold", "ac=10804" },
-		{ "Heroic: Black Rook Hold", "ac=10805" },
-		{ "Mythic: Black Rook Hold", "ac=10806" },
-		{ "Mythic: Black Rook Hold Guild Run", "ac=10862" },
+		{ "Black Rook Moan",                                                  "ac=10710" },
+		{ "You Used to Scrawl Me In Your Fel Tome",                           "ac=10709" },
+		{ "Black Rook Hold",                                                  "ac=10804" },
+		{ "Heroic: Black Rook Hold",                                          "ac=10805" },
+		{ "Mythic: Black Rook Hold",                                          "ac=10806" },
+		{ "Mythic: Black Rook Hold Guild Run",                                "ac=10862" },
 	},
 	BlackRookHoldC = {
 		ZoneName = { BZ["Black Rook Hold"]..ALC["MapC"] },
@@ -276,22 +265,22 @@ db.AtlasMaps = {
 		LargeMap = "BlackRookHold3_",
 		PrevMap = "BlackRookHoldB",
 		NextMap = "BlackRookHoldD",
-		{ BLUE.." E-H) "..ALC["Connection"], 10001 },
+		{ BLUE.." E-H) "..ALC["Connection"],                                                  10001 },
 		{ ORNG.." 6) "..Atlas:GetCreatureName(L["Kalyndras <Rook's Quartermaster>"], 112725), 112725 },
-		{ ORNG.." 7) "..Atlas:GetCreatureName(L["Braxas the Fleshcarver"], 111290), 111290 },
-		{ ORNG.." 8) "..Atlas:GetCreatureName(L["Kelorn Nightblade"], 111361), 111361 },
-		{ GREN.." 4') "..L["Singed Page"] , 10002 }, -- achievement=10709, object=252388
-		{ GREN.." 5') ", 136812, "item", "Sabelite Sulfate" },
-		{ GREN.." 6') "..L["Ink-splattered Page"], 10003 },
-		{ GREN.." 7') "..L["Hastily-Scrawled Page"], 10004 },
+		{ ORNG.." 7) "..Atlas:GetCreatureName(L["Braxas the Fleshcarver"], 111290),           111290 },
+		{ ORNG.." 8) "..Atlas:GetCreatureName(L["Kelorn Nightblade"], 111361),                111361 },
+		{ GREN.." 4') "..L["Singed Page"],                                                    10002 }, -- achievement=10709, object=252388
+		{ GREN.." 5') ",                                                                      136812,    "item", "Sabelite Sulfate" },
+		{ GREN.." 6') "..L["Ink-splattered Page"],                                            10003 },
+		{ GREN.." 7') "..L["Hastily-Scrawled Page"],                                          10004 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Adds? More Like Bads", "ac=10711" },
-		{ "You Used to Scrawl Me In Your Fel Tome", "ac=10709" },
-		{ "Black Rook Hold", "ac=10804" },
-		{ "Heroic: Black Rook Hold", "ac=10805" },
-		{ "Mythic: Black Rook Hold", "ac=10806" },
-		{ "Mythic: Black Rook Hold Guild Run", "ac=10862" },
+		{ "Adds? More Like Bads",                                                             "ac=10711" },
+		{ "You Used to Scrawl Me In Your Fel Tome",                                           "ac=10709" },
+		{ "Black Rook Hold",                                                                  "ac=10804" },
+		{ "Heroic: Black Rook Hold",                                                          "ac=10805" },
+		{ "Mythic: Black Rook Hold",                                                          "ac=10806" },
+		{ "Mythic: Black Rook Hold Guild Run",                                                "ac=10862" },
 	},
 	BlackRookHoldD = {
 		ZoneName = { BZ["Black Rook Hold"]..ALC["MapD"] },
@@ -303,19 +292,19 @@ db.AtlasMaps = {
 		JournalInstanceID = 740,
 		Module = "Atlas_Legion",
 		PrevMap = "BlackRookHoldC",
-		{ BLUE.." F-G) "..ALC["Connection"], 10001 },
-		{ WHIT.." 3) "..Atlas_GetBossName("Smashspite the Hateful", 1664), 1664 },
+		{ BLUE.." F-G) "..ALC["Connection"],                                  10001 },
+		{ WHIT.." 3) "..Atlas_GetBossName("Smashspite the Hateful", 1664),    1664 },
 		{ WHIT.." 4) "..Atlas_GetBossName("Lord Kur'talos Ravencrest", 1672), 1672 },
-		{ INDENT..WHIT..Atlas:GetCreatureName(L["Dantalionax"], 99611), 99611 },
+		{ INDENT..WHIT..Atlas:GetCreatureName(L["Dantalionax"], 99611),       99611 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "You Used to Scrawl Me In Your Fel Tome", "ac=10709" },
-		{ "Black Rook Hold", "ac=10804" },
-		{ "Heroic: Black Rook Hold", "ac=10805" },
-		{ "Mythic: Black Rook Hold", "ac=10806" },
-		{ "Mythic: Black Rook Hold Guild Run", "ac=10862" },
+		{ "You Used to Scrawl Me In Your Fel Tome",                           "ac=10709" },
+		{ "Black Rook Hold",                                                  "ac=10804" },
+		{ "Heroic: Black Rook Hold",                                          "ac=10805" },
+		{ "Mythic: Black Rook Hold",                                          "ac=10806" },
+		{ "Mythic: Black Rook Hold Guild Run",                                "ac=10862" },
 	},
---    [1146] = { mapFile = "TombofSargerasDungeon", [1] = 845, [2] = 846, [3] = 847, [4] = 848, [5] = 849},
+	--    [1146] = { mapFile = "TombofSargerasDungeon", [1] = 845, [2] = 846, [3] = 847, [4] = 848, [5] = 849},
 	CathedralofEternalNightA = {
 		ZoneName = { BZ["Cathedral of Eternal Night"]..ALC["MapA"] },
 		Location = { BZ["Broken Shore"] },
@@ -327,17 +316,17 @@ db.AtlasMaps = {
 		Module = "Atlas_Legion",
 		NextMap = "CathedralofEternalNightB",
 		LargeMap = "CathedralofEternalNightA",
-		{ BLUE.." A) "..ALC["Entrance"], 10001 },
-		{ BLUE.." B) "..ALC["Stairs"], 10002 },
+		{ BLUE.." A) "..ALC["Entrance"],                              10001 },
+		{ BLUE.." B) "..ALC["Stairs"],                                10002 },
 		{ ORNG.." 1) "..Atlas:GetCreatureName(L["Raga'yut"], 120715), 120715 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Boom Bloom", "ac=11768" },
-		{ "A Steamy Romance Saga", "ac=11769" },
-		{ "Master of Shadows", "ac=11703" },
-		{ "Cathedral of Eternal Night", "ac=11700" },
-		{ "Heroic: Cathedral of Eternal Night", "ac=11701" },
-		{ "Mythic: Cathedral of Eternal Night", "ac=11702" },
+		{ "Boom Bloom",                                               "ac=11768" },
+		{ "A Steamy Romance Saga",                                    "ac=11769" },
+		{ "Master of Shadows",                                        "ac=11703" },
+		{ "Cathedral of Eternal Night",                               "ac=11700" },
+		{ "Heroic: Cathedral of Eternal Night",                       "ac=11701" },
+		{ "Mythic: Cathedral of Eternal Night",                       "ac=11702" },
 	},
 	CathedralofEternalNightB = {
 		ZoneName = { BZ["Cathedral of Eternal Night"]..ALC["MapB"] },
@@ -351,16 +340,16 @@ db.AtlasMaps = {
 		PrevMap = "CathedralofEternalNightA",
 		NextMap = "CathedralofEternalNightC",
 		LargeMap = "CathedralofEternalNightB",
-		{ BLUE.." B-C) "..ALC["Stairs"], 10001 },
+		{ BLUE.." B-C) "..ALC["Stairs"],                    10001 },
 		{ WHIT.." 1) "..Atlas_GetBossName("Agronox", 1905), 1905 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Boom Bloom", "ac=11768" },
-		{ "A Steamy Romance Saga", "ac=11769" },
-		{ "Master of Shadows", "ac=11703" },
-		{ "Cathedral of Eternal Night", "ac=11700" },
-		{ "Heroic: Cathedral of Eternal Night", "ac=11701" },
-		{ "Mythic: Cathedral of Eternal Night", "ac=11702" },
+		{ "Boom Bloom",                                     "ac=11768" },
+		{ "A Steamy Romance Saga",                          "ac=11769" },
+		{ "Master of Shadows",                              "ac=11703" },
+		{ "Cathedral of Eternal Night",                     "ac=11700" },
+		{ "Heroic: Cathedral of Eternal Night",             "ac=11701" },
+		{ "Mythic: Cathedral of Eternal Night",             "ac=11702" },
 	},
 	CathedralofEternalNightC = {
 		ZoneName = { BZ["Cathedral of Eternal Night"]..ALC["MapC"] },
@@ -374,16 +363,16 @@ db.AtlasMaps = {
 		PrevMap = "CathedralofEternalNightB",
 		NextMap = "CathedralofEternalNightD",
 		LargeMap = "CathedralofEternalNightC",
-		{ BLUE.." C-E) "..ALC["Stairs"], 10001 },
+		{ BLUE.." C-E) "..ALC["Stairs"],                                    10001 },
 		{ WHIT.." 2) "..Atlas_GetBossName("Thrashbite the Scornful", 1906), 1906 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Boom Bloom", "ac=11768" },
-		{ "A Steamy Romance Saga", "ac=11769" },
-		{ "Master of Shadows", "ac=11703" },
-		{ "Cathedral of Eternal Night", "ac=11700" },
-		{ "Heroic: Cathedral of Eternal Night", "ac=11701" },
-		{ "Mythic: Cathedral of Eternal Night", "ac=11702" },
+		{ "Boom Bloom",                                                     "ac=11768" },
+		{ "A Steamy Romance Saga",                                          "ac=11769" },
+		{ "Master of Shadows",                                              "ac=11703" },
+		{ "Cathedral of Eternal Night",                                     "ac=11700" },
+		{ "Heroic: Cathedral of Eternal Night",                             "ac=11701" },
+		{ "Mythic: Cathedral of Eternal Night",                             "ac=11702" },
 	},
 	CathedralofEternalNightD = {
 		ZoneName = { BZ["Cathedral of Eternal Night"]..ALC["MapD"] },
@@ -396,20 +385,20 @@ db.AtlasMaps = {
 		Module = "Atlas_Legion",
 		PrevMap = "CathedralofEternalNightC",
 		LargeMap = "CathedralofEternalNightD",
-		{ BLUE.." E) "..ALC["Stairs"], 10001 },
-		{ GREN.." 1') ", 129207, "item", "Aegis of Aggramar" }, -- Aegis of Aggramar
-		{ WHIT.." 3) "..Atlas_GetBossName("Domatrax", 1904), 1904 },
+		{ BLUE.." E) "..ALC["Stairs"],                          10001 },
+		{ GREN.." 1') ",                                        129207,    "item", "Aegis of Aggramar" }, -- Aegis of Aggramar
+		{ WHIT.." 3) "..Atlas_GetBossName("Domatrax", 1904),    1904 },
 		{ WHIT.." 4) "..Atlas_GetBossName("Mephistroth", 1878), 1878 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Boom Bloom", "ac=11768" },
-		{ "A Steamy Romance Saga", "ac=11769" },
-		{ "Master of Shadows", "ac=11703" },
-		{ "Cathedral of Eternal Night", "ac=11700" },
-		{ "Heroic: Cathedral of Eternal Night", "ac=11701" },
-		{ "Mythic: Cathedral of Eternal Night", "ac=11702" },
+		{ "Boom Bloom",                                         "ac=11768" },
+		{ "A Steamy Romance Saga",                              "ac=11769" },
+		{ "Master of Shadows",                                  "ac=11703" },
+		{ "Cathedral of Eternal Night",                         "ac=11700" },
+		{ "Heroic: Cathedral of Eternal Night",                 "ac=11701" },
+		{ "Mythic: Cathedral of Eternal Night",                 "ac=11702" },
 	},
---    [1087] = { mapFile = "SuramarNoblesDistrict", [1] = 762, [2] = 763, [0] = 761},
+	--    [1087] = { mapFile = "SuramarNoblesDistrict", [1] = 762, [2] = 763, [0] = 761},
 	CourtofStarsA = {
 		ZoneName = { BZ["Court of Stars"]..ALC["MapA"] },
 		Location = { BZ["Suramar"] },
@@ -420,20 +409,20 @@ db.AtlasMaps = {
 		JournalInstanceID = 800,
 		Module = "Atlas_Legion",
 		NextMap = "CourtofStarsB",
-		{ BLUE.." A) "..ALC["Entrance"], 10001 },
-		{ BLUE.." B-C) "..ALC["Connection"], 10002 },
-		{ WHIT.." 1) "..Atlas_GetBossName("Patrol Captain Gerdo", 1718), 1718 },
-		{ WHIT.." 2) "..Atlas_GetBossName("Talixae Flamewreath", 1719), 1719 },
-		{ WHIT.." 3) "..Atlas_GetBossName("Advisor Melandrus", 1720), 1720 },
+		{ BLUE.." A) "..ALC["Entrance"],                                      10001 },
+		{ BLUE.." B-C) "..ALC["Connection"],                                  10002 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Patrol Captain Gerdo", 1718),      1718 },
+		{ WHIT.." 2) "..Atlas_GetBossName("Talixae Flamewreath", 1719),       1719 },
+		{ WHIT.." 3) "..Atlas_GetBossName("Advisor Melandrus", 1720),         1720 },
 		{ GREN.." 1) "..Atlas:GetCreatureName(L["Ly'leth Lunastre"], 106468), 106468 },
 		{ ORNG.." 1) "..Atlas:GetCreatureName(L["Arcanist Malrodi"], 108796), 108796 },
-		{ ORNG.." 2) "..Atlas:GetCreatureName(L["Velimar"], 108740), 108740 },
+		{ ORNG.." 2) "..Atlas:GetCreatureName(L["Velimar"], 108740),          108740 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Waiting for Gerdo", "ac=10610" },
-		{ "Dropping Some Eaves", "ac=10611" },
-		{ "Mythic: Court of Stars", "ac=10816" },
-		{ "Mythic: Court of Stars Guild Run", "ac=10865" },
+		{ "Waiting for Gerdo",                                                "ac=10610" },
+		{ "Dropping Some Eaves",                                              "ac=10611" },
+		{ "Mythic: Court of Stars",                                           "ac=10816" },
+		{ "Mythic: Court of Stars Guild Run",                                 "ac=10865" },
 	},
 	CourtofStarsB = {
 		ZoneName = { BZ["Court of Stars"]..ALC["MapB"] },
@@ -456,23 +445,23 @@ db.AtlasMaps = {
 		JournalInstanceID = 762,
 		Module = "Atlas_Legion",
 		LargeMap = "DarkheartThicket",
-		{ BLUE.." A) "..ALC["Entrance"], 10001 },
-		{ BLUE.." B) "..ALC["Connection"], 10002 },
+		{ BLUE.." A) "..ALC["Entrance"],                                 10001 },
+		{ BLUE.." B) "..ALC["Connection"],                               10002 },
 		{ WHIT.." 1) "..Atlas_GetBossName("Arch-Druid Glaidalis", 1654), 1654 },
-		{ WHIT.." 2) "..Atlas_GetBossName("Oakheart", 1655), 1655 },
-		{ WHIT.." 3) "..Atlas_GetBossName("Dresaron", 1656), 1656 },
-		{ WHIT.." 4) "..Atlas_GetBossName("Shade of Xavius", 1657), 1657 },
-		{ ORNG.." 1) "..Atlas:GetCreatureName(L["Rage Rot"], 101660), 101660 },
-		{ ORNG.." 2) "..Atlas:GetCreatureName(L["Mythana"], 101641), 101641 },
-		{ ORNG.." 3) "..Atlas:GetCreatureName(L["Kudzilla"], 99362), 99362 },
+		{ WHIT.." 2) "..Atlas_GetBossName("Oakheart", 1655),             1655 },
+		{ WHIT.." 3) "..Atlas_GetBossName("Dresaron", 1656),             1656 },
+		{ WHIT.." 4) "..Atlas_GetBossName("Shade of Xavius", 1657),      1657 },
+		{ ORNG.." 1) "..Atlas:GetCreatureName(L["Rage Rot"], 101660),    101660 },
+		{ ORNG.." 2) "..Atlas:GetCreatureName(L["Mythana"], 101641),     101641 },
+		{ ORNG.." 3) "..Atlas:GetCreatureName(L["Kudzilla"], 99362),     99362 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Egg-cellent!", "ac=10766" },
-		{ "Burning Down the House", "ac=10769" },
-		{ "Darkheart Thicket", "ac=10783" },
-		{ "Heroic: Darkheart Thicket", "ac=10784" },
-		{ "Mythic: Darkheart Thicket", "ac=10785" },
-		{ "Mythic: Darkheart Thicket Guild Run", "ac=10857" },
+		{ "Egg-cellent!",                                                "ac=10766" },
+		{ "Burning Down the House",                                      "ac=10769" },
+		{ "Darkheart Thicket",                                           "ac=10783" },
+		{ "Heroic: Darkheart Thicket",                                   "ac=10784" },
+		{ "Mythic: Darkheart Thicket",                                   "ac=10785" },
+		{ "Mythic: Darkheart Thicket Guild Run",                         "ac=10857" },
 	},
 	EyeofAzshara = {
 		ZoneName = { BZ["Eye of Azshara"] },
@@ -482,29 +471,29 @@ db.AtlasMaps = {
 		WorldMapID = 713,
 		JournalInstanceID = 716,
 		Module = "Atlas_Legion",
-		{ BLUE.." A) "..ALC["Entrance"], 10001 },
-		{ WHIT.." 1) "..Atlas_GetBossName("Warlord Parjesh", 1480), 1480 },
-		{ WHIT.." 2) "..Atlas_GetBossName("Lady Hatecoil", 1490), 1490 },
-		{ WHIT.." 3) "..Atlas_GetBossName("Serpentrix", 1479), 1479 },
-		{ WHIT.." 4) "..Atlas_GetBossName("King Deepbeard", 1491), 1491 },
-		{ WHIT.." 5) "..Atlas_GetBossName("Wrath of Azshara", 1492), 1492 },
-		{ GREN.."1') "..L["Crate of Corks"], 248930 }, -- object
+		{ BLUE.." A) "..ALC["Entrance"],                                          10001 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Warlord Parjesh", 1480),               1480 },
+		{ WHIT.." 2) "..Atlas_GetBossName("Lady Hatecoil", 1490),                 1490 },
+		{ WHIT.." 3) "..Atlas_GetBossName("Serpentrix", 1479),                    1479 },
+		{ WHIT.." 4) "..Atlas_GetBossName("King Deepbeard", 1491),                1491 },
+		{ WHIT.." 5) "..Atlas_GetBossName("Wrath of Azshara", 1492),              1492 },
+		{ GREN.."1') "..L["Crate of Corks"],                                      248930 }, -- object
 		{ INDENT..GREY..QUESTS_COLON..L["Put a Cork in It"] },
-		{ ORNG.." 1) "..Atlas:GetCreatureName(L["Shellmaw"], 91788), 91788 },
+		{ ORNG.." 1) "..Atlas:GetCreatureName(L["Shellmaw"], 91788),              91788 },
 		{ ORNG.." 2) "..Atlas:GetCreatureName(L["Dread Captain Thedon"], 108543), 108543 },
-		{ ORNG.." 3) "..Atlas:GetCreatureName(L["Gom Crabbar"], 101411), 101411 },
-		{ ORNG.." 4) "..Atlas:GetCreatureName(L["Jaggen-Ra"], 101467), 101467 },
+		{ ORNG.." 3) "..Atlas:GetCreatureName(L["Gom Crabbar"], 101411),          101411 },
+		{ ORNG.." 4) "..Atlas:GetCreatureName(L["Jaggen-Ra"], 101467),            101467 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "But You Say He's Just a Friend", "ac=10456" },
-		{ "Stay Salty", "ac=10457" },
-		{ "Ready for Raiding V", "ac=10458" },
-		{ "Eye of Azshara", "ac=10780" },
-		{ "Heroic: Eye of Azshara", "ac=10781" },
-		{ "Mythic: Eye of Azshara", "ac=10782" },
-		{ "Mythic: Eye of Azshara Guild Run", "ac=10856" },
+		{ "But You Say He's Just a Friend",                                       "ac=10456" },
+		{ "Stay Salty",                                                           "ac=10457" },
+		{ "Ready for Raiding V",                                                  "ac=10458" },
+		{ "Eye of Azshara",                                                       "ac=10780" },
+		{ "Heroic: Eye of Azshara",                                               "ac=10781" },
+		{ "Mythic: Eye of Azshara",                                               "ac=10782" },
+		{ "Mythic: Eye of Azshara Guild Run",                                     "ac=10856" },
 	},
---    [1041] = { mapFile = "HallsofValor", [1] = 704, [2] = 705, [0] = 703},
+	--    [1041] = { mapFile = "HallsofValor", [1] = 704, [2] = 705, [0] = 703},
 	HallsofValorA = {
 		ZoneName = { BZ["Halls of Valor"]..ALC["MapA"] },
 		Location = { BZ["Stormheim"] },
@@ -515,18 +504,18 @@ db.AtlasMaps = {
 		JournalInstanceID = 721,
 		Module = "Atlas_Legion",
 		NextMap = "HallsofValorB",
-		{ BLUE.." A) "..ALC["Entrance"], 10001 },
-		{ BLUE.." B) "..ALC["Portal"], 10002 },
-		{ BLUE.." C) "..ALC["Connection"], 10003 },
-		{ WHIT.." 1) "..Atlas_GetBossName("Hymdall", 1485), 1485 },
-		{ WHIT.." 2) "..Atlas_GetBossName("Hyrja", 1486), 1486 },
+		{ BLUE.." A) "..ALC["Entrance"],                                         10001 },
+		{ BLUE.." B) "..ALC["Portal"],                                           10002 },
+		{ BLUE.." C) "..ALC["Connection"],                                       10003 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Hymdall", 1485),                      1485 },
+		{ WHIT.." 2) "..Atlas_GetBossName("Hyrja", 1486),                        1486 },
 		{ ORNG.." 1) "..Atlas:GetCreatureName(L["Volynd Stormbringer"], 106320), 106320 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Halls of Valor", "ac=10786" },
-		{ "Heroic: Halls of Valor", "ac=10788" },
-		{ "Mythic: Halls of Valor", "ac=10789" },
-		{ "Mythic: Halls of Valor Guild Run", "ac=10858" },
+		{ "Halls of Valor",                                                      "ac=10786" },
+		{ "Heroic: Halls of Valor",                                              "ac=10788" },
+		{ "Mythic: Halls of Valor",                                              "ac=10789" },
+		{ "Mythic: Halls of Valor Guild Run",                                    "ac=10858" },
 	},
 	HallsofValorB = {
 		ZoneName = { BZ["Halls of Valor"]..ALC["MapB"] },
@@ -539,18 +528,18 @@ db.AtlasMaps = {
 		Module = "Atlas_Legion",
 		PrevMap = "HallsofValorA",
 		NextMap = "HallsofValorC",
-		{ BLUE.." B) "..ALC["Portal"], 10002 },
-		{ WHIT.." 3) "..Atlas_GetBossName("Fenryr", 1487), 1487 },
-		{ INDENT..WHIT.." 3') "..L["Fenryr's western spawn point"], 10003 },
-		{ INDENT..WHIT.." 3'') "..L["Fenryr's eastern spawn point"], 10004 },
-		{ ORNG.." 2) "..Atlas:GetCreatureName(L["Arthfael"], 99802), 99802 },
+		{ BLUE.." B) "..ALC["Portal"],                                               10002 },
+		{ WHIT.." 3) "..Atlas_GetBossName("Fenryr", 1487),                           1487 },
+		{ INDENT..WHIT.." 3') "..L["Fenryr's western spawn point"],                  10003 },
+		{ INDENT..WHIT.." 3'') "..L["Fenryr's eastern spawn point"],                 10004 },
+		{ ORNG.." 2) "..Atlas:GetCreatureName(L["Arthfael"], 99802),                 99802 },
 		{ ORNG.." 3) "..Atlas:GetCreatureName(L["Earlnoc the Beastbreaker"], 96647), 96647 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Halls of Valor", "ac=10786" },
-		{ "Heroic: Halls of Valor", "ac=10788" },
-		{ "Mythic: Halls of Valor", "ac=10789" },
-		{ "Mythic: Halls of Valor Guild Run", "ac=10858" },
+		{ "Halls of Valor",                                                          "ac=10786" },
+		{ "Heroic: Halls of Valor",                                                  "ac=10788" },
+		{ "Mythic: Halls of Valor",                                                  "ac=10789" },
+		{ "Mythic: Halls of Valor Guild Run",                                        "ac=10858" },
 	},
 	HallsofValorC = {
 		ZoneName = { BZ["Halls of Valor"]..ALC["MapC"] },
@@ -562,23 +551,23 @@ db.AtlasMaps = {
 		JournalInstanceID = 721,
 		Module = "Atlas_Legion",
 		PrevMap = "HallsofValorB",
-		{ BLUE.." C) "..ALC["Connection"], 10003 },
-		{ WHIT.." 4) "..Atlas_GetBossName("God-King Skovald", 1488), 1488 },
-		{ WHIT.." 5) "..Atlas_GetBossName("Odyn", 1489), 1489 },
-		{ ORNG.." 1) "..Atlas:GetCreatureName(L["King Tor"], 97084), 97084 },
-		{ ORNG.." 2) "..Atlas:GetCreatureName(L["King Bjorn"], 97081), 97081 },
+		{ BLUE.." C) "..ALC["Connection"],                              10003 },
+		{ WHIT.." 4) "..Atlas_GetBossName("God-King Skovald", 1488),    1488 },
+		{ WHIT.." 5) "..Atlas_GetBossName("Odyn", 1489),                1489 },
+		{ ORNG.." 1) "..Atlas:GetCreatureName(L["King Tor"], 97084),    97084 },
+		{ ORNG.." 2) "..Atlas:GetCreatureName(L["King Bjorn"], 97081),  97081 },
 		{ ORNG.." 3) "..Atlas:GetCreatureName(L["King Haldor"], 95843), 95843 },
 		{ ORNG.." 4) "..Atlas:GetCreatureName(L["King Ranulf"], 97083), 97083 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "I Got What You Mead", "ac=10542" },
-		{ "Halls of Valor", "ac=10786" },
-		{ "Surge Protector", "ac=10543" },
-		{ "Heroic: Halls of Valor", "ac=10788" },
-		{ "Mythic: Halls of Valor", "ac=10789" },
-		{ "Mythic: Halls of Valor Guild Run", "ac=10858" },
+		{ "I Got What You Mead",                                        "ac=10542" },
+		{ "Halls of Valor",                                             "ac=10786" },
+		{ "Surge Protector",                                            "ac=10543" },
+		{ "Heroic: Halls of Valor",                                     "ac=10788" },
+		{ "Mythic: Halls of Valor",                                     "ac=10789" },
+		{ "Mythic: Halls of Valor Guild Run",                           "ac=10858" },
 	},
---    [1042] = { mapFile = "HelheimDungeonDock", [1] = 707, [2] = 708, [0] = 706},
+	--    [1042] = { mapFile = "HelheimDungeonDock", [1] = 707, [2] = 708, [0] = 706},
 	MawofSoulsA = {
 		ZoneName = { BZ["Maw of Souls"]..ALC["MapA"] },
 		Location = { BZ["Stormheim"] },
@@ -589,17 +578,17 @@ db.AtlasMaps = {
 		JournalInstanceID = 727,
 		Module = "Atlas_Legion",
 		NextMap = "MawofSoulsB",
-		{ BLUE.." A) "..ALC["Entrance"], 10001 },
+		{ BLUE.." A) "..ALC["Entrance"],                                                  10001 },
 		{ BLUE.." B) "..ALC["Transport"]..ALC["Hyphen"]..L["Echoing Horn of the Damned"], 10002 },
-		{ WHIT.." 1) "..Atlas_GetBossName("Ymiron, the Fallen King", 1502), 1502 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Ymiron, the Fallen King", 1502),               1502 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Helheim Hath No Fury", "ac=10411" },
-		{ "Instant Karma", "ac=10413" },
-		{ "Maw of Souls", "ac=10807" },
-		{ "Heroic: Maw of Souls", "ac=10808" },
-		{ "Mythic: Maw of Souls", "ac=10809" },
-		{ "Mythic: Maw of Souls Guild Run", "ac=10863" },
+		{ "Helheim Hath No Fury",                                                         "ac=10411" },
+		{ "Instant Karma",                                                                "ac=10413" },
+		{ "Maw of Souls",                                                                 "ac=10807" },
+		{ "Heroic: Maw of Souls",                                                         "ac=10808" },
+		{ "Mythic: Maw of Souls",                                                         "ac=10809" },
+		{ "Mythic: Maw of Souls Guild Run",                                               "ac=10863" },
 	},
 	MawofSoulsB = {
 		ZoneName = { BZ["Maw of Souls"]..ALC["MapB"] },
@@ -611,18 +600,18 @@ db.AtlasMaps = {
 		JournalInstanceID = 727,
 		Module = "Atlas_Legion",
 		PrevMap = "MawofSoulsA",
-		{ BLUE.." B-C) "..ALC["Connection"], 10001 },
+		{ BLUE.." B-C) "..ALC["Connection"],                 10001 },
 		{ WHIT.." 2) "..Atlas_GetBossName("Harbaron", 1512), 1512 },
-		{ WHIT.." 3) "..Atlas_GetBossName("Helya", 1663), 1663 },
+		{ WHIT.." 3) "..Atlas_GetBossName("Helya", 1663),    1663 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Helheim Hath No Fury", "ac=10411" },
-		{ "Poor Unfortunate Souls", "ac=10412" },
-		{ "Instant Karma", "ac=10413" },
-		{ "Maw of Souls", "ac=10807" },
-		{ "Heroic: Maw of Souls", "ac=10808" },
-		{ "Mythic: Maw of Souls", "ac=10809" },
-		{ "Mythic: Maw of Souls Guild Run", "ac=10863" },
+		{ "Helheim Hath No Fury",                            "ac=10411" },
+		{ "Poor Unfortunate Souls",                          "ac=10412" },
+		{ "Instant Karma",                                   "ac=10413" },
+		{ "Maw of Souls",                                    "ac=10807" },
+		{ "Heroic: Maw of Souls",                            "ac=10808" },
+		{ "Mythic: Maw of Souls",                            "ac=10809" },
+		{ "Mythic: Maw of Souls Guild Run",                  "ac=10863" },
 	},
 	NeltharionsLair = {
 		ZoneName = { BZ["Neltharion's Lair"] },
@@ -632,33 +621,33 @@ db.AtlasMaps = {
 		WorldMapID = 731,
 		JournalInstanceID = 767,
 		Module = "Atlas_Legion",
-		{ BLUE.." A) "..ALC["Entrance"], 10001 },
-		{ BLUE.." B) "..ALC["Exit"], 10002 },
-		{ WHIT.." 1) "..Atlas_GetBossName("Rokmora", 1662), 1662 },
-		{ WHIT.." 2) "..Atlas_GetBossName("Ularogg Cragshaper", 1665), 1665 },
-		{ WHIT.." 3) "..Atlas_GetBossName("Naraxas", 1673), 1673 },
-		{ WHIT.." 4) "..Atlas_GetBossName("Dargrul the Underking", 1687), 1687 },
-		{ GREN.." 1') "..Atlas:GetCreatureName(L["Spiritwalker Ebonhorn"], 113526), 113526 },
-		{ GREN.." 2') "..Atlas:GetCreatureName(L["Mushroom Merchant"], 111746), 111746 },
-		{ ORNG.." 1) "..Atlas:GetCreatureName(L["Ultanok"], 103247), 103247 },
-		{ ORNG.." 2) "..Atlas:GetCreatureName(L["Understone Lasher"], 103597), 103597 },
-		{ ORNG.." 3) "..Atlas:GetCreatureName(L["Ragoul"], 103199), 103199 },
+		{ BLUE.." A) "..ALC["Entrance"],                                                10001 },
+		{ BLUE.." B) "..ALC["Exit"],                                                    10002 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Rokmora", 1662),                             1662 },
+		{ WHIT.." 2) "..Atlas_GetBossName("Ularogg Cragshaper", 1665),                  1665 },
+		{ WHIT.." 3) "..Atlas_GetBossName("Naraxas", 1673),                             1673 },
+		{ WHIT.." 4) "..Atlas_GetBossName("Dargrul the Underking", 1687),               1687 },
+		{ GREN.." 1') "..Atlas:GetCreatureName(L["Spiritwalker Ebonhorn"], 113526),     113526 },
+		{ GREN.." 2') "..Atlas:GetCreatureName(L["Mushroom Merchant"], 111746),         111746 },
+		{ ORNG.." 1) "..Atlas:GetCreatureName(L["Ultanok"], 103247),                    103247 },
+		{ ORNG.." 2) "..Atlas:GetCreatureName(L["Understone Lasher"], 103597),          103597 },
+		{ ORNG.." 3) "..Atlas:GetCreatureName(L["Ragoul"], 103199),                     103199 },
 		{ ORNG.." 4) "..Atlas:GetCreatureName(L["Kraxa <Mother of Gnashers>"], 103271), 103271 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Got to Ketchum All", "ac=10996" },
-		{ "Can't Eat Just One", "ac=10875" },
-		{ "Neltharion's Lair", "ac=10795" },
-		{ "Heroic: Neltharion's Lair", "ac=10796" },
-		{ "Mythic: Neltharion's Lair", "ac=10797" },
-		{ "Mythic: Neltharion's Lair Guild Run", "ac=10859" },
+		{ "Got to Ketchum All",                                                         "ac=10996" },
+		{ "Can't Eat Just One",                                                         "ac=10875" },
+		{ "Neltharion's Lair",                                                          "ac=10795" },
+		{ "Heroic: Neltharion's Lair",                                                  "ac=10796" },
+		{ "Mythic: Neltharion's Lair",                                                  "ac=10797" },
+		{ "Mythic: Neltharion's Lair Guild Run",                                        "ac=10859" },
 	},
 	ReturntoKarazhanEnt = {
 		ZoneName = { BZ["Return to Karazhan"]..ALC["L-Parenthesis"]..ALC["Entrance"]..ALC["R-Parenthesis"] },
 		Location = { BZ["Deadwind Pass"] },
 		DungeonHeroicID = 1475, -- 1474: Upper Return to Karazhan, 1475: Lower Return to Karazhan
 		DungeonMythicID = 1475,
-		WorldMapID = 42, -- DeadwindPass
+		WorldMapID = 42,  -- DeadwindPass
 		JournalInstanceID = 860,
 		LevelRange = "110",
 		MinLevel = "110",
@@ -666,18 +655,18 @@ db.AtlasMaps = {
 		--MinGearLevel = "825",
 		Module = "Atlas_Legion",
 		NextMap = "ReturntoKarazhanA",
-		{ BLUE.." A) "..BZ["Karazhan"]..ALC["L-Parenthesis"]..ALC["Front"]..ALC["R-Parenthesis"], 10001 },
-		{ BLUE.." B) "..BZ["Karazhan"]..ALC["L-Parenthesis"]..ALC["Back"]..ALC["R-Parenthesis"], 10002 },
+		{ BLUE.." A) "..BZ["Karazhan"]..ALC["L-Parenthesis"]..ALC["Front"]..ALC["R-Parenthesis"],           10001 },
+		{ BLUE.." B) "..BZ["Karazhan"]..ALC["L-Parenthesis"]..ALC["Back"]..ALC["R-Parenthesis"],            10002 },
 		{ BLUE.." C) "..BZ["Return to Karazhan"]..ALC["L-Parenthesis"]..ALC["Upper"]..ALC["R-Parenthesis"], 10003 },
-		{ GREN.." 1') "..Atlas:GetCreatureName(L["Mage Darius"], 18255), 18255 },
-		{ GREN.." 2') "..format(ALC["Stairs to %s"], BZ["The Master's Cellar"]), 10004 },
-		{ GREN.." 3') "..format(ALC["Stairs to %s"], BZ["The Master's Cellar"]), 10005 },
-		{ GREN.." 4') "..L["Charred Bone Fragment"], 10006 },
-		{ GREN.." 5') "..ALC["Meeting Stone"], 10007 },
-		{ GREN.." 6') "..ALC["Graveyard"], 10008 },
-		{ GREN.." 7') "..Atlas:GetCreatureName(L["Lydia Accoste"], 66255), 66255 },
+		{ GREN.." 1') "..Atlas:GetCreatureName(L["Mage Darius"], 18255),                                    18255 },
+		{ GREN.." 2') "..format(ALC["Stairs to %s"], BZ["The Master's Cellar"]),                            10004 },
+		{ GREN.." 3') "..format(ALC["Stairs to %s"], BZ["The Master's Cellar"]),                            10005 },
+		{ GREN.." 4') "..L["Charred Bone Fragment"],                                                        10006 },
+		{ GREN.." 5') "..ALC["Meeting Stone"],                                                              10007 },
+		{ GREN.." 6') "..ALC["Graveyard"],                                                                  10008 },
+		{ GREN.." 7') "..Atlas:GetCreatureName(L["Lydia Accoste"], 66255),                                  66255 },
 	},
---    [1115] = { mapFile = "LegionKarazhanDungeon", [1] = 809, [2] = 810, [3] = 811, [4] = 812, [5] = 813, [6] = 814, [7] = 815, [8] = 816, [9] = 817, [10] = 818, [11] = 819, [12] = 820, [13] = 821, [14] = 822},
+	--    [1115] = { mapFile = "LegionKarazhanDungeon", [1] = 809, [2] = 810, [3] = 811, [4] = 812, [5] = 813, [6] = 814, [7] = 815, [8] = 816, [9] = 817, [10] = 818, [11] = 819, [12] = 820, [13] = 821, [14] = 822},
 	ReturntoKarazhanA = {
 		ZoneName = { BZ["Return to Karazhan"]..ALC["MapA"] },
 		Location = { BZ["Deadwind Pass"] },
@@ -692,13 +681,13 @@ db.AtlasMaps = {
 		JournalInstanceID = 860,
 		Module = "Atlas_Legion",
 		NextMap = "ReturntoKarazhanB",
-		{ BLUE.." A) "..ALC["Entrance"], 10001 },
-		{ BLUE.." B-D) "..ALC["Connection"], 10002 },
-		{ GREN.." 1') "..Atlas:GetCreatureName(L["Barnes"], 114339), 114339 },
-		{ WHIT.." 1) "..Atlas_GetBossName("Opera Hall: Wikket", 1820), 1820 },
-		{ WHIT.." 2) "..Atlas_GetBossName("Opera Hall: Westfall Story", 1826), 1826 },
+		{ BLUE.." A) "..ALC["Entrance"],                                        10001 },
+		{ BLUE.." B-D) "..ALC["Connection"],                                    10002 },
+		{ GREN.." 1') "..Atlas:GetCreatureName(L["Barnes"], 114339),            114339 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Opera Hall: Wikket", 1820),          1820 },
+		{ WHIT.." 2) "..Atlas_GetBossName("Opera Hall: Westfall Story", 1826),  1826 },
 		{ WHIT.." 3) "..Atlas_GetBossName("Opera Hall: Beautiful Beast", 1827), 1827 },
-		{ GREN.." 2') "..Atlas:GetCreatureName(L["Soul Fragment"], 115105), 115105 },
+		{ GREN.." 2') "..Atlas:GetCreatureName(L["Soul Fragment"], 115105),     115105 },
 	},
 	ReturntoKarazhanB = {
 		ZoneName = { BZ["Return to Karazhan"]..ALC["MapB"] },
@@ -715,9 +704,9 @@ db.AtlasMaps = {
 		Module = "Atlas_Legion",
 		PrevMap = "ReturntoKarazhanA",
 		NextMap = "ReturntoKarazhanC",
-		{ BLUE.." D-F) "..ALC["Connection"], 10001 },
+		{ BLUE.." D-F) "..ALC["Connection"],                                10001 },
 		{ GREN.." 3') "..Atlas:GetCreatureName(L["Soul Fragment"], 115013), 115013 },
-		{ WHIT.." 4) "..Atlas_GetBossName("Maiden of Virtue", 1825), 1825 },
+		{ WHIT.." 4) "..Atlas_GetBossName("Maiden of Virtue", 1825),        1825 },
 	},
 	ReturntoKarazhanC = {
 		ZoneName = { BZ["Return to Karazhan"]..ALC["MapC"] },
@@ -734,8 +723,8 @@ db.AtlasMaps = {
 		Module = "Atlas_Legion",
 		PrevMap = "ReturntoKarazhanB",
 		NextMap = "ReturntoKarazhanD",
-		{ BLUE.." E-H) "..ALC["Connection"], 10001 },
-		{ WHIT.." 5) "..Atlas_GetBossName("Moroes", 1837), 1837 },
+		{ BLUE.." E-H) "..ALC["Connection"],                                10001 },
+		{ WHIT.." 5) "..Atlas_GetBossName("Moroes", 1837),                  1837 },
 		{ GREN.." 4') "..Atlas:GetCreatureName(L["Soul Fragment"], 115103), 115103 },
 	},
 	ReturntoKarazhanD = {
@@ -753,10 +742,10 @@ db.AtlasMaps = {
 		Module = "Atlas_Legion",
 		PrevMap = "ReturntoKarazhanC",
 		NextMap = "ReturntoKarazhanE",
-		{ BLUE.." F-H) "..ALC["Connection"], 10001 },
-		{ BLUE.." I) "..format(ALC["Portal to %s"], ALC["Entrance"]), 10002 },
-		{ GREN.." 5') "..Atlas:GetCreatureName(L["Koren"], 114815), 114815},
-		{ WHIT.." 6) "..Atlas_GetBossName("Attumen the Huntsman", 1835), 1835 },
+		{ BLUE.." F-H) "..ALC["Connection"],                                10001 },
+		{ BLUE.." I) "..format(ALC["Portal to %s"], ALC["Entrance"]),       10002 },
+		{ GREN.." 5') "..Atlas:GetCreatureName(L["Koren"], 114815),         114815 },
+		{ WHIT.." 6) "..Atlas_GetBossName("Attumen the Huntsman", 1835),    1835 },
 		{ WHIT..INDENT..Atlas_GetBossName("Midnight", 1835, 2) },
 		{ GREN.." 6') "..Atlas:GetCreatureName(L["Soul Fragment"], 115101), 115101 },
 	},
@@ -775,10 +764,10 @@ db.AtlasMaps = {
 		Module = "Atlas_Legion",
 		PrevMap = "ReturntoKarazhanD",
 		NextMap = "ReturntoKarazhanF",
-		{ BLUE.." C) "..ALC["Connection"], 10001 },
+		{ BLUE.." C) "..ALC["Connection"],                                                                                  10001 },
 		{ WHIT.." 7) "..Atlas_GetBossName("The Curator", 1836)..ALC["L-Parenthesis"]..ALC["Wanders"]..ALC["R-Parenthesis"], 1836 },
-		{ GREN.." 7') "..Atlas:GetCreatureName(L["Soul Fragment"], 115113), 115113 },
-		{ BLUE.." J) "..format(ALC["Portal to %s"], BZ["Guardian's Library"]), 10003 },
+		{ GREN.." 7') "..Atlas:GetCreatureName(L["Soul Fragment"], 115113),                                                 115113 },
+		{ BLUE.." J) "..format(ALC["Portal to %s"], BZ["Guardian's Library"]),                                              10003 },
 	},
 	ReturntoKarazhanF = {
 		ZoneName = { BZ["Return to Karazhan"]..ALC["MapF"] },
@@ -795,9 +784,9 @@ db.AtlasMaps = {
 		Module = "Atlas_Legion",
 		PrevMap = "ReturntoKarazhanE",
 		NextMap = "ReturntoKarazhanG",
-		{ BLUE.." J) "..ALC["Portal"], 10001 },
+		{ BLUE.." J) "..ALC["Portal"],                              10001 },
 		{ WHIT.." 8) "..Atlas_GetBossName("Shade of Medivh", 1817), 1817 },
-		{ BLUE.." K) "..ALC["Portal"], 10002 },
+		{ BLUE.." K) "..ALC["Portal"],                              10002 },
 	},
 	ReturntoKarazhanG = {
 		ZoneName = { BZ["Return to Karazhan"]..ALC["MapG"] },
@@ -814,8 +803,8 @@ db.AtlasMaps = {
 		Module = "Atlas_Legion",
 		PrevMap = "ReturntoKarazhanF",
 		NextMap = "ReturntoKarazhanH",
-		{ BLUE.." K) "..ALC["Entrance"], 10001 },
-		{ GREN.." 8') "..L["Medivh's Footlocker"], 266826 }, -- object
+		{ BLUE.." K) "..ALC["Entrance"],                          10001 },
+		{ GREN.." 8') "..L["Medivh's Footlocker"],                266826 }, -- object
 		{ WHIT.." 9) "..Atlas_GetBossName("Mana Devourer", 1818), 1818 },
 	},
 	ReturntoKarazhanH = {
@@ -833,9 +822,9 @@ db.AtlasMaps = {
 		Module = "Atlas_Legion",
 		PrevMap = "ReturntoKarazhanG",
 		NextMap = "ReturntoKarazhanI",
-		{ BLUE.." L) "..ALC["Entrance"], 10001 },
-		{ GREN.." 9') ", 143537, "item", "Mana Focus" }, -- quest of Return to Karazhan: Cubic Cynosure, 45238
-		{ BLUE.." M) "..ALC["Connection"], 10002 },
+		{ BLUE.." L) "..ALC["Entrance"],                                                                      10001 },
+		{ GREN.." 9') ",                                                                                      143537, "item", "Mana Focus" }, -- quest of Return to Karazhan: Cubic Cynosure, 45238
+		{ BLUE.." M) "..ALC["Connection"],                                                                    10002 },
 		{ BLUE.." N) "..format(ALC["Portal to %s"], ALC["Entrance"]).."\n"..INDENT..GREY..ALC["Upper floor"], 10003 },
 		{ INDENT..GREY..ALC["Upper floor"] },
 	},
@@ -853,8 +842,8 @@ db.AtlasMaps = {
 		--MinGearLevel = "825",
 		Module = "Atlas_Legion",
 		PrevMap = "ReturntoKarazhanH",
-		{ BLUE.." M) "..ALC["Connection"], 10001 },
-		{ WHIT.."10) "..Atlas_GetBossName("Viz'aduum the Watcher", 1838), 1838 },
+		{ BLUE.." M) "..ALC["Connection"],                                                                                                     10001 },
+		{ WHIT.."10) "..Atlas_GetBossName("Viz'aduum the Watcher", 1838),                                                                      1838 },
 		{ GREN.." 9') "..Atlas:GetCreatureName(L["Archmage Khadgar"], 115497).."\n"..INDENT..WHIT..format(ALC["Portal to %s"], BZ["Dalaran"]), 115497 },
 		{ INDENT..WHIT..format(ALC["Portal to %s"], BZ["Dalaran"]) },
 	},
@@ -867,17 +856,17 @@ db.AtlasMaps = {
 		Module = "Atlas_Legion",
 		NextMap = "TheArcway",
 		{ WHIT..ALC["Upper"] },
-		{ INDENT..BLUE.." A) "..BZ["The Grand Promenade"], 10001 },
-		{ INDENT..PURP.." A) "..ALC["Transport"], 10005 },
+		{ INDENT..BLUE.." A) "..BZ["The Grand Promenade"],                                                                                                 10001 },
+		{ INDENT..PURP.." A) "..ALC["Transport"],                                                                                                          10005 },
 		{ WHIT..ALC["Lower"] },
-		{ INDENT..BLUE.." B) "..BZ["Terrace of Order"], 10002 },
-		{ INDENT..BLUE.." C) "..BZ["The Arcway"], 10003 },
-		{ INDENT..BLUE.." D) "..BZ["The Nighthold"], 10004 },
-		{ INDENT..PURP.." A) "..ALC["Transport"], 10005 },
-		{ INDENT..PURP.." B) "..L["Portal to Shal'Aran"], 10006 },
-		{ INDENT..WHIT.." 1) "..ALC["Meeting Stone"], 10007 },
+		{ INDENT..BLUE.." B) "..BZ["Terrace of Order"],                                                                                                    10002 },
+		{ INDENT..BLUE.." C) "..BZ["The Arcway"],                                                                                                          10003 },
+		{ INDENT..BLUE.." D) "..BZ["The Nighthold"],                                                                                                       10004 },
+		{ INDENT..PURP.." A) "..ALC["Transport"],                                                                                                          10005 },
+		{ INDENT..PURP.." B) "..L["Portal to Shal'Aran"],                                                                                                  10006 },
+		{ INDENT..WHIT.." 1) "..ALC["Meeting Stone"],                                                                                                      10007 },
 		{ INDENT..GREN.." 1') "..Atlas:GetCreatureName(L["First Arcanist Thalyssra"], 115366).."\n"..Atlas:GetCreatureName(L["Archmage Khadgar"], 115367), 115366 },
-		{ INDENT..INDENT..GREN..Atlas:GetCreatureName(L["Archmage Khadgar"], 115367), 115367 },
+		{ INDENT..INDENT..GREN..Atlas:GetCreatureName(L["Archmage Khadgar"], 115367),                                                                      115367 },
 	},
 	TheArcway = {
 		ZoneName = { BZ["The Arcway"] },
@@ -889,24 +878,24 @@ db.AtlasMaps = {
 		Module = "Atlas_Legion",
 		PrevMap = "TheArcwayEnt",
 		LargeMap = "TheArcway",
-		{ BLUE.." A) "..ALC["Entrance"], 10001 },
-		{ WHIT.." 1) "..Atlas_GetBossName("Ivanyr", 1497), 1497 },
-		{ WHIT.." 2) "..Atlas_GetBossName("Corstilax", 1498), 1498 },
-		{ WHIT.." 3) "..Atlas_GetBossName("General Xakal", 1499), 1499 },
-		{ WHIT.." 4) "..Atlas_GetBossName("Nal'tira", 1500), 1500 },
-		{ WHIT.." 5) "..Atlas_GetBossName("Advisor Vandros", 1501), 1501 },
+		{ BLUE.." A) "..ALC["Entrance"],                                  10001 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Ivanyr", 1497),                1497 },
+		{ WHIT.." 2) "..Atlas_GetBossName("Corstilax", 1498),             1498 },
+		{ WHIT.." 3) "..Atlas_GetBossName("General Xakal", 1499),         1499 },
+		{ WHIT.." 4) "..Atlas_GetBossName("Nal'tira", 1500),              1500 },
+		{ WHIT.." 5) "..Atlas_GetBossName("Advisor Vandros", 1501),       1501 },
 		{ ORNG.." 1) "..Atlas:GetCreatureName(L["The Rat King"], 111057), 111057 },
-		{ ORNG.." 2) "..Atlas:GetCreatureName(L["Sludge Face"], 111021), 111021 },
-		{ GREN.." 1') ", 138394, "item", L["Suramar Leyline Map"] },
+		{ ORNG.." 2) "..Atlas:GetCreatureName(L["Sludge Face"], 111021),  111021 },
+		{ GREN.." 1') ",                                                  138394,    "item", L["Suramar Leyline Map"] },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Arcanic Cling", "ac=10773" },
-		{ "Clean House", "ac=10775" },
-		{ "No Time to Waste", "ac=10776" },
-		{ "Mythic: The Arcway", "ac=10813" },
-		{ "Mythic: The Arcway Guild Run", "ac=10864" },
+		{ "Arcanic Cling",                                                "ac=10773" },
+		{ "Clean House",                                                  "ac=10775" },
+		{ "No Time to Waste",                                             "ac=10776" },
+		{ "Mythic: The Arcway",                                           "ac=10813" },
+		{ "Mythic: The Arcway Guild Run",                                 "ac=10864" },
 	},
---    [1094] = { mapFile = "NightmareRaid", [1] = 777, [2] = 778, [3] = 779, [4] = 780, [5] = 781, [6] = 782, [7] = 783, [8] = 784, [9] = 785, [10] = 786, [11] = 787, [12] = 788, [13] = 789},
+	--    [1094] = { mapFile = "NightmareRaid", [1] = 777, [2] = 778, [3] = 779, [4] = 780, [5] = 781, [6] = 782, [7] = 783, [8] = 784, [9] = 785, [10] = 786, [11] = 787, [12] = 788, [13] = 789},
 	TheEmeraldNightmareA = {
 		ZoneName = { BZ["The Emerald Nightmare"]..ALC["MapA"] },
 		Location = { BZ["Val'sharah"] },
@@ -920,16 +909,16 @@ db.AtlasMaps = {
 		--MinGearLevel = "825",
 		Module = "Atlas_Legion",
 		NextMap = "TheEmeraldNightmareB",
-		{ BLUE.." A) "..ALC["Entrance"], 10001 },
-		{ BLUE.." B) "..ALC["Connection"], 10002 },
+		{ BLUE.." A) "..ALC["Entrance"],                      10001 },
+		{ BLUE.." B) "..ALC["Connection"],                    10002 },
 		{ WHIT.." 1) "..Atlas_GetBossName("Nythendra", 1703), 1703 },
-		{ GREN.." 1') "..L["Nightmare Watcher"], 10003 },
+		{ GREN.." 1') "..L["Nightmare Watcher"],              10003 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Darkbough", "ac=10818" },
-		{ "Buggy Fight", "ac=10555" },
-		{ "Mythic: Nythendra", "ac=10821" },
-		{ "The Emerald Nightmare Guild Run", "ac=10866" },
+		{ "Darkbough",                                        "ac=10818" },
+		{ "Buggy Fight",                                      "ac=10555" },
+		{ "Mythic: Nythendra",                                "ac=10821" },
+		{ "The Emerald Nightmare Guild Run",                  "ac=10866" },
 	},
 	TheEmeraldNightmareB = {
 		ZoneName = { BZ["The Emerald Nightmare"]..ALC["MapB"] },
@@ -945,11 +934,11 @@ db.AtlasMaps = {
 		Module = "Atlas_Legion",
 		PrevMap = "TheEmeraldNightmareA",
 		NextMap = "TheEmeraldNightmareC",
-		{ BLUE.." B) "..ALC["Connection"], 10002 },
-		{ BLUE.." C) "..ALC["Portal"]..ALC["Colon"]..BZ["Un'Goro Crater"], 10003 },
-		{ BLUE.." D) "..ALC["Portal"]..ALC["Colon"]..BZ["Mulgore"], 10004 },
-		{ BLUE.." E) "..ALC["Portal"]..ALC["Colon"]..BZ["Grizzly Hills"], 10005 },
-		{ BLUE.." F) "..ALC["Portal"]..ALC["Colon"]..BZ["The Emerald Dreamway"], 10006 },
+		{ BLUE.." B) "..ALC["Connection"],                                        10002 },
+		{ BLUE.." C) "..ALC["Portal"]..ALC["Colon"]..BZ["Un'Goro Crater"],        10003 },
+		{ BLUE.." D) "..ALC["Portal"]..ALC["Colon"]..BZ["Mulgore"],               10004 },
+		{ BLUE.." E) "..ALC["Portal"]..ALC["Colon"]..BZ["Grizzly Hills"],         10005 },
+		{ BLUE.." F) "..ALC["Portal"]..ALC["Colon"]..BZ["The Emerald Dreamway"],  10006 },
 		{ GREN.." 1') "..Atlas:GetCreatureName(L["Malfurion Stormrage"], 106482), 106482 },
 		{ INDENT..GREY..L["Teleport to Moonglade"] },
 	},
@@ -967,14 +956,14 @@ db.AtlasMaps = {
 		Module = "Atlas_Legion",
 		PrevMap = "TheEmeraldNightmareB",
 		NextMap = "TheEmeraldNightmareD",
-		{ BLUE.." C) "..ALC["Portal"], 10003 },
+		{ BLUE.." C) "..ALC["Portal"],                                             10003 },
 		{ WHIT.." 2) "..Atlas_GetBossName("Il'gynoth, Heart of Corruption", 1738), 1738 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Darkbough", "ac=10818" },
-		{ "Took the Red Eye Down", "ac=10830" },
-		{ "Mythic: Il'gynoth", "ac=10823" },
-		{ "The Emerald Nightmare Guild Run", "ac=10866" },
+		{ "Darkbough",                                                             "ac=10818" },
+		{ "Took the Red Eye Down",                                                 "ac=10830" },
+		{ "Mythic: Il'gynoth",                                                     "ac=10823" },
+		{ "The Emerald Nightmare Guild Run",                                       "ac=10866" },
 	},
 	TheEmeraldNightmareD = {
 		ZoneName = { BZ["The Emerald Nightmare"]..ALC["MapD"] },
@@ -990,14 +979,14 @@ db.AtlasMaps = {
 		Module = "Atlas_Legion",
 		PrevMap = "TheEmeraldNightmareC",
 		NextMap = "TheEmeraldNightmareE",
-		{ BLUE.." D) "..ALC["Portal"], 10004 },
+		{ BLUE.." D) "..ALC["Portal"],                                10004 },
 		{ WHIT.." 3) "..Atlas_GetBossName("Elerethe Renferal", 1744), 1744 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Darkbough", "ac=10818" },
-		{ "Webbing Crashers", "ac=10771" },
-		{ "Mythic: Elerethe Renferal", "ac=10822" },
-		{ "The Emerald Nightmare Guild Run", "ac=10866" },
+		{ "Darkbough",                                                "ac=10818" },
+		{ "Webbing Crashers",                                         "ac=10771" },
+		{ "Mythic: Elerethe Renferal",                                "ac=10822" },
+		{ "The Emerald Nightmare Guild Run",                          "ac=10866" },
 	},
 	TheEmeraldNightmareE = {
 		ZoneName = { BZ["The Emerald Nightmare"]..ALC["MapE"] },
@@ -1013,14 +1002,14 @@ db.AtlasMaps = {
 		Module = "Atlas_Legion",
 		PrevMap = "TheEmeraldNightmareD",
 		NextMap = "TheEmeraldNightmareF",
-		{ BLUE.." E) "..ALC["Portal"], 10005 },
+		{ BLUE.." E) "..ALC["Portal"],                    10005 },
 		{ WHIT.." 4) "..Atlas_GetBossName("Ursoc", 1667), 1667 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Tormented Guardians", "ac=10819" },
-		{ "Scare Bear", "ac=10753" },
-		{ "Mythic: Ursoc", "ac=10824" },
-		{ "The Emerald Nightmare Guild Run", "ac=10866" },
+		{ "Tormented Guardians",                          "ac=10819" },
+		{ "Scare Bear",                                   "ac=10753" },
+		{ "Mythic: Ursoc",                                "ac=10824" },
+		{ "The Emerald Nightmare Guild Run",              "ac=10866" },
 	},
 	TheEmeraldNightmareF = {
 		ZoneName = { BZ["The Emerald Nightmare"]..ALC["MapF"] },
@@ -1036,14 +1025,14 @@ db.AtlasMaps = {
 		Module = "Atlas_Legion",
 		PrevMap = "TheEmeraldNightmareE",
 		NextMap = "TheEmeraldNightmareG",
-		{ BLUE.." F) "..ALC["Portal"], 10006 },
+		{ BLUE.." F) "..ALC["Portal"],                                   10006 },
 		{ WHIT.." 5) "..Atlas_GetBossName("Dragons of Nightmare", 1704), 1704 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Tormented Guardians", "ac=10819" },
-		{ "Imagined Dragons World Tour", "ac=10663" },
-		{ "Mythic: Dragons of Nightmare", "ac=10825" },
-		{ "The Emerald Nightmare Guild Run", "ac=10866" },
+		{ "Tormented Guardians",                                         "ac=10819" },
+		{ "Imagined Dragons World Tour",                                 "ac=10663" },
+		{ "Mythic: Dragons of Nightmare",                                "ac=10825" },
+		{ "The Emerald Nightmare Guild Run",                             "ac=10866" },
 	},
 	TheEmeraldNightmareG = {
 		ZoneName = { BZ["The Emerald Nightmare"]..ALC["MapG"] },
@@ -1059,15 +1048,15 @@ db.AtlasMaps = {
 		Module = "Atlas_Legion",
 		PrevMap = "TheEmeraldNightmareF",
 		NextMap = "TheEmeraldNightmareH",
-		{ BLUE.." G) "..ALC["Portal"], 10007 },
+		{ BLUE.." G) "..ALC["Portal"],                       10007 },
 		{ WHIT.." 6) "..Atlas_GetBossName("Cenarius", 1750), 1750 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Tormented Guardians", "ac=10819" },
-		{ "Use the Force(s)", "ac=10772" },
-		{ "I Attack the Darkness", "ac=10755" },
-		{ "Mythic: Cenarius", "ac=10826" },
-		{ "The Emerald Nightmare Guild Run", "ac=10866" },
+		{ "Tormented Guardians",                             "ac=10819" },
+		{ "Use the Force(s)",                                "ac=10772" },
+		{ "I Attack the Darkness",                           "ac=10755" },
+		{ "Mythic: Cenarius",                                "ac=10826" },
+		{ "The Emerald Nightmare Guild Run",                 "ac=10866" },
 	},
 	TheEmeraldNightmareH = {
 		ZoneName = { BZ["The Emerald Nightmare"]..ALC["MapH"] },
@@ -1085,12 +1074,12 @@ db.AtlasMaps = {
 		{ WHIT.." 7) "..Atlas_GetBossName("Xavius", 1726), 1726 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Rift of Aln", "ac=10820" },
-		{ "Ahead of the Curve: Xavius", "ac=11194" },
-		{ "Cutting Edge: Xavius", "ac=11191" },
-		{ "Mythic: Xavius", "ac=10827" },
-		{ "Mythic: Xavius Guild Run", "ac=11238" },
-		{ "The Emerald Nightmare Guild Run", "ac=10866" },
+		{ "Rift of Aln",                                   "ac=10820" },
+		{ "Ahead of the Curve: Xavius",                    "ac=11194" },
+		{ "Cutting Edge: Xavius",                          "ac=11191" },
+		{ "Mythic: Xavius",                                "ac=10827" },
+		{ "Mythic: Xavius Guild Run",                      "ac=11238" },
+		{ "The Emerald Nightmare Guild Run",               "ac=10866" },
 	},
 	TheNightholdEnt = {
 		ZoneName = { BZ["The Nighthold"]..ALC["L-Parenthesis"]..ALC["Entrance"]..ALC["R-Parenthesis"] },
@@ -1103,19 +1092,19 @@ db.AtlasMaps = {
 		Module = "Atlas_Legion",
 		NextMap = "TheNightholdA",
 		{ WHIT..ALC["Upper"] },
-		{ INDENT..BLUE.." A) "..BZ["The Grand Promenade"], 10001 },
-		{ INDENT..PURP.." A) "..ALC["Transport"], 10005 },
+		{ INDENT..BLUE.." A) "..BZ["The Grand Promenade"],                                                                                                 10001 },
+		{ INDENT..PURP.." A) "..ALC["Transport"],                                                                                                          10005 },
 		{ WHIT..ALC["Lower"] },
-		{ INDENT..BLUE.." B) "..BZ["Terrace of Order"], 10002 },
-		{ INDENT..BLUE.." C) "..BZ["The Arcway"], 10003 },
-		{ INDENT..BLUE.." D) "..BZ["The Nighthold"], 10004 },
-		{ INDENT..PURP.." A) "..ALC["Transport"], 10005 },
-		{ INDENT..PURP.." B) "..L["Portal to Shal'Aran"], 10006 },
-		{ INDENT..WHIT.." 1) "..ALC["Meeting Stone"], 10007 },
+		{ INDENT..BLUE.." B) "..BZ["Terrace of Order"],                                                                                                    10002 },
+		{ INDENT..BLUE.." C) "..BZ["The Arcway"],                                                                                                          10003 },
+		{ INDENT..BLUE.." D) "..BZ["The Nighthold"],                                                                                                       10004 },
+		{ INDENT..PURP.." A) "..ALC["Transport"],                                                                                                          10005 },
+		{ INDENT..PURP.." B) "..L["Portal to Shal'Aran"],                                                                                                  10006 },
+		{ INDENT..WHIT.." 1) "..ALC["Meeting Stone"],                                                                                                      10007 },
 		{ INDENT..GREN.." 1') "..Atlas:GetCreatureName(L["First Arcanist Thalyssra"], 115366).."\n"..Atlas:GetCreatureName(L["Archmage Khadgar"], 115367), 115366 },
-		{ INDENT..INDENT..GREN..Atlas:GetCreatureName(L["Archmage Khadgar"], 115367), 115367 },
+		{ INDENT..INDENT..GREN..Atlas:GetCreatureName(L["Archmage Khadgar"], 115367),                                                                      115367 },
 	},
---    [1088] = { mapFile = "SuramarRaid", [1] = 764, [2] = 765, [3] = 766, [4] = 767, [5] = 768, [6] = 769, [7] = 770, [8] = 771, [9] = 772},
+	--    [1088] = { mapFile = "SuramarRaid", [1] = 764, [2] = 765, [3] = 766, [4] = 767, [5] = 768, [6] = 769, [7] = 770, [8] = 771, [9] = 772},
 	TheNightholdA = {
 		ZoneName = { BZ["The Nighthold"]..ALC["MapA"] },
 		Location = { BZ["Suramar"] },
@@ -1131,24 +1120,24 @@ db.AtlasMaps = {
 		PrevMap = "TheNightholdEnt",
 		NextMap = "TheNightholdB",
 		LargeMap = "TheNightholdA",
-		{ BLUE.." A) "..ALC["Entrance"], 10001 },
-		{ BLUE.." B-C) "..ALC["Connection"], 10002 },
-		{ WHIT.." 1) "..Atlas_GetBossName("Skorpyron", 1706), 1706 },
-		{ WHIT.." 2) "..Atlas_GetBossName("Chronomatic Anomaly", 1725)..ALC["L-Parenthesis"]..ALC["Wanders"]..ALC["R-Parenthesis"], 1725 },
-		{ WHIT.." 3) "..Atlas_GetBossName("Trilliax", 1731), 1731 },
+		{ BLUE.." A) "..ALC["Entrance"],                                                                                                           10001 },
+		{ BLUE.." B-C) "..ALC["Connection"],                                                                                                       10002 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Skorpyron", 1706),                                                                                      1706 },
+		{ WHIT.." 2) "..Atlas_GetBossName("Chronomatic Anomaly", 1725)..ALC["L-Parenthesis"]..ALC["Wanders"]..ALC["R-Parenthesis"],                1725 },
+		{ WHIT.." 3) "..Atlas_GetBossName("Trilliax", 1731),                                                                                       1731 },
 		{ GREN.." 1') "..Atlas:GetCreatureName(L["First Arcanist Thalyssra"], 110791).."\n"..Atlas:GetCreatureName(L["Archmage Khadgar"], 110792), 110791 },
 		{ INDENT..GREN..Atlas:GetCreatureName(L["Archmage Khadgar"], 110792) },
---		{ GREY..INDENT..L["Teleport to Tichondrius / Grand Magistrix Elisande"] },
+		--		{ GREY..INDENT..L["Teleport to Tichondrius / Grand Magistrix Elisande"] },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Cage Rematch", "ac=10678" },
-		{ "Grand Opening", "ac=10697" },
-		{ "Gluten Free", "ac=10742" },
-		{ "Arcing Aqueducts", "ac=10829" },
-		{ "Mythic: Skorpyron", "ac=10840" },
-		{ "Mythic: Chronomatic Anomaly", "ac=10842" },
-		{ "Mythic: Trilliax", "ac=10843" },
-		{ "The Nighthold Guild Run", "ac=10868" },
+		{ "Cage Rematch",                                                                                                                          "ac=10678" },
+		{ "Grand Opening",                                                                                                                         "ac=10697" },
+		{ "Gluten Free",                                                                                                                           "ac=10742" },
+		{ "Arcing Aqueducts",                                                                                                                      "ac=10829" },
+		{ "Mythic: Skorpyron",                                                                                                                     "ac=10840" },
+		{ "Mythic: Chronomatic Anomaly",                                                                                                           "ac=10842" },
+		{ "Mythic: Trilliax",                                                                                                                      "ac=10843" },
+		{ "The Nighthold Guild Run",                                                                                                               "ac=10868" },
 	},
 	TheNightholdB = {
 		ZoneName = { BZ["The Nighthold"]..ALC["MapB"] },
@@ -1165,36 +1154,36 @@ db.AtlasMaps = {
 		PrevMap = "TheNightholdA",
 		NextMap = "TheNightholdC",
 		LargeMap = "TheNightholdB",
-		{ BLUE.." A) "..ALC["Entrance"], 10001 },
-		{ BLUE.." C-J) "..ALC["Connection"], 10002 },
-		{ BLUE.." F/H) "..ALC["Connection"]..ALC["L-Parenthesis"]..ALC["Upper"]..ALC["R-Parenthesis"], 10002 },
-		{ BLUE.." K) "..ALC["Portal"], 10003 },
+		{ BLUE.." A) "..ALC["Entrance"],                                                                                                                                   10001 },
+		{ BLUE.." C-J) "..ALC["Connection"],                                                                                                                               10002 },
+		{ BLUE.." F/H) "..ALC["Connection"]..ALC["L-Parenthesis"]..ALC["Upper"]..ALC["R-Parenthesis"],                                                                     10002 },
+		{ BLUE.." K) "..ALC["Portal"],                                                                                                                                     10003 },
 		{ INDENT..GREY..format(ALC["Portal to %s"], BZ["The Nightspire"])..ALC["L-Parenthesis"]..Atlas_GetBossName("Grand Magistrix Elisande", 1743)..ALC["R-Parenthesis"] },
 		{ INDENT..GREY..format(ALC["Portal to %s"], BZ["The Font of Night"])..ALC["L-Parenthesis"]..Atlas_GetBossName("Gul'dan", 1737)..ALC["R-Parenthesis"] },
-		{ WHIT.." 4) "..Atlas_GetBossName("Spellblade Aluriel", 1751)..ALC["L-Parenthesis"]..ALC["Wanders"]..ALC["R-Parenthesis"], 1751 },
-		{ WHIT.." 6) "..Atlas_GetBossName("High Botanist Tel'arn", 1761), 1761 },
-		{ WHIT.." 8) "..Atlas_GetBossName("Krosus", 1713), 1713 },
-		{ WHIT.." 10) "..Atlas_GetBossName("Gul'dan", 1737)..ALC["L-Parenthesis"]..ALC["Upper"]..ALC["R-Parenthesis"], 1737 },
-		{ ORNG.." 1) "..Atlas:GetCreatureName(L["Gilded Guardian"], 112712), 112712 },
-		{ ORNG.." 2) "..Atlas:GetCreatureName(L["Flightmaster Volnath"], 116004), 116004 },
-		{ GREN.." 2') "..Atlas:GetCreatureName(L["Ly'leth Lunastre"], 117085), 117085 },
+		{ WHIT.." 4) "..Atlas_GetBossName("Spellblade Aluriel", 1751)..ALC["L-Parenthesis"]..ALC["Wanders"]..ALC["R-Parenthesis"],                                         1751 },
+		{ WHIT.." 6) "..Atlas_GetBossName("High Botanist Tel'arn", 1761),                                                                                                  1761 },
+		{ WHIT.." 8) "..Atlas_GetBossName("Krosus", 1713),                                                                                                                 1713 },
+		{ WHIT.." 10) "..Atlas_GetBossName("Gul'dan", 1737)..ALC["L-Parenthesis"]..ALC["Upper"]..ALC["R-Parenthesis"],                                                     1737 },
+		{ ORNG.." 1) "..Atlas:GetCreatureName(L["Gilded Guardian"], 112712),                                                                                               112712 },
+		{ ORNG.." 2) "..Atlas:GetCreatureName(L["Flightmaster Volnath"], 116004),                                                                                          116004 },
+		{ GREN.." 2') "..Atlas:GetCreatureName(L["Ly'leth Lunastre"], 117085),                                                                                             117085 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "A Change In Scenery", "ac=10817" },
-		{ "Burning Bridges", "ac=10575" },
-		{ "Fruit of All Evil", "ac=10754" },
-		{ "Nightspire", "ac=10838" },
-		{ "Royal Athenaeum", "ac=10837" },
-		{ "Betrayer's Rise", "ac=10839" },
-		{ "I've Got My Eyes On You", "ac=10696" },
-		{ "Mythic: Spellblade Aluriel", "ac=10844" },
-		{ "Mythic: Krosus", "ac=10848" },
-		{ "Mythic: High Botanist Tel'arn", "ac=10846" },
-		{ "Mythic: Gul'dan", "ac=10850" },
-		{ "Mythic: Gul'dan Guild Run", "ac=11239" },
-		{ "Cutting Edge: Gul'dan", "ac=11192" },
-		{ "Ahead of the Curve: Gul'dan", "ac=11195" },
-		{ "The Nighthold Guild Run", "ac=10868" },
+		{ "A Change In Scenery",                                                                                                                                           "ac=10817" },
+		{ "Burning Bridges",                                                                                                                                               "ac=10575" },
+		{ "Fruit of All Evil",                                                                                                                                             "ac=10754" },
+		{ "Nightspire",                                                                                                                                                    "ac=10838" },
+		{ "Royal Athenaeum",                                                                                                                                               "ac=10837" },
+		{ "Betrayer's Rise",                                                                                                                                               "ac=10839" },
+		{ "I've Got My Eyes On You",                                                                                                                                       "ac=10696" },
+		{ "Mythic: Spellblade Aluriel",                                                                                                                                    "ac=10844" },
+		{ "Mythic: Krosus",                                                                                                                                                "ac=10848" },
+		{ "Mythic: High Botanist Tel'arn",                                                                                                                                 "ac=10846" },
+		{ "Mythic: Gul'dan",                                                                                                                                               "ac=10850" },
+		{ "Mythic: Gul'dan Guild Run",                                                                                                                                     "ac=11239" },
+		{ "Cutting Edge: Gul'dan",                                                                                                                                         "ac=11192" },
+		{ "Ahead of the Curve: Gul'dan",                                                                                                                                   "ac=11195" },
+		{ "The Nighthold Guild Run",                                                                                                                                       "ac=10868" },
 	},
 	TheNightholdC = {
 		ZoneName = { BZ["The Nighthold"]..ALC["MapC"] },
@@ -1211,15 +1200,15 @@ db.AtlasMaps = {
 		PrevMap = "TheNightholdB",
 		NextMap = "TheNightholdD",
 		LargeMap = "TheNightholdC",
-		{ BLUE.." D-E) "..ALC["Connection"], 10001 },
+		{ BLUE.." D-E) "..ALC["Connection"],                                                         10001 },
 		{ BLUE.." F) "..ALC["Connection"]..ALC["L-Parenthesis"]..ALC["Upper"]..ALC["R-Parenthesis"], 10002 },
-		{ WHIT.." 5) "..Atlas_GetBossName("Star Augur Etraeus", 1732), 1732 },
+		{ WHIT.." 5) "..Atlas_GetBossName("Star Augur Etraeus", 1732),                               1732 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Elementalry!", "ac=10851" },
-		{ "Royal Athenaeum", "ac=10837" },
-		{ "Mythic: Star Augur Etraeus", "ac=10845" },
-		{ "The Nighthold Guild Run", "ac=10868" },
+		{ "Elementalry!",                                                                            "ac=10851" },
+		{ "Royal Athenaeum",                                                                         "ac=10837" },
+		{ "Mythic: Star Augur Etraeus",                                                              "ac=10845" },
+		{ "The Nighthold Guild Run",                                                                 "ac=10868" },
 	},
 	TheNightholdD = {
 		ZoneName = { BZ["The Nighthold"]..ALC["MapD"] },
@@ -1236,14 +1225,14 @@ db.AtlasMaps = {
 		PrevMap = "TheNightholdC",
 		NextMap = "TheNightholdE",
 		LargeMap = "TheNightholdD",
-		{ BLUE.." G-H) "..ALC["Connection"], 10002 },
+		{ BLUE.." G-H) "..ALC["Connection"],                    10002 },
 		{ WHIT.." 7) "..Atlas_GetBossName("Tichondrius", 1762), 1762 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Not For You", "ac=10704" },
-		{ "Nightspire", "ac=10838" },
-		{ "Mythic: Tichondrius", "ac=10847" },
-		{ "The Nighthold Guild Run", "ac=10868" },
+		{ "Not For You",                                        "ac=10704" },
+		{ "Nightspire",                                         "ac=10838" },
+		{ "Mythic: Tichondrius",                                "ac=10847" },
+		{ "The Nighthold Guild Run",                            "ac=10868" },
 	},
 	TheNightholdE = {
 		ZoneName = { BZ["The Nighthold"]..ALC["MapE"] },
@@ -1259,9 +1248,9 @@ db.AtlasMaps = {
 		Module = "Atlas_Legion",
 		PrevMap = "TheNightholdD",
 		NextMap = "TheNightholdF",
---		LargeMap = "TheNightholdE",
-		{ BLUE.." I-J) "..ALC["Connection"], 10001 },
-		{ BLUE.." K) "..ALC["Portal"], 10002 },
+		--		LargeMap = "TheNightholdE",
+		{ BLUE.." I-J) "..ALC["Connection"],                                                                                                                               10001 },
+		{ BLUE.." K) "..ALC["Portal"],                                                                                                                                     10002 },
 		{ INDENT..GREY..format(ALC["Portal to %s"], BZ["The Nightspire"])..ALC["L-Parenthesis"]..Atlas_GetBossName("Grand Magistrix Elisande", 1743)..ALC["R-Parenthesis"] },
 		{ INDENT..GREY..format(ALC["Portal to %s"], BZ["The Font of Night"])..ALC["L-Parenthesis"]..Atlas_GetBossName("Gul'dan", 1737)..ALC["R-Parenthesis"] },
 	},
@@ -1280,16 +1269,16 @@ db.AtlasMaps = {
 		PrevMap = "TheNightholdE",
 		NextMap = "TheNightholdG",
 		LargeMap = "TheNightholdF",
-		{ WHIT.." 9) "..Atlas_GetBossName("Grand Magistrix Elisande", 1743), 1743 },
-		{ BLUE.." K) "..ALC["Portal"], 10002 },
+		{ WHIT.." 9) "..Atlas_GetBossName("Grand Magistrix Elisande", 1743),                                                                                 1743 },
+		{ BLUE.." K) "..ALC["Portal"],                                                                                                                       10002 },
 		{ INDENT..GREY..format(ALC["Portal to %s"], ALC["Entrance"]) },
 		{ INDENT..GREY..format(ALC["Portal to %s"], BZ["The Font of Night"])..ALC["L-Parenthesis"]..Atlas_GetBossName("Gul'dan", 1737)..ALC["R-Parenthesis"] },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Infinitesimal", "ac=10699" },
-		{ "Nightspire", "ac=10838" },
-		{ "Mythic: Grand Magistrix Elisande", "ac=10849" },
-		{ "The Nighthold Guild Run", "ac=10868" },
+		{ "Infinitesimal",                                                                                                                                   "ac=10699" },
+		{ "Nightspire",                                                                                                                                      "ac=10838" },
+		{ "Mythic: Grand Magistrix Elisande",                                                                                                                "ac=10849" },
+		{ "The Nighthold Guild Run",                                                                                                                         "ac=10868" },
 	},
 	TheNightholdG = {
 		ZoneName = { BZ["The Nighthold"]..ALC["MapG"] },
@@ -1308,11 +1297,11 @@ db.AtlasMaps = {
 		{ WHIT.." 10) "..Atlas_GetBossName("Gul'dan", 1737), 1737 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Mythic: Gul'dan", "ac=10850" },
-		{ "Mythic: Gul'dan Guild Run", "ac=11239" },
-		{ "Cutting Edge: Gul'dan", "ac=11192" },
-		{ "Ahead of the Curve: Gul'dan", "ac=11195" },
-		{ "The Nighthold Guild Run", "ac=10868" },
+		{ "Mythic: Gul'dan",                                 "ac=10850" },
+		{ "Mythic: Gul'dan Guild Run",                       "ac=11239" },
+		{ "Cutting Edge: Gul'dan",                           "ac=11192" },
+		{ "Ahead of the Curve: Gul'dan",                     "ac=11195" },
+		{ "The Nighthold Guild Run",                         "ac=10868" },
 	},
 	TheSeatoftheTriumvirate = {
 		ZoneName = { BZ["The Seat of the Triumvirate"] },
@@ -1322,13 +1311,13 @@ db.AtlasMaps = {
 		WorldMapID = 903,
 		JournalInstanceID = 945,
 		Module = "Atlas_Legion",
-		{ BLUE.." A) "..ALC["Entrance"], 10001 },
+		{ BLUE.." A) "..ALC["Entrance"],                                10001 },
 		{ WHIT.." 1) "..Atlas_GetBossName("Zuraal the Ascended", 1979), 1979 },
-		{ WHIT.." 1) "..Atlas_GetBossName("Saprish", 1980), 1980 },
-		{ WHIT.." 1) "..Atlas_GetBossName("Viceroy Nezhar", 1981), 1981 },
-		{ WHIT.." 1) "..Atlas_GetBossName("L'ura", 1982), 1982 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Saprish", 1980),             1980 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Viceroy Nezhar", 1981),      1981 },
+		{ WHIT.." 1) "..Atlas_GetBossName("L'ura", 1982),               1982 },
 	},
---    [1147] = { mapFile = "TombRaid", [1] = 850, [2] = 851, [3] = 852, [4] = 853, [5] = 854, [6] = 855, [7] = 856},
+	--    [1147] = { mapFile = "TombRaid", [1] = 850, [2] = 851, [3] = 852, [4] = 853, [5] = 854, [6] = 855, [7] = 856},
 	TombofSargerasA = {
 		ZoneName = { BZ["Tomb of Sargeras"]..ALC["MapA"], BZ["Tomb of Sargeras"] },
 		Location = { BZ["Broken Shore"] },
@@ -1342,18 +1331,18 @@ db.AtlasMaps = {
 		PlayerLimit = { 10, 20, 25, 30 },
 		--MinGearLevel = "840",
 		NextMap = "TombofSargerasB",
-		{ BLUE.." A) "..ALC["Entrance"], 10001 },
-		{ BLUE.." B) "..ALC["Connection"], 10002 },
-		{ WHIT.." 1) "..Atlas_GetBossName("Goroth", 1862), 1862 },
+		{ BLUE.." A) "..ALC["Entrance"],                                10001 },
+		{ BLUE.." B) "..ALC["Connection"],                              10002 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Goroth", 1862),              1862 },
 		{ WHIT.." 2) "..Atlas_GetBossName("Demonic Inquisition", 1867), 1867 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "The Gates of Hell", "ac=11787" },
-		{ "Wailing Halls", "ac=11788" },
-		{ "Mythic: Goroth", "ac=11767" },
-		{ "Mythic: Demonic Inquisition", "ac=11774" },
-		{ "Tomb of Sargeras Guild Run", "ac=11782" },
-		{ "Mythic: Kil'jaeden Guild Run", "ac=11784" },
+		{ "The Gates of Hell",                                          "ac=11787" },
+		{ "Wailing Halls",                                              "ac=11788" },
+		{ "Mythic: Goroth",                                             "ac=11767" },
+		{ "Mythic: Demonic Inquisition",                                "ac=11774" },
+		{ "Tomb of Sargeras Guild Run",                                 "ac=11782" },
+		{ "Mythic: Kil'jaeden Guild Run",                               "ac=11784" },
 	},
 	TombofSargerasB = {
 		ZoneName = { BZ["Tomb of Sargeras"]..ALC["MapB"], BZ["Tomb of Sargeras"] },
@@ -1369,16 +1358,16 @@ db.AtlasMaps = {
 		PlayerLimit = { 10, 20, 25, 30 },
 		--MinGearLevel = "840",
 		NextMap = "TombofSargerasC",
-		{ BLUE.." B-C) "..ALC["Connection"], 10001 },
+		{ BLUE.." B-C) "..ALC["Connection"],                            10001 },
 		{ WHIT.." 4) "..Atlas_GetBossName("Sisters of the Moon", 1903), 1903 },
-		{ WHIT.." 6) "..Atlas_GetBossName("The Desolate Host", 1896), 1896 },
+		{ WHIT.." 6) "..Atlas_GetBossName("The Desolate Host", 1896),   1896 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Wailing Halls", "ac=11788" },
-		{ "Mythic: Sisters of the Moon", "ac=11777" },
-		{ "Mythic: The Desolate Host", "ac=11778" },
-		{ "Tomb of Sargeras Guild Run", "ac=11782" },
-		{ "Mythic: Kil'jaeden Guild Run", "ac=11784" },
+		{ "Wailing Halls",                                              "ac=11788" },
+		{ "Mythic: Sisters of the Moon",                                "ac=11777" },
+		{ "Mythic: The Desolate Host",                                  "ac=11778" },
+		{ "Tomb of Sargeras Guild Run",                                 "ac=11782" },
+		{ "Mythic: Kil'jaeden Guild Run",                               "ac=11784" },
 	},
 	TombofSargerasC = {
 		ZoneName = { BZ["Tomb of Sargeras"]..ALC["MapC"], BZ["Tomb of Sargeras"] },
@@ -1394,15 +1383,15 @@ db.AtlasMaps = {
 		PlayerLimit = { 10, 20, 25, 30 },
 		--MinGearLevel = "840",
 		NextMap = "TombofSargerasD",
-		{ BLUE.." C-D) "..ALC["Connection"], 10001 },
+		{ BLUE.." C-D) "..ALC["Connection"],                 10001 },
 		{ WHIT.." 3) "..Atlas_GetBossName("Harjatan", 1856), 1856 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "The Gates of Hell", "ac=11787" },
-		{ "Grand Fin-ale", "ac=11699" },
-		{ "Mythic: Harjatan", "ac=11775" },
-		{ "Tomb of Sargeras Guild Run", "ac=11782" },
-		{ "Mythic: Kil'jaeden Guild Run", "ac=11784" },
+		{ "The Gates of Hell",                               "ac=11787" },
+		{ "Grand Fin-ale",                                   "ac=11699" },
+		{ "Mythic: Harjatan",                                "ac=11775" },
+		{ "Tomb of Sargeras Guild Run",                      "ac=11782" },
+		{ "Mythic: Kil'jaeden Guild Run",                    "ac=11784" },
 	},
 	TombofSargerasD = {
 		ZoneName = { BZ["Tomb of Sargeras"]..ALC["MapD"], BZ["Tomb of Sargeras"] },
@@ -1418,14 +1407,14 @@ db.AtlasMaps = {
 		PlayerLimit = { 10, 20, 25, 30 },
 		--MinGearLevel = "840",
 		NextMap = "TombofSargerasE",
-		{ BLUE.." D) "..ALC["Connection"], 10001 },
+		{ BLUE.." D) "..ALC["Connection"],                             10001 },
 		{ WHIT.." 5) "..Atlas_GetBossName("Mistress Sassz'ine", 1861), 1861 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "The Gates of Hell", "ac=11787" },
-		{ "Mythic: Mistress Sassz'ine", "ac=11776" },
-		{ "Tomb of Sargeras Guild Run", "ac=11782" },
-		{ "Mythic: Kil'jaeden Guild Run", "ac=11784" },
+		{ "The Gates of Hell",                                         "ac=11787" },
+		{ "Mythic: Mistress Sassz'ine",                                "ac=11776" },
+		{ "Tomb of Sargeras Guild Run",                                "ac=11782" },
+		{ "Mythic: Kil'jaeden Guild Run",                              "ac=11784" },
 	},
 	TombofSargerasE = {
 		ZoneName = { BZ["Tomb of Sargeras"]..ALC["MapE"], BZ["Tomb of Sargeras"] },
@@ -1444,10 +1433,10 @@ db.AtlasMaps = {
 		{ WHIT.." 7) "..Atlas_GetBossName("Maiden of Vigilance", 1897), 1897 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Chamber of the Avatar", "ac=11789" },
-		{ "Mythic: Maiden of Vigilance", "ac=11779" },
-		{ "Tomb of Sargeras Guild Run", "ac=11782" },
-		{ "Mythic: Kil'jaeden Guild Run", "ac=11784" },
+		{ "Chamber of the Avatar",                                      "ac=11789" },
+		{ "Mythic: Maiden of Vigilance",                                "ac=11779" },
+		{ "Tomb of Sargeras Guild Run",                                 "ac=11782" },
+		{ "Mythic: Kil'jaeden Guild Run",                               "ac=11784" },
 	},
 	TombofSargerasF = {
 		ZoneName = { BZ["Tomb of Sargeras"]..ALC["MapF"], BZ["Tomb of Sargeras"] },
@@ -1466,10 +1455,10 @@ db.AtlasMaps = {
 		{ WHIT.." 8) "..Atlas_GetBossName("Fallen Avatar", 1873), 1873 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Chamber of the Avatar", "ac=11789" },
-		{ "Mythic: Fallen Avatar", "ac=11780" },
-		{ "Tomb of Sargeras Guild Run", "ac=11782" },
-		{ "Mythic: Kil'jaeden Guild Run", "ac=11784" },
+		{ "Chamber of the Avatar",                                "ac=11789" },
+		{ "Mythic: Fallen Avatar",                                "ac=11780" },
+		{ "Tomb of Sargeras Guild Run",                           "ac=11782" },
+		{ "Mythic: Kil'jaeden Guild Run",                         "ac=11784" },
 	},
 	TombofSargerasG = {
 		ZoneName = { BZ["Tomb of Sargeras"]..ALC["MapG"], BZ["Tomb of Sargeras"] },
@@ -1487,13 +1476,13 @@ db.AtlasMaps = {
 		{ WHIT.." 9) "..Atlas_GetBossName("Kil'jaeden", 1898), 1898 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Deceiver's Fall", "ac=11790" },
-		{ "Dark Souls", "ac=11770" },
-		{ "Mythic: Kil'jaeden", "ac=11781" },
-		{ "Tomb of Sargeras Guild Run", "ac=11782" },
-		{ "Mythic: Kil'jaeden Guild Run", "ac=11784" },
+		{ "Deceiver's Fall",                                   "ac=11790" },
+		{ "Dark Souls",                                        "ac=11770" },
+		{ "Mythic: Kil'jaeden",                                "ac=11781" },
+		{ "Tomb of Sargeras Guild Run",                        "ac=11782" },
+		{ "Mythic: Kil'jaeden Guild Run",                      "ac=11784" },
 	},
---    [1114] = { mapFile = "HelheimRaid", [1] = 807, [2] = 808, [0] = 806},
+	--    [1114] = { mapFile = "HelheimRaid", [1] = 807, [2] = 808, [0] = 806},
 	TrialofValorA = {
 		ZoneName = { BZ["Trial of Valor"]..ALC["MapA"] },
 		Location = { BZ["Stormheim"] },
@@ -1504,17 +1493,17 @@ db.AtlasMaps = {
 		PlayerLimit = { 10, 20, 25, 30 },
 		Module = "Atlas_Legion",
 		NextMap = "TrialofValorB",
-		{ BLUE.." A) "..ALC["Entrance"], 10101 },
+		{ BLUE.." A) "..ALC["Entrance"],                    10101 },
 		{ WHIT.." 1) "..Atlas_GetBossName("Hymdall", 1485), 10001 },
-		{ WHIT.." 2) "..Atlas_GetBossName("Hyrja", 1486), 10002 },
-		{ WHIT.." 3) "..Atlas_GetBossName("Odyn", 1819), 1819 },
+		{ WHIT.." 2) "..Atlas_GetBossName("Hyrja", 1486),   10002 },
+		{ WHIT.." 3) "..Atlas_GetBossName("Odyn", 1819),    1819 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "You Runed Everything!", "ac=11337" },
-		{ "Mythic: Odyn", "ac=11396" },
-		{ "Trial of Valor", "ac=11394" },
-		{ "Trial of Valor Guild Run", "ac=11403" },
-		{ "Heroic: Trial of Valor", "ac=11426" },
+		{ "You Runed Everything!",                          "ac=11337" },
+		{ "Mythic: Odyn",                                   "ac=11396" },
+		{ "Trial of Valor",                                 "ac=11394" },
+		{ "Trial of Valor Guild Run",                       "ac=11403" },
+		{ "Heroic: Trial of Valor",                         "ac=11426" },
 	},
 	TrialofValorB = {
 		ZoneName = { BZ["Trial of Valor"]..ALC["MapB"] },
@@ -1526,25 +1515,25 @@ db.AtlasMaps = {
 		PlayerLimit = { 10, 20, 25, 30 },
 		Module = "Atlas_Legion",
 		PrevMap = "TrialofValorA",
-		{ BLUE.." A) "..ALC["Entrance"], 10101 },
+		{ BLUE.." A) "..ALC["Entrance"],                  10101 },
 		{ WHIT.." 4) "..Atlas_GetBossName("Guarm", 1830), 1830 },
 		{ WHIT.." 5) "..Atlas_GetBossName("Helya", 1829), 1829 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Cutting Edge: Helya", "ac=11580" },
-		{ "Ahead of the Curve: Helya", "ac=11581" },
-		{ "Patient Zero", "ac=11377" },
-		{ "The Chosen", "ac=11387" },
-		{ "Boneafide Tri Tip", "ac=11386" },
-		{ "Mythic: Guarm", "ac=11397" },
-		{ "Mythic: Helya", "ac=11398" },
-		{ "Realm First! Helya", "ac=11405" },
-		{ "Mythic: Helya Guild Run", "ac=11404" },
-		{ "Trial of Valor", "ac=11394" },
-		{ "Trial of Valor Guild Run", "ac=11403" },
-		{ "Heroic: Trial of Valor", "ac=11426" },
+		{ "Cutting Edge: Helya",                          "ac=11580" },
+		{ "Ahead of the Curve: Helya",                    "ac=11581" },
+		{ "Patient Zero",                                 "ac=11377" },
+		{ "The Chosen",                                   "ac=11387" },
+		{ "Boneafide Tri Tip",                            "ac=11386" },
+		{ "Mythic: Guarm",                                "ac=11397" },
+		{ "Mythic: Helya",                                "ac=11398" },
+		{ "Realm First! Helya",                           "ac=11405" },
+		{ "Mythic: Helya Guild Run",                      "ac=11404" },
+		{ "Trial of Valor",                               "ac=11394" },
+		{ "Trial of Valor Guild Run",                     "ac=11403" },
+		{ "Heroic: Trial of Valor",                       "ac=11426" },
 	},
---    [1045] = { mapFile = "VaultOfTheWardens", [1] = 710, [2] = 711, [3] = 712},
+	--    [1045] = { mapFile = "VaultOfTheWardens", [1] = 710, [2] = 711, [3] = 712},
 	VaultoftheWardensA = {
 		ZoneName = { BZ["Vault of the Wardens"]..ALC["MapA"] },
 		Location = { BZ["Azsuna"] },
@@ -1555,16 +1544,16 @@ db.AtlasMaps = {
 		JournalInstanceID = 707,
 		Module = "Atlas_Legion",
 		NextMap = "VaultoftheWardensB",
-		{ BLUE.." A) "..ALC["Entrance"], 10001 },
-		{ BLUE.." B) "..ALC["Connection"], 10002 },
-		{ BLUE.." C) "..ALC["Elevator"], 10003 },
+		{ BLUE.." A) "..ALC["Entrance"],                               10001 },
+		{ BLUE.." B) "..ALC["Connection"],                             10002 },
+		{ BLUE.." C) "..ALC["Elevator"],                               10003 },
 		{ WHIT.." 1) "..Atlas_GetBossName("Tirathon Saltheril", 1467), 1467 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Vault of the Wardens", "ac=10801" },
-		{ "Heroic: Vault of the Wardens", "ac=10802" },
-		{ "Mythic: Vault of the Wardens", "ac=10803" },
-		{ "Mythic: Vault of the Wardens Guild Run", "ac=10861" },
+		{ "Vault of the Wardens",                                      "ac=10801" },
+		{ "Heroic: Vault of the Wardens",                              "ac=10802" },
+		{ "Mythic: Vault of the Wardens",                              "ac=10803" },
+		{ "Mythic: Vault of the Wardens Guild Run",                    "ac=10861" },
 	},
 	VaultoftheWardensB = {
 		ZoneName = { BZ["Vault of the Wardens"]..ALC["MapB"] },
@@ -1577,19 +1566,19 @@ db.AtlasMaps = {
 		Module = "Atlas_Legion",
 		PrevMap = "VaultoftheWardensA",
 		NextMap = "VaultoftheWardensC",
-		{ BLUE.." C-D) "..ALC["Elevator"], 10003 },
-		{ WHIT.." 2) "..Atlas_GetBossName("Inquisitor Tormentorum", 1695), 1695 },
-		{ WHIT.." 3) "..Atlas_GetBossName("Ash'golm", 1468), 1468 },
-		{ WHIT.." 4) "..Atlas_GetBossName("Glazer", 1469), 1469 },
-		{ ORNG.." 1) "..Atlas:GetCreatureName(L["Grimoira"], 105824), 105824 },
+		{ BLUE.." C-D) "..ALC["Elevator"],                                                    10003 },
+		{ WHIT.." 2) "..Atlas_GetBossName("Inquisitor Tormentorum", 1695),                    1695 },
+		{ WHIT.." 3) "..Atlas_GetBossName("Ash'golm", 1468),                                  1468 },
+		{ WHIT.." 4) "..Atlas_GetBossName("Glazer", 1469),                                    1469 },
+		{ ORNG.." 1) "..Atlas:GetCreatureName(L["Grimoira"], 105824),                         105824 },
 		{ INDENT..GREY..ALC["L-Parenthesis"]..L["Requires Skaggldrynk"]..ALC["R-Parenthesis"] },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "I Ain't Even Cold", "ac=10679" },
-		{ "Vault of the Wardens", "ac=10801" },
-		{ "Heroic: Vault of the Wardens", "ac=10802" },
-		{ "Mythic: Vault of the Wardens", "ac=10803" },
-		{ "Mythic: Vault of the Wardens Guild Run", "ac=10861" },
+		{ "I Ain't Even Cold",                                                                "ac=10679" },
+		{ "Vault of the Wardens",                                                             "ac=10801" },
+		{ "Heroic: Vault of the Wardens",                                                     "ac=10802" },
+		{ "Mythic: Vault of the Wardens",                                                     "ac=10803" },
+		{ "Mythic: Vault of the Wardens Guild Run",                                           "ac=10861" },
 	},
 	VaultoftheWardensC = {
 		ZoneName = { BZ["Vault of the Wardens"]..ALC["MapC"] },
@@ -1602,19 +1591,19 @@ db.AtlasMaps = {
 		JournalInstanceID = 707,
 		Module = "Atlas_Legion",
 		PrevMap = "VaultoftheWardensB",
-		{ BLUE.." D) "..ALC["Elevator"], 10004 },
-		{ WHIT.." 5) "..Atlas_GetBossName("Cordana Felsong", 1470), 1470 },
-		{ GREN.." 1') "..L["Fel-Ravaged Tome"], 258979}, -- object
+		{ BLUE.." D) "..ALC["Elevator"],                                           10004 },
+		{ WHIT.." 5) "..Atlas_GetBossName("Cordana Felsong", 1470),                1470 },
+		{ GREN.." 1') "..L["Fel-Ravaged Tome"],                                    258979 }, -- object
 		{ GREN.." 2') "..Atlas:GetCreatureName(L["Drelanim Whisperwind"], 103860), 103860 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Who's Afraid of the Dark?", "ac=10680" },
-		{ "A Specter, Illuminated", "ac=10707" },
-		{ "Vault of the Wardens", "ac=10801" },
-		{ "Heroic: Vault of the Wardens", "ac=10802" },
-		{ "Mythic: Vault of the Wardens", "ac=10803" },
-		{ "Mythic: Vault of the Wardens Guild Run", "ac=10861" },
-	};
+		{ "Who's Afraid of the Dark?",                                             "ac=10680" },
+		{ "A Specter, Illuminated",                                                "ac=10707" },
+		{ "Vault of the Wardens",                                                  "ac=10801" },
+		{ "Heroic: Vault of the Wardens",                                          "ac=10802" },
+		{ "Mythic: Vault of the Wardens",                                          "ac=10803" },
+		{ "Mythic: Vault of the Wardens Guild Run",                                "ac=10861" },
+	},
 }
 
 --[[ /////////////////////////////////////////
@@ -1628,26 +1617,26 @@ db.AtlasMaps = {
 db.AtlasMaps_NPC_DB = {
 	AntorustheBurningThroneA = {
 		{ "A", 10001, 476, 414 }, -- Entrance
-		{  1, 1992, 388, 388 }, -- Garothi Worldbreaker
-		{  2, 1987, 189, 364 }, -- Felhounds of Sargeras
-		{  3, 1997, 40, 232 }, -- Antoran High Command
+		{ 1,   1992,  388, 388 }, -- Garothi Worldbreaker
+		{ 2,   1987,  189, 364 }, -- Felhounds of Sargeras
+		{ 3,   1997,  40,  232 }, -- Antoran High Command
 	},
 	AntorustheBurningThroneB = {
-		{  3, 1997, 192, 212 }, -- Antoran High Command
+		{ 3, 1997, 192, 212 }, -- Antoran High Command
 	},
 	AntorustheBurningThroneC = {
-		{  4, 1985, 202, 250 }, -- Portal Keeper Hasabel
+		{ 4, 1985, 202, 250 }, -- Portal Keeper Hasabel
 	},
 	AntorustheBurningThroneD = {
-		{  5, 2025, 141, 230 }, -- Eonar the Life-Binder
+		{ 5, 2025, 141, 230 }, -- Eonar the Life-Binder
 	},
 	AntorustheBurningThroneE = {
-		{  6, 2009,  39, 251 }, -- Imonar the Soulhunter
-		{  7, 2004, 414, 250 }, -- Kin'garoth
+		{ 6, 2009, 39,  251 }, -- Imonar the Soulhunter
+		{ 7, 2004, 414, 250 }, -- Kin'garoth
 	},
 	AntorustheBurningThroneF = {
-		{  8, 1986, 292, 251 }, -- The Coven of Shivarra
-		{  9, 1983, 291, 300 }, -- Varimathras
+		{ 8,  1986, 292, 251 }, -- The Coven of Shivarra
+		{ 9,  1983, 291, 300 }, -- Varimathras
 		{ 10, 1984, 115, 249 }, -- Aggramar
 	},
 	AntorustheBurningThroneG = {
@@ -1655,140 +1644,140 @@ db.AtlasMaps_NPC_DB = {
 	},
 	AssaultonVioletHold = {
 		{ "A", 10001, 241, 460, 501, 627, "Blue" }, -- Entrance
-		{   1, 1694, 373, 339, 676, 466 }, -- Shivermaw
-		{   2, 1702, 105, 265, 283, 365 }, -- Blood-Princess Thal'ena
-		{   3, 1693, 123, 141, 326, 178 }, -- Festerface
-		{   4, 1688, 161, 194, 380, 270 }, -- Millificent Manastorm
-		{   5, 1686, 408, 217, 728, 300   }, -- Mindflayer Kaahrj
-		{   6, 1696, 356, 121, 664, 161 }, -- Anub'esset
-		{   7, 1697, 206,  78, 448, 98 }, -- Sael'orn
-		{   8, 1711, 244,  73, 500, 92  }, -- Fel Lord Betrug
+		{ 1,   1694,  373, 339, 676, 466 },   -- Shivermaw
+		{ 2,   1702,  105, 265, 283, 365 },   -- Blood-Princess Thal'ena
+		{ 3,   1693,  123, 141, 326, 178 },   -- Festerface
+		{ 4,   1688,  161, 194, 380, 270 },   -- Millificent Manastorm
+		{ 5,   1686,  408, 217, 728, 300 },   -- Mindflayer Kaahrj
+		{ 6,   1696,  356, 121, 664, 161 },   -- Anub'esset
+		{ 7,   1697,  206, 78,  448, 98 },    -- Sael'orn
+		{ 8,   1711,  244, 73,  500, 92 },    -- Fel Lord Betrug
 	},
 	BlackRookHoldA = {
-		{ "A", 10001, 130,  34, 305,  24, "Blue" }, -- Entrance
-		{ "B", 10002, 420, 448, 689, 592, "Blue" }, -- Connection
-		{   1,  1518, 215, 326, 418, 424 }, -- The Amalgam of Souls
-		{   1, 98538,  47, 201, 186, 252, "Orange" }, -- Lady Velandras Ravencrest
-		{   2, 98521, 308, 188, 547, 235, "Orange" }, -- Lord Etheldrin Ravencrest
-		{   3, 110993, 351, 423, 605, 556, "Orange" }, -- Lord Etheldrin Ravencrest
-		{   4, 98637, 466, 439, 765, 577, "Orange" }, -- Ancient Widow
-		{ "1'", 10003, 329, 447, 572, 586, "Green" }, -- Torn Page
+		{ "A",  10001,  130, 34,  305, 24,  "Blue" }, -- Entrance
+		{ "B",  10002,  420, 448, 689, 592, "Blue" }, -- Connection
+		{ 1,    1518,   215, 326, 418, 424 },    -- The Amalgam of Souls
+		{ 1,    98538,  47,  201, 186, 252, "Orange" }, -- Lady Velandras Ravencrest
+		{ 2,    98521,  308, 188, 547, 235, "Orange" }, -- Lord Etheldrin Ravencrest
+		{ 3,    110993, 351, 423, 605, 556, "Orange" }, -- Lord Etheldrin Ravencrest
+		{ 4,    98637,  466, 439, 765, 577, "Orange" }, -- Ancient Widow
+		{ "1'", 10003,  329, 447, 572, 586, "Green" }, -- Torn Page
 	},
 	BlackRookHoldB = {
-		{ "B", 10001,  99, 190, 240, 219, "Blue" }, -- Connection
-		{ "C", 10001, 279, 413, 534, 589, "Blue" }, -- Connection
-		{ "C", 10001, 412, 423, 764, 608, "Blue" }, -- Connection
-		{ "D", 10001, 275, 171, 530, 186, "Blue" }, -- Connection
-		{   2,  1653, 351, 319, 659, 433 }, -- Illysanna Ravencrest
-		{  5, 111068, 189, 351, 386, 485, "Orange" }, -- Archmage Galeorn
-		{ "2'", 10002, 339, 242, 639, 306, "Green" }, -- Worn-Edged Page
-		{ "3'", 10003, 151, 296, 329, 397, "Green" }, -- Dog-Eared Page
+		{ "B",  10001,  99,  190, 240, 219, "Blue" }, -- Connection
+		{ "C",  10001,  279, 413, 534, 589, "Blue" }, -- Connection
+		{ "C",  10001,  412, 423, 764, 608, "Blue" }, -- Connection
+		{ "D",  10001,  275, 171, 530, 186, "Blue" }, -- Connection
+		{ 2,    1653,   351, 319, 659, 433 },   -- Illysanna Ravencrest
+		{ 5,    111068, 189, 351, 386, 485, "Orange" }, -- Archmage Galeorn
+		{ "2'", 10002,  339, 242, 639, 306, "Green" }, -- Worn-Edged Page
+		{ "3'", 10003,  151, 296, 329, 397, "Green" }, -- Dog-Eared Page
 	},
 	BlackRookHoldC = {
-		{ "D", 10001, 356, 443, 862, 560, "Blue" }, -- Connection
-		{ "E", 10001, 232, 386, 671, 479, "Blue" }, -- Connection
-		{ "E", 10001, 315, 159, 442, 225, "Blue" }, -- Connection
-		{ "F", 10001, 475,  25, 682,  30, "Blue" }, -- Connection
-		{ "G", 10001, 289, 142, 408, 207, "Blue" }, -- Connection
-		{ "G", 10001,  63, 142,  80, 202, "Blue" }, -- Connection
-		{ "H", 10001, 123, 174, 170, 247, "Blue" }, -- Connection
-		{  6, 112725, 304, 294, 784, 330, "Orange" }, -- Kalyndras <Rook's Quartermaster>
-		{  7, 111290, 200, 429, 622, 539, "Orange" }, -- Braxas the Fleshcarver
-		{  8, 111361, 180, 202, 253, 288, "Orange" }, -- Braxas the Fleshcarver
-		{ "4'", 10002, 289, 379, 765, 466, "Green" }, -- Singed Page
+		{ "D",  10001,  356, 443, 862, 560, "Blue" }, -- Connection
+		{ "E",  10001,  232, 386, 671, 479, "Blue" }, -- Connection
+		{ "E",  10001,  315, 159, 442, 225, "Blue" }, -- Connection
+		{ "F",  10001,  475, 25,  682, 30,  "Blue" }, -- Connection
+		{ "G",  10001,  289, 142, 408, 207, "Blue" }, -- Connection
+		{ "G",  10001,  63,  142, 80,  202, "Blue" }, -- Connection
+		{ "H",  10001,  123, 174, 170, 247, "Blue" }, -- Connection
+		{ 6,    112725, 304, 294, 784, 330, "Orange" }, -- Kalyndras <Rook's Quartermaster>
+		{ 7,    111290, 200, 429, 622, 539, "Orange" }, -- Braxas the Fleshcarver
+		{ 8,    111361, 180, 202, 253, 288, "Orange" }, -- Braxas the Fleshcarver
+		{ "4'", 10002,  289, 379, 765, 466, "Green" }, -- Singed Page
 		{ "5'", 136812, 132, 394, 523, 484, "Green" }, -- Dog-Eared Page
-		{ "6'", 10003, 342, 176, 481, 263, "Green" }, -- Ink-splattered Page
-		{ "7'", 10004, 198, 212, 286, 302, "Green" }, -- Hastily-Scrawled Page
+		{ "6'", 10003,  342, 176, 481, 263, "Green" }, -- Ink-splattered Page
+		{ "7'", 10004,  198, 212, 286, 302, "Green" }, -- Hastily-Scrawled Page
 	},
 	BlackRookHoldD = {
 		{ "F", 10001, 300, 107 }, -- Connection
 		{ "H", 10001, 203, 191 }, -- Connection
-		{  3, 1664, 351, 60 }, -- Smashspite the Hateful
-		{  4, 1672, 158, 171 }, -- Lord Kur'talos Ravencrest
+		{ 3,   1664,  351, 60 }, -- Smashspite the Hateful
+		{ 4,   1672,  158, 171 }, -- Lord Kur'talos Ravencrest
 	},
 	CathedralofEternalNightA = {
-		{ "A", 10001, 249, 487, 456, 620, "Blue" }, -- Entrance
-		{ "B", 10002, 249, 106, 456, 124, "Blue" }, -- Stairs
-		{ "1", 120715, 358, 78, 600, 78, "Orange" }, -- Raga'yut
+		{ "A", 10001,  249, 487, 456, 620, "Blue" }, -- Entrance
+		{ "B", 10002,  249, 106, 456, 124, "Blue" }, -- Stairs
+		{ "1", 120715, 358, 78,  600, 78,  "Orange" }, -- Raga'yut
 	},
 	CathedralofEternalNightB = {
-		{ "B", 10001, 249,  89, 456, 108, "Blue" }, -- Stairs
+		{ "B", 10001, 249, 89,  456, 108, "Blue" }, -- Stairs
 		{ "C", 10001, 249, 390, 456, 498, "Blue" }, -- Stairs
-		{   1,  1905, 342, 250, 573, 313 }, -- Agronox
+		{ 1,   1905,  342, 250, 573, 313 },   -- Agronox
 	},
 	CathedralofEternalNightC = {
 		{ "C", 10001, 130, 385, 278, 526, "Blue" }, -- Stairs
 		{ "D", 10001, 130, 141, 278, 155, "Blue" }, -- Stairs
 		{ "D", 10001, 372, 123, 691, 136, "Blue" }, -- Stairs
 		{ "E", 10001, 372, 361, 691, 495, "Blue" }, -- Stairs
-		{ 2, 1906, 130, 249, 277, 323 }, -- Thrashbite the Scornful
+		{ 2,   1906,  130, 249, 277, 323 },   -- Thrashbite the Scornful
 	},
 	CathedralofEternalNightD = {
-		{   "E", 10001, 250, 442, 491, 632, "Blue" }, -- Stairs
+		{ "E",  10001,  250, 442, 491, 632, "Blue" }, -- Stairs
 		{ "1'", 129207, 250, 251, 491, 324, "Green" }, -- Aegis of Aggramar
-		{    3,   1904, 235, 205, 460, 256 }, -- Domatrax
-		{    4,   1878, 264, 205, 534, 256 }, -- Mephistroth
+		{ 3,    1904,   235, 205, 460, 256 },    -- Domatrax
+		{ 4,    1878,   264, 205, 534, 256 },    -- Mephistroth
 	},
 	CourtofStarsA = {
-		{ "A", 10001, 198, 377 }, -- Entrance
-		{ "B", 10002, 300, 319 }, -- Connection
-		{ "C", 10002, 411, 429 }, -- Connection
-		{  1, 1718, 109, 152 }, -- Patrol Captain Gerdo
-		{  2, 1719, 277, 294 }, -- Talixae Flamewreath
-		{  3, 1720, 429, 446 }, -- Advisor Melandrus
+		{ "A", 10001,  198, 377 }, -- Entrance
+		{ "B", 10002,  300, 319 }, -- Connection
+		{ "C", 10002,  411, 429 }, -- Connection
+		{ 1,   1718,   109, 152 }, -- Patrol Captain Gerdo
+		{ 2,   1719,   277, 294 }, -- Talixae Flamewreath
+		{ 3,   1720,   429, 446 }, -- Advisor Melandrus
 		{ "1", 106468, 292, 310 }, -- Ly'leth Lunastre
-		{  1, 108796, 186, 200 }, -- Arcanist Malrodi
-		{  2, 108740, 286, 392 }, -- Velimar
+		{ 1,   108796, 186, 200 }, -- Arcanist Malrodi
+		{ 2,   108740, 286, 392 }, -- Velimar
 	},
 	CourtofStarsB = {
 		{ "B", 10002, 170, 157 }, -- Connection
 		{ "C", 10002, 345, 366 }, -- Connection
 	},
 	DarkheartThicket = {
-		{ "A", 10001, 171, 104, 357, 91, "Blue" }, -- Entrance
-		{ "B", 10002, 309, 282, 565, 390, "Blue" }, -- Connection
-		{ "B", 10002, 323, 297, 583, 419, "Blue" }, -- Connection
-		{   1,  1654, 103, 256, 235, 399 }, -- Arch-Druid Glaidalis
-		{   2,  1655, 209, 201, 427, 297 }, -- Oakheart
-		{   3,  1656, 326, 196, 649, 299 }, -- Dresaron
-		{   4,  1657, 418, 357, 802, 553 }, -- Shade of Xavius
-		{   1, 101660, 70, 111, 171, 126, "Orange" }, -- Rage Rot
-		{   2, 101641, 127, 175, 283, 248, "Orange" }, -- Mythana
-		{   3, 99362, 179, 349, 378, 569, "Orange" }, -- Kudzilla
+		{ "A", 10001,  171, 104, 357, 91,  "Blue" }, -- Entrance
+		{ "B", 10002,  309, 282, 565, 390, "Blue" }, -- Connection
+		{ "B", 10002,  323, 297, 583, 419, "Blue" }, -- Connection
+		{ 1,   1654,   103, 256, 235, 399 },     -- Arch-Druid Glaidalis
+		{ 2,   1655,   209, 201, 427, 297 },     -- Oakheart
+		{ 3,   1656,   326, 196, 649, 299 },     -- Dresaron
+		{ 4,   1657,   418, 357, 802, 553 },     -- Shade of Xavius
+		{ 1,   101660, 70,  111, 171, 126, "Orange" }, -- Rage Rot
+		{ 2,   101641, 127, 175, 283, 248, "Orange" }, -- Mythana
+		{ 3,   99362,  179, 349, 378, 569, "Orange" }, -- Kudzilla
 	},
 	EyeofAzshara = {
-		{ "A", 10001, 172, 432 }, -- Entrance
-		{   1,  1480, 222, 322 }, -- Warlord Parjesh
-		{   2,  1490, 148, 228 }, -- Lady Hatecoil
-		{   3,  1479, 226, 153 }, -- Serpentrix
-		{   4,  1491, 322, 236 }, -- King Deepbeard
-		{   5,  1492, 232, 250 }, -- Wrath of Azshara
+		{ "A",  10001,  172, 432 }, -- Entrance
+		{ 1,    1480,   222, 322 }, -- Warlord Parjesh
+		{ 2,    1490,   148, 228 }, -- Lady Hatecoil
+		{ 3,    1479,   226, 153 }, -- Serpentrix
+		{ 4,    1491,   322, 236 }, -- King Deepbeard
+		{ 5,    1492,   232, 250 }, -- Wrath of Azshara
 		{ "1'", 248930, 285, 270 }, -- Crate of Corks, Alchemy quest - Put a Cork in It (39331)
-		{   1, 91788,   70, 220 }, -- Shellmaw
-		{   2, 108543,  41, 190 }, -- Dread Captain Thedon
-		{   3, 101411, 108, 120 }, -- Gom Crabbar
-		{   4, 101467, 489, 150 }, -- Jaggen-Ra
+		{ 1,    91788,  70,  220 }, -- Shellmaw
+		{ 2,    108543, 41,  190 }, -- Dread Captain Thedon
+		{ 3,    101411, 108, 120 }, -- Gom Crabbar
+		{ 4,    101467, 489, 150 }, -- Jaggen-Ra
 	},
 	HallsofValorA = {
-		{ "A", 10001, 249, 12 }, -- Entrance
-		{ "B", 10002, 178, 239 }, -- Portal
-		{ "C", 10003, 249, 489 }, -- Connection
-		{  1, 1485, 249, 87 }, -- Hymdall
-		{  2, 1486, 343, 272 }, -- Hyrja
-		{  1, 106320, 248, 209 }, -- Volynd Stormbringer
+		{ "A", 10001,  249, 12 }, -- Entrance
+		{ "B", 10002,  178, 239 }, -- Portal
+		{ "C", 10003,  249, 489 }, -- Connection
+		{ 1,   1485,   249, 87 }, -- Hymdall
+		{ 2,   1486,   343, 272 }, -- Hyrja
+		{ 1,   106320, 248, 209 }, -- Volynd Stormbringer
 	},
 	HallsofValorB = {
-		{ "B", 10002, 435, 104 }, -- Portal
-		{  3, 1487, 109, 345 }, -- Fenryr
+		{ "B",   10002, 435, 104 }, -- Portal
+		{ 3,     1487,  109, 345 }, -- Fenryr
 		{ "3'",  10003, 175, 144 }, -- Fenryr's western spawn point
 		{ "3''", 10004, 344, 287 }, -- Fenryr's eastern spawn point
-		{  2, 99802, 372, 271 },-- Arthfael
-		{  3, 96647, 71, 309 }, -- Earlnoc the Beastbreaker
+		{ 2,     99802, 372, 271 }, -- Arthfael
+		{ 3,     96647, 71,  309 }, -- Earlnoc the Beastbreaker
 	},
 	HallsofValorC = {
 		{ "C", 10003, 250, 36 }, -- Connection
-		{  4, 1488, 251, 300 }, -- God-King Skovald
-		{  5, 1489, 251, 425 }, -- Odyn
+		{ 4,   1488,  251, 300 }, -- God-King Skovald
+		{ 5,   1489,  251, 425 }, -- Odyn
 		{ "1", 97084, 201, 275 }, -- King Tor
 		{ "2", 97081, 220, 309 }, -- King Bjorn
 		{ "3", 95843, 282, 308 }, -- King Haldor
@@ -1797,123 +1786,123 @@ db.AtlasMaps_NPC_DB = {
 	MawofSoulsA = {
 		{ "A", 10001, 201, 233 }, -- Entrance
 		{ "B", 10002, 234, 121 }, -- Transport
-		{  1, 1502, 210, 141 }, -- Ymiron, the Fallen King
+		{ 1,   1502,  210, 141 }, -- Ymiron, the Fallen King
 	},
 	MawofSoulsB = {
 		{ "B", 10001, 133, 400 }, -- Connection
 		{ "C", 10001, 400, 400 }, -- Connection
 		{ "C", 10001, 402, 250 }, -- Connection
-		{  2, 1512, 340, 251 }, -- Harbaron
-		{  3, 1663, 80, 245 }, -- Helya
+		{ 2,   1512,  340, 251 }, -- Harbaron
+		{ 3,   1663,  80,  245 }, -- Helya
 	},
 	NeltharionsLair = {
-		{ "A", 10001, 496, 255 }, -- Entrance
-		{ "B", 10002, 13, 274 }, -- Exit
-		{  1, 1662, 356, 232 }, -- Rokmora
-		{  2, 1665, 227, 269 }, -- Ularogg Cragshaper
-		{  3, 1673, 150, 200 }, -- Naraxas
-		{  4, 1687, 48, 327 }, -- Dargrul the Underking
+		{ "A",  10001,  496, 255 }, -- Entrance
+		{ "B",  10002,  13,  274 }, -- Exit
+		{ 1,    1662,   356, 232 }, -- Rokmora
+		{ 2,    1665,   227, 269 }, -- Ularogg Cragshaper
+		{ 3,    1673,   150, 200 }, -- Naraxas
+		{ 4,    1687,   48,  327 }, -- Dargrul the Underking
 		{ "1'", 113526, 486, 224 }, -- Spiritwalker Ebonhorn
 		{ "2'", 111746, 489, 201 }, -- Mushroom Merchant
-		{  1, 103247, 374, 404 }, -- Ultanok
-		{  2, 103597, 284, 381 }, -- Understone Lasher
-		{  3, 103199, 165, 376 }, -- Ragoul
-		{  4, 103271, 221,  89 }, -- Kraxa <Mother of Gnashers>
+		{ 1,    103247, 374, 404 }, -- Ultanok
+		{ 2,    103597, 284, 381 }, -- Understone Lasher
+		{ 3,    103199, 165, 376 }, -- Ragoul
+		{ 4,    103271, 221, 89 }, -- Kraxa <Mother of Gnashers>
 	},
 	ReturntoKarazhanEnt = {
-		{ "A", 10001, 279, 289 }, -- Karazhan, Front
-		{ "B", 10002, 327, 192 }, -- Karazhan, Back
-		{ "C", 10003, 266, 220 }, -- Return to Karazhan
+		{ "A",  10001, 279, 289 }, -- Karazhan, Front
+		{ "B",  10002, 327, 192 }, -- Karazhan, Back
+		{ "C",  10003, 266, 220 }, -- Return to Karazhan
 		{ "1'", 18255, 290, 304 }, -- Archmage Leryda
 		{ "2'", 10004, 300, 355 }, -- Stairs to The Master's Cellar
 		{ "3'", 10005, 325, 365 }, -- Stairs to The Master's Cellar
 		{ "4'", 10006, 226, 364 }, -- Charred Bone Fragment
 		{ "5'", 10007, 274, 315 }, -- Meeting Stone
-		{ "6'", 10008, 94, 288 }, -- Graveyard
-		{ "7'", 66255, 93, 328 }, -- Lydia Accoste
+		{ "6'", 10008, 94,  288 }, -- Graveyard
+		{ "7'", 66255, 93,  328 }, -- Lydia Accoste
 	},
 	ReturntoKarazhanA = {
-		{ "A", 10001, 425, 321 }, -- Entrance
-		{ "B", 10002, 228, 25 }, -- Connection
-		{ "C", 10002, 462, 348 }, -- Connection
-		{ "B", 10002, 231, 303 }, -- Connection
-		{ "D", 10002, 306, 397 }, -- Connection
-		{ 1, 1820, 80, 346 }, -- Opera Hall: Wikket
-		{ 2, 1826, 74, 370 }, -- Opera Hall: Westfall Story
-		{ 3, 1827, 70, 388 }, -- Opera Hall: Beautiful Beast
+		{ "A",  10001,  425, 321 }, -- Entrance
+		{ "B",  10002,  228, 25 }, -- Connection
+		{ "C",  10002,  462, 348 }, -- Connection
+		{ "B",  10002,  231, 303 }, -- Connection
+		{ "D",  10002,  306, 397 }, -- Connection
+		{ 1,    1820,   80,  346 }, -- Opera Hall: Wikket
+		{ 2,    1826,   74,  370 }, -- Opera Hall: Westfall Story
+		{ 3,    1827,   70,  388 }, -- Opera Hall: Beautiful Beast
 		{ "1'", 114339, 100, 369 }, -- Barnes
 		{ "2'", 115105, 152, 373 }, -- Soul Fragment
 	},
 	ReturntoKarazhanB = {
-		{ "D", 10001, 23, 216 }, -- Connection
-		{ "E", 10001, 270, 268 }, -- Connection
-		{ "F", 10001, 33, 152 }, -- Connection
-		{ 4, 1825, 410, 289 }, -- Maiden of Virtue
+		{ "D",  10001,  23,  216 }, -- Connection
+		{ "E",  10001,  270, 268 }, -- Connection
+		{ "F",  10001,  33,  152 }, -- Connection
+		{ 4,    1825,   410, 289 }, -- Maiden of Virtue
 		{ "3'", 115013, 397, 117 }, -- Soul Fragment
 	},
 	ReturntoKarazhanC = {
-		{ "E", 10001, 352, 99 }, -- Connection
-		{ "H", 10001, 278, 249 }, -- Connection
-		{ "G", 10001, 170, 436 }, -- Connection
-		{ 5, 1837, 142, 177 }, -- Moroes
+		{ "E",  10001,  352, 99 }, -- Connection
+		{ "H",  10001,  278, 249 }, -- Connection
+		{ "G",  10001,  170, 436 }, -- Connection
+		{ 5,    1837,   142, 177 }, -- Moroes
 		{ "4'", 115103, 118, 172 }, -- Soul Fragment
 	},
 	ReturntoKarazhanD = {
-		{ "F", 10001, 116, 15 }, -- Connection
-		{ "G", 10001, 111, 456 }, -- Connection
-		{ "H", 10001, 231, 304 }, -- Connection
-		{ "I", 10002, 431, 63 }, -- Connection
-		{ 6, 1835, 158, 416 }, -- Attumen the Huntsman
+		{ "F",  10001,  116, 15 }, -- Connection
+		{ "G",  10001,  111, 456 }, -- Connection
+		{ "H",  10001,  231, 304 }, -- Connection
+		{ "I",  10002,  431, 63 }, -- Connection
+		{ 6,    1835,   158, 416 }, -- Attumen the Huntsman
 		{ "5'", 114815, 154, 359 }, -- Koren
 		{ "6'", 115101, 418, 58 }, -- Soul Fragment
 	},
 	ReturntoKarazhanE = {
-		{ "C", 10001, 349, 162 }, -- Connection
-		{ "J", 10003, 275, 398 }, -- Portal
-		{ 7, 1836, 249, 363 }, -- The Curator
+		{ "C",  10001,  349, 162 }, -- Connection
+		{ "J",  10003,  275, 398 }, -- Portal
+		{ 7,    1836,   249, 363 }, -- The Curator
 		{ "7'", 115113, 229, 401 }, -- Soul Fragment
 	},
 	ReturntoKarazhanF = {
-		{ "J", 10001, 56, 102 }, -- Portal
+		{ "J", 10001, 56,  102 }, -- Portal
 		{ "K", 10002, 449, 342 }, -- Portal
-		{ 8, 1817, 451, 250 }, -- Shade of Medivh
+		{ 8,   1817,  451, 250 }, -- Shade of Medivh
 	},
 	ReturntoKarazhanG = {
-		{ "K", 10001, 22, 334 }, -- Entrance
-		{ 9, 1818, 83, 107 }, -- Mana Devourer
+		{ "K",  10001,  22, 334 }, -- Entrance
+		{ 9,    1818,   83, 107 }, -- Mana Devourer
 		{ "8'", 266826, 27, 251 }, -- Medivh's Footlocker
 	},
 	ReturntoKarazhanH = {
-		{ "L", 10001, 21, 41 }, -- Entrance
-		{ "M", 10002, 192, 487 }, -- Connection
-		{ "N", 10003, 29, 65 }, -- Portal
-		{ "9'", 143537, 34, 43 }, -- Mana Focus
+		{ "L",  10001,  21,  41 }, -- Entrance
+		{ "M",  10002,  192, 487 }, -- Connection
+		{ "N",  10003,  29,  65 }, -- Portal
+		{ "9'", 143537, 34,  43 }, -- Mana Focus
 	},
 	ReturntoKarazhanI = {
-		{ "M", 10001, 282, 271 }, -- Connection
-		{ 10, 1838, 248, 291 }, -- Viz'aduum the Watcher
+		{ "M",  10001,  282, 271 }, -- Connection
+		{ 10,   1838,   248, 291 }, -- Viz'aduum the Watcher
 		{ "9'", 115497, 196, 375 }, -- Archmage Khadgar
 	},
 	TombofSargerasA = {
 		{ "A", 10001, 200, 492 }, -- Entrance
 		{ "B", 10002, 283, 263 }, -- Connection
-		{ 1, 1862, 202, 297 }, -- Goroth
-		{ 2, 1867, 200, 26}, -- Demonic Inquisition
+		{ 1,   1862,  202, 297 }, -- Goroth
+		{ 2,   1867,  200, 26 }, -- Demonic Inquisition
 	},
 	TombofSargerasB = {
 		{ "B", 10001, 159, 323 }, -- Connection
 		{ "C", 10001, 303, 492 }, -- Connection
-		{ 4, 1903, 250, 288 }, -- Sisters of the Moon
-		{ 6, 1896, 304, 100 }, -- The Desolate Host
+		{ 4,   1903,  250, 288 }, -- Sisters of the Moon
+		{ 6,   1896,  304, 100 }, -- The Desolate Host
 	},
 	TombofSargerasC = {
 		{ "C", 10001, 313, 230 }, -- Connection
 		{ "D", 10001, 373, 281 }, -- Connection
-		{ 3, 1856, 195, 267 }, -- Harjatan
+		{ 3,   1856,  195, 267 }, -- Harjatan
 	},
 	TombofSargerasD = {
-		{ "D", 10001, 79, 101 }, -- Connection
-		{ 5, 1861, 235, 231 }, -- Mistress Sassz'ine
+		{ "D", 10001, 79,  101 }, -- Connection
+		{ 5,   1861,  235, 231 }, -- Mistress Sassz'ine
 	},
 	TombofSargerasE = {
 		{ 7, 1897, 250, 157 }, -- Maiden of Vigilance
@@ -1925,112 +1914,112 @@ db.AtlasMaps_NPC_DB = {
 		{ 9, 1898, 378, 249 },
 	},
 	TheArcwayEnt = {
-		{ " A", 10001, 382, 50 }, -- The Grand Promenade
-		{ " B", 10002, 470, 460 }, -- Terrace of Order
-		{ " C", 10003, 126, 297 }, -- The Arcway
-		{ " D", 10004, 350, 219 }, -- The Nighthold
-		{ " A", 10005, 471, 36 }, -- Transport
-		{ " A", 10005, 415, 136 }, -- Transport
-		{ " A", 10005, 383, 345 }, -- Transport
-		{ " A", 10005, 325, 444 }, -- Transport
-		{ " B", 10006, 292, 267 }, -- Portal to Shal'Aran
-		{ " 1", 10007, 220, 295 }, -- Meeting Stone
+		{ " A", 10001,  382, 50 }, -- The Grand Promenade
+		{ " B", 10002,  470, 460 }, -- Terrace of Order
+		{ " C", 10003,  126, 297 }, -- The Arcway
+		{ " D", 10004,  350, 219 }, -- The Nighthold
+		{ " A", 10005,  471, 36 }, -- Transport
+		{ " A", 10005,  415, 136 }, -- Transport
+		{ " A", 10005,  383, 345 }, -- Transport
+		{ " A", 10005,  325, 444 }, -- Transport
+		{ " B", 10006,  292, 267 }, -- Portal to Shal'Aran
+		{ " 1", 10007,  220, 295 }, -- Meeting Stone
 		{ "1'", 115366, 348, 240 }, -- First Arcanist Thalyssra
 	},
 	TheArcway = {
-		{ "A", 10001, 267,  81, 491, 71, "Blue" }, -- Entrance
-		{  1, 1497,    61, 350, 156, 504 }, -- Ivanyr
-		{  2, 1498,   211, 360, 404, 500 }, -- Corstilax
-		{  3, 1499,   455, 234, 793, 319 }, -- General Xakal
-		{  4, 1500,   363, 349, 643, 504 }, -- Nal'tira
-		{  5, 1501,   270, 178, 491, 252 }, -- Advisor Vandros
-		{ "1", 111057, 203, 232, 382, 317, "Orange" }, -- The Rat King
-		{ "2", 111021, 270, 395, 491, 564, "Orange" }, -- Sludge Face
-		{ "1'", 138394, 92, 304, 211, 425, "Green" }, -- Suramar Leyline Map
+		{ "A",  10001,  267, 81,  491, 71,  "Blue" }, -- Entrance
+		{ 1,    1497,   61,  350, 156, 504 },    -- Ivanyr
+		{ 2,    1498,   211, 360, 404, 500 },    -- Corstilax
+		{ 3,    1499,   455, 234, 793, 319 },    -- General Xakal
+		{ 4,    1500,   363, 349, 643, 504 },    -- Nal'tira
+		{ 5,    1501,   270, 178, 491, 252 },    -- Advisor Vandros
+		{ "1",  111057, 203, 232, 382, 317, "Orange" }, -- The Rat King
+		{ "2",  111021, 270, 395, 491, 564, "Orange" }, -- Sludge Face
+		{ "1'", 138394, 92,  304, 211, 425, "Green" }, -- Suramar Leyline Map
 	},
 	TheEmeraldNightmareA = {
-		{ "A", 10001, 122, 344 }, -- Entrance
-		{ "B", 10002, 50, 446 }, -- Entrance
-		{  1, 1703, 284, 239 }, -- Nythendra
+		{ "A",  10001, 122, 344 }, -- Entrance
+		{ "B",  10002, 50,  446 }, -- Entrance
+		{ 1,    1703,  284, 239 }, -- Nythendra
 		{ "1'", 10003, 160, 281 }, -- Nightmare Watcher
 	},
 	TheEmeraldNightmareB = {
-		{ "B",  10002, 55, 344 }, -- Connection
-		{ "C",  10003, 348, 242 }, -- Un'Goro Crater
-		{ "D",  10004, 399, 225 }, -- Mulgore
-		{ "E",  10005, 343, 158 }, -- Grizzly Hills
-		{ "F",  10006, 396, 159 }, -- The Emerald Dreamway
+		{ "B",  10002,  55,  344 }, -- Connection
+		{ "C",  10003,  348, 242 }, -- Un'Goro Crater
+		{ "D",  10004,  399, 225 }, -- Mulgore
+		{ "E",  10005,  343, 158 }, -- Grizzly Hills
+		{ "F",  10006,  396, 159 }, -- The Emerald Dreamway
 		{ "1'", 106482, 366, 202 }, -- Malfurion Stormrage
 	},
 	TheEmeraldNightmareC = {
 		{ "C", 10003, 424, 464 }, -- Entrance
-		{  2, 1738, 234, 206 }, -- Il'gynoth, Heart of Corruption
+		{ 2,   1738,  234, 206 }, -- Il'gynoth, Heart of Corruption
 	},
 	TheEmeraldNightmareD = {
 		{ "D", 10004, 418, 327 }, -- Entrance
-		{  3, 1744, 146, 251 }, -- Elerethe Renferal
+		{ 3,   1744,  146, 251 }, -- Elerethe Renferal
 	},
 	TheEmeraldNightmareE = {
-		{ "E", 10005, 96, 303 }, -- Entrance
-		{  4, 1667, 253, 155 }, -- Ursoc
+		{ "E", 10005, 96,  303 }, -- Entrance
+		{ 4,   1667,  253, 155 }, -- Ursoc
 	},
 	TheEmeraldNightmareF = {
-		{ "F", 10006, 97, 382 }, -- Entrance
-		{  5, 1704, 180, 252 }, -- Dragons of Nightmare
+		{ "F", 10006, 97,  382 }, -- Entrance
+		{ 5,   1704,  180, 252 }, -- Dragons of Nightmare
 	},
 	TheEmeraldNightmareG = {
 		{ "G", 10007, 194, 407 }, -- Entrance
-		{  6, 1750, 297, 228 }, -- Cenarius
+		{ 6,   1750,  297, 228 }, -- Cenarius
 	},
 	TheEmeraldNightmareH = {
-		{  7, 1726, 250, 250 }, -- Xavius
+		{ 7, 1726, 250, 250 }, -- Xavius
 	},
 	TheNightholdEnt = {
-		{ " A", 10001, 382, 50 }, -- The Grand Promenade
-		{ " B", 10002, 470, 460 }, -- Terrace of Order
-		{ " C", 10003, 126, 297 }, -- The Arcway
-		{ " D", 10004, 350, 219 }, -- The Nighthold
-		{ " A", 10005, 471, 36 }, -- Transport
-		{ " A", 10005, 415, 136 }, -- Transport
-		{ " A", 10005, 383, 345 }, -- Transport
-		{ " A", 10005, 325, 444 }, -- Transport
-		{ " B", 10006, 292, 267 }, -- Portal to Shal'Aran
-		{ " 1", 10007, 220, 295 }, -- Meeting Stone
+		{ " A", 10001,  382, 50 }, -- The Grand Promenade
+		{ " B", 10002,  470, 460 }, -- Terrace of Order
+		{ " C", 10003,  126, 297 }, -- The Arcway
+		{ " D", 10004,  350, 219 }, -- The Nighthold
+		{ " A", 10005,  471, 36 }, -- Transport
+		{ " A", 10005,  415, 136 }, -- Transport
+		{ " A", 10005,  383, 345 }, -- Transport
+		{ " A", 10005,  325, 444 }, -- Transport
+		{ " B", 10006,  292, 267 }, -- Portal to Shal'Aran
+		{ " 1", 10007,  220, 295 }, -- Meeting Stone
 		{ "1'", 115366, 348, 240 }, -- First Arcanist Thalyssra
 	},
 	TheNightholdA = {
-		{ "A", 10001, 147, 442, 401, 579, "Blue" }, -- Portal
-		{ "B", 10002, 228,  51, 499,  65, "Blue" }, -- Connection
-		{ "B", 10002,  64,  91, 283, 124, "Blue" }, -- Connection
-		{ "C", 10002, 160,  21, 406, 28, "Blue" }, -- Connection
-		{   1,  1706, 188, 290, 446, 379 }, -- Skorpyron
-		{   2,  1725, 356, 204, 668, 259 }, -- Chronomatic Anomaly
-		{   3,  1731, 264,  70, 551,  93 }, -- Trilliax
+		{ "A",  10001,  147, 442, 401, 579, "Blue" }, -- Portal
+		{ "B",  10002,  228, 51,  499, 65,  "Blue" }, -- Connection
+		{ "B",  10002,  64,  91,  283, 124, "Blue" }, -- Connection
+		{ "C",  10002,  160, 21,  406, 28,  "Blue" }, -- Connection
+		{ 1,    1706,   188, 290, 446, 379 }, -- Skorpyron
+		{ 2,    1725,   356, 204, 668, 259 }, -- Chronomatic Anomaly
+		{ 3,    1731,   264, 70,  551, 93 },  -- Trilliax
 		{ "1'", 110791, 136, 434, 381, 564 }, -- First Arcanist Thalyssra
 	},
 	TheNightholdB = {
-		{   4,  1751, 155, 233, 460, 302 }, -- Spellblade Aluriel
-		{   6,  1761, 408,  64, 781, 77 }, -- High Botanist Tel'arn
-		{   8,  1713, 387, 487, 761, 637 }, -- Krosus
-		{  10,  1737, 203, 279, 516, 358 }, -- Gul'dan
-		{ "A", 10001,  50, 129, 311, 158, "Blue" }, -- Portal
-		{ "C", 10002, 163, 150, 468, 179, "Blue" }, -- Connection
-		{ "D", 10002, 180, 179, 487, 234, "Blue" }, -- Connection
-		{ "E", 10002, 228, 128, 554, 165, "Blue" }, -- Connection
-		{ "F", 10002, 215, 180, 537, 235, "Blue" }, -- Connection
-		{ "G", 10002,  82, 267, 354, 341, "Blue" }, -- Connection
-		{ "G", 10002,  94, 281, 376, 362, "Blue" }, -- Connection
-		{ "H", 10002, 106, 290, 393, 382, "Blue" }, -- Connection
-		{ "I", 10002, 177, 251, 474, 318, "Blue" }, -- Connection
-		{ "J", 10002, 229, 300, 553, 397, "Blue" }, -- Connection
-		{ "K", 10003, 147, 331, 442, 431, "Blue" }, -- Portal
-		{ "K", 10003, 257, 221, 587, 284, "Blue" }, -- Portal
-		{ "1", 112712,  89, 126, 369, 162, "Orange" }, -- Gilded Guardian
-		{ "2", 116004,  47, 309, 315, 403, "Orange" }, -- Flightmaster Volnath
-		{ "2'", 117085, 80, 280, 358, 360, "Green" }, -- Ly'leth Lunastre
+		{ 4,    1751,   155, 233, 460, 302 },    -- Spellblade Aluriel
+		{ 6,    1761,   408, 64,  781, 77 },     -- High Botanist Tel'arn
+		{ 8,    1713,   387, 487, 761, 637 },    -- Krosus
+		{ 10,   1737,   203, 279, 516, 358 },    -- Gul'dan
+		{ "A",  10001,  50,  129, 311, 158, "Blue" }, -- Portal
+		{ "C",  10002,  163, 150, 468, 179, "Blue" }, -- Connection
+		{ "D",  10002,  180, 179, 487, 234, "Blue" }, -- Connection
+		{ "E",  10002,  228, 128, 554, 165, "Blue" }, -- Connection
+		{ "F",  10002,  215, 180, 537, 235, "Blue" }, -- Connection
+		{ "G",  10002,  82,  267, 354, 341, "Blue" }, -- Connection
+		{ "G",  10002,  94,  281, 376, 362, "Blue" }, -- Connection
+		{ "H",  10002,  106, 290, 393, 382, "Blue" }, -- Connection
+		{ "I",  10002,  177, 251, 474, 318, "Blue" }, -- Connection
+		{ "J",  10002,  229, 300, 553, 397, "Blue" }, -- Connection
+		{ "K",  10003,  147, 331, 442, 431, "Blue" }, -- Portal
+		{ "K",  10003,  257, 221, 587, 284, "Blue" }, -- Portal
+		{ "1",  112712, 89,  126, 369, 162, "Orange" }, -- Gilded Guardian
+		{ "2",  116004, 47,  309, 315, 403, "Orange" }, -- Flightmaster Volnath
+		{ "2'", 117085, 80,  280, 358, 360, "Green" }, -- Ly'leth Lunastre
 	},
 	TheNightholdC = {
-		{   5,  1732, 152,  95, 345, 109 }, -- Star Augur Etraeus
+		{ 5,   1732,  152, 95,  345, 109 },   -- Star Augur Etraeus
 		{ "D", 10001, 169, 466, 378, 620, "Blue" }, -- Connection
 		{ "E", 10001, 412, 221, 708, 291, "Blue" }, -- Connection
 		{ "F", 10002, 346, 453, 611, 607, "Blue" }, -- Connection
@@ -2039,7 +2028,7 @@ db.AtlasMaps_NPC_DB = {
 		{ "G", 10002, 146, 177, 341, 230, "Blue" }, -- Connection
 		{ "G", 10002, 325, 353, 581, 472, "Blue" }, -- Connection
 		{ "H", 10002, 406, 256, 695, 340, "Blue" }, -- Connection
-		{   7, 1762, 175, 320 }, -- Tichondrius
+		{ 7,   1762,  175, 320 },             -- Tichondrius
 	},
 	TheNightholdE = {
 		{ "I", 10001, 152, 150 }, -- Connection
@@ -2048,53 +2037,53 @@ db.AtlasMaps_NPC_DB = {
 		{ "K", 10002, 184, 318 }, -- Portal
 	},
 	TheNightholdF = {
-		{ "K", 10002, 48, 446 }, -- Portal
-		{ "K", 10002, 464, 48 }, -- Portal
-		{ "K", 10002, 142, 144 }, -- Portal
-		{   9, 1743, 251, 249, 486, 342 }, -- Grand Magistrix Elisande
+		{ "K", 10002, 48,  446 },    -- Portal
+		{ "K", 10002, 464, 48 },     -- Portal
+		{ "K", 10002, 142, 144 },    -- Portal
+		{ 9,   1743,  251, 249, 486, 342 }, -- Grand Magistrix Elisande
 	},
 	TheNightholdG = {
 		{ 10, 1737, 250, 251, 491, 346 }, -- Gul'dan
 	},
 	TheSeatoftheTriumvirate = {
-		{ "A", 10001,  52, 434 }, -- Entrance
-		{   1, 1979,  67, 368 }, -- Zuraal the Ascended
-		{   2, 1980, 117, 206 }, -- Saprish
-		{   3, 1981, 269, 100 }, -- Viceroy Nezhar
-		{   4, 1982, 338, 162 }, -- L'ura
+		{ "A", 10001, 52,  434 }, -- Entrance
+		{ 1,   1979,  67,  368 }, -- Zuraal the Ascended
+		{ 2,   1980,  117, 206 }, -- Saprish
+		{ 3,   1981,  269, 100 }, -- Viceroy Nezhar
+		{ 4,   1982,  338, 162 }, -- L'ura
 	},
 	TrialofValorA = {
 		{ "A", 10101, 249, 39 }, -- Entrance
-		{   1, 10001, 291, 321 }, -- Hymdall
-		{   2, 10002, 212, 321 }, -- Hyrja
-		{   3, 1819, 251, 427 }, -- Odyn
+		{ 1,   10001, 291, 321 }, -- Hymdall
+		{ 2,   10002, 212, 321 }, -- Hyrja
+		{ 3,   1819,  251, 427 }, -- Odyn
 	},
 	TrialofValorB = {
 		{ "A", 10101, 348, 244 }, -- Entrance
-		{   4, 1830, 278, 196 }, -- Guarm
-		{   5, 1829, 172, 190 }, -- Helya
+		{ 4,   1830,  278, 196 }, -- Guarm
+		{ 5,   1829,  172, 190 }, -- Helya
 	},
 	VaultoftheWardensA = {
 		{ "A", 10001, 480, 384 }, -- Entrance
-		{ "B", 10002,  68, 206 }, -- Connection
+		{ "B", 10002, 68,  206 }, -- Connection
 		{ "B", 10002, 137, 206 }, -- Connection
 		{ "C", 10003, 104, 116 }, -- Elevator
-		{  1, 1467, 103, 283 }, -- Tirathon Saltheril
+		{ 1,   1467,  103, 283 }, -- Tirathon Saltheril
 	},
 	VaultoftheWardensB = {
-		{ "C", 10003, 197, 241 }, -- Elevator
-		{ "D", 10003,  91, 241 }, -- Elevator
-		{  2, 1695, 139, 241 }, -- Inquisitor Tormentorum
-		{  3, 1468, 191, 412 }, -- Ash'golm
-		{  4, 1469, 373, 239 }, -- Glazer
+		{ "C", 10003,  197, 241 }, -- Elevator
+		{ "D", 10003,  91,  241 }, -- Elevator
+		{ 2,   1695,   139, 241 }, -- Inquisitor Tormentorum
+		{ 3,   1468,   191, 412 }, -- Ash'golm
+		{ 4,   1469,   373, 239 }, -- Glazer
 		{ "1", 105824, 197, 73 }, -- Grimoira
 	},
 	VaultoftheWardensC = {
-		{ "D", 10004, 271, 25 }; -- Connection
-		{  5, 1470, 246, 426 }; -- Cordana Felsong
-		{ "1'", 258979, 306, 150 }; -- Fel-Ravaged Tome
-		{ "2'", 103860, 228, 441 }; -- Drelanim Whisperwind
-	};
+		{ "D",  10004,  271, 25 }, -- Connection
+		{ 5,    1470,   246, 426 }, -- Cordana Felsong
+		{ "1'", 258979, 306, 150 }, -- Fel-Ravaged Tome
+		{ "2'", 103860, 228, 441 }, -- Drelanim Whisperwind
+	},
 }
 
 --[[
@@ -2111,17 +2100,17 @@ db.AtlasMaps_NPC_DB = {
 	The table value is map's key-name.
 ]]
 db.AssocDefaults = {
-	[BZ["Black Rook Hold"]] = 		"BlackRookHoldA",
-	[BZ["Court of Stars"]] = 		"CourtofStarsA",
-	[BZ["Halls of Valor"]] = 		"HallsofValorA",
-	[BZ["Maw of Souls"]] = 			"MawofSoulsA",
-	[BZ["The Emerald Nightmare"]] = 	"TheEmeraldNightmareA",
-	[BZ["The Nighthold"]] = 		"TheNightholdA",
-	[BZ["Vault of the Wardens"]] = 		"VaultoftheWardensA",
-	[BZ["Trial of Valor"]] = 		"TrialofValorA",
-	[BZ["Karazhan"]] =			"ReturntoKarazhanEnt", -- not sure if we should use "Return to Karazhan"
-	[BZ["Cathedral of Eternal Night"]] = 	"CathedralofEternalNightA",
-	[BZ["Antorus, the Burning Throne"]] = 	"AntorustheBurningThroneA",
+	[BZ["Black Rook Hold"]] = "BlackRookHoldA",
+	[BZ["Court of Stars"]] = "CourtofStarsA",
+	[BZ["Halls of Valor"]] = "HallsofValorA",
+	[BZ["Maw of Souls"]] = "MawofSoulsA",
+	[BZ["The Emerald Nightmare"]] = "TheEmeraldNightmareA",
+	[BZ["The Nighthold"]] = "TheNightholdA",
+	[BZ["Vault of the Wardens"]] = "VaultoftheWardensA",
+	[BZ["Trial of Valor"]] = "TrialofValorA",
+	[BZ["Karazhan"]] = "ReturntoKarazhanEnt", -- not sure if we should use "Return to Karazhan"
+	[BZ["Cathedral of Eternal Night"]] = "CathedralofEternalNightA",
+	[BZ["Antorus, the Burning Throne"]] = "AntorustheBurningThroneA",
 }
 
 --[[
@@ -2220,11 +2209,11 @@ db.SubZoneData = {
 		["TheEmeraldNightmareH"] = {
 			BZ["Rift of Aln"],
 		},
-			-- BZ["The Emerald Dream"],
-			-- BZ["Bough Shadow"],
-			-- BZ["Seradane"],
-			-- BZ["Twilight Grove"],
-			-- BZ["Dream Bough"],
+		-- BZ["The Emerald Dream"],
+		-- BZ["Bough Shadow"],
+		-- BZ["Seradane"],
+		-- BZ["Twilight Grove"],
+		-- BZ["Dream Bough"],
 	},
 	[BZ["The Nighthold"]] = {
 		-- Skorpyron, Chronomatic Anomaly, Trilliax
@@ -2248,8 +2237,8 @@ db.SubZoneData = {
 		["TheNightholdD"] = {
 			BZ["Captain's Quarters"],
 		},
---		["TheNightholdE"] = {
---		},
+		--		["TheNightholdE"] = {
+		--		},
 		-- Grand Magistrix Elisande
 		["TheNightholdF"] = {
 			BZ["Elisande's Secret Quarters"],
@@ -2290,10 +2279,10 @@ db.SubZoneData = {
 		["CathedralofEternalNightD"] = {
 			BZ["Sacristy of Elune"],
 		},
---			BZ["Chapel of Tranquil Song"],
---			BZ["Chapel of Moonlight"],
---			BZ["Chapel of Sentinels"],
---			BZ["Chapel of Tears"],
+		--			BZ["Chapel of Tranquil Song"],
+		--			BZ["Chapel of Moonlight"],
+		--			BZ["Chapel of Sentinels"],
+		--			BZ["Chapel of Tears"],
 	},
 	[BZ["Tomb of Sargeras"]] = {
 		["TombofSargerasA"] = {
@@ -2324,19 +2313,19 @@ db.SubZoneData = {
 		["TombofSargerasG"] = {
 			BZ["The Twisting Nether"],
 		},
---			BZ["Sunken Stair"],
---			BZ["Belac's Cells"],
---			BZ["Forgotten Approach"],
+		--			BZ["Sunken Stair"],
+		--			BZ["Belac's Cells"],
+		--			BZ["Forgotten Approach"],
 
 	},
---	[BZ["Trial of Valor"]] = {
---		["TrialofValorA"] = {
---
---		},
---		["TrialofValorB"] = {
---
---		},
---	},
+	--	[BZ["Trial of Valor"]] = {
+	--		["TrialofValorA"] = {
+	--
+	--		},
+	--		["TrialofValorB"] = {
+	--
+	--		},
+	--	},
 	[BZ["Antorus, the Burning Throne"]] = {
 		["AntorustheBurningThroneA"] = {
 		},
@@ -2368,164 +2357,164 @@ db.SubZoneData = {
 	Not for localization.
 ]]
 db.OutdoorZoneToAtlas = {
-	[BZ["Dalaran"]] = 			"AssaultonVioletHold",
-	[BZ["Azsuna"]] = 			"VaultoftheWardensA",
-	[BZ["Val'sharah"]] = 			"BlackRookHoldA",
-	[BZ["Highmountain"]] = 			"NeltharionsLair",
-	[BZ["Stormheim"]] = 			"HallsofValorA",
-	[BZ["Suramar"]] = 			"TheNightholdEnt",
-	[BZ["Deadwind Pass"]] = 		"ReturntoKarazhanEnt",
-	[BZ["Broken Shore"]] = 			"CathedralofEternalNightA",
-	[BZ["Mac'Aree"]] = 			"TheSeatoftheTriumvirate",
+	[BZ["Dalaran"]] = "AssaultonVioletHold",
+	[BZ["Azsuna"]] = "VaultoftheWardensA",
+	[BZ["Val'sharah"]] = "BlackRookHoldA",
+	[BZ["Highmountain"]] = "NeltharionsLair",
+	[BZ["Stormheim"]] = "HallsofValorA",
+	[BZ["Suramar"]] = "TheNightholdEnt",
+	[BZ["Deadwind Pass"]] = "ReturntoKarazhanEnt",
+	[BZ["Broken Shore"]] = "CathedralofEternalNightA",
+	[BZ["Mac'Aree"]] = "TheSeatoftheTriumvirate",
 	--"AntorustheBurningThroneA",
 }
 
 db.EntToInstMatches = {
-	["TheArcwayEnt"] = 			{"TheArcway"},
- 	["TheNightholdEnt"] = 			{"TheNightholdA", "TheNightholdB", "TheNightholdC", "TheNightholdD", "TheNightholdE", "TheNightholdF", "TheNightholdG" },
-	["ReturntoKarazhanEnt"] =		{"ReturntoKarazhanA", "ReturntoKarazhanB", "ReturntoKarazhanC", "ReturntoKarazhanD", "ReturntoKarazhanE", "ReturntoKarazhanF", "ReturntoKarazhanG", "ReturntoKarazhanH", "ReturntoKarazhanI"},
+	["TheArcwayEnt"] = { "TheArcway" },
+	["TheNightholdEnt"] = { "TheNightholdA", "TheNightholdB", "TheNightholdC", "TheNightholdD", "TheNightholdE", "TheNightholdF", "TheNightholdG" },
+	["ReturntoKarazhanEnt"] = { "ReturntoKarazhanA", "ReturntoKarazhanB", "ReturntoKarazhanC", "ReturntoKarazhanD", "ReturntoKarazhanE", "ReturntoKarazhanF", "ReturntoKarazhanG", "ReturntoKarazhanH", "ReturntoKarazhanI" },
 }
 
 db.InstToEntMatches = {
-	["TheArcway"] = 			{"TheArcwayEnt"},
-	["TheNightholdA"] = 			{"TheNightholdEnt"},
-	["TheNightholdB"] = 			{"TheNightholdEnt"},
-	["TheNightholdC"] = 			{"TheNightholdEnt"},
-	["TheNightholdD"] = 			{"TheNightholdEnt"},
-	["TheNightholdE"] = 			{"TheNightholdEnt"},
-	["TheNightholdF"] = 			{"TheNightholdEnt"},
-	["TheNightholdG"] = 			{"TheNightholdEnt"},
-	["ReturntoKarazhanA"] = 		{"ReturntoKarazhanEnt"},
-	["ReturntoKarazhanB"] = 		{"ReturntoKarazhanEnt"},
-	["ReturntoKarazhanC"] = 		{"ReturntoKarazhanEnt"},
-	["ReturntoKarazhanD"] = 		{"ReturntoKarazhanEnt"},
-	["ReturntoKarazhanE"] = 		{"ReturntoKarazhanEnt"},
-	["ReturntoKarazhanF"] = 		{"ReturntoKarazhanEnt"},
-	["ReturntoKarazhanG"] = 		{"ReturntoKarazhanEnt"},
-	["ReturntoKarazhanH"] = 		{"ReturntoKarazhanEnt"},
-	["ReturntoKarazhanI"] = 		{"ReturntoKarazhanEnt"},
+	["TheArcway"] = { "TheArcwayEnt" },
+	["TheNightholdA"] = { "TheNightholdEnt" },
+	["TheNightholdB"] = { "TheNightholdEnt" },
+	["TheNightholdC"] = { "TheNightholdEnt" },
+	["TheNightholdD"] = { "TheNightholdEnt" },
+	["TheNightholdE"] = { "TheNightholdEnt" },
+	["TheNightholdF"] = { "TheNightholdEnt" },
+	["TheNightholdG"] = { "TheNightholdEnt" },
+	["ReturntoKarazhanA"] = { "ReturntoKarazhanEnt" },
+	["ReturntoKarazhanB"] = { "ReturntoKarazhanEnt" },
+	["ReturntoKarazhanC"] = { "ReturntoKarazhanEnt" },
+	["ReturntoKarazhanD"] = { "ReturntoKarazhanEnt" },
+	["ReturntoKarazhanE"] = { "ReturntoKarazhanEnt" },
+	["ReturntoKarazhanF"] = { "ReturntoKarazhanEnt" },
+	["ReturntoKarazhanG"] = { "ReturntoKarazhanEnt" },
+	["ReturntoKarazhanH"] = { "ReturntoKarazhanEnt" },
+	["ReturntoKarazhanI"] = { "ReturntoKarazhanEnt" },
 }
 
 db.MapSeries = {
-	["BlackRookHoldA"] = 			{"BlackRookHoldA", "BlackRookHoldB", "BlackRookHoldC", "BlackRookHoldD" },
-	["BlackRookHoldB"] = 			{"BlackRookHoldA", "BlackRookHoldB", "BlackRookHoldC", "BlackRookHoldD" },
-	["BlackRookHoldC"] = 			{"BlackRookHoldA", "BlackRookHoldB", "BlackRookHoldC", "BlackRookHoldD" },
-	["BlackRookHoldD"] = 			{"BlackRookHoldA", "BlackRookHoldB", "BlackRookHoldC", "BlackRookHoldD" },
-	["CourtofStarsA"] = 			{"CourtofStarsA", "CourtofStarsB" },
-	["CourtofStarsB"] = 			{"CourtofStarsA", "CourtofStarsB" },
-	["HallsofValorA"] = 			{"HallsofValorA", "HallsofValorB", "HallsofValorC" },
-	["HallsofValorB"] = 			{"HallsofValorA", "HallsofValorB", "HallsofValorC" },
-	["HallsofValorC"] = 			{"HallsofValorA", "HallsofValorB", "HallsofValorC" },
-	["MawofSoulsA"] = 			{"MawofSoulsA", "MawofSoulsB" },
-	["MawofSoulsB"] = 			{"MawofSoulsA", "MawofSoulsB" },
-	["TheEmeraldNightmareA"] = 		{"TheEmeraldNightmareA", "TheEmeraldNightmareB", "TheEmeraldNightmareC", "TheEmeraldNightmareD", "TheEmeraldNightmareE", "TheEmeraldNightmareF", "TheEmeraldNightmareG", "TheEmeraldNightmareH" },
-	["TheEmeraldNightmareB"] = 		{"TheEmeraldNightmareA", "TheEmeraldNightmareB", "TheEmeraldNightmareC", "TheEmeraldNightmareD", "TheEmeraldNightmareE", "TheEmeraldNightmareF", "TheEmeraldNightmareG", "TheEmeraldNightmareH" },
-	["TheEmeraldNightmareC"] = 		{"TheEmeraldNightmareA", "TheEmeraldNightmareB", "TheEmeraldNightmareC", "TheEmeraldNightmareD", "TheEmeraldNightmareE", "TheEmeraldNightmareF", "TheEmeraldNightmareG", "TheEmeraldNightmareH" },
-	["TheEmeraldNightmareD"] = 		{"TheEmeraldNightmareA", "TheEmeraldNightmareB", "TheEmeraldNightmareC", "TheEmeraldNightmareD", "TheEmeraldNightmareE", "TheEmeraldNightmareF", "TheEmeraldNightmareG", "TheEmeraldNightmareH" },
-	["TheEmeraldNightmareE"] = 		{"TheEmeraldNightmareA", "TheEmeraldNightmareB", "TheEmeraldNightmareC", "TheEmeraldNightmareD", "TheEmeraldNightmareE", "TheEmeraldNightmareF", "TheEmeraldNightmareG", "TheEmeraldNightmareH" },
-	["TheEmeraldNightmareF"] = 		{"TheEmeraldNightmareA", "TheEmeraldNightmareB", "TheEmeraldNightmareC", "TheEmeraldNightmareD", "TheEmeraldNightmareE", "TheEmeraldNightmareF", "TheEmeraldNightmareG", "TheEmeraldNightmareH" },
-	["TheEmeraldNightmareG"] = 		{"TheEmeraldNightmareA", "TheEmeraldNightmareB", "TheEmeraldNightmareC", "TheEmeraldNightmareD", "TheEmeraldNightmareE", "TheEmeraldNightmareF", "TheEmeraldNightmareG", "TheEmeraldNightmareH" },
- 	["TheEmeraldNightmareH"] = 		{"TheEmeraldNightmareA", "TheEmeraldNightmareB", "TheEmeraldNightmareC", "TheEmeraldNightmareD", "TheEmeraldNightmareE", "TheEmeraldNightmareF", "TheEmeraldNightmareG", "TheEmeraldNightmareH" },
-	["TheNightholdA"] = 			{"TheNightholdA", "TheNightholdB", "TheNightholdC", "TheNightholdD", "TheNightholdE", "TheNightholdF", "TheNightHoldG" },
-	["TheNightholdB"] = 			{"TheNightholdA", "TheNightholdB", "TheNightholdC", "TheNightholdD", "TheNightholdE", "TheNightholdF", "TheNightHoldG" },
-	["TheNightholdC"] = 			{"TheNightholdA", "TheNightholdB", "TheNightholdC", "TheNightholdD", "TheNightholdE", "TheNightholdF", "TheNightHoldG" },
-	["TheNightholdD"] = 			{"TheNightholdA", "TheNightholdB", "TheNightholdC", "TheNightholdD", "TheNightholdE", "TheNightholdF", "TheNightHoldG" },
-	["TheNightholdE"] = 			{"TheNightholdA", "TheNightholdB", "TheNightholdC", "TheNightholdD", "TheNightholdE", "TheNightholdF", "TheNightHoldG" },
-	["TheNightholdF"] = 			{"TheNightholdA", "TheNightholdB", "TheNightholdC", "TheNightholdD", "TheNightholdE", "TheNightholdF", "TheNightHoldG" },
-	["TheNightholdG"] = 			{"TheNightholdA", "TheNightholdB", "TheNightholdC", "TheNightholdD", "TheNightholdE", "TheNightholdF", "TheNightHoldG" },
-	["TrialofValorA"] = 			{"TrialofValorA", "TrialofValorB"},
-	["TrialofValorB"] = 			{"TrialofValorA", "TrialofValorB"},
-	["VaultoftheWardensA"] = 		{"VaultoftheWardensA", "VaultoftheWardensB", "VaultoftheWardensC" },
-	["VaultoftheWardensB"] = 		{"VaultoftheWardensA", "VaultoftheWardensB", "VaultoftheWardensC" },
-	["VaultoftheWardensC"] = 		{"VaultoftheWardensA", "VaultoftheWardensB", "VaultoftheWardensC" },
-	["ReturntoKarazhanA"] = 		{"ReturntoKarazhanA", "ReturntoKarazhanB", "ReturntoKarazhanC", "ReturntoKarazhanD", "ReturntoKarazhanE", "ReturntoKarazhanF", "ReturntoKarazhanG", "ReturntoKarazhanH", "ReturntoKarazhanI" },
-	["ReturntoKarazhanB"] = 		{"ReturntoKarazhanA", "ReturntoKarazhanB", "ReturntoKarazhanC", "ReturntoKarazhanD", "ReturntoKarazhanE", "ReturntoKarazhanF", "ReturntoKarazhanG", "ReturntoKarazhanH", "ReturntoKarazhanI" },
-	["ReturntoKarazhanC"] = 		{"ReturntoKarazhanA", "ReturntoKarazhanB", "ReturntoKarazhanC", "ReturntoKarazhanD", "ReturntoKarazhanE", "ReturntoKarazhanF", "ReturntoKarazhanG", "ReturntoKarazhanH", "ReturntoKarazhanI" },
-	["ReturntoKarazhanD"] = 		{"ReturntoKarazhanA", "ReturntoKarazhanB", "ReturntoKarazhanC", "ReturntoKarazhanD", "ReturntoKarazhanE", "ReturntoKarazhanF", "ReturntoKarazhanG", "ReturntoKarazhanH", "ReturntoKarazhanI" },
-	["ReturntoKarazhanE"] = 		{"ReturntoKarazhanA", "ReturntoKarazhanB", "ReturntoKarazhanC", "ReturntoKarazhanD", "ReturntoKarazhanE", "ReturntoKarazhanF", "ReturntoKarazhanG", "ReturntoKarazhanH", "ReturntoKarazhanI" },
-	["ReturntoKarazhanF"] = 		{"ReturntoKarazhanA", "ReturntoKarazhanB", "ReturntoKarazhanC", "ReturntoKarazhanD", "ReturntoKarazhanE", "ReturntoKarazhanF", "ReturntoKarazhanG", "ReturntoKarazhanH", "ReturntoKarazhanI" },
-	["ReturntoKarazhanG"] = 		{"ReturntoKarazhanA", "ReturntoKarazhanB", "ReturntoKarazhanC", "ReturntoKarazhanD", "ReturntoKarazhanE", "ReturntoKarazhanF", "ReturntoKarazhanG", "ReturntoKarazhanH", "ReturntoKarazhanI" },
-	["ReturntoKarazhanH"] = 		{"ReturntoKarazhanA", "ReturntoKarazhanB", "ReturntoKarazhanC", "ReturntoKarazhanD", "ReturntoKarazhanE", "ReturntoKarazhanF", "ReturntoKarazhanG", "ReturntoKarazhanH", "ReturntoKarazhanI" },
-	["ReturntoKarazhanI"] = 		{"ReturntoKarazhanA", "ReturntoKarazhanB", "ReturntoKarazhanC", "ReturntoKarazhanD", "ReturntoKarazhanE", "ReturntoKarazhanF", "ReturntoKarazhanG", "ReturntoKarazhanH", "ReturntoKarazhanI" },
-	["CathedralofEternalNightA"] = 		{"CathedralofEternalNightA", "CathedralofEternalNightB", "CathedralofEternalNightC", "CathedralofEternalNightD" },
-	["CathedralofEternalNightB"] = 		{"CathedralofEternalNightA", "CathedralofEternalNightB", "CathedralofEternalNightC", "CathedralofEternalNightD" },
-	["CathedralofEternalNightC"] = 		{"CathedralofEternalNightA", "CathedralofEternalNightB", "CathedralofEternalNightC", "CathedralofEternalNightD" },
-	["CathedralofEternalNightD"] = 		{"CathedralofEternalNightA", "CathedralofEternalNightB", "CathedralofEternalNightC", "CathedralofEternalNightD" },
-	["TombofSargerasA"] = 			{"TombofSargerasA", "TombofSargerasB", "TombofSargerasC", "TombofSargerasD", "TombofSargerasE", "TombofSargerasF", "TombofSargerasG" },
-	["TombofSargerasB"] = 			{"TombofSargerasA", "TombofSargerasB", "TombofSargerasC", "TombofSargerasD", "TombofSargerasE", "TombofSargerasF", "TombofSargerasG" },
-	["TombofSargerasC"] = 			{"TombofSargerasA", "TombofSargerasB", "TombofSargerasC", "TombofSargerasD", "TombofSargerasE", "TombofSargerasF", "TombofSargerasG" },
-	["TombofSargerasD"] = 			{"TombofSargerasA", "TombofSargerasB", "TombofSargerasC", "TombofSargerasD", "TombofSargerasE", "TombofSargerasF", "TombofSargerasG" },
-	["TombofSargerasE"] = 			{"TombofSargerasA", "TombofSargerasB", "TombofSargerasC", "TombofSargerasD", "TombofSargerasE", "TombofSargerasF", "TombofSargerasG" },
-	["TombofSargerasF"] = 			{"TombofSargerasA", "TombofSargerasB", "TombofSargerasC", "TombofSargerasD", "TombofSargerasE", "TombofSargerasF", "TombofSargerasG" },
-	["TombofSargerasG"] = 			{"TombofSargerasA", "TombofSargerasB", "TombofSargerasC", "TombofSargerasD", "TombofSargerasE", "TombofSargerasF", "TombofSargerasG" },
-	["AntorustheBurningThroneA"] = 		{"AntorustheBurningThroneA", "AntorustheBurningThroneB", "AntorustheBurningThroneC", "AntorustheBurningThroneD", "AntorustheBurningThroneE", "AntorustheBurningThroneF", "AntorustheBurningThroneG" },
-	["AntorustheBurningThroneB"] = 		{"AntorustheBurningThroneA", "AntorustheBurningThroneB", "AntorustheBurningThroneC", "AntorustheBurningThroneD", "AntorustheBurningThroneE", "AntorustheBurningThroneF", "AntorustheBurningThroneG" },
-	["AntorustheBurningThroneC"] = 		{"AntorustheBurningThroneA", "AntorustheBurningThroneB", "AntorustheBurningThroneC", "AntorustheBurningThroneD", "AntorustheBurningThroneE", "AntorustheBurningThroneF", "AntorustheBurningThroneG" },
-	["AntorustheBurningThroneD"] = 		{"AntorustheBurningThroneA", "AntorustheBurningThroneB", "AntorustheBurningThroneC", "AntorustheBurningThroneD", "AntorustheBurningThroneE", "AntorustheBurningThroneF", "AntorustheBurningThroneG" },
-	["AntorustheBurningThroneE"] = 		{"AntorustheBurningThroneA", "AntorustheBurningThroneB", "AntorustheBurningThroneC", "AntorustheBurningThroneD", "AntorustheBurningThroneE", "AntorustheBurningThroneF", "AntorustheBurningThroneG" },
-	["AntorustheBurningThroneF"] = 		{"AntorustheBurningThroneA", "AntorustheBurningThroneB", "AntorustheBurningThroneC", "AntorustheBurningThroneD", "AntorustheBurningThroneE", "AntorustheBurningThroneF", "AntorustheBurningThroneG" },
-	["AntorustheBurningThroneG"] = 		{"AntorustheBurningThroneA", "AntorustheBurningThroneB", "AntorustheBurningThroneC", "AntorustheBurningThroneD", "AntorustheBurningThroneE", "AntorustheBurningThroneF", "AntorustheBurningThroneG" },
+	["BlackRookHoldA"] = { "BlackRookHoldA", "BlackRookHoldB", "BlackRookHoldC", "BlackRookHoldD" },
+	["BlackRookHoldB"] = { "BlackRookHoldA", "BlackRookHoldB", "BlackRookHoldC", "BlackRookHoldD" },
+	["BlackRookHoldC"] = { "BlackRookHoldA", "BlackRookHoldB", "BlackRookHoldC", "BlackRookHoldD" },
+	["BlackRookHoldD"] = { "BlackRookHoldA", "BlackRookHoldB", "BlackRookHoldC", "BlackRookHoldD" },
+	["CourtofStarsA"] = { "CourtofStarsA", "CourtofStarsB" },
+	["CourtofStarsB"] = { "CourtofStarsA", "CourtofStarsB" },
+	["HallsofValorA"] = { "HallsofValorA", "HallsofValorB", "HallsofValorC" },
+	["HallsofValorB"] = { "HallsofValorA", "HallsofValorB", "HallsofValorC" },
+	["HallsofValorC"] = { "HallsofValorA", "HallsofValorB", "HallsofValorC" },
+	["MawofSoulsA"] = { "MawofSoulsA", "MawofSoulsB" },
+	["MawofSoulsB"] = { "MawofSoulsA", "MawofSoulsB" },
+	["TheEmeraldNightmareA"] = { "TheEmeraldNightmareA", "TheEmeraldNightmareB", "TheEmeraldNightmareC", "TheEmeraldNightmareD", "TheEmeraldNightmareE", "TheEmeraldNightmareF", "TheEmeraldNightmareG", "TheEmeraldNightmareH" },
+	["TheEmeraldNightmareB"] = { "TheEmeraldNightmareA", "TheEmeraldNightmareB", "TheEmeraldNightmareC", "TheEmeraldNightmareD", "TheEmeraldNightmareE", "TheEmeraldNightmareF", "TheEmeraldNightmareG", "TheEmeraldNightmareH" },
+	["TheEmeraldNightmareC"] = { "TheEmeraldNightmareA", "TheEmeraldNightmareB", "TheEmeraldNightmareC", "TheEmeraldNightmareD", "TheEmeraldNightmareE", "TheEmeraldNightmareF", "TheEmeraldNightmareG", "TheEmeraldNightmareH" },
+	["TheEmeraldNightmareD"] = { "TheEmeraldNightmareA", "TheEmeraldNightmareB", "TheEmeraldNightmareC", "TheEmeraldNightmareD", "TheEmeraldNightmareE", "TheEmeraldNightmareF", "TheEmeraldNightmareG", "TheEmeraldNightmareH" },
+	["TheEmeraldNightmareE"] = { "TheEmeraldNightmareA", "TheEmeraldNightmareB", "TheEmeraldNightmareC", "TheEmeraldNightmareD", "TheEmeraldNightmareE", "TheEmeraldNightmareF", "TheEmeraldNightmareG", "TheEmeraldNightmareH" },
+	["TheEmeraldNightmareF"] = { "TheEmeraldNightmareA", "TheEmeraldNightmareB", "TheEmeraldNightmareC", "TheEmeraldNightmareD", "TheEmeraldNightmareE", "TheEmeraldNightmareF", "TheEmeraldNightmareG", "TheEmeraldNightmareH" },
+	["TheEmeraldNightmareG"] = { "TheEmeraldNightmareA", "TheEmeraldNightmareB", "TheEmeraldNightmareC", "TheEmeraldNightmareD", "TheEmeraldNightmareE", "TheEmeraldNightmareF", "TheEmeraldNightmareG", "TheEmeraldNightmareH" },
+	["TheEmeraldNightmareH"] = { "TheEmeraldNightmareA", "TheEmeraldNightmareB", "TheEmeraldNightmareC", "TheEmeraldNightmareD", "TheEmeraldNightmareE", "TheEmeraldNightmareF", "TheEmeraldNightmareG", "TheEmeraldNightmareH" },
+	["TheNightholdA"] = { "TheNightholdA", "TheNightholdB", "TheNightholdC", "TheNightholdD", "TheNightholdE", "TheNightholdF", "TheNightHoldG" },
+	["TheNightholdB"] = { "TheNightholdA", "TheNightholdB", "TheNightholdC", "TheNightholdD", "TheNightholdE", "TheNightholdF", "TheNightHoldG" },
+	["TheNightholdC"] = { "TheNightholdA", "TheNightholdB", "TheNightholdC", "TheNightholdD", "TheNightholdE", "TheNightholdF", "TheNightHoldG" },
+	["TheNightholdD"] = { "TheNightholdA", "TheNightholdB", "TheNightholdC", "TheNightholdD", "TheNightholdE", "TheNightholdF", "TheNightHoldG" },
+	["TheNightholdE"] = { "TheNightholdA", "TheNightholdB", "TheNightholdC", "TheNightholdD", "TheNightholdE", "TheNightholdF", "TheNightHoldG" },
+	["TheNightholdF"] = { "TheNightholdA", "TheNightholdB", "TheNightholdC", "TheNightholdD", "TheNightholdE", "TheNightholdF", "TheNightHoldG" },
+	["TheNightholdG"] = { "TheNightholdA", "TheNightholdB", "TheNightholdC", "TheNightholdD", "TheNightholdE", "TheNightholdF", "TheNightHoldG" },
+	["TrialofValorA"] = { "TrialofValorA", "TrialofValorB" },
+	["TrialofValorB"] = { "TrialofValorA", "TrialofValorB" },
+	["VaultoftheWardensA"] = { "VaultoftheWardensA", "VaultoftheWardensB", "VaultoftheWardensC" },
+	["VaultoftheWardensB"] = { "VaultoftheWardensA", "VaultoftheWardensB", "VaultoftheWardensC" },
+	["VaultoftheWardensC"] = { "VaultoftheWardensA", "VaultoftheWardensB", "VaultoftheWardensC" },
+	["ReturntoKarazhanA"] = { "ReturntoKarazhanA", "ReturntoKarazhanB", "ReturntoKarazhanC", "ReturntoKarazhanD", "ReturntoKarazhanE", "ReturntoKarazhanF", "ReturntoKarazhanG", "ReturntoKarazhanH", "ReturntoKarazhanI" },
+	["ReturntoKarazhanB"] = { "ReturntoKarazhanA", "ReturntoKarazhanB", "ReturntoKarazhanC", "ReturntoKarazhanD", "ReturntoKarazhanE", "ReturntoKarazhanF", "ReturntoKarazhanG", "ReturntoKarazhanH", "ReturntoKarazhanI" },
+	["ReturntoKarazhanC"] = { "ReturntoKarazhanA", "ReturntoKarazhanB", "ReturntoKarazhanC", "ReturntoKarazhanD", "ReturntoKarazhanE", "ReturntoKarazhanF", "ReturntoKarazhanG", "ReturntoKarazhanH", "ReturntoKarazhanI" },
+	["ReturntoKarazhanD"] = { "ReturntoKarazhanA", "ReturntoKarazhanB", "ReturntoKarazhanC", "ReturntoKarazhanD", "ReturntoKarazhanE", "ReturntoKarazhanF", "ReturntoKarazhanG", "ReturntoKarazhanH", "ReturntoKarazhanI" },
+	["ReturntoKarazhanE"] = { "ReturntoKarazhanA", "ReturntoKarazhanB", "ReturntoKarazhanC", "ReturntoKarazhanD", "ReturntoKarazhanE", "ReturntoKarazhanF", "ReturntoKarazhanG", "ReturntoKarazhanH", "ReturntoKarazhanI" },
+	["ReturntoKarazhanF"] = { "ReturntoKarazhanA", "ReturntoKarazhanB", "ReturntoKarazhanC", "ReturntoKarazhanD", "ReturntoKarazhanE", "ReturntoKarazhanF", "ReturntoKarazhanG", "ReturntoKarazhanH", "ReturntoKarazhanI" },
+	["ReturntoKarazhanG"] = { "ReturntoKarazhanA", "ReturntoKarazhanB", "ReturntoKarazhanC", "ReturntoKarazhanD", "ReturntoKarazhanE", "ReturntoKarazhanF", "ReturntoKarazhanG", "ReturntoKarazhanH", "ReturntoKarazhanI" },
+	["ReturntoKarazhanH"] = { "ReturntoKarazhanA", "ReturntoKarazhanB", "ReturntoKarazhanC", "ReturntoKarazhanD", "ReturntoKarazhanE", "ReturntoKarazhanF", "ReturntoKarazhanG", "ReturntoKarazhanH", "ReturntoKarazhanI" },
+	["ReturntoKarazhanI"] = { "ReturntoKarazhanA", "ReturntoKarazhanB", "ReturntoKarazhanC", "ReturntoKarazhanD", "ReturntoKarazhanE", "ReturntoKarazhanF", "ReturntoKarazhanG", "ReturntoKarazhanH", "ReturntoKarazhanI" },
+	["CathedralofEternalNightA"] = { "CathedralofEternalNightA", "CathedralofEternalNightB", "CathedralofEternalNightC", "CathedralofEternalNightD" },
+	["CathedralofEternalNightB"] = { "CathedralofEternalNightA", "CathedralofEternalNightB", "CathedralofEternalNightC", "CathedralofEternalNightD" },
+	["CathedralofEternalNightC"] = { "CathedralofEternalNightA", "CathedralofEternalNightB", "CathedralofEternalNightC", "CathedralofEternalNightD" },
+	["CathedralofEternalNightD"] = { "CathedralofEternalNightA", "CathedralofEternalNightB", "CathedralofEternalNightC", "CathedralofEternalNightD" },
+	["TombofSargerasA"] = { "TombofSargerasA", "TombofSargerasB", "TombofSargerasC", "TombofSargerasD", "TombofSargerasE", "TombofSargerasF", "TombofSargerasG" },
+	["TombofSargerasB"] = { "TombofSargerasA", "TombofSargerasB", "TombofSargerasC", "TombofSargerasD", "TombofSargerasE", "TombofSargerasF", "TombofSargerasG" },
+	["TombofSargerasC"] = { "TombofSargerasA", "TombofSargerasB", "TombofSargerasC", "TombofSargerasD", "TombofSargerasE", "TombofSargerasF", "TombofSargerasG" },
+	["TombofSargerasD"] = { "TombofSargerasA", "TombofSargerasB", "TombofSargerasC", "TombofSargerasD", "TombofSargerasE", "TombofSargerasF", "TombofSargerasG" },
+	["TombofSargerasE"] = { "TombofSargerasA", "TombofSargerasB", "TombofSargerasC", "TombofSargerasD", "TombofSargerasE", "TombofSargerasF", "TombofSargerasG" },
+	["TombofSargerasF"] = { "TombofSargerasA", "TombofSargerasB", "TombofSargerasC", "TombofSargerasD", "TombofSargerasE", "TombofSargerasF", "TombofSargerasG" },
+	["TombofSargerasG"] = { "TombofSargerasA", "TombofSargerasB", "TombofSargerasC", "TombofSargerasD", "TombofSargerasE", "TombofSargerasF", "TombofSargerasG" },
+	["AntorustheBurningThroneA"] = { "AntorustheBurningThroneA", "AntorustheBurningThroneB", "AntorustheBurningThroneC", "AntorustheBurningThroneD", "AntorustheBurningThroneE", "AntorustheBurningThroneF", "AntorustheBurningThroneG" },
+	["AntorustheBurningThroneB"] = { "AntorustheBurningThroneA", "AntorustheBurningThroneB", "AntorustheBurningThroneC", "AntorustheBurningThroneD", "AntorustheBurningThroneE", "AntorustheBurningThroneF", "AntorustheBurningThroneG" },
+	["AntorustheBurningThroneC"] = { "AntorustheBurningThroneA", "AntorustheBurningThroneB", "AntorustheBurningThroneC", "AntorustheBurningThroneD", "AntorustheBurningThroneE", "AntorustheBurningThroneF", "AntorustheBurningThroneG" },
+	["AntorustheBurningThroneD"] = { "AntorustheBurningThroneA", "AntorustheBurningThroneB", "AntorustheBurningThroneC", "AntorustheBurningThroneD", "AntorustheBurningThroneE", "AntorustheBurningThroneF", "AntorustheBurningThroneG" },
+	["AntorustheBurningThroneE"] = { "AntorustheBurningThroneA", "AntorustheBurningThroneB", "AntorustheBurningThroneC", "AntorustheBurningThroneD", "AntorustheBurningThroneE", "AntorustheBurningThroneF", "AntorustheBurningThroneG" },
+	["AntorustheBurningThroneF"] = { "AntorustheBurningThroneA", "AntorustheBurningThroneB", "AntorustheBurningThroneC", "AntorustheBurningThroneD", "AntorustheBurningThroneE", "AntorustheBurningThroneF", "AntorustheBurningThroneG" },
+	["AntorustheBurningThroneG"] = { "AntorustheBurningThroneA", "AntorustheBurningThroneB", "AntorustheBurningThroneC", "AntorustheBurningThroneD", "AntorustheBurningThroneE", "AntorustheBurningThroneF", "AntorustheBurningThroneG" },
 }
 
 db.SubZoneAssoc = {
-	["BlackRookHoldA"] = 			BZ["Black Rook Hold"],
-	["BlackRookHoldB"] = 			BZ["Black Rook Hold"],
-	["BlackRookHoldC"] = 			BZ["Black Rook Hold"],
-	["BlackRookHoldD"] = 			BZ["Black Rook Hold"],
-	["CourtofStarsA"] = 			BZ["Court of Stars"],
-	["CourtofStarsB"] = 			BZ["Court of Stars"],
-	["HallsofValorA"] = 			BZ["Halls of Valor"],
-	["HallsofValorB"] = 			BZ["Halls of Valor"],
-	["HallsofValorC"] = 			BZ["Halls of Valor"],
-	["MawofSoulsA"] = 			BZ["Maw of Souls"],
-	["MawofSoulsB"] = 			BZ["Maw of Souls"],
-	["TheEmeraldNightmareA"] = 		BZ["The Emerald Nightmare"],
-	["TheEmeraldNightmareB"] = 		BZ["The Emerald Nightmare"],
-	["TheEmeraldNightmareC"] = 		BZ["The Emerald Nightmare"],
-	["TheEmeraldNightmareD"] = 		BZ["The Emerald Nightmare"],
-	["TheEmeraldNightmareE"] = 		BZ["The Emerald Nightmare"],
-	["TheEmeraldNightmareF"] = 		BZ["The Emerald Nightmare"],
-	["TheEmeraldNightmareG"] = 		BZ["The Emerald Nightmare"],
-	["TheEmeraldNightmareH"] = 		BZ["The Emerald Nightmare"],
-	["TheNightholdEnt"] = 			BZ["The Nighthold"],
-	["TheNightholdA"] = 			BZ["The Nighthold"],
-	["TheNightholdB"] = 			BZ["The Nighthold"],
-	["TheNightholdC"] = 			BZ["The Nighthold"],
-	["TheNightholdD"] = 			BZ["The Nighthold"],
-	["TheNightholdE"] = 			BZ["The Nighthold"],
-	["TheNightholdF"] = 			BZ["The Nighthold"],
-	["TrialofValorA"] = 			BZ["Trial of Valor"],
-	["TrialofValorB"] = 			BZ["Trial of Valor"],
-	["VaultoftheWardensA"] = 		BZ["Vault of the Wardens"],
-	["VaultoftheWardensB"] = 		BZ["Vault of the Wardens"],
-	["VaultoftheWardensC"] = 		BZ["Vault of the Wardens"],
-	["ReturntoKarazhanA"] = 		BZ["Return to Karazhan"],
-	["ReturntoKarazhanB"] = 		BZ["Return to Karazhan"],
-	["ReturntoKarazhanC"] = 		BZ["Return to Karazhan"],
-	["ReturntoKarazhanD"] = 		BZ["Return to Karazhan"],
-	["ReturntoKarazhanE"] = 		BZ["Return to Karazhan"],
-	["ReturntoKarazhanF"] = 		BZ["Return to Karazhan"],
-	["ReturntoKarazhanG"] = 		BZ["Return to Karazhan"],
-	["ReturntoKarazhanH"] = 		BZ["Return to Karazhan"],
-	["ReturntoKarazhanI"] = 		BZ["Return to Karazhan"],
-	["CathedralofEternalNightA"] = 		BZ["Cathedral of Eternal Night"],
-	["CathedralofEternalNightB"] = 		BZ["Cathedral of Eternal Night"],
-	["CathedralofEternalNightC"] = 		BZ["Cathedral of Eternal Night"],
-	["CathedralofEternalNightD"] = 		BZ["Cathedral of Eternal Night"],
-	["TombofSargerasA"] = 			BZ["Tomb of Sargeras"],
-	["TombofSargerasB"] = 			BZ["Tomb of Sargeras"],
-	["TombofSargerasC"] = 			BZ["Tomb of Sargeras"],
-	["TombofSargerasD"] = 			BZ["Tomb of Sargeras"],
-	["TombofSargerasE"] = 			BZ["Tomb of Sargeras"],
-	["TombofSargerasF"] = 			BZ["Tomb of Sargeras"],
-	["TombofSargerasG"] = 			BZ["Tomb of Sargeras"],
-	["AntorustheBurningThroneA"] = 		BZ["Antorus, the Burning Throne"],
-	["AntorustheBurningThroneB"] = 		BZ["Antorus, the Burning Throne"],
-	["AntorustheBurningThroneC"] = 		BZ["Antorus, the Burning Throne"],
-	["AntorustheBurningThroneD"] = 		BZ["Antorus, the Burning Throne"],
-	["AntorustheBurningThroneE"] = 		BZ["Antorus, the Burning Throne"],
-	["AntorustheBurningThroneF"] = 		BZ["Antorus, the Burning Throne"],
-	["AntorustheBurningThroneG"] = 		BZ["Antorus, the Burning Throne"],
+	["BlackRookHoldA"] = BZ["Black Rook Hold"],
+	["BlackRookHoldB"] = BZ["Black Rook Hold"],
+	["BlackRookHoldC"] = BZ["Black Rook Hold"],
+	["BlackRookHoldD"] = BZ["Black Rook Hold"],
+	["CourtofStarsA"] = BZ["Court of Stars"],
+	["CourtofStarsB"] = BZ["Court of Stars"],
+	["HallsofValorA"] = BZ["Halls of Valor"],
+	["HallsofValorB"] = BZ["Halls of Valor"],
+	["HallsofValorC"] = BZ["Halls of Valor"],
+	["MawofSoulsA"] = BZ["Maw of Souls"],
+	["MawofSoulsB"] = BZ["Maw of Souls"],
+	["TheEmeraldNightmareA"] = BZ["The Emerald Nightmare"],
+	["TheEmeraldNightmareB"] = BZ["The Emerald Nightmare"],
+	["TheEmeraldNightmareC"] = BZ["The Emerald Nightmare"],
+	["TheEmeraldNightmareD"] = BZ["The Emerald Nightmare"],
+	["TheEmeraldNightmareE"] = BZ["The Emerald Nightmare"],
+	["TheEmeraldNightmareF"] = BZ["The Emerald Nightmare"],
+	["TheEmeraldNightmareG"] = BZ["The Emerald Nightmare"],
+	["TheEmeraldNightmareH"] = BZ["The Emerald Nightmare"],
+	["TheNightholdEnt"] = BZ["The Nighthold"],
+	["TheNightholdA"] = BZ["The Nighthold"],
+	["TheNightholdB"] = BZ["The Nighthold"],
+	["TheNightholdC"] = BZ["The Nighthold"],
+	["TheNightholdD"] = BZ["The Nighthold"],
+	["TheNightholdE"] = BZ["The Nighthold"],
+	["TheNightholdF"] = BZ["The Nighthold"],
+	["TrialofValorA"] = BZ["Trial of Valor"],
+	["TrialofValorB"] = BZ["Trial of Valor"],
+	["VaultoftheWardensA"] = BZ["Vault of the Wardens"],
+	["VaultoftheWardensB"] = BZ["Vault of the Wardens"],
+	["VaultoftheWardensC"] = BZ["Vault of the Wardens"],
+	["ReturntoKarazhanA"] = BZ["Return to Karazhan"],
+	["ReturntoKarazhanB"] = BZ["Return to Karazhan"],
+	["ReturntoKarazhanC"] = BZ["Return to Karazhan"],
+	["ReturntoKarazhanD"] = BZ["Return to Karazhan"],
+	["ReturntoKarazhanE"] = BZ["Return to Karazhan"],
+	["ReturntoKarazhanF"] = BZ["Return to Karazhan"],
+	["ReturntoKarazhanG"] = BZ["Return to Karazhan"],
+	["ReturntoKarazhanH"] = BZ["Return to Karazhan"],
+	["ReturntoKarazhanI"] = BZ["Return to Karazhan"],
+	["CathedralofEternalNightA"] = BZ["Cathedral of Eternal Night"],
+	["CathedralofEternalNightB"] = BZ["Cathedral of Eternal Night"],
+	["CathedralofEternalNightC"] = BZ["Cathedral of Eternal Night"],
+	["CathedralofEternalNightD"] = BZ["Cathedral of Eternal Night"],
+	["TombofSargerasA"] = BZ["Tomb of Sargeras"],
+	["TombofSargerasB"] = BZ["Tomb of Sargeras"],
+	["TombofSargerasC"] = BZ["Tomb of Sargeras"],
+	["TombofSargerasD"] = BZ["Tomb of Sargeras"],
+	["TombofSargerasE"] = BZ["Tomb of Sargeras"],
+	["TombofSargerasF"] = BZ["Tomb of Sargeras"],
+	["TombofSargerasG"] = BZ["Tomb of Sargeras"],
+	["AntorustheBurningThroneA"] = BZ["Antorus, the Burning Throne"],
+	["AntorustheBurningThroneB"] = BZ["Antorus, the Burning Throne"],
+	["AntorustheBurningThroneC"] = BZ["Antorus, the Burning Throne"],
+	["AntorustheBurningThroneD"] = BZ["Antorus, the Burning Throne"],
+	["AntorustheBurningThroneE"] = BZ["Antorus, the Burning Throne"],
+	["AntorustheBurningThroneF"] = BZ["Antorus, the Burning Throne"],
+	["AntorustheBurningThroneG"] = BZ["Antorus, the Burning Throne"],
 }
 
 db.DropDownLayouts_Order = {
@@ -2554,16 +2543,16 @@ db.DropDownLayouts_Order = {
 db.DropDownLayouts = {
 	[ATLAS_DDL_CONTINENT] = {
 		[ATLAS_DDL_CONTINENT_EASTERN] = {
-			"ReturntoKarazhanEnt", 		-- Legion
-			"ReturntoKarazhanA", 		-- Legion
-			"ReturntoKarazhanB", 		-- Legion
-			"ReturntoKarazhanC", 		-- Legion
-			"ReturntoKarazhanD", 		-- Legion
-			"ReturntoKarazhanE", 		-- Legion
-			"ReturntoKarazhanF", 		-- Legion
-			"ReturntoKarazhanG", 		-- Legion
-			"ReturntoKarazhanH", 		-- Legion
-			"ReturntoKarazhanI", 		-- Legion
+			"ReturntoKarazhanEnt",       -- Legion
+			"ReturntoKarazhanA",         -- Legion
+			"ReturntoKarazhanB",         -- Legion
+			"ReturntoKarazhanC",         -- Legion
+			"ReturntoKarazhanD",         -- Legion
+			"ReturntoKarazhanE",         -- Legion
+			"ReturntoKarazhanF",         -- Legion
+			"ReturntoKarazhanG",         -- Legion
+			"ReturntoKarazhanH",         -- Legion
+			"ReturntoKarazhanI",         -- Legion
 		},
 		[ATLAS_DDL_CONTINENT_BROKENISLES1] = { -- dungeons
 			"TheArcwayEnt",
@@ -2650,16 +2639,16 @@ db.DropDownLayouts = {
 			"MawofSoulsA",
 			"MawofSoulsB",
 			"NeltharionsLair",
-			"ReturntoKarazhanEnt", 		-- Legion
-			"ReturntoKarazhanA", 		-- Legion
-			"ReturntoKarazhanB", 		-- Legion
-			"ReturntoKarazhanC", 		-- Legion
-			"ReturntoKarazhanD", 		-- Legion
-			"ReturntoKarazhanE", 		-- Legion
-			"ReturntoKarazhanF", 		-- Legion
-			"ReturntoKarazhanG", 		-- Legion
-			"ReturntoKarazhanH", 		-- Legion
-			"ReturntoKarazhanI", 		-- Legion
+			"ReturntoKarazhanEnt", -- Legion
+			"ReturntoKarazhanA", -- Legion
+			"ReturntoKarazhanB", -- Legion
+			"ReturntoKarazhanC", -- Legion
+			"ReturntoKarazhanD", -- Legion
+			"ReturntoKarazhanE", -- Legion
+			"ReturntoKarazhanF", -- Legion
+			"ReturntoKarazhanG", -- Legion
+			"ReturntoKarazhanH", -- Legion
+			"ReturntoKarazhanI", -- Legion
 			"TheSeatoftheTriumvirate",
 			"VaultoftheWardensA",
 			"VaultoftheWardensB",
@@ -2702,13 +2691,13 @@ db.DropDownLayouts = {
 	},
 	[ATLAS_DDL_LEVEL] = {
 		[ATLAS_DDL_LEVEL_40TO45] = {
-			"AssaultonVioletHold",		-- Legion
-			"DarkheartThicket",		-- Legion
-			"EyeofAzshara",			-- Legion
-			"HallsofValorA",		-- Legion
-			"HallsofValorB",		-- Legion
-			"HallsofValorC",		-- Legion
-			"NeltharionsLair",		-- Legion
+			"AssaultonVioletHold", -- Legion
+			"DarkheartThicket", -- Legion
+			"EyeofAzshara", -- Legion
+			"HallsofValorA", -- Legion
+			"HallsofValorB", -- Legion
+			"HallsofValorC", -- Legion
+			"NeltharionsLair", -- Legion
 			"AntorustheBurningThroneA",
 			"AntorustheBurningThroneB",
 			"AntorustheBurningThroneC",
@@ -2749,16 +2738,16 @@ db.DropDownLayouts = {
 			"TheNightholdE",
 			"TheNightholdF",
 			"TheNightholdG",
-			"ReturntoKarazhanEnt", 		-- Legion
-			"ReturntoKarazhanA", 		-- Legion
-			"ReturntoKarazhanB", 		-- Legion
-			"ReturntoKarazhanC", 		-- Legion
-			"ReturntoKarazhanD", 		-- Legion
-			"ReturntoKarazhanE", 		-- Legion
-			"ReturntoKarazhanF", 		-- Legion
-			"ReturntoKarazhanG", 		-- Legion
-			"ReturntoKarazhanH", 		-- Legion
-			"ReturntoKarazhanI", 		-- Legion
+			"ReturntoKarazhanEnt", -- Legion
+			"ReturntoKarazhanA", -- Legion
+			"ReturntoKarazhanB", -- Legion
+			"ReturntoKarazhanC", -- Legion
+			"ReturntoKarazhanD", -- Legion
+			"ReturntoKarazhanE", -- Legion
+			"ReturntoKarazhanF", -- Legion
+			"ReturntoKarazhanG", -- Legion
+			"ReturntoKarazhanH", -- Legion
+			"ReturntoKarazhanI", -- Legion
 			"TheSeatoftheTriumvirate",
 			"TrialofValorA",
 			"TrialofValorB",
@@ -2773,41 +2762,41 @@ db.DropDownLayouts = {
 	},
 	[ATLAS_DDL_PARTYSIZE] = {
 		[ATLAS_DDL_PARTYSIZE_5] = {
-			"TheArcway",			-- Legion
-			"TheArcwayEnt",			-- Legion
-			"AssaultonVioletHold",		-- Legion
-			"BlackRookHoldA",		-- Legion
-			"BlackRookHoldB",		-- Legion
-			"BlackRookHoldC",		-- Legion
-			"BlackRookHoldD",		-- Legion
-			"CathedralofEternalNightA",	-- Legion
-			"CathedralofEternalNightB",	-- Legion
-			"CathedralofEternalNightC",	-- Legion
-			"CathedralofEternalNightD",	-- Legion
-			"CourtofStarsA",		-- Legion
-			"CourtofStarsB",		-- Legion
-			"DarkheartThicket",		-- Legion
-			"EyeofAzshara",			-- Legion
-			"HallsofValorA",		-- Legion
-			"HallsofValorB",		-- Legion
-			"HallsofValorC",		-- Legion
-			"MawofSoulsA",			-- Legion
-			"MawofSoulsB",			-- Legion
-			"NeltharionsLair",		-- Legion
-			"ReturntoKarazhanEnt",		-- Legion
-			"ReturntoKarazhanA",		-- Legion
-			"ReturntoKarazhanB",		-- Legion
-			"ReturntoKarazhanC",		-- Legion
-			"ReturntoKarazhanD",		-- Legion
-			"ReturntoKarazhanE",		-- Legion
-			"ReturntoKarazhanF",		-- Legion
-			"ReturntoKarazhanG",		-- Legion
-			"ReturntoKarazhanH",		-- Legion
-			"ReturntoKarazhanI",		-- Legion
+			"TheArcway",       -- Legion
+			"TheArcwayEnt",    -- Legion
+			"AssaultonVioletHold", -- Legion
+			"BlackRookHoldA",  -- Legion
+			"BlackRookHoldB",  -- Legion
+			"BlackRookHoldC",  -- Legion
+			"BlackRookHoldD",  -- Legion
+			"CathedralofEternalNightA", -- Legion
+			"CathedralofEternalNightB", -- Legion
+			"CathedralofEternalNightC", -- Legion
+			"CathedralofEternalNightD", -- Legion
+			"CourtofStarsA",   -- Legion
+			"CourtofStarsB",   -- Legion
+			"DarkheartThicket", -- Legion
+			"EyeofAzshara",    -- Legion
+			"HallsofValorA",   -- Legion
+			"HallsofValorB",   -- Legion
+			"HallsofValorC",   -- Legion
+			"MawofSoulsA",     -- Legion
+			"MawofSoulsB",     -- Legion
+			"NeltharionsLair", -- Legion
+			"ReturntoKarazhanEnt", -- Legion
+			"ReturntoKarazhanA", -- Legion
+			"ReturntoKarazhanB", -- Legion
+			"ReturntoKarazhanC", -- Legion
+			"ReturntoKarazhanD", -- Legion
+			"ReturntoKarazhanE", -- Legion
+			"ReturntoKarazhanF", -- Legion
+			"ReturntoKarazhanG", -- Legion
+			"ReturntoKarazhanH", -- Legion
+			"ReturntoKarazhanI", -- Legion
 			"TheSeatoftheTriumvirate",
-			"VaultoftheWardensA",		-- Legion
-			"VaultoftheWardensB",		-- Legion
-			"VaultoftheWardensC",		-- Legion
+			"VaultoftheWardensA", -- Legion
+			"VaultoftheWardensB", -- Legion
+			"VaultoftheWardensC", -- Legion
 		},
 		[ATLAS_DDL_PARTYSIZE_10] = {
 			"AntorustheBurningThroneA",
@@ -2817,29 +2806,29 @@ db.DropDownLayouts = {
 			"AntorustheBurningThroneE",
 			"AntorustheBurningThroneF",
 			"AntorustheBurningThroneG",
-			"TheEmeraldNightmareA",		-- Legion
-			"TheEmeraldNightmareB",		-- Legion
-			"TheEmeraldNightmareC",		-- Legion
-			"TheEmeraldNightmareD",		-- Legion
-			"TheEmeraldNightmareE",		-- Legion
-			"TheEmeraldNightmareF",		-- Legion
-			"TheEmeraldNightmareG",		-- Legion
-			"TheEmeraldNightmareH",		-- Legion
-			"TheNightholdEnt",		-- Legion
-			"TheNightholdA",		-- Legion
-			"TheNightholdB",		-- Legion
-			"TheNightholdC",		-- Legion
-			"TheNightholdD",		-- Legion
-			"TheNightholdE",		-- Legion
-			"TheNightholdF",		-- Legion
-			"TheNightholdG",		-- Legion
-			"TombofSargerasA",		-- Legion
-			"TombofSargerasB",		-- Legion
-			"TombofSargerasC",		-- Legion
-			"TombofSargerasD",		-- Legion
-			"TombofSargerasE",		-- Legion
-			"TombofSargerasF",		-- Legion
-			"TombofSargerasG",		-- Legion
+			"TheEmeraldNightmareA", -- Legion
+			"TheEmeraldNightmareB", -- Legion
+			"TheEmeraldNightmareC", -- Legion
+			"TheEmeraldNightmareD", -- Legion
+			"TheEmeraldNightmareE", -- Legion
+			"TheEmeraldNightmareF", -- Legion
+			"TheEmeraldNightmareG", -- Legion
+			"TheEmeraldNightmareH", -- Legion
+			"TheNightholdEnt", -- Legion
+			"TheNightholdA", -- Legion
+			"TheNightholdB", -- Legion
+			"TheNightholdC", -- Legion
+			"TheNightholdD", -- Legion
+			"TheNightholdE", -- Legion
+			"TheNightholdF", -- Legion
+			"TheNightholdG", -- Legion
+			"TombofSargerasA", -- Legion
+			"TombofSargerasB", -- Legion
+			"TombofSargerasC", -- Legion
+			"TombofSargerasD", -- Legion
+			"TombofSargerasE", -- Legion
+			"TombofSargerasF", -- Legion
+			"TombofSargerasG", -- Legion
 		},
 		[ATLAS_DDL_PARTYSIZE_20TO40] = {
 			"AntorustheBurningThroneA",
@@ -2849,31 +2838,31 @@ db.DropDownLayouts = {
 			"AntorustheBurningThroneE",
 			"AntorustheBurningThroneF",
 			"AntorustheBurningThroneG",
-			"TheEmeraldNightmareA",		-- Legion
-			"TheEmeraldNightmareB",		-- Legion
-			"TheEmeraldNightmareC",		-- Legion
-			"TheEmeraldNightmareD",		-- Legion
-			"TheEmeraldNightmareE",		-- Legion
-			"TheEmeraldNightmareF",		-- Legion
-			"TheEmeraldNightmareG",		-- Legion
-			"TheEmeraldNightmareH",		-- Legion
-			"TheNightholdEnt",		-- Legion
-			"TheNightholdA",		-- Legion
-			"TheNightholdB",		-- Legion
-			"TheNightholdC",		-- Legion
-			"TheNightholdD",		-- Legion
-			"TheNightholdE",		-- Legion
-			"TheNightholdF",		-- Legion
-			"TheNightholdG",		-- Legion
-			"TombofSargerasA",		-- Legion
-			"TombofSargerasB",		-- Legion
-			"TombofSargerasC",		-- Legion
-			"TombofSargerasD",		-- Legion
-			"TombofSargerasE",		-- Legion
-			"TombofSargerasF",		-- Legion
-			"TombofSargerasG",		-- Legion
-			"TrialofValorA",		-- Legion
-			"TrialofValorB",		-- Legion
+			"TheEmeraldNightmareA", -- Legion
+			"TheEmeraldNightmareB", -- Legion
+			"TheEmeraldNightmareC", -- Legion
+			"TheEmeraldNightmareD", -- Legion
+			"TheEmeraldNightmareE", -- Legion
+			"TheEmeraldNightmareF", -- Legion
+			"TheEmeraldNightmareG", -- Legion
+			"TheEmeraldNightmareH", -- Legion
+			"TheNightholdEnt", -- Legion
+			"TheNightholdA", -- Legion
+			"TheNightholdB", -- Legion
+			"TheNightholdC", -- Legion
+			"TheNightholdD", -- Legion
+			"TheNightholdE", -- Legion
+			"TheNightholdF", -- Legion
+			"TheNightholdG", -- Legion
+			"TombofSargerasA", -- Legion
+			"TombofSargerasB", -- Legion
+			"TombofSargerasC", -- Legion
+			"TombofSargerasD", -- Legion
+			"TombofSargerasE", -- Legion
+			"TombofSargerasF", -- Legion
+			"TombofSargerasG", -- Legion
+			"TrialofValorA", -- Legion
+			"TrialofValorB", -- Legion
 		},
 	},
 	[ATLAS_DDL_TYPE] = {
@@ -2885,69 +2874,69 @@ db.DropDownLayouts = {
 			"AntorustheBurningThroneE",
 			"AntorustheBurningThroneF",
 			"AntorustheBurningThroneG",
-			"TheArcway",			-- Legion
-			"AssaultonVioletHold",		-- Legion
-			"BlackRookHoldA",		-- Legion
-			"BlackRookHoldB",		-- Legion
-			"BlackRookHoldC",		-- Legion
-			"BlackRookHoldD",		-- Legion
-			"CathedralofEternalNightA",	-- Legion
-			"CathedralofEternalNightB",	-- Legion
-			"CathedralofEternalNightC",	-- Legion
-			"CathedralofEternalNightD",	-- Legion
-			"CourtofStarsA",		-- Legion
-			"CourtofStarsB",		-- Legion
-			"DarkheartThicket",		-- Legion
-			"TheEmeraldNightmareA",		-- Legion
-			"TheEmeraldNightmareB",		-- Legion
-			"TheEmeraldNightmareC",		-- Legion
-			"TheEmeraldNightmareD",		-- Legion
-			"TheEmeraldNightmareE",		-- Legion
-			"TheEmeraldNightmareF",		-- Legion
-			"TheEmeraldNightmareG",		-- Legion
-			"TheEmeraldNightmareH",		-- Legion
-			"EyeofAzshara",			-- Legion
-			"HallsofValorA",		-- Legion
-			"HallsofValorB",		-- Legion
-			"HallsofValorC",		-- Legion
-			"MawofSoulsA",			-- Legion
-			"MawofSoulsB",			-- Legion
-			"NeltharionsLair",		-- Legion
-			"TheNightholdA",		-- Legion
-			"TheNightholdB",		-- Legion
-			"TheNightholdC",		-- Legion
-			"TheNightholdD",		-- Legion
-			"TheNightholdE",		-- Legion
-			"TheNightholdF",		-- Legion
-			"TheNightholdG",		-- Legion
-			"ReturntoKarazhanEnt", 		-- Legion
-			"ReturntoKarazhanA", 		-- Legion
-			"ReturntoKarazhanB", 		-- Legion
-			"ReturntoKarazhanC", 		-- Legion
-			"ReturntoKarazhanD", 		-- Legion
-			"ReturntoKarazhanE", 		-- Legion
-			"ReturntoKarazhanF", 		-- Legion
-			"ReturntoKarazhanG", 		-- Legion
-			"ReturntoKarazhanH", 		-- Legion
-			"ReturntoKarazhanI", 		-- Legion
-			"VaultoftheWardensA",		-- Legion
-			"VaultoftheWardensB",		-- Legion
-			"VaultoftheWardensC",		-- Legion
+			"TheArcway",       -- Legion
+			"AssaultonVioletHold", -- Legion
+			"BlackRookHoldA",  -- Legion
+			"BlackRookHoldB",  -- Legion
+			"BlackRookHoldC",  -- Legion
+			"BlackRookHoldD",  -- Legion
+			"CathedralofEternalNightA", -- Legion
+			"CathedralofEternalNightB", -- Legion
+			"CathedralofEternalNightC", -- Legion
+			"CathedralofEternalNightD", -- Legion
+			"CourtofStarsA",   -- Legion
+			"CourtofStarsB",   -- Legion
+			"DarkheartThicket", -- Legion
+			"TheEmeraldNightmareA", -- Legion
+			"TheEmeraldNightmareB", -- Legion
+			"TheEmeraldNightmareC", -- Legion
+			"TheEmeraldNightmareD", -- Legion
+			"TheEmeraldNightmareE", -- Legion
+			"TheEmeraldNightmareF", -- Legion
+			"TheEmeraldNightmareG", -- Legion
+			"TheEmeraldNightmareH", -- Legion
+			"EyeofAzshara",    -- Legion
+			"HallsofValorA",   -- Legion
+			"HallsofValorB",   -- Legion
+			"HallsofValorC",   -- Legion
+			"MawofSoulsA",     -- Legion
+			"MawofSoulsB",     -- Legion
+			"NeltharionsLair", -- Legion
+			"TheNightholdA",   -- Legion
+			"TheNightholdB",   -- Legion
+			"TheNightholdC",   -- Legion
+			"TheNightholdD",   -- Legion
+			"TheNightholdE",   -- Legion
+			"TheNightholdF",   -- Legion
+			"TheNightholdG",   -- Legion
+			"ReturntoKarazhanEnt", -- Legion
+			"ReturntoKarazhanA", -- Legion
+			"ReturntoKarazhanB", -- Legion
+			"ReturntoKarazhanC", -- Legion
+			"ReturntoKarazhanD", -- Legion
+			"ReturntoKarazhanE", -- Legion
+			"ReturntoKarazhanF", -- Legion
+			"ReturntoKarazhanG", -- Legion
+			"ReturntoKarazhanH", -- Legion
+			"ReturntoKarazhanI", -- Legion
+			"VaultoftheWardensA", -- Legion
+			"VaultoftheWardensB", -- Legion
+			"VaultoftheWardensC", -- Legion
 			"TheSeatoftheTriumvirate",
-			"TrialofValorA",		-- Legion
-			"TrialofValorB",		-- Legion
-			"TombofSargerasA",		-- Legion
-			"TombofSargerasB",		-- Legion
-			"TombofSargerasC",		-- Legion
-			"TombofSargerasD",		-- Legion
-			"TombofSargerasE",		-- Legion
-			"TombofSargerasF",		-- Legion
-			"TombofSargerasG",		-- Legion
+			"TrialofValorA",   -- Legion
+			"TrialofValorB",   -- Legion
+			"TombofSargerasA", -- Legion
+			"TombofSargerasB", -- Legion
+			"TombofSargerasC", -- Legion
+			"TombofSargerasD", -- Legion
+			"TombofSargerasE", -- Legion
+			"TombofSargerasF", -- Legion
+			"TombofSargerasG", -- Legion
 		},
 		[ATLAS_DDL_TYPE_ENTRANCE] = {
-			"TheArcwayEnt",			-- Legion
-			"TheNightholdEnt",		-- Legion
-			"ReturntoKarazhanEnt", 		-- Legion
+			"TheArcwayEnt", -- Legion
+			"TheNightholdEnt", -- Legion
+			"ReturntoKarazhanEnt", -- Legion
 		},
 	},
 }

@@ -42,19 +42,13 @@ end
 -- ----------------------------------------------------------------------------
 local FOLDER_NAME, private = ...
 
-local LibStub = _G.LibStub
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
--- UIDropDownMenu
 local LibDD = LibStub:GetLibrary("LibUIDropDownMenu-4.0")
 
-local EJ_SetDifficulty, EJ_SetLootFilter = EJ_SetDifficulty, EJ_SetLootFilter
 local EJ_GetLootInfoByIndex = EJ_GetLootInfoByIndex
 if WoWRetail then
 	EJ_GetLootInfoByIndex = C_EncounterJournal.GetLootInfoByIndex
 end
-local EJ_GetEncounterInfo, EJ_GetNumLoot = EJ_GetEncounterInfo, EJ_GetNumLoot
-
-local NO_INV_TYPE_FILTER = 0;
 
 local ATLAS_EJ_DIFFICULTIES =
 {
@@ -229,7 +223,7 @@ function Atlas_EncounterJournal_SetLootButton(item)
 			item.boss:SetFormattedText(BOSS_INFO_STRING_MANY, EJ_GetEncounterInfo(itemInfo.encounterID));
 		end
 
-		local itemName, _, quality = GetItemInfo(itemInfo.link);
+		local itemName, _, quality = C_Item.GetItemInfo(itemInfo.link);
 		SetItemButtonQuality(item, quality, itemInfo.link);
 	else
 		item.name:SetText(L["ATLAS_REOPEN_LOOT_AGAIN"]);
@@ -296,7 +290,6 @@ end
 
 function Atlas_EncounterJournal_LootCalcScroll(offset)
 	local buttonHeight = BOSS_LOOT_BUTTON_HEIGHT;
-	local numLoot = EJ_GetNumLoot();
 
 	if (not AtlasEJLootFrame.encounterID) then
 		buttonHeight = INSTANCE_LOOT_BUTTON_HEIGHT;

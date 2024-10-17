@@ -1,4 +1,3 @@
--- $Id: Data.lua 45 2023-03-20 14:51:13Z arithmandar $
 --[[
 
 	Atlas, a World of Warcraft instance map browser
@@ -21,23 +20,12 @@
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 --]]
------------------------------------------------------------------------
--- Upvalued Lua API.
------------------------------------------------------------------------
--- Functions
-local _G = getfenv(0)
-local pairs = _G.pairs
--- Libraries
-local UnitFactionGroup = _G.UnitFactionGroup
--- ----------------------------------------------------------------------------
--- AddOn namespace.
--- ----------------------------------------------------------------------------
+
 local FOLDER_NAME, private = ...
 
 private.addon_name = "Atlas_BattleforAzeroth"
 private.module_name = "BattleforAzeroth"
 
-local LibStub = _G.LibStub
 local BZ = Atlas_GetLocaleLibBabble("LibBabble-SubZone-3.0")
 local BF = Atlas_GetLocaleLibBabble("LibBabble-Faction-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)

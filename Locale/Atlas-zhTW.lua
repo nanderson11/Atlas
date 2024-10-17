@@ -1,4 +1,3 @@
--- $Id: Atlas-zhTW.lua 431 2023-03-20 14:46:49Z arithmandar $
 --[[
 
 	Atlas, a World of Warcraft instance map browser
@@ -24,24 +23,23 @@
 
 --]]
 
-local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
-local L = AceLocale:NewLocale("Atlas", "zhTW", false);
+local L = LibStub("AceLocale-3.0"):NewLocale("Atlas", "zhTW");
 
-if ( GetLocale() == "zhTW" ) then
+if (GetLocale() == "zhTW") then
 	-- Define the leading strings to be ignored while sorting
 	-- Ex: The Stockade
 	AtlasSortIgnore = {};
 
 	-- Syntax: ["real_zone_name"] = "localized map zone name"
 	AtlasZoneSubstitutions = {
-		["安其拉"] = "安其拉：安其拉神廟";
-		["卡拉贊"] = "卡拉贊 - 1.開始";
-		["悲傷沼澤"] = "沉沒的神廟";
+		["安其拉"] = "安其拉：安其拉神廟",
+		["卡拉贊"] = "卡拉贊 - 1.開始",
+		["悲傷沼澤"] = "沉沒的神廟",
 	};
 end
 
+if not L then return end
 
-if L then
 L[" 1/2"] = " 1/2"
 L[" 2/2"] = " 2/2"
 L["%s Dungeons"] = "%s地城"
@@ -143,7 +141,7 @@ L["ATLAS_INFO_12200"] = [=[重要提示：
 |cff6666ffhttp://www.atlasmod.com/phpBB3/viewtopic.php?t=1522|cffffffff
 或造訪我們的首頁：
 |cff6666ffhttp://www.atlasmod.com/|cffffffff]=]
-L["ATLAS_INFO_12201"] = [=[我們最近新增了一個新的 Atlas 插件 - |cff6666ffAtlas 情境地圖|cffffffff，用以提供 WoW 5.0 
+L["ATLAS_INFO_12201"] = [=[我們最近新增了一個新的 Atlas 插件 - |cff6666ffAtlas 情境地圖|cffffffff，用以提供 WoW 5.0
 起新增的情境事件的地圖。
 
 請參見我們的網站以取得更詳細的資訊，並請記得分別下載並安裝此插件。
@@ -344,5 +342,3 @@ L["Wave 6"] = "第 6 波"
 L["West"] = "西"
 L["Yarley <Armorer>"] = "亞利 <護甲商>"
 L["Zaladormu"] = "薩拉多姆"
-
-end

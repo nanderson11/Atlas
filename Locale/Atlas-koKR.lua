@@ -1,4 +1,3 @@
--- $Id: Atlas-koKR.lua 431 2023-03-20 14:46:49Z arithmandar $
 --[[
 
 	Atlas, a World of Warcraft instance map browser
@@ -24,27 +23,25 @@
 
 --]]
 
-local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
-local L = AceLocale:NewLocale("Atlas", "koKR", false);
+local L = LibStub("AceLocale-3.0"):NewLocale("Atlas", "koKR");
 
--- Atlas Spanish Localization
-if ( GetLocale() == "koKR" ) then
--- Define the leading strings to be ignored while sorting
--- Ex: The Stockade
-AtlasSortIgnore = {
-	--"the (.+)",
-};
+if (GetLocale() == "koKR") then
+	-- Define the leading strings to be ignored while sorting
+	-- Ex: The Stockade
+	AtlasSortIgnore = {
+		--"the (.+)",
+	};
 
--- Syntax: ["real_zone_name"] = "localized map zone name"
-AtlasZoneSubstitutions = {
---	["Ahn'Qiraj"] = "Templo de Ahn'Qiraj";
---	["The Temple of Atal'Hakkar"] = "El Templo de Atal'Hakkar";
---	["Throne of Tides"] = "Fauce Abisal: Trono de las Mareas";
-};
+	-- Syntax: ["real_zone_name"] = "localized map zone name"
+	AtlasZoneSubstitutions = {
+		--	["Ahn'Qiraj"] = "Templo de Ahn'Qiraj";
+		--	["The Temple of Atal'Hakkar"] = "El Templo de Atal'Hakkar";
+		--	["Throne of Tides"] = "Fauce Abisal: Trono de las Mareas";
+	};
 end
 
+if not L then return end
 
-if L then
 L[" 1/2"] = " 1/2"
 L[" 2/2"] = " 2/2"
 L["%s Dungeons"] = "%s 던전"
@@ -169,10 +166,10 @@ Atlas가 비활성화 한 오래된 모듈 / 플러그인이 있을 수 있습�
 누락된 모듈 / 플러그인 목록:
 ]=]
 L["ATLAS_NO_MODULE_OR_PLUGIN"] = [=[|cffff66ff오류:|r
-Atlas는 설치 및 활성화 된 맵 모듈 또는 
+Atlas는 설치 및 활성화 된 맵 모듈 또는
 플러그인을 감지 할 수 없습니다.
-Atlas 자체는 맵 브라우저이므로 맵을 
-찾아 보려면 최소한 하나의 맵 모듈 또는 
+Atlas 자체는 맵 브라우저이므로 맵을
+찾아 보려면 최소한 하나의 맵 모듈 또는
 플러그인을 설치해야 합니다.]=]
 L["ATLAS_OPEN_ACHIEVEMENT"] = "상세 업적을 열려면 클릭하세요."
 L["ATLAS_OPEN_ADDON_LIST"] = "애드온 목록 열기"
@@ -348,5 +345,3 @@ L["Wave 6"] = "6 웨이브"
 L["West"] = "서쪽"
 L["Yarley <Armorer>"] = "야를리 <방어구 제작자>"
 L["Zaladormu"] = "잘라도르무"
-
-end

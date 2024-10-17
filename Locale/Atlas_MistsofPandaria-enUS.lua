@@ -1,4 +1,3 @@
--- $Id: Atlas_MistsofPandaria-enUS.lua 61 2023-03-20 15:04:56Z arithmandar $
 --[[
 
 	Atlas, a World of Warcraft instance map browser
@@ -24,10 +23,9 @@
 
 --]]
 
-local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
-local L = AceLocale:NewLocale("Atlas_MistsofPandaria", "enUS", true, true);
+local L = LibStub("AceLocale-3.0"):NewLocale("Atlas_MistsofPandaria", "enUS", true, true);
+if not L then return end
 
-if L then
 L["Archritualist Kelada"] = "Archritualist Kelada"
 L["Auntie Stormstout"] = "Auntie Stormstout"
 L["Ban Bearheart"] = "Ban Bearheart"
@@ -71,6 +69,3 @@ L["TJS"] = "TJS"
 L["ToT"] = "ToT"
 L["Unblinking Eye"] = "Unblinking Eye"
 L["Zao'cho <The Emperor's Shield>"] = "Zao'cho <The Emperor's Shield>"
-
-
-end

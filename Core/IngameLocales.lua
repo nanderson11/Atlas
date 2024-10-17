@@ -1,4 +1,3 @@
--- $Id: IngameLocales.lua 431 2023-03-20 14:46:49Z arithmandar $
 --[[
 
 	Atlas, a World of Warcraft instance map browser
@@ -23,8 +22,6 @@
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 --]]
-
-local setmetatable, rawget = setmetatable, rawget
 
 Atlas_IngameLocales = {
 	-- ######################################################################
