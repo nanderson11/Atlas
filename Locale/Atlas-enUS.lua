@@ -123,6 +123,7 @@ List of outdated plugin(s)/module(s)/addon(s):]=]
 L["ATLAS_DEP_MSG4"] = [=[Once you have the latest ones installed,
 don't forget to enable them from Addon list.]=]
 L["ATLAS_DEP_OK"] = "Ok"
+L["ATLAS_INCLUDED_MODULES"] = "Atlas (fork) v3 now includes the expansion maps directly. It's no longer necessary to have the expansion addons, like Atlas Legion. You currently have some of those addons enabled. To avoid errors, it's recommended to disable or uninstall them. Other Atlas addons, like Atlas Battlegrounds, aren't included and should continue to work if you have them."
 L["ATLAS_ENTRANCE_BUTTON"] = "Entrance"
 L["ATLAS_EXPAND_BUTTON"] = "Click to open Atlas' legend panel."
 L["ATLAS_INFO"] = "Atlas Information"

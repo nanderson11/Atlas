@@ -485,8 +485,28 @@ function addon:PopulateDropdowns()
 end
 
 local function process_Deprecated()
-	local Deprecated_List = addon.constants.deprecatedList
+	-- Check to see if a module that is now bundled with Atlas is enabled and if so, recommend disabling it
+	local includedModulePresent = false;
+	local includedModules = {
+		"Atlas_ClassicWoW",
+		"Atlas_BurningCrusade",
+		"Atlas_WrathoftheLichKing",
+		"Atlas_Cataclysm",
+		"Atlas_MistsofPandaria",
+		"Atlas_WarlordsofDraenor",
+		"Atlas_Legion",
+		"Atlas_BattleforAzeroth"
+	};
+	for index, module in ipairs(includedModules) do
+		if (C_AddOns.GetAddOnEnableState(module) ~= 0) then
+			includedModulePresent = true;
+		end
+	end
+	if (includedModulePresent == true) then
+		DEFAULT_CHAT_FRAME:AddMessage(L["ATLAS_INCLUDED_MODULES"]);
+	end
 
+	local Deprecated_List = addon.constants.deprecatedList
 	-- Check for outdated modules, build a list of them, then disable them and tell the player
 	local OldList = {}
 	for k, v in pairs(Deprecated_List) do
@@ -508,6 +528,7 @@ local function process_Deprecated()
 			end
 		end
 	end
+
 	if #OldList > 0 then
 		local textList = ""
 		for k, v in pairs(OldList) do

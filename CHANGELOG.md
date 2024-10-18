@@ -4,11 +4,11 @@
 
 ### Added
 
-- Added Cataclysm support
+- Added Cataclysm Classic support
 
 ### Changed
 
-- Maps have been merged into Atlas (fork) itself. The map addons are no longer used. While this increases the minimum download size, it greatly simplifies installation and maintainability.
+- Maps from the Atlas expansion addons have been merged into Atlas (fork) itself and can be uninstalled. While this increases the minimum download size, it greatly simplifies installation and maintainability, and also lets me add Cataclysm support without forking all the expansion addons. The other addons, like Battlegrounds or Dungeon Locations, aren't merged in but will still work if they are installed.
 
 ## 2.0.2 - October 7, 2024
 
