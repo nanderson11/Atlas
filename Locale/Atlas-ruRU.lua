@@ -1,4 +1,3 @@
--- $Id: Atlas-ruRU.lua 431 2023-03-20 14:46:49Z arithmandar $
 --[[
 
 	Atlas, a World of Warcraft instance map browser
@@ -24,30 +23,23 @@
 
 --]]
 
-local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
-local L = AceLocale:NewLocale("Atlas", "ruRU", false);
+local L = LibStub("AceLocale-3.0"):NewLocale("Atlas", "ruRU");
 
--- Atlas Russian Localization
--- Compiled by Eugene Filatov, bigoblin, StingerSoft
--- Last Update: 23.01.2011
--- $Date: 2023-03-20 14:46:49 +0000 (Mon, 20 Mar 2023) $
--- $Revision: 431 $
+if (GetLocale() == "ruRU") then
+	-- Define the leading strings to be ignored while sorting
+	-- Ex: The Stockade
+	AtlasSortIgnore = { "(.+)" };
 
-if ( GetLocale() == "ruRU" ) then
--- Define the leading strings to be ignored while sorting
--- Ex: The Stockade
-AtlasSortIgnore = {"(.+)"};
-
--- Syntax: ["real_zone_name"] = "localized map zone name"
-AtlasZoneSubstitutions = {
-	["Ahn'Qiraj"] = "Ан'Кираж";
-	["The Temple of Atal'Hakkar"] = "Храм Атал'Хаккара";
---	["Throne of Tides"] = "Бездонная пучина: Трон Приливов";
-};
+	-- Syntax: ["real_zone_name"] = "localized map zone name"
+	AtlasZoneSubstitutions = {
+		["Ahn'Qiraj"] = "Ан'Кираж",
+		["The Temple of Atal'Hakkar"] = "Храм Атал'Хаккара",
+		--	["Throne of Tides"] = "Бездонная пучина: Трон Приливов";
+	};
 end
 
+if not L then return end
 
-if L then
 L[" 1/2"] = "1/2"
 L[" 2/2"] = "2/2"
 L["%s Dungeons"] = "%s подземелья"
@@ -153,10 +145,10 @@ L["ATLAS_INFO_12200"] = [=[Важное уведомление:
 
 Или посетите наш сайт, чтобы узнать где загрузить:
 |cff6666ffhttp://www.atlasmod.com/|cffffffff]=]
-L["ATLAS_INFO_12201"] = [=[Обратите внимание, что мы создали новый плагин - |cff6666ffAtlas Сценарии|cffffffff, который 
-обеспечивает картами сценарии, добавленные в 5.0. 
+L["ATLAS_INFO_12201"] = [=[Обратите внимание, что мы создали новый плагин - |cff6666ffAtlas Сценарии|cffffffff, который
+обеспечивает картами сценарии, добавленные в 5.0.
 
-Для более подробной информации посетите наш веб-сайт, и не забудьте загрузить / 
+Для более подробной информации посетите наш веб-сайт, и не забудьте загрузить /
 установить его отдельно.
 |cff6666ffhttp://www.atlasmod.com/|cffffffff]=]
 L["ATLAS_INSTANCE_BUTTON"] = "Подземелье"
@@ -165,19 +157,19 @@ L["ATLAS_LDB_HINT"] = [=[[ЛКМ] - открывает Atlas.
 L["ATLAS_MINIMAPLDB_HINT"] = [=[[ЛКМ] - открывает Atlas.
 [ПКМ] + открывает настройки Atlas.
 [ЛКМ] + [перемещение] - изменяет положение кнопки.]=]
-L["ATLAS_MISSING_MODULE"] = [=[Atlas обнаружил отсутствующие модули / плагины: 
+L["ATLAS_MISSING_MODULE"] = [=[Atlas обнаружил отсутствующие модули / плагины:
 
-Возможно, у вас установлены устаревшие модули / плагины, которые Atlas отключил. 
-Если вы установили свежие версии, убедитесь, что они включены в списке модификаций. 
+Возможно, у вас установлены устаревшие модули / плагины, которые Atlas отключил.
+Если вы установили свежие версии, убедитесь, что они включены в списке модификаций.
 
-Если вы уверены, что не нуждаетесь в этих "отсутствующих" модулях / плагинах, и не хотите больше видеть это сообщение, то отключите уведомление в панели настроек. 
+Если вы уверены, что не нуждаетесь в этих "отсутствующих" модулях / плагинах, и не хотите больше видеть это сообщение, то отключите уведомление в панели настроек.
 
 Список отсутствующих модулей / плагинов: ]=]
 L["ATLAS_NO_MODULE_OR_PLUGIN"] = [=[|cffff66ffОшибка:|r
 Atlas не может обнаружить какой-либо модуль карты
 или плагин установлен и включен.
-Отметим, что сам Atlas представляет собой браузер карты 
-вам придется устанавливать как минимум один 
+Отметим, что сам Atlas представляет собой браузер карты
+вам придется устанавливать как минимум один
 картографический модуль или плагин, чтобы просматривать карты.]=]
 L["ATLAS_OPEN_ACHIEVEMENT"] = "Щелкните, чтобы открыть подробную информацию о достижениях."
 L["ATLAS_OPEN_ADDON_LIST"] = "Открыть список аддона"
@@ -289,8 +281,8 @@ L["MapG"] = " [G]"
 L["MapH"] = " [H]"
 L["MapI"] = " [I]"
 L["MapJ"] = " [J]"
-L["MapsNotFound"] = [=[Текущее выбранное подземелье не имеет 
-связанные с соответствующее изображения карты. 
+L["MapsNotFound"] = [=[Текущее выбранное подземелье не имеет
+связанные с соответствующее изображения карты.
 
 Пожалуйста, убедитесь, что у вас установлены
 соответствующие модуль(и) карт Atlas.]=]
@@ -355,6 +347,3 @@ L["Wave 6"] = "6-ая волна"
 L["West"] = "Запад"
 L["Yarley <Armorer>"] = "Ярли <Бронник>"
 L["Zaladormu"] = "Заладорму"
-
-
-end

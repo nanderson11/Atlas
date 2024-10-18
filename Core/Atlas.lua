@@ -24,26 +24,22 @@
 --]]
 
 -- Determine WoW TOC Version
-local WoWClassicEra, WoWClassicTBC, WoWWOTLKC, WoWRetail
+local WoWClassicEra, WoWClassic, WoWRetail
 local wowversion = select(4, GetBuildInfo())
 if wowversion < 20000 then
 	WoWClassicEra = true
-elseif wowversion < 30000 then
-	WoWClassicTBC = true
-elseif wowversion < 40000 then
-	WoWWOTLKC = true
+elseif wowversion > 30000 and wowversion < 90000 then
+	WoWClassic = true
 elseif wowversion > 90000 then
 	WoWRetail = true
-else
 end
 
 -- ----------------------------------------------------------------------------
 -- AddOn namespace.
 -- ----------------------------------------------------------------------------
 local FOLDER_NAME, private = ...
-
-local LibStub = _G.LibStub
 local addon = LibStub("AceAddon-3.0"):NewAddon(private.addon_name, "AceConsole-3.0")
+
 addon.constants = private.constants
 addon.Templates = private.Templates
 addon.constants.addon_name = private.addon_name
@@ -57,7 +53,6 @@ local BZ = Atlas_GetLocaleLibBabble("LibBabble-SubZone-3.0")
 local BB = Atlas_GetLocaleLibBabble("LibBabble-Boss-3.0")
 local LibDialog = LibStub("LibDialog-1.0")
 local AceDB = LibStub("AceDB-3.0")
--- UIDropDownMenu
 local LibDD = LibStub:GetLibrary("LibUIDropDownMenu-4.0")
 
 local profile
@@ -247,7 +242,7 @@ local function bossButtonCleanUp(button)
 end
 
 local function bossButtonUpdate(button, encounterID, instanceID, b_iconImage, moduleData)
-	if (WoWClassicEra or WoWClassicTBC or WoWWOTLKC) then
+	if (WoWClassicEra or WoWClassic) then
 		return
 	end
 
@@ -490,8 +485,28 @@ function addon:PopulateDropdowns()
 end
 
 local function process_Deprecated()
-	local Deprecated_List = addon.constants.deprecatedList
+	-- Check to see if a module that is now bundled with Atlas is enabled and if so, recommend disabling it
+	local includedModulePresent = false;
+	local includedModules = {
+		"Atlas_ClassicWoW",
+		"Atlas_BurningCrusade",
+		"Atlas_WrathoftheLichKing",
+		"Atlas_Cataclysm",
+		"Atlas_MistsofPandaria",
+		"Atlas_WarlordsofDraenor",
+		"Atlas_Legion",
+		"Atlas_BattleforAzeroth"
+	};
+	for index, module in ipairs(includedModules) do
+		if (C_AddOns.GetAddOnEnableState(module) ~= 0) then
+			includedModulePresent = true;
+		end
+	end
+	if (includedModulePresent == true) then
+		DEFAULT_CHAT_FRAME:AddMessage(L["ATLAS_INCLUDED_MODULES"]);
+	end
 
+	local Deprecated_List = addon.constants.deprecatedList
 	-- Check for outdated modules, build a list of them, then disable them and tell the player
 	local OldList = {}
 	for k, v in pairs(Deprecated_List) do
@@ -513,6 +528,7 @@ local function process_Deprecated()
 			end
 		end
 	end
+
 	if #OldList > 0 then
 		local textList = ""
 		for k, v in pairs(OldList) do
@@ -640,7 +656,7 @@ function addon:GetDungeonDifficultyColor(minRecLevel)
 	end
 
 	local greenLevel
-	if (WoWClassicEra or WoWClassicTBC or WoWWOTLKC) then
+	if (WoWClassicEra or WoWClassic) then
 		greenLevel = GetQuestGreenRange()
 	else
 		greenLevel = UnitQuestTrivialLevelRange('player')
@@ -1330,7 +1346,6 @@ function Atlas_MapRefresh(mapID)
 		AtlasFrameSizeUpButton:Hide()
 		AtlasFrameSmallSizeUpButton:Hide()
 	end
-
 	-- Searching for the map path from Atlas or from plugins
 	local AtlasMapPath
 	for k, v in pairs(Atlas_CoreMapsKey) do
@@ -1338,7 +1353,7 @@ function Atlas_MapRefresh(mapID)
 		if (zoneID == v) then
 			if (base.Module) then
 				-- if the map belong to a module, set the path to module
-				AtlasMapPath = "Interface\\AddOns\\"..base.Module.."\\Images\\"
+				AtlasMapPath = "Interface\\AddOns\\Atlas\\Images\\"..base.Module.."\\"
 				break
 			end
 		end
@@ -1373,28 +1388,8 @@ function Atlas_MapRefresh(mapID)
 	AtlasMap_Text:SetPoint("CENTER", "AtlasFrame", "LEFT", 256, -32)
 	AtlasMapS_Text:SetPoint("CENTER", "AtlasFrameSmall", "LEFT", 256, -32)
 	-- Check if the map image is available, if not replace with black and Map Not Found text
-	if (base.Module) then
-		local loadable = select(4, C_AddOns.GetAddOnInfo(base.Module))
-		local enabled = C_AddOns.GetAddOnEnableState(base.Module, UnitName("player"))
-		if ((enabled == 0) or (not loadable)) then
-			AtlasMap:SetColorTexture(0, 0, 0, 0);
-			AtlasMap_Text:SetText(L["MapsNotFound"].."\n\n"..L["PossibleMissingModule"].."\n|cff6666ff"..base.Module)
-			AtlasMapSmall:SetColorTexture(0, 0, 0, 0);
-			AtlasMapS_Text:SetText(L["MapsNotFound"].."\n\n"..L["PossibleMissingModule"].."\n|cff6666ff"..base.Module)
-			if (not AtlasMap_Text:IsShown()) then
-				AtlasMap_Text:Show()
-			end
-			if (not AtlasMapS_Text:IsShown()) then
-				AtlasMapS_Text:Show()
-			end
-		else
-			AtlasMap_Text:SetText("")
-			AtlasMapS_Text:SetText("")
-		end
-	else
-		AtlasMap_Text:SetText("")
-		AtlasMapS_Text:SetText("")
-	end
+	AtlasMap_Text:SetText("")
+	AtlasMapS_Text:SetText("")
 
 	-- Large Atlas map
 	if (base.LargeMap) then
@@ -1671,7 +1666,7 @@ function Atlas_AutoSelect()
 end
 
 function addon:DungeonMinGearLevelToolTip(self)
-	if (WoWClassicEra or WoWClassicTBC or WoWWOTLKC) then return end
+	if (WoWClassicEra or WoWClassic) then return end
 	local currGearLevel = GetAverageItemLevel()
 	local str = format(ITEM_LEVEL, currGearLevel)
 
@@ -1881,8 +1876,8 @@ function addon:OnEnable()
 		registerModule(k)
 	end
 
-	-- On Classic Era, fix the close button
-	if (WoWClassicEra) then
+	-- On Classic and Classic Era, fix the close button size
+	if (WoWClassicEra or WoWClassic) then
 		AtlasFrameCloseButton:SetSize(32, 32);
 		AtlasFrameCloseButton:SetPoint("TOPRIGHT", "AtlasFrame", "TOPRIGHT", 5, -7);
 		AtlasFrameLockButton:SetSize(32, 32);

@@ -1,4 +1,3 @@
--- $Id: Atlas-enUS.lua 431 2023-03-20 14:46:49Z arithmandar $
 --[[
 
 	Atlas, a World of Warcraft instance map browser
@@ -24,27 +23,21 @@
 
 --]]
 
-local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
-local L = AceLocale:NewLocale("Atlas", "enUS", true, true);
--- Localize file must set above to false, for example:
---    local AL = AceLocale:NewLocale("Atlas", "deDE", false);
+local L = LibStub("AceLocale-3.0"):NewLocale("Atlas", "enUS", true, true);
 
--- Atlas English Localization
---if ( GetLocale() ==	"enUS" ) then
-	-- Define the leading strings to be ignored while sorting
-	-- Ex: The Stockade
-	AtlasSortIgnore = {"the (.+)", "The (.+)"};
+-- Define the leading strings to be ignored while sorting
+-- Ex: The Stockade
+AtlasSortIgnore = { "the (.+)", "The (.+)" };
 
-	-- Syntax: ["real_zone_name"] = "localized map zone name"
-	AtlasZoneSubstitutions = {
-		["Ahn'Qiraj"] = "Temple of Ahn'Qiraj";
-		["The Temple of Atal'Hakkar"] = "Sunken Temple";
+-- Syntax: ["real_zone_name"] = "localized map zone name"
+AtlasZoneSubstitutions = {
+	["Ahn'Qiraj"] = "Temple of Ahn'Qiraj",
+	["The Temple of Atal'Hakkar"] = "Sunken Temple",
 	--	["Throne of Tides"] = "The Abyssal Maw: Throne of the Tides";
-	}
---end
+}
 
+if not L then return end
 
-if L then
 L[" 1/2"] = " 1/2"
 L[" 2/2"] = " 2/2"
 L["%s Dungeons"] = "%s Dungeons"
@@ -127,22 +120,23 @@ L["ATLAS_DEP_MSG2"] = "It has / They have been disabled for this character."
 L["ATLAS_DEP_MSG3"] = [=[Delete it/them from your AddOns folder and get the latest one installed.
 
 List of outdated plugin(s)/module(s)/addon(s):]=]
-L["ATLAS_DEP_MSG4"] = [=[Once you have the latest ones installed, 
+L["ATLAS_DEP_MSG4"] = [=[Once you have the latest ones installed,
 don't forget to enable them from Addon list.]=]
 L["ATLAS_DEP_OK"] = "Ok"
+L["ATLAS_INCLUDED_MODULES"] = "Atlas (fork) v3 now includes the expansion maps directly. It's no longer necessary to have the expansion addons, like Atlas Legion. You currently have some of those addons enabled. To avoid errors, it's recommended to disable or uninstall them. Other Atlas addons, like Atlas Battlegrounds, aren't included and should continue to work if you have them."
 L["ATLAS_ENTRANCE_BUTTON"] = "Entrance"
 L["ATLAS_EXPAND_BUTTON"] = "Click to open Atlas' legend panel."
 L["ATLAS_INFO"] = "Atlas Information"
 L["ATLAS_INFO_12200"] = [=[Important Notice:
 
-Due to the concern of increasing addon file size, we have moved out 
+Due to the concern of increasing addon file size, we have moved out
 npart of our dungeon maps and built-in plug-ins into separated addon package.
 
-Users who download our addons from some of the famous game web sites 
-nmay only get our core addon which only include the Atlas core function 
+Users who download our addons from some of the famous game web sites
+nmay only get our core addon which only include the Atlas core function
 nand the latest WoW expansion maps.
 
-If you also want to see all the old expansions' maps, and also want all those 
+If you also want to see all the old expansions' maps, and also want all those
 Atlas plug-ins made by us, you have to download and install them separately.
 
 Read below forum topic for more information:
@@ -150,10 +144,10 @@ Read below forum topic for more information:
 
 Or visit our website to see where to download:
 |cff6666ffhttp://www.atlasmod.com/|cffffffff]=]
-L["ATLAS_INFO_12201"] = [=[Please be advised that we have created a new plug-in - |cff6666ffAtlas Scenarios|cffffffff, to 
-nprovide the brand-new Scenarios maps introduced in WoW 5.0. 
+L["ATLAS_INFO_12201"] = [=[Please be advised that we have created a new plug-in - |cff6666ffAtlas Scenarios|cffffffff, to
+nprovide the brand-new Scenarios maps introduced in WoW 5.0.
 
-Check out our web site for more details, and don't forget to download / 
+Check out our web site for more details, and don't forget to download /
 install it separately.
 |cff6666ffhttp://www.atlasmod.com/|cffffffff]=]
 L["ATLAS_INSTANCE_BUTTON"] = "Instance"
@@ -162,20 +156,20 @@ Right-Click for Atlas options.]=]
 L["ATLAS_MINIMAPLDB_HINT"] = [=[Left-Click to open Atlas.
 Right-Click for Atlas options.
 Left-click and drag to move this button.]=]
-L["ATLAS_MISSING_MODULE"] = [=[Atlas has detected some missing module(s) / plugin(s). 
+L["ATLAS_MISSING_MODULE"] = [=[Atlas has detected some missing module(s) / plugin(s).
 
-It could be you had outdated module(s) / plugin(s) which had been disabled by Atlas. 
-If you have now installed all latest ones, go to your addon list to see if all of them have been enabled. 
+It could be you had outdated module(s) / plugin(s) which had been disabled by Atlas.
+If you have now installed all latest ones, go to your addon list to see if all of them have been enabled.
 
-If you are sure that you don't need those \"missing\" module(s) / plugin(s) and do not want to see this message again, you can go to option panel to disable the notification. 
+If you are sure that you don't need those \"missing\" module(s) / plugin(s) and do not want to see this message again, you can go to option panel to disable the notification.
 
-List of missing module(s) / plugin(s): 
+List of missing module(s) / plugin(s):
 ]=]
 L["ATLAS_NO_MODULE_OR_PLUGIN"] = [=[|cffff66ffError:|r
-Atlas can not detect any of map module 
+Atlas can not detect any of map module
 or plugin installed and enabled.
-Note that Atlas itself is a map browser, 
-you will have to at least install one 
+Note that Atlas itself is a map browser,
+you will have to at least install one
 map module or plugin to browse the maps.]=]
 L["ATLAS_OPEN_ACHIEVEMENT"] = "Click to open achievement details."
 L["ATLAS_OPEN_ADDON_LIST"] = "Open addon list"
@@ -287,10 +281,10 @@ L["MapG"] = " [G]"
 L["MapH"] = " [H]"
 L["MapI"] = " [I]"
 L["MapJ"] = " [J]"
-L["MapsNotFound"] = [=[The current selected instance does not have a 
-corresponding map image associated with. 
+L["MapsNotFound"] = [=[The current selected instance does not have a
+corresponding map image associated with.
 
-Please make sure you have installed 
+Please make sure you have installed
 the corresponding Atlas map module(s).]=]
 L["Meeting Stone"] = "Meeting Stone"
 L["Middle"] = "Middle"
@@ -353,5 +347,3 @@ L["Wave 6"] = "Wave 6"
 L["West"] = "West"
 L["Yarley <Armorer>"] = "Yarley <Armorer>"
 L["Zaladormu"] = "Zaladormu"
-
-end

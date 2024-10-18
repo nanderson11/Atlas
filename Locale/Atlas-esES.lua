@@ -1,4 +1,3 @@
--- $Id: Atlas-esES.lua 431 2023-03-20 14:46:49Z arithmandar $
 --[[
 
 	Atlas, a World of Warcraft instance map browser
@@ -24,30 +23,23 @@
 
 --]]
 
-local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
-local L = AceLocale:NewLocale("Atlas", "esES", false);
+local L = LibStub("AceLocale-3.0"):NewLocale("Atlas", "esES");
 
--- Atlas Spanish Localization
--- Traducido por --> maqjav|Marosth de Tyrande<--
--- maqjav@gmail.com
--- Última Actualización (last update): 05/12/2015
+if (GetLocale() == "esES") then
+	-- Define the leading strings to be ignored while sorting
+	-- Ex: The Stockade
+	AtlasSortIgnore = { "the (.+)" };
 
--- Atlas Spanish Localization
-if ( GetLocale() == "esES" ) then
--- Define the leading strings to be ignored while sorting
--- Ex: The Stockade
-AtlasSortIgnore = {"the (.+)"};
-
--- Syntax: ["real_zone_name"] = "localized map zone name"
-AtlasZoneSubstitutions = {
-	["Ahn'Qiraj"] = "Templo de Ahn'Qiraj",
-	["The Temple of Atal'Hakkar"] = "El Templo de Atal'Hakkar",
---	["Throne of Tides"] = "Fauce Abisal: Trono de las Mareas"
-};
+	-- Syntax: ["real_zone_name"] = "localized map zone name"
+	AtlasZoneSubstitutions = {
+		["Ahn'Qiraj"] = "Templo de Ahn'Qiraj",
+		["The Temple of Atal'Hakkar"] = "El Templo de Atal'Hakkar",
+		--	["Throne of Tides"] = "Fauce Abisal: Trono de las Mareas"
+	};
 end
 
+if not L then return end
 
-if L then
 L[" 1/2"] = "1/2"
 L[" 2/2"] = "2/2"
 L["%s Dungeons"] = "%s Mazmorras"
@@ -135,25 +127,25 @@ L["ATLAS_EXPAND_BUTTON"] = "Click para abrir el panel con la leyenda de Atlas."
 L["ATLAS_INFO"] = "Información de Atlas"
 L["ATLAS_INFO_12200"] = [=[Aviso importante:
 
-Debido al aumento del tamaño en los 
-archivos de este accesorio, se han separado parte de los mapas de mazmorras, 
+Debido al aumento del tamaño en los
+archivos de este accesorio, se han separado parte de los mapas de mazmorras,
 y otros accesorios internos en módulos separados.
 
-Los usuarios que descarguen este accesorio desde conocidas páginas web obtendrán 
-únicamente el núcleo del accesorio, el cual solo contiene la función del núcleo 
+Los usuarios que descarguen este accesorio desde conocidas páginas web obtendrán
+únicamente el núcleo del accesorio, el cual solo contiene la función del núcleo
 y los mapas de la última expansión.
 
-Los usuarios que también quieran descargar los mapas de las mazmorras antiguas y 
-los mapas de todos los plug-ins 
-de Atlas hechos por nosotros, tendrán que 
+Los usuarios que también quieran descargar los mapas de las mazmorras antiguas y
+los mapas de todos los plug-ins
+de Atlas hechos por nosotros, tendrán que
 descargarselos por separado.
 
 Para mas información accede a:
 http://www.atlasmod.com/phpBB3/viewtopic.php?t=1522]=]
-L["ATLAS_INFO_12201"] = [=[Te informamos de que hemos creado un nuevo plug-in - |cff6666ffAtlas Escenarios|cffffffff, 
-que contiene los nuevos mapas de los escenarios introducidos en WoW 5.0. 
+L["ATLAS_INFO_12201"] = [=[Te informamos de que hemos creado un nuevo plug-in - |cff6666ffAtlas Escenarios|cffffffff,
+que contiene los nuevos mapas de los escenarios introducidos en WoW 5.0.
 
-Para mas detalles aacede a nuestra web, y no olvides de descargarlo / 
+Para mas detalles aacede a nuestra web, y no olvides de descargarlo /
 instalarlo por separado.
 |cff6666ffhttp://www.atlasmod.com/|cffffffff]=]
 L["ATLAS_INSTANCE_BUTTON"] = "Mazmorra"
@@ -281,10 +273,10 @@ L["MapG"] = "[G]"
 L["MapH"] = "[H]"
 L["MapI"] = "[I]"
 L["MapJ"] = "[J]"
-L["MapsNotFound"] = [=[La mazmorra actual no dispone de su 
-imagen de mapa correspondiente. 
+L["MapsNotFound"] = [=[La mazmorra actual no dispone de su
+imagen de mapa correspondiente.
 
-Por favor, asegurate de tener instalado 
+Por favor, asegurate de tener instalado
 el módulo(s) de mapas Atlas correspondiente.]=]
 L["Meeting Stone"] = "Piedra de encuentro"
 L["Middle"] = "Medio"
@@ -346,5 +338,3 @@ L["Wave 6"] = "Ola 6"
 L["West"] = "Oeste"
 L["Yarley <Armorer>"] = "Yarley <Armero>"
 L["Zaladormu"] = "Zaladormu"
-
-end

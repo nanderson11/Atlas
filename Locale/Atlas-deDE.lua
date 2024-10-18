@@ -1,4 +1,3 @@
--- $Id: Atlas-deDE.lua 431 2023-03-20 14:46:49Z arithmandar $
 --[[
 
 	Atlas, a World of Warcraft instance map browser
@@ -24,32 +23,27 @@
 
 --]]
 
-local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
-local L = AceLocale:NewLocale("Atlas", "deDE", false);
--- Localize file must set above to false
+local L = LibStub("AceLocale-3.0"):NewLocale("Atlas", "deDE");
 
--- Deutsche Lokalisierung (German, deDE)
--- Letztes Update: 29.10.2014
+if (GetLocale() == "deDE") then
+	-- Define the leading strings to be ignored while sorting
+	-- Ex: The Stockade
+	AtlasSortIgnore = {
+		"der (.+)",
+		"die (.+)",
+		"das (.+)"
+	}
 
-if ( GetLocale() == "deDE" ) then
--- Define the leading strings to be ignored while sorting
--- Ex: The Stockade
-AtlasSortIgnore = {
-	"der (.+)",
-	"die (.+)",
-	"das (.+)"
-}
-
--- Syntax: ["real_zone_name"] = "localized map zone name"
-AtlasZoneSubstitutions = {
-	["Ahn'Qiraj"] = "Tempel von Ahn'Qiraj",
-	["Der Tempel von Atal'Hakkar"] = "Versunkener Tempel",
---	["Throne of Tides"] = "The Abyssal Maw: Throne of the Tides",
-}
+	-- Syntax: ["real_zone_name"] = "localized map zone name"
+	AtlasZoneSubstitutions = {
+		["Ahn'Qiraj"] = "Tempel von Ahn'Qiraj",
+		["Der Tempel von Atal'Hakkar"] = "Versunkener Tempel",
+		--	["Throne of Tides"] = "The Abyssal Maw: Throne of the Tides",
+	}
 end
 
+if not L then return end
 
-if L then
 L[" 1/2"] = " 1/2"
 L[" 2/2"] = " 2/2"
 L["%s Dungeons"] = "%s-Dungeons"
@@ -140,19 +134,19 @@ L["ATLAS_EXPAND_BUTTON"] = "Klicken, um Atlas' Legende zu öffnen."
 L["ATLAS_INFO"] = "Atlas Information"
 L["ATLAS_INFO_12200"] = [=[Wichtiger Hinweis:
 
-Da die Addondatei stets größer wird, wurde ein Teil 
+Da die Addondatei stets größer wird, wurde ein Teil
 der Instanzkarten in getrennte Module verschoben.
 
-Beim Download des Addons von den bekannten Webseiten 
-erhält man daher nun lediglich das Haupt-Addon mit den Kernfunktionen 
+Beim Download des Addons von den bekannten Webseiten
+erhält man daher nun lediglich das Haupt-Addon mit den Kernfunktionen
 und den Instanzkarten von Cataclysm.
 
-Wer alle alten Instanzkarten und alle Atlas Plugins benötigt, 
+Wer alle alten Instanzkarten und alle Atlas Plugins benötigt,
 muss diese seperat herunterladen.
 
 Mehr Infos dazu gibt es im Forum:
 http://www.atlasmod.com/phpBB3/viewtopic.php?t=1522]=]
-L["ATLAS_INFO_12201"] = [=[Bitte beachten Sie, dass ein neues Plugin |cff6666ffAtlas Scenarios|cffffffff mit den Karten der neuen Szenarien erstellt wurde. 
+L["ATLAS_INFO_12201"] = [=[Bitte beachten Sie, dass ein neues Plugin |cff6666ffAtlas Scenarios|cffffffff mit den Karten der neuen Szenarien erstellt wurde.
 
 Besuchen Sie für weitere Details unsere Webseite und vergessen Sie nicht,
 das Plugin separat zu installieren.
@@ -283,10 +277,10 @@ L["MapG"] = " [G]"
 L["MapH"] = " [H]"
 L["MapI"] = " [I]"
 L["MapJ"] = " [J]"
-L["MapsNotFound"] = [=[Für die gewählte Instanz wurde 
-keine anzuzeigende Karte gefunden. 
+L["MapsNotFound"] = [=[Für die gewählte Instanz wurde
+keine anzuzeigende Karte gefunden.
 
-Bitte stellen Sie sicher, dass die erforderlichen 
+Bitte stellen Sie sicher, dass die erforderlichen
 Atlas-Kartenmodule installiert sind. ]=]
 L["Meeting Stone"] = "Versammlungsstein"
 L["Middle"] = "Mitte"
@@ -349,6 +343,3 @@ L["Wave 6"] = "Welle 6"
 L["West"] = "Westen"
 L["Yarley <Armorer>"] = "Yarley <Rüstungsschmied>"
 L["Zaladormu"] = "Zaladormu"
-
-
-end

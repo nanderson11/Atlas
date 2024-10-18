@@ -22,12 +22,13 @@
 ## Notes-zhCN: |cff00CC33副本地图浏览器|r
 ## Notes-zhTW: Atlas 地圖集主程式
 ## Author: nanderson11
-## Version: 2.0.2
+## Version: @project-version@
 ## X-Website: https://github.com/nanderson11/Atlas
 ## X-Category: Map
 ## X-License: GPLv2
 ## X-Credits: Forked from Atlas
 ## X-Localizations: enUS, deDE, esES, esMX, frFR, ruRU, zhTW, zhCN, ptBR, koKR
+## X-Curse-Project-ID: 1115649
 ## OptionalDeps: LibStub, CallbackHandler-1.0, Ace3, LibBabble-Boss-3.0, LibBabble-SubZone-3.0, LibBabble-Faction-3.0, LibDBIcon-1.0, LibDialog-1.0, LibUIDropDownMenu
 ## SavedVariables: AtlasDB
 
@@ -57,3 +58,5 @@ Integration\WorldMap.xml
 Integration\WorldMap.lua
 Integration\Achievements.lua
 Integration\AtlasLootIntegration.lua
+
+Data\Classic-ClassicEra.lua

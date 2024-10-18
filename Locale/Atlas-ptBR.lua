@@ -1,4 +1,3 @@
--- $Id: Atlas-ptBR.lua 431 2023-03-20 14:46:49Z arithmandar $
 --[[
 
 	Atlas, a World of Warcraft instance map browser
@@ -24,27 +23,23 @@
 
 --]]
 
-local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
-local L = AceLocale:NewLocale("Atlas", "ptBR", false);
--- Localize file must set above to false, for example:
---    local AL = AceLocale:NewLocale("Atlas", "deDE", false);
+local L = LibStub("AceLocale-3.0"):NewLocale("Atlas", "ptBR");
 
--- Atlas English Localization
-if ( GetLocale() == "ptBR" ) then
--- Define the leading strings to be ignored while sorting
--- Ex: The Stockade
---AtlasSortIgnore = {"the (.+)"};
+if (GetLocale() == "ptBR") then
+	-- Define the leading strings to be ignored while sorting
+	-- Ex: The Stockade
+	--AtlasSortIgnore = {"the (.+)"};
 
--- Syntax: ["real_zone_name"] = "localized map zone name"
-AtlasZoneSubstitutions = {
---	["Ahn'Qiraj"] = "Temple of Ahn'Qiraj";
---	["The Temple of Atal'Hakkar"] = "Sunken Temple";
---	["Throne of Tides"] = "The Abyssal Maw: Throne of the Tides";
-};
+	-- Syntax: ["real_zone_name"] = "localized map zone name"
+	AtlasZoneSubstitutions = {
+		--	["Ahn'Qiraj"] = "Temple of Ahn'Qiraj";
+		--	["The Temple of Atal'Hakkar"] = "Sunken Temple";
+		--	["Throne of Tides"] = "The Abyssal Maw: Throne of the Tides";
+	};
 end
 
+if not L then return end
 
-if L then
 L["Adult"] = "Adulto"
 L["AKA"] = "Conhecido como"
 L["Arms Warrior"] = "Guerreiro Armas"
@@ -178,5 +173,3 @@ L["Tunnel"] = "Túnel"
 L["West"] = "Oeste"
 L["Yarley <Armorer>"] = "Yarley <Armoraria>"
 L["Zaladormu"] = "Zaladormu"
-
-end
