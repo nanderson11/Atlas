@@ -26,14 +26,12 @@
 -- Atlas JournalEncounter Integration
 
 -- Determine WoW TOC Version
-local WoWClassicEra, WoWClassicTBC, WoWWOTLKC, WoWRetail
+local WoWClassicEra, WoWClassic, WoWRetail
 local wowversion = select(4, GetBuildInfo())
 if wowversion < 20000 then
 	WoWClassicEra = true
-elseif wowversion < 30000 then
-	WoWClassicTBC = true
-elseif wowversion < 40000 then
-	WoWWOTLKC = true
+elseif wowversion > 20000 and wowversion < 90000 then
+	WoWClassic = true
 elseif wowversion > 90000 then
 	WoWRetail = true
 end
@@ -109,11 +107,9 @@ function Atlas_GetBossName(bossname, encounterID, creatureIndex)
 end
 
 function addon:AdventureJournalButton_OnClick(frame)
-	if (WoWClassicEra or WoWClassicTBC or WoWWOTLKC) then return end
+	if (WoWClassicEra) then return end
 
 	local instanceID = frame.instanceID
-	local disabled = not C_AdventureJournal.CanBeShown()
-	if (disabled) then return end
 
 	if (not instanceID) then
 		return
@@ -134,7 +130,7 @@ function addon:AdventureJournalButton_OnClick(frame)
 end
 
 function addon:AdventureJournalButton_OnEnter(frame)
-	if (WoWClassicEra or WoWClassicTBC or WoWWOTLKC) then return end
+	if (WoWClassicEra) then return end
 
 	local instanceID = frame.instanceID
 	if (not instanceID) then return end
@@ -144,17 +140,12 @@ function addon:AdventureJournalButton_OnEnter(frame)
 			EJ_SelectInstance(instanceID)
 
 			local name, description = EJ_GetInstanceInfo()
-			local disabled = not C_AdventureJournal.CanBeShown()
 
 			GameTooltip:SetOwner(frame, "ANCHOR_RIGHT")
 			GameTooltip:SetText(name)
 			GameTooltipTextLeft1:SetTextColor(1, 1, 1)
 			GameTooltip:AddLine(description, nil, nil, nil, true)
-			if (disabled) then
-				GameTooltip:AddLine(FEATURE_NOT_YET_AVAILABLE, 0.7, 0, 0, true)
-			else
-				GameTooltip:AddLine(L["ATLAS_OPEN_ADVENTURE"], 0.5, 0.5, 1, true)
-			end
+			GameTooltip:AddLine(L["ATLAS_OPEN_ADVENTURE"], 0.5, 0.5, 1, true)
 			GameTooltip:Show()
 		end
 	else
@@ -163,12 +154,9 @@ function addon:AdventureJournalButton_OnEnter(frame)
 end
 
 function addon:AdventureJournal_EncounterButton_OnClick(instanceID, encounterID, keepAtlas)
-	if (WoWClassicEra or WoWClassicTBC or WoWWOTLKC) then return end
+	if (WoWClassicEra) then return end
 
 	if (not instanceID or not encounterID) then return end
-
-	local disabled = not C_AdventureJournal.CanBeShown()
-	if (disabled) then return end
 
 	if (not EJ_GetInstanceInfo(instanceID)) then
 		return
@@ -191,17 +179,12 @@ function addon:AdventureJournal_EncounterButton_OnClick(instanceID, encounterID,
 end
 
 function addon:AdventureJournal_MapButton_OnClick(frame)
-	if (WoWClassicEra or WoWClassicTBC or WoWWOTLKC) then return end
+	if (WoWClassicEra) then return end
 
 	local uiMapID = frame.mapID
 
 	HideUIPanel(AtlasFrame)
-	local disabled = not C_AdventureJournal.CanBeShown()
-	if (disabled) then
-		WorldMapFrame.fromJournal = false
-	else
-		WorldMapFrame.fromJournal = true
-	end
+	WorldMapFrame.fromJournal = true
 	ShowUIPanel(WorldMapFrame)
 	if (uiMapID) then
 		WorldMapFrame:SetMapID(uiMapID)

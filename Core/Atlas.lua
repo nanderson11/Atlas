@@ -28,7 +28,7 @@ local WoWClassicEra, WoWClassic, WoWRetail
 local wowversion = select(4, GetBuildInfo())
 if wowversion < 20000 then
 	WoWClassicEra = true
-elseif wowversion > 30000 and wowversion < 90000 then
+elseif wowversion > 20000 and wowversion < 90000 then
 	WoWClassic = true
 elseif wowversion > 90000 then
 	WoWRetail = true
@@ -242,9 +242,7 @@ local function bossButtonCleanUp(button)
 end
 
 local function bossButtonUpdate(button, encounterID, instanceID, b_iconImage, moduleData)
-	if (WoWClassicEra or WoWClassic) then
-		return
-	end
+	if (WoWClassicEra) then return end
 
 	local rolesByFlag = {
 		[0] = "TANK",
@@ -1303,11 +1301,17 @@ function Atlas_MapRefresh(mapID)
 		AtlasFrame.AdventureJournal.instanceID = base.JournalInstanceID
 		AtlasFrameLarge.AdventureJournal.instanceID = base.JournalInstanceID
 		AtlasFrameSmall.AdventureJournal.instanceID = base.JournalInstanceID
-		if WoWRetail then
+		-- Classic only has Cataclysm encounters available
+		if ((WoWClassic and base.Module == "Atlas_Cataclysm") or WoWRetail) then
 			AtlasFrameAdventureJournalButton:Show()
 			AtlasFrameLargeAdventureJournalButton:Show()
 			AtlasFrameSmallAdventureJournalButton:Show()
 			Atlas_SetEJBackground(base.JournalInstanceID)
+		else
+			AtlasFrameAdventureJournalButton:Hide()
+			AtlasFrameLargeAdventureJournalButton:Hide()
+			AtlasFrameSmallAdventureJournalButton:Hide()
+			Atlas_SetEJBackground()
 		end
 	else
 		AtlasFrameAdventureJournalButton:Hide()
@@ -1321,7 +1325,7 @@ function Atlas_MapRefresh(mapID)
 		AtlasFrame.AdventureJournalMap.mapID = base.WorldMapID
 		AtlasFrameLarge.AdventureJournalMap.mapID = base.WorldMapID
 		AtlasFrameSmall.AdventureJournalMap.mapID = base.WorldMapID
-		if WoWRetail then
+		if (WoWClassic or WoWRetail) then
 			AtlasFrameAdventureJournalMapButton:Show()
 			AtlasFrameLargeAdventureJournalMapButton:Show()
 			AtlasFrameSmallAdventureJournalMapButton:Show()
