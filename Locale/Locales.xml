@@ -86,6 +86,6 @@
 	<Script file="Atlas_Legion\Atlas_Legion-koKR.lua"/>
 
 	<Script file="Atlas_BattleforAzeroth\Atlas_BattleforAzeroth-enUS.lua"/>
-	<Script file="Atlas_BattleforAzeroth\Atlas_BattleforAzeroth-deDE.lua"/>
-	<Script file="Atlas_BattleforAzeroth\Atlas_BattleforAzeroth-zhTW.lua"/>
+
+	<Script file="Atlas_Shadowlands\Atlas_Shadowlands-enUS.lua"/>
 </Ui>

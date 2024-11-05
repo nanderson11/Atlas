@@ -23,6 +23,3 @@
 
 local L = LibStub("AceLocale-3.0"):NewLocale("Atlas_BattleforAzeroth", "enUS", true, true);
 if not L then return end
-
-L["ATLAS_DDL_EXPANSION_BFA"] = "Battle for Azeroth Instances"
-L["ATLAS_DDL_EXPANSION_BFA2"] = "Battle for Azeroth Raids"
