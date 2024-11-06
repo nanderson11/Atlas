@@ -1376,24 +1376,24 @@ function Atlas_MapRefresh(mapID)
 			if (AtlasMapPath) then break; end
 		end
 	end
+
 	if (AtlasMapPath) then
 		AtlasMap:SetTexture(AtlasMapPath..zoneID)
 		AtlasMapSmall:SetTexture(AtlasMapPath..zoneID)
 	end
 
-	local AtlasMap_Text = _G["AtlasMap_Text"]
-	local AtlasMapS_Text = _G["AtlasMapS_Text"]
-	if (not AtlasMap_Text) then
-		AtlasMap_Text = AtlasFrame:CreateFontString("AtlasMap_Text", "OVERLAY", "GameFontHighlightLarge")
-	end
-	if (not AtlasMapS_Text) then
-		AtlasMapS_Text = AtlasFrameSmall:CreateFontString("AtlasMapS_Text", "OVERLAY", "GameFontHighlightLarge")
-	end
-	AtlasMap_Text:SetPoint("CENTER", "AtlasFrame", "LEFT", 256, -32)
-	AtlasMapS_Text:SetPoint("CENTER", "AtlasFrameSmall", "LEFT", 256, -32)
 	-- Check if the map image is available, if not replace with black and Map Not Found text
-	AtlasMap_Text:SetText("")
-	AtlasMapS_Text:SetText("")
+	if (not GetFileIDFromPath(AtlasMapPath..zoneID)) then
+		AtlasMap:SetColorTexture(0, 0, 0);
+		AtlasMap_Text:SetText(L["MapNotYetAvailable"])
+		AtlasMapSmall:SetColorTexture(0, 0, 0);
+		AtlasMapS_Text:SetText(L["MapNotYetAvailable"])
+		AtlasMap_Text:Show()
+		AtlasMapS_Text:Show()
+	else
+		AtlasMap_Text:Hide()
+		AtlasMapS_Text:Hide()
+	end
 
 	-- Large Atlas map
 	if (base.LargeMap) then

@@ -202,9 +202,9 @@ db.AtlasMaps = {
 	SpiresofAscensionA = {
 		ZoneName = { BZ["Spires of Ascension"]..ALC["MapA"] },
 		Location = { BZ["Bastion"] },
-		DungeonID = 1,
-		DungeonHeroicID = 1,
-		DungeonMythicID = 1,
+		DungeonID = 2076,
+		DungeonHeroicID = 2077,
+		DungeonMythicID = 2113,
 		WorldMapID = 1693,
 		JournalInstanceID = 1186,
 		Module = "Atlas_Shadowlands",
@@ -212,40 +212,28 @@ db.AtlasMaps = {
 		{ WHIT.." 1) "..Atlas_GetBossName("Kin-Tara", 2399),    2399 },
 		{ WHIT..INDENT..Atlas_GetBossName("Azules", 2399, 1),   2399 },
 		{ WHIT..INDENT..Atlas_GetBossName("Kin-Tara", 2399, 2), 2399 },
-		{ WHIT.." 4) "..Atlas_GetBossName("Ventunax", 2416),    2416 },
+		{ WHIT.." 2) "..Atlas_GetBossName("Ventunax", 2416),    2416 },
 	},
 	SpiresofAscensionB = {
 		ZoneName = { BZ["Spires of Ascension"]..ALC["MapB"] },
 		Location = { BZ["Bastion"] },
-		DungeonID = 1,
-		DungeonHeroicID = 1,
-		DungeonMythicID = 1,
-		WorldMapID = 1695,
-		JournalInstanceID = 1186,
-		Module = "Atlas_Shadowlands",
-		PrevMap = "SpiresofAscensionA",
-		NextMap = "SpiresofAscensionC",
-		{ WHIT.." 2) "..Atlas_GetBossName("Devos, Paragon of Doubt", 2412), 2412 },
-	},
-	SpiresofAscensionC = {
-		ZoneName = { BZ["Spires of Ascension"]..ALC["MapC"] },
-		Location = { BZ["Bastion"] },
-		DungeonID = 1,
-		DungeonHeroicID = 1,
-		DungeonMythicID = 1,
+		DungeonID = 2076,
+		DungeonHeroicID = 2077,
+		DungeonMythicID = 2113,
 		WorldMapID = 1694,
 		JournalInstanceID = 1186,
 		Module = "Atlas_Shadowlands",
-		PrevMap = "SpiresofAscensionB",
-		{ WHIT.." 3) "..Atlas_GetBossName("Oryphrion", 2414), 2414 },
+		PrevMap = "SpiresofAscensionA",
+		{ WHIT.." 3) "..Atlas_GetBossName("Oryphrion", 2414),               2414 },
+		{ WHIT.." 4) "..Atlas_GetBossName("Devos, Paragon of Doubt", 2412), 2412 },
 	},
 	-- Theater of Pain
 	TheaterofPainA = {
 		ZoneName = { BZ["Theater of Pain"]..ALC["MapA"] },
 		Location = { BZ["Maldraxxus"] },
-		DungeonID = 1,
-		DungeonHeroicID = 1,
-		DungeonMythicID = 1,
+		DungeonID = 2078,
+		DungeonHeroicID = 2079,
+		DungeonMythicID = 2115,
 		WorldMapID = 1683,
 		JournalInstanceID = 1187,
 		Module = "Atlas_Shadowlands",
@@ -259,9 +247,9 @@ db.AtlasMaps = {
 	TheaterofPainB = {
 		ZoneName = { BZ["Theater of Pain"]..ALC["MapB"] },
 		Location = { BZ["Maldraxxus"] },
-		DungeonID = 1,
-		DungeonHeroicID = 1,
-		DungeonMythicID = 1,
+		DungeonID = 2078,
+		DungeonHeroicID = 2079,
+		DungeonMythicID = 2115,
 		WorldMapID = 1684,
 		JournalInstanceID = 1187,
 		Module = "Atlas_Shadowlands",
@@ -272,9 +260,9 @@ db.AtlasMaps = {
 	TheaterofPainC = {
 		ZoneName = { BZ["Theater of Pain"]..ALC["MapC"] },
 		Location = { BZ["Maldraxxus"] },
-		DungeonID = 1,
-		DungeonHeroicID = 1,
-		DungeonMythicID = 1,
+		DungeonID = 2078,
+		DungeonHeroicID = 2079,
+		DungeonMythicID = 2115,
 		WorldMapID = 1685,
 		JournalInstanceID = 1187,
 		Module = "Atlas_Shadowlands",
@@ -285,9 +273,9 @@ db.AtlasMaps = {
 	TheaterofPainD = {
 		ZoneName = { BZ["Theater of Pain"]..ALC["MapD"] },
 		Location = { BZ["Maldraxxus"] },
-		DungeonID = 1,
-		DungeonHeroicID = 1,
-		DungeonMythicID = 1,
+		DungeonID = 2078,
+		DungeonHeroicID = 2079,
+		DungeonMythicID = 2115,
 		WorldMapID = 1687,
 		JournalInstanceID = 1187,
 		Module = "Atlas_Shadowlands",
@@ -315,8 +303,6 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Reanimated Warrior", 2391, 3),     2391 },
 		{ WHIT..INDENT..Atlas_GetBossName("Reanimated Mage", 2391, 4),        2391 },
 		{ WHIT..INDENT..Atlas_GetBossName("Reanimated Crossbowman", 2391, 5), 2391 },
-		{ WHIT.." 4) "..Atlas_GetBossName("Nalthor the Rimebinder", 2396),    2396 },
-		{ WHIT..INDENT..Atlas_GetBossName("Zolramus Siphoner", 2396, 2),      2396 },
 	},
 	TheNecroticWakeB = {
 		ZoneName = { BZ["The Necrotic Wake"]..ALC["MapB"] },
@@ -331,6 +317,8 @@ db.AtlasMaps = {
 		PrevMap = "TheNecroticWakeA",
 		{ WHIT.." 3) "..Atlas_GetBossName("Surgeon Stitchflesh", 2392),       2392 },
 		{ WHIT..INDENT..Atlas_GetBossName("Stitchflesh's Creation", 2392, 2), 2392 },
+		{ WHIT.." 4) "..Atlas_GetBossName("Nalthor the Rimebinder", 2396),    2396 },
+		{ WHIT..INDENT..Atlas_GetBossName("Zolramus Siphoner", 2396, 2),      2396 },
 	},
 
 	-- ///////////////////////////////////////
@@ -483,11 +471,6 @@ db.AtlasMaps = {
  };
 /////////////////////////////////////////////]]
 db.AtlasMaps_NPC_DB = {
-	MistsofTirnaScithe = {
-		{ 1, 2400, 437, 171 },
-		{ 2, 2402, 303, 256 },
-		{ 3, 2405, 100, 364 },
-	},
 	PlaguefallA = {
 		{ "B", 10002, 330, 438 },
 		{ 1,   2419,  299, 72 },
@@ -498,18 +481,40 @@ db.AtlasMaps_NPC_DB = {
 		{ "B", 10002, 295, 180 },
 		{ 4,   2404,  240, 385 },
 	},
+	MistsofTirnaScithe = {
+		{ 1, 2400, 437, 171 },
+		{ 2, 2402, 303, 256 },
+		{ 3, 2405, 100, 364 },
+	},
 	HallsofAtonement = {
 		{ 1, 2406, 290, 250 },
 		{ 2, 2387, 171, 250 },
 		{ 3, 2411, 65,  250 },
 		{ 4, 2413, 26,  250 },
 	},
+	DeOtherSideA = {
+		{ 1, 2398, 445, 255 }
+	},
+	DeOtherSideB = {
+		{ 1, 2408, 110, 260 }
+	},
+	SpiresofAscensionA = {
+		{ 1, 2399, 157, 289 },
+		{ 2, 2416, 309, 228 },
+	},
+	SpiresofAscensionB = {
+		{ 3, 2414, 257, 263 },
+		{ 4, 2412, 273, 230 },
+	},
 	TheNecroticWakeA = {
 		{ "B", 10002, 118, 244 },
 		{ 1,   2395,  295, 240 },
 		{ 2,   2391,  84,  240 },
-		{ 3,   2396,  65,  132 },
 	},
+	TheaterofPainA = {
+		{ 1, 2397, 246, 270 },
+		{ 2, 2417, 220, 210 }
+	}
 }
 
 --[[
@@ -587,9 +592,8 @@ db.MapSeries = {
 	["DeOtherSideD"] = { "DeOtherSideA", "DeOtherSideB", "DeOtherSideC", "DeOtherSideD" },
 	["SanguineDepthsA"] = { "SanguineDepthsA", "SanguineDepthsB" },
 	["SanguineDepthsB"] = { "SanguineDepthsA", "SanguineDepthsB" },
-	["SpiresofAscensionA"] = { "SpiresofAscensionA", "SpiresofAscensionB", "SpiresofAscensionC" },
-	["SpiresofAscensionB"] = { "SpiresofAscensionA", "SpiresofAscensionB", "SpiresofAscensionC" },
-	["SpiresofAscensionC"] = { "SpiresofAscensionA", "SpiresofAscensionB", "SpiresofAscensionC" },
+	["SpiresofAscensionA"] = { "SpiresofAscensionA", "SpiresofAscensionB" },
+	["SpiresofAscensionB"] = { "SpiresofAscensionA", "SpiresofAscensionB" },
 	["TheaterofPainA"] = { "TheaterofPainA", "TheaterofPainB", "TheaterofPainC", "TheaterofPainD" },
 	["TheaterofPainB"] = { "TheaterofPainA", "TheaterofPainB", "TheaterofPainC", "TheaterofPainD" },
 	["TheaterofPainC"] = { "TheaterofPainA", "TheaterofPainB", "TheaterofPainC", "TheaterofPainD" },
@@ -604,8 +608,7 @@ db.SubZoneAssoc = {
 
 db.DropDownLayouts_Order = {
 	[ATLAS_DDL_CONTINENT] = {
-		--		ATLAS_DDL_CONTINENT_KULTIRAS,
-		--		ATLAS_DDL_CONTINENT_ZANDALAR,
+		ATLAS_DDL_CONTINENT_SHADOWLANDS
 	},
 	[ATLAS_DDL_LEVEL] = {
 		ATLAS_DDL_LEVEL_45TO60,
@@ -626,33 +629,48 @@ db.DropDownLayouts_Order = {
 }
 db.DropDownLayouts = {
 	[ATLAS_DDL_CONTINENT] = {
-		--[[		[ATLAS_DDL_CONTINENT_KULTIRAS] = {
+		[ATLAS_DDL_CONTINENT_SHADOWLANDS] = {
 
 		},
-		[ATLAS_DDL_CONTINENT_ZANDALAR] = {
-
-		},]]
 	},
 	[ATLAS_DDL_EXPANSION] = {
 		[ATLAS_DDL_EXPANSION_SHADOWLANDS] = {
 			"DeOtherSideA",
 			"DeOtherSideB",
+			"DeOtherSideC",
+			"DeOtherSideD",
 			"HallsofAtonement",
 			"MistsofTirnaScithe",
 			"TheNecroticWakeA",
+			"TheNecroticWakeB",
 			"PlaguefallA",
 			"PlaguefallB",
+			"SpiresofAscensionA",
+			"SpiresofAscensionB",
+			"TheaterofPainA",
+			"TheaterofPainB",
+			"TheaterofPainC",
+			"TheaterofPainD",
 		},
 	},
 	[ATLAS_DDL_LEVEL] = {
 		[ATLAS_DDL_LEVEL_45TO60] = {
 			"DeOtherSideA",
 			"DeOtherSideB",
+			"DeOtherSideC",
+			"DeOtherSideD",
 			"HallsofAtonement",
 			"MistsofTirnaScithe",
 			"TheNecroticWakeA",
+			"TheNecroticWakeB",
 			"PlaguefallA",
 			"PlaguefallB",
+			"SpiresofAscensionA",
+			"SpiresofAscensionB",
+			"TheaterofPainA",
+			"TheaterofPainB",
+			"TheaterofPainC",
+			"TheaterofPainD",
 		},
 		[ATLAS_DDL_LEVEL_60TO70] = {
 
@@ -662,11 +680,20 @@ db.DropDownLayouts = {
 		[ATLAS_DDL_PARTYSIZE_5] = {
 			"DeOtherSideA",
 			"DeOtherSideB",
+			"DeOtherSideC",
+			"DeOtherSideD",
 			"HallsofAtonement",
 			"MistsofTirnaScithe",
 			"TheNecroticWakeA",
+			"TheNecroticWakeB",
 			"PlaguefallA",
 			"PlaguefallB",
+			"SpiresofAscensionA",
+			"SpiresofAscensionB",
+			"TheaterofPainA",
+			"TheaterofPainB",
+			"TheaterofPainC",
+			"TheaterofPainD",
 		},
 		[ATLAS_DDL_PARTYSIZE_10] = {
 
@@ -678,11 +705,20 @@ db.DropDownLayouts = {
 		[ATLAS_DDL_TYPE_INSTANCE] = {
 			"DeOtherSideA",
 			"DeOtherSideB",
+			"DeOtherSideC",
+			"DeOtherSideD",
 			"HallsofAtonement",
 			"MistsofTirnaScithe",
 			"TheNecroticWakeA",
+			"TheNecroticWakeB",
 			"PlaguefallA",
 			"PlaguefallB",
+			"SpiresofAscensionA",
+			"SpiresofAscensionB",
+			"TheaterofPainA",
+			"TheaterofPainB",
+			"TheaterofPainC",
+			"TheaterofPainD",
 		},
 		[ATLAS_DDL_TYPE_ENTRANCE] = {
 		},

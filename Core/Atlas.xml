@@ -258,6 +258,10 @@
 							</Anchors>
 						</Texture>
 					</Layer>
+					<Layer level="OVERLAY">
+						<FontString name="AtlasMap_Text" inherits="GameFontHighlightLarge" justifyH="CENTER" justifyV="MIDDLE">
+						</FontString>
+					</Layer>
 				</Layers>
 			</Frame>
 		</Frames>
@@ -805,6 +809,10 @@
 								</Anchor>
 							</Anchors>
 						</Texture>
+					</Layer>
+					<Layer level="OVERLAY">
+						<FontString name="AtlasMapS_Text" inherits="GameFontHighlightLarge" justifyH="CENTER" justifyV="MIDDLE">
+						</FontString>
 					</Layer>
 				</Layers>
 			</Frame>
