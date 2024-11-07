@@ -790,6 +790,15 @@ function addon:MapAddNPCButton()
 				end
 				button:SetPoint("TOPLEFT", "AtlasFrame", "TOPLEFT", info_x + 18, -info_y - 82)
 				button:SetID(info_id)
+				-- TODO: This will set a letter texture on non-encounter buttons but it should be formatted text because there are some things that are not just letters
+				--       The other problem is just restricting it to new maps
+				--[[ if (info_id > 10000) then
+					button.LetterImage:SetTexture("Interface\\AddOns\\Atlas\\Images\\Atlas_Marks_Letters1");
+					if (ATLAS_LETTER_MARKS_TCOORDS["Atlas_Letter_Blue_"..info_mark]) then
+						local temp = ATLAS_LETTER_MARKS_TCOORDS["Atlas_Letter_Blue_"..info_mark];
+						button.LetterImage:SetTexCoord(temp[1], temp[2], temp[3], temp[4]);
+					end
+				end ]]
 				button:Show()
 				buttonS:SetPoint("TOPLEFT", "AtlasFrameSmall", "TOPLEFT", info_x + 18, -info_y - 82)
 				buttonS:SetID(info_id)

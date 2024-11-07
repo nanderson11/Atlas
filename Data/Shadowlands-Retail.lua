@@ -209,10 +209,9 @@ db.AtlasMaps = {
 		JournalInstanceID = 1186,
 		Module = "Atlas_Shadowlands",
 		NextMap = "SpiresofAscensionB",
-		{ WHIT.." 1) "..Atlas_GetBossName("Kin-Tara", 2399),    2399 },
-		{ WHIT..INDENT..Atlas_GetBossName("Azules", 2399, 1),   2399 },
-		{ WHIT..INDENT..Atlas_GetBossName("Kin-Tara", 2399, 2), 2399 },
-		{ WHIT.." 2) "..Atlas_GetBossName("Ventunax", 2416),    2416 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Kin-Tara", 2399),  2399 },
+		{ WHIT..INDENT..Atlas_GetBossName("Azules", 2399, 1), 2399 },
+		{ WHIT.." 2) "..Atlas_GetBossName("Ventunax", 2416),  2416 },
 	},
 	SpiresofAscensionB = {
 		ZoneName = { BZ["Spires of Ascension"]..ALC["MapB"] },
@@ -227,6 +226,52 @@ db.AtlasMaps = {
 		{ WHIT.." 3) "..Atlas_GetBossName("Oryphrion", 2414),               2414 },
 		{ WHIT.." 4) "..Atlas_GetBossName("Devos, Paragon of Doubt", 2412), 2412 },
 	},
+	-- Tazavesh
+	TazaveshA = {
+		ZoneName = { BZ["Tazavesh, the Veiled Market"]..ALC["MapA"] },
+		Location = { BZ["The In-Between"] },
+		-- DungeonHeroicID = 1, -- TBD: Tazavesh gets split into two heroics
+		DungeonMythicID = 2225,
+		WorldMapID = 1989,
+		JournalInstanceID = 1194,
+		Module = "Atlas_Shadowlands",
+		{ BLUE.." A) "..ALC["Entrance"],                                 10001 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Zo'phex the Sentinel", 2437), 2437 },
+		{ WHIT.." 2) "..Atlas_GetBossName("The Grand Menagerie", 2454),  2454 },
+		{ WHIT..INDENT..Atlas_GetBossName("Alcruux", 2454, 1),           2454 },
+		{ WHIT..INDENT..Atlas_GetBossName("Achillite", 2454, 2),         2454 },
+		{ WHIT..INDENT..Atlas_GetBossName("Venza Goldfuse", 2454, 3),    2454 },
+		{ WHIT.." 3) "..Atlas_GetBossName("Mailroom Mayhem", 2436),      2436 },
+		{ WHIT.." 4) "..Atlas_GetBossName("Myza's Oasis", 2452),         2452 },
+		{ WHIT..INDENT..Atlas_GetBossName("Zo'gron", 2452, 1),           2452 },
+		{ WHIT..INDENT..Atlas_GetBossName("Brawling Patron", 2452, 2),   2452 },
+		{ WHIT..INDENT..Atlas_GetBossName("Disruptive Patron", 2452, 3), 2452 },
+		{ WHIT..INDENT..Atlas_GetBossName("Oasis Security", 2452, 4),    2452 },
+		{ WHIT.." 5) "..Atlas_GetBossName("So'azmi", 2451),              2451 },
+		{ WHIT.." 8) "..Atlas_GetBossName("So'leah", 2455),              2455 },
+	},
+	TazaveshB = {
+		ZoneName = { BZ["Tazavesh, the Veiled Market"]..ALC["MapB"] },
+		Location = { BZ["The In-Between"] },
+		-- DungeonHeroicID = 1, -- TBD: Tazavesh gets split into two heroics
+		DungeonMythicID = 2225,
+		WorldMapID = 1995,
+		JournalInstanceID = 1194,
+		Module = "Atlas_Shadowlands",
+		{ WHIT.." 6) "..Atlas_GetBossName("Hylbrande", 2448),         2448 },
+		{ WHIT..INDENT..Atlas_GetBossName("Vault Purifier", 2448, 2), 2448 },
+	},
+	TazaveshC = {
+		ZoneName = { BZ["Tazavesh, the Veiled Market"]..ALC["MapC"] },
+		Location = { BZ["The In-Between"] },
+		-- DungeonHeroicID = 1, -- TBD: Tazavesh gets split into two heroics
+		DungeonMythicID = 2225,
+		WorldMapID = 1996,
+		JournalInstanceID = 1194,
+		Module = "Atlas_Shadowlands",
+		{ WHIT.." 7) "..Atlas_GetBossName("Timecap'n Hooktail", 2449), 2449 },
+		{ WHIT..INDENT..Atlas_GetBossName("Corsair Brute", 2449, 2),   2449 },
+	},
 	-- Theater of Pain
 	TheaterofPainA = {
 		ZoneName = { BZ["Theater of Pain"]..ALC["MapA"] },
@@ -238,6 +283,7 @@ db.AtlasMaps = {
 		JournalInstanceID = 1187,
 		Module = "Atlas_Shadowlands",
 		NextMap = "TheaterofPainB",
+		{ BLUE.." A) "..ALC["Entrance"],                                           10001 },
 		{ WHIT.." 1) "..Atlas_GetBossName("An Affront of Challengers", 2397),      2397 },
 		{ WHIT..INDENT..Atlas_GetBossName("Dessia the Decapitator", 2397, 1),      2397 },
 		{ WHIT..INDENT..Atlas_GetBossName("Paceran the Virulent", 2397, 2),        2397 },
@@ -404,25 +450,6 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Remornia", 2424, 2),               2424 },
 		{ WHIT..INDENT..Atlas_GetBossName("Crimson Cabalist", 2424, 3),       2424 },
 	},
-	-- Shadowlands, Outdoor
-	ShadowlandsRaid = {
-		ZoneName = { BZ["Shadowlands"] },
-		Location = { BZ["Shadowlands"] },
-		--		DungeonID = 1,
-		--		DungeonHeroicID = 1,
-		--		DungeonMythicID = 1,
-		WorldMapID = 0,
-		JournalInstanceID = 1192,
-		Module = "Atlas_Shadowlands",
-		{ WHIT.."1) "..Atlas_GetBossName("Nurgash Muckformed", 2433),                2433 }, -- MapID: 0
-		{ WHIT.."1) "..Atlas_GetBossName("Oranomonos the Everbranching", 2432),      2432 }, -- MapID: 0
-		{ WHIT.."1) "..Atlas_GetBossName("Mortanis", 2431),                          2431 }, -- MapID: 0
-		{ WHIT.."1) "..Atlas_GetBossName("Valinor, the Light of Eons", 2430),        2430 }, -- MapID: 0
-		{ WHIT.."5) "..Atlas_GetBossName("Mor'geth, Tormentor of the Damned", 2456), 2456 }, -- MapID: 0
-		{ WHIT..INDENT..Atlas_GetBossName("Soul Cage", 2456, 2),                     2456 },
-		{ WHIT..INDENT..Atlas_GetBossName("Loose Soul", 2456, 3),                    2456 },
-		{ WHIT.."6) "..Atlas_GetBossName("Antros", 2468),                            2468 }, -- MapID: 0
-	},
 	-- Sanctum of Domination
 	SanctumofDomination = {
 		ZoneName = { BZ["Sanctum of Domination"] },
@@ -440,7 +467,6 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Signe", 2439, 2),                  2439 },
 		{ WHIT..INDENT..Atlas_GetBossName("Skyja", 2439, 3),                  2439 },
 		{ WHIT.."4) "..Atlas_GetBossName("Remnant of Ner'zhul", 2444),        2444 }, -- MapID: 2000
-		{ WHIT..INDENT..Atlas_GetBossName("Remnant of Ner'zhul", 2444, 1),    2444 },
 		{ WHIT..INDENT..Atlas_GetBossName("Orb of Torment", 2444, 2),         2444 },
 		{ WHIT..INDENT..Atlas_GetBossName("Helm of Dominion", 2444, 3),       2444 },
 		{ WHIT..INDENT..Atlas_GetBossName("Malicious Gauntlets", 2444, 4),    2444 },
@@ -506,14 +532,29 @@ db.AtlasMaps_NPC_DB = {
 		{ 3, 2414, 257, 263 },
 		{ 4, 2412, 273, 230 },
 	},
+	TazaveshA = {
+		{ 1, 2437, 400, 210 },
+		{ 2, 2454, 241, 328 },
+		{ 3, 2436, 190, 185 },
+		{ 4, 2452, 165, 90 },
+		{ 5, 2451, 150, 252 },
+		{ 8, 2455, 23,  252 },
+	},
+	TazaveshB = {
+		{ 6, 2448, 230, 120 },
+	},
+	TazaveshC = {
+		{ 7, 2449, 218, 265 },
+	},
 	TheNecroticWakeA = {
 		{ "B", 10002, 118, 244 },
 		{ 1,   2395,  295, 240 },
 		{ 2,   2391,  84,  240 },
 	},
 	TheaterofPainA = {
-		{ 1, 2397, 246, 270 },
-		{ 2, 2417, 220, 210 }
+		{ "A", 10001, 250, 340 },
+		{ 1,   2397,  246, 270 },
+		{ 2,   2417,  220, 210 }
 	}
 }
 
@@ -651,6 +692,9 @@ db.DropDownLayouts = {
 			"TheaterofPainB",
 			"TheaterofPainC",
 			"TheaterofPainD",
+			"TazaveshA",
+			"TazaveshB",
+			"TazaveshC",
 		},
 	},
 	[ATLAS_DDL_LEVEL] = {
@@ -671,6 +715,9 @@ db.DropDownLayouts = {
 			"TheaterofPainB",
 			"TheaterofPainC",
 			"TheaterofPainD",
+			"TazaveshA",
+			"TazaveshB",
+			"TazaveshC",
 		},
 		[ATLAS_DDL_LEVEL_60TO70] = {
 
@@ -694,6 +741,9 @@ db.DropDownLayouts = {
 			"TheaterofPainB",
 			"TheaterofPainC",
 			"TheaterofPainD",
+			"TazaveshA",
+			"TazaveshB",
+			"TazaveshC",
 		},
 		[ATLAS_DDL_PARTYSIZE_10] = {
 
@@ -719,6 +769,9 @@ db.DropDownLayouts = {
 			"TheaterofPainB",
 			"TheaterofPainC",
 			"TheaterofPainD",
+			"TazaveshA",
+			"TazaveshB",
+			"TazaveshC",
 		},
 		[ATLAS_DDL_TYPE_ENTRANCE] = {
 		},
