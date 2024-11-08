@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.2.0 - November 7, 2024
+
+### Added
+
+- Retail: Added Shadowlands maps! There are a couple asterisks, the first being that maps of interior areas aren't included. Interior minimaps work differently from exterior minimaps, and I wasn't able to find a reasonable way to make them. The second asterisk is that entrances, connections and bosses (when boss portraits are disabled) aren't marked. Previously those were embedded into the image, but I would like to change that so they get added dynamically.
+
 ## 3.1.0 - October 29, 2024
 
 ### Added

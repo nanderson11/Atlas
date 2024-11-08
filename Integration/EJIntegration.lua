@@ -80,7 +80,13 @@ function addon:GetBossName(bossname, encounterID, creatureIndex, moduleName)
 					--bossname = bossname
 				end
 			else
-				bossname = iconImage and format("|T%d:0:2.5|t%s", iconImage, encounter) or encounter
+				-- If this is a specific creature in an encounter, skip the image because it either duplicates the main image or doesn't have an image at all
+				if (creatureIndex) then
+					-- Add padding to account for the main image
+					bossname = "          "..encounter
+				else
+					bossname = iconImage and format("|T%d:0:2.5|t%s", iconImage, encounter) or encounter
+				end
 			end
 		elseif (bossname and L[bossname]) then
 			bossname = LL and LL[bossname] or bossname

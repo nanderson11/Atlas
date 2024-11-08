@@ -67,3 +67,4 @@ Data\MistsofPandaria-Retail.lua
 Data\WarlordsofDraenor-Retail.lua
 Data\Legion-Retail.lua
 Data\BattleforAzeroth-Retail.lua
+Data\Shadowlands-Retail.lua

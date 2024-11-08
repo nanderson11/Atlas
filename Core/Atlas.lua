@@ -790,6 +790,15 @@ function addon:MapAddNPCButton()
 				end
 				button:SetPoint("TOPLEFT", "AtlasFrame", "TOPLEFT", info_x + 18, -info_y - 82)
 				button:SetID(info_id)
+				-- TODO: This will set a letter texture on non-encounter buttons but it should be formatted text because there are some things that are not just letters
+				--       The other problem is just restricting it to new maps
+				--[[ if (info_id > 10000) then
+					button.LetterImage:SetTexture("Interface\\AddOns\\Atlas\\Images\\Atlas_Marks_Letters1");
+					if (ATLAS_LETTER_MARKS_TCOORDS["Atlas_Letter_Blue_"..info_mark]) then
+						local temp = ATLAS_LETTER_MARKS_TCOORDS["Atlas_Letter_Blue_"..info_mark];
+						button.LetterImage:SetTexCoord(temp[1], temp[2], temp[3], temp[4]);
+					end
+				end ]]
 				button:Show()
 				buttonS:SetPoint("TOPLEFT", "AtlasFrameSmall", "TOPLEFT", info_x + 18, -info_y - 82)
 				buttonS:SetID(info_id)
@@ -1376,24 +1385,24 @@ function Atlas_MapRefresh(mapID)
 			if (AtlasMapPath) then break; end
 		end
 	end
+
 	if (AtlasMapPath) then
 		AtlasMap:SetTexture(AtlasMapPath..zoneID)
 		AtlasMapSmall:SetTexture(AtlasMapPath..zoneID)
 	end
 
-	local AtlasMap_Text = _G["AtlasMap_Text"]
-	local AtlasMapS_Text = _G["AtlasMapS_Text"]
-	if (not AtlasMap_Text) then
-		AtlasMap_Text = AtlasFrame:CreateFontString("AtlasMap_Text", "OVERLAY", "GameFontHighlightLarge")
-	end
-	if (not AtlasMapS_Text) then
-		AtlasMapS_Text = AtlasFrameSmall:CreateFontString("AtlasMapS_Text", "OVERLAY", "GameFontHighlightLarge")
-	end
-	AtlasMap_Text:SetPoint("CENTER", "AtlasFrame", "LEFT", 256, -32)
-	AtlasMapS_Text:SetPoint("CENTER", "AtlasFrameSmall", "LEFT", 256, -32)
 	-- Check if the map image is available, if not replace with black and Map Not Found text
-	AtlasMap_Text:SetText("")
-	AtlasMapS_Text:SetText("")
+	if (not GetFileIDFromPath(AtlasMapPath..zoneID)) then
+		AtlasMap:SetColorTexture(0, 0, 0);
+		AtlasMap_Text:SetText(L["MapNotYetAvailable"])
+		AtlasMapSmall:SetColorTexture(0, 0, 0);
+		AtlasMapS_Text:SetText(L["MapNotYetAvailable"])
+		AtlasMap_Text:Show()
+		AtlasMapS_Text:Show()
+	else
+		AtlasMap_Text:Hide()
+		AtlasMapS_Text:Hide()
+	end
 
 	-- Large Atlas map
 	if (base.LargeMap) then

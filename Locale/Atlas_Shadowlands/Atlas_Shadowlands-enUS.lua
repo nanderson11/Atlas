@@ -1,7 +1,7 @@
 --[[
 
 	Atlas, a World of Warcraft instance map browser
-	Copyright 2020 ~ 2023 - Arith Hsu, Atlas Team <atlas.addon at gmail dot com>
+	Copyright 2022 - Arith Hsu, Atlas Team <atlas.addon at gmail dot com>
 
 	This file is part of Atlas.
 
@@ -21,8 +21,5 @@
 
 --]]
 
-local L = LibStub("AceLocale-3.0"):NewLocale("Atlas_BattleforAzeroth", "deDE");
+local L = LibStub("AceLocale-3.0"):NewLocale("Atlas_Shadowlands", "enUS", true, true);
 if not L then return end
-
-L["ATLAS_DDL_EXPANSION_BFA"] = "Battle for Azeroth Instanzen"
-L["ATLAS_DDL_EXPANSION_BFA2"] = "Battle for Azeroth Schlachtzüge"

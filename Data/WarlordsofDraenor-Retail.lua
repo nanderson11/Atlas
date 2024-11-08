@@ -27,7 +27,6 @@ private.addon_name = "Atlas_WarlordsofDraenor"
 private.module_name = "WarlordsofDraenor"
 
 local BZ = Atlas_GetLocaleLibBabble("LibBabble-SubZone-3.0")
-local BF = Atlas_GetLocaleLibBabble("LibBabble-Faction-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local ALC = LibStub("AceLocale-3.0"):GetLocale("Atlas")
 local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
@@ -239,18 +238,18 @@ db.AtlasMaps = {
 		JournalInstanceID = 556,
 		Module = "Atlas_WarlordsofDraenor",
 		PrevMap = "TheEverbloomA",
-		{ BLUE.." B) "..ALC["Connection"]..ALC["L-Parenthesis"]..ALC["Portal"]..ALC["R-Parenthesis"],  10001 },
-		{ WHIT.." 5) "..Atlas_GetBossName("Yalnu", 1210),                                              1210 },
+		{ BLUE.." B) "..ALC["Connection"]..ALC["L-Parenthesis"]..ALC["Portal"]..ALC["R-Parenthesis"], 10001 },
+		{ WHIT.." 5) "..Atlas_GetBossName("Yalnu", 1210),                                             1210 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "The Everbloom",                                                                             "ac=9044" },
-		{ "Heroic: The Everbloom",                                                                     "ac=9053" },
-		{ "Heroic: The Everbloom Guild Run",                                                           "ac=9374" },
-		{ "Mythic: The Everbloom",                                                                     "ac=10083" },
-		{ "The Everbloom Challenger",                                                                  "ac=9001" },
-		{ "The Everbloom: Bronze",                                                                     "ac=9002" },
-		{ "The Everbloom: Silver",                                                                     "ac=9003" },
-		{ "The Everbloom: Gold",                                                                       "ac=9004" },
+		{ "The Everbloom",                                                                            "ac=9044" },
+		{ "Heroic: The Everbloom",                                                                    "ac=9053" },
+		{ "Heroic: The Everbloom Guild Run",                                                          "ac=9374" },
+		{ "Mythic: The Everbloom",                                                                    "ac=10083" },
+		{ "The Everbloom Challenger",                                                                 "ac=9001" },
+		{ "The Everbloom: Bronze",                                                                    "ac=9002" },
+		{ "The Everbloom: Silver",                                                                    "ac=9003" },
+		{ "The Everbloom: Gold",                                                                      "ac=9004" },
 	},
 	GrimrailDepot = {
 		ZoneName = { BZ["Grimrail Depot"] },
@@ -446,23 +445,23 @@ db.AtlasMaps = {
 		JournalInstanceID = 477,
 		Module = "Atlas_WarlordsofDraenor",
 		NextMap = "HighmaulB",
-		{ BLUE.." A) "..ALC["Entrance"]..ALC["L-Parenthesis"]..ALC["Lower"]..ALC["R-Parenthesis"],     10001 },
-		{ BLUE.." B) "..ALC["Connection"]..ALC["L-Parenthesis"]..ALC["Portal"]..ALC["R-Parenthesis"],  10002 },
-		{ WHIT.." 1) "..Atlas_GetBossName("Kargath Bladefist", 1128),                                  1128 },
-		{ WHIT.." 2) "..Atlas_GetBossName("The Butcher", 971),                                         971 },
-		{ WHIT.." 3) "..Atlas_GetBossName("Tectus", 1195),                                             1195 },
-		{ WHIT.." 4) "..Atlas_GetBossName("Brackenspore", 1196),                                       1196 },
-		{ WHIT..INDENT..Atlas_GetBossName("Fungal Flesh-Eater", 1196, 2),                              1196 },
+		{ BLUE.." A) "..ALC["Entrance"]..ALC["L-Parenthesis"]..ALC["Lower"]..ALC["R-Parenthesis"],    10001 },
+		{ BLUE.." B) "..ALC["Connection"]..ALC["L-Parenthesis"]..ALC["Portal"]..ALC["R-Parenthesis"], 10002 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Kargath Bladefist", 1128),                                 1128 },
+		{ WHIT.." 2) "..Atlas_GetBossName("The Butcher", 971),                                        971 },
+		{ WHIT.." 3) "..Atlas_GetBossName("Tectus", 1195),                                            1195 },
+		{ WHIT.." 4) "..Atlas_GetBossName("Brackenspore", 1196),                                      1196 },
+		{ WHIT..INDENT..Atlas_GetBossName("Fungal Flesh-Eater", 1196, 2),                             1196 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "Flame On!",                                                                                 "ac=8948" },
-		{ "Hurry Up, Maggot!",                                                                         "ac=8947" },
-		{ "More Like Wrecked-us",                                                                      "ac=8974" },
-		{ "A Fungus Among Us",                                                                         "ac=8975" },
-		{ "Mythic: Kargath Bladefist",                                                                 "ac=8949" },
-		{ "Mythic: The Butcher",                                                                       "ac=8960" },
-		{ "Mythic: Tectus",                                                                            "ac=8961" },
-		{ "Mythic: Brackenspore",                                                                      "ac=8962" },
+		{ "Flame On!",                                                                                "ac=8948" },
+		{ "Hurry Up, Maggot!",                                                                        "ac=8947" },
+		{ "More Like Wrecked-us",                                                                     "ac=8974" },
+		{ "A Fungus Among Us",                                                                        "ac=8975" },
+		{ "Mythic: Kargath Bladefist",                                                                "ac=8949" },
+		{ "Mythic: The Butcher",                                                                      "ac=8960" },
+		{ "Mythic: Tectus",                                                                           "ac=8961" },
+		{ "Mythic: Brackenspore",                                                                     "ac=8962" },
 	},
 	HighmaulB = {
 		ZoneName = { BZ["Highmaul"]..ALC["MapB"] },
@@ -537,27 +536,27 @@ db.AtlasMaps = {
 		WorldMapID = 574,
 		JournalInstanceID = 537,
 		Module = "Atlas_WarlordsofDraenor",
-		{ BLUE.." A) "..ALC["Entrance"],                                                               10001 },
-		{ BLUE.." B) "..ALC["Connection"]..ALC["L-Parenthesis"]..ALC["Portal"]..ALC["R-Parenthesis"],  10002 },
-		{ WHIT.." 1) "..Atlas_GetBossName("Sadana Bloodfury", 1139),                                   1139 },
-		{ WHIT.." 2) "..Atlas_GetBossName("Nhallish", 1168),                                           1168 },
-		{ WHIT.." 3) "..Atlas_GetBossName("Bonemaw", 1140),                                            1140 },
-		{ WHIT..INDENT..Atlas_GetBossName("Carrion Worm", 1140, 2),                                    1140 },
-		{ WHIT.." 4) "..Atlas_GetBossName("Ner'zhul", 1160),                                           1160 },
-		{ WHIT..INDENT..Atlas_GetBossName("Ritual of Bones", 1160, 2),                                 1160 },
+		{ BLUE.." A) "..ALC["Entrance"],                                                              10001 },
+		{ BLUE.." B) "..ALC["Connection"]..ALC["L-Parenthesis"]..ALC["Portal"]..ALC["R-Parenthesis"], 10002 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Sadana Bloodfury", 1139),                                  1139 },
+		{ WHIT.." 2) "..Atlas_GetBossName("Nhallish", 1168),                                          1168 },
+		{ WHIT.." 3) "..Atlas_GetBossName("Bonemaw", 1140),                                           1140 },
+		{ WHIT..INDENT..Atlas_GetBossName("Carrion Worm", 1140, 2),                                   1140 },
+		{ WHIT.." 4) "..Atlas_GetBossName("Ner'zhul", 1160),                                          1160 },
+		{ WHIT..INDENT..Atlas_GetBossName("Ritual of Bones", 1160, 2),                                1160 },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ "What's Your Sign?",                                                                         "ac=9018" },
-		{ "Icky Ichors",                                                                               "ac=9025" },
-		{ "Souls of the Lost",                                                                         "ac=9026" },
-		{ "Shadowmoon Burial Grounds",                                                                 "ac=9041" },
-		{ "Heroic: Shadowmoon Burial Grounds",                                                         "ac=9054" },
-		{ "Heroic: Shadowmoon Burial Grounds Guild Run",                                               "ac=9375" },
-		{ "Mythic: Shadowmoon Burial Grounds",                                                         "ac=10084" },
-		{ "Shadowmoon Burial Grounds Challenger",                                                      "ac=8883" },
-		{ "Shadowmoon Burial Grounds: Bronze",                                                         "ac=8884" },
-		{ "Shadowmoon Burial Grounds: Silver",                                                         "ac=8885" },
-		{ "Shadowmoon Burial Grounds: Gold",                                                           "ac=8886" },
+		{ "What's Your Sign?",                                                                        "ac=9018" },
+		{ "Icky Ichors",                                                                              "ac=9025" },
+		{ "Souls of the Lost",                                                                        "ac=9026" },
+		{ "Shadowmoon Burial Grounds",                                                                "ac=9041" },
+		{ "Heroic: Shadowmoon Burial Grounds",                                                        "ac=9054" },
+		{ "Heroic: Shadowmoon Burial Grounds Guild Run",                                              "ac=9375" },
+		{ "Mythic: Shadowmoon Burial Grounds",                                                        "ac=10084" },
+		{ "Shadowmoon Burial Grounds Challenger",                                                     "ac=8883" },
+		{ "Shadowmoon Burial Grounds: Bronze",                                                        "ac=8884" },
+		{ "Shadowmoon Burial Grounds: Silver",                                                        "ac=8885" },
+		{ "Shadowmoon Burial Grounds: Gold",                                                          "ac=8886" },
 	},
 	Skyreach = {
 		ZoneName = { BZ["Skyreach"] },
@@ -832,9 +831,9 @@ db.AtlasMaps_NPC_DB = {
 db.AssocDefaults = {
 	[BZ["Blackrock Mountain"]] = "BlackrockMountainEnt",
 	[BZ["Blackrock Foundry"]] = "BlackrockFoundryA", -- WoD
-	[BZ["Hellfire Citadel"]] = "HellfireA",        -- WoD
-	[BZ["Highmaul"]] = "HighmaulA",                -- WoD
-	[BZ["The Everbloom"]] = "TheEverbloomA",       -- WoD
+	[BZ["Hellfire Citadel"]] = "HellfireA",       -- WoD
+	[BZ["Highmaul"]] = "HighmaulA",               -- WoD
+	[BZ["The Everbloom"]] = "TheEverbloomA",      -- WoD
 	[BZ["Hall of Blackhand"]] = "UpperBlackrockSpire",
 }
 
@@ -975,11 +974,11 @@ db.OutdoorZoneToAtlas = {
 	[BZ["Talador"]] = "Auchindoun", -- WoD
 	[BZ["Burning Steppes"]] = "BlackrockMountainEnt",
 	[BZ["Searing Gorge"]] = "BlackrockMountainEnt",
-	[BZ["Gorgrond"]] = "BlackrockFoundryA",        -- WoD
+	[BZ["Gorgrond"]] = "BlackrockFoundryA",      -- WoD
 	[BZ["Frostfire Ridge"]] = "BloodmaulSlagMines", -- WoD
-	[BZ["Tanaan Jungle"]] = "HellfireA",           -- WoD
-	[BZ["Nagrand"]] = "HighmaulA",                 -- WoD
-	[BZ["Spires of Arak"]] = "Skyreach",           -- WoD
+	[BZ["Tanaan Jungle"]] = "HellfireA",         -- WoD
+	[BZ["Nagrand"]] = "HighmaulA",               -- WoD
+	[BZ["Spires of Arak"]] = "Skyreach",         -- WoD
 }
 
 -- Yes, the following two tables are redundant, but they're both here in case there's ever more than one entrance map for an instance

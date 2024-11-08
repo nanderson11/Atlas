@@ -27,7 +27,6 @@ private.addon_name = "Atlas_Legion"
 private.module_name = "Legion"
 
 local BZ = Atlas_GetLocaleLibBabble("LibBabble-SubZone-3.0")
-local BF = Atlas_GetLocaleLibBabble("LibBabble-Faction-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local ALC = LibStub("AceLocale-3.0"):GetLocale("Atlas")
 local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
@@ -1656,7 +1655,7 @@ db.AtlasMaps_NPC_DB = {
 	BlackRookHoldA = {
 		{ "A",  10001,  130, 34,  305, 24,  "Blue" }, -- Entrance
 		{ "B",  10002,  420, 448, 689, 592, "Blue" }, -- Connection
-		{ 1,    1518,   215, 326, 418, 424 },    -- The Amalgam of Souls
+		{ 1,    1518,   215, 326, 418, 424 },     -- The Amalgam of Souls
 		{ 1,    98538,  47,  201, 186, 252, "Orange" }, -- Lady Velandras Ravencrest
 		{ 2,    98521,  308, 188, 547, 235, "Orange" }, -- Lord Etheldrin Ravencrest
 		{ 3,    110993, 351, 423, 605, 556, "Orange" }, -- Lord Etheldrin Ravencrest
@@ -1668,7 +1667,7 @@ db.AtlasMaps_NPC_DB = {
 		{ "C",  10001,  279, 413, 534, 589, "Blue" }, -- Connection
 		{ "C",  10001,  412, 423, 764, 608, "Blue" }, -- Connection
 		{ "D",  10001,  275, 171, 530, 186, "Blue" }, -- Connection
-		{ 2,    1653,   351, 319, 659, 433 },   -- Illysanna Ravencrest
+		{ 2,    1653,   351, 319, 659, 433 },     -- Illysanna Ravencrest
 		{ 5,    111068, 189, 351, 386, 485, "Orange" }, -- Archmage Galeorn
 		{ "2'", 10002,  339, 242, 639, 306, "Green" }, -- Worn-Edged Page
 		{ "3'", 10003,  151, 296, 329, 397, "Green" }, -- Dog-Eared Page
@@ -1928,11 +1927,11 @@ db.AtlasMaps_NPC_DB = {
 	},
 	TheArcway = {
 		{ "A",  10001,  267, 81,  491, 71,  "Blue" }, -- Entrance
-		{ 1,    1497,   61,  350, 156, 504 },    -- Ivanyr
-		{ 2,    1498,   211, 360, 404, 500 },    -- Corstilax
-		{ 3,    1499,   455, 234, 793, 319 },    -- General Xakal
-		{ 4,    1500,   363, 349, 643, 504 },    -- Nal'tira
-		{ 5,    1501,   270, 178, 491, 252 },    -- Advisor Vandros
+		{ 1,    1497,   61,  350, 156, 504 },     -- Ivanyr
+		{ 2,    1498,   211, 360, 404, 500 },     -- Corstilax
+		{ 3,    1499,   455, 234, 793, 319 },     -- General Xakal
+		{ 4,    1500,   363, 349, 643, 504 },     -- Nal'tira
+		{ 5,    1501,   270, 178, 491, 252 },     -- Advisor Vandros
 		{ "1",  111057, 203, 232, 382, 317, "Orange" }, -- The Rat King
 		{ "2",  111021, 270, 395, 491, 564, "Orange" }, -- Sludge Face
 		{ "1'", 138394, 92,  304, 211, 425, "Green" }, -- Suramar Leyline Map
@@ -1992,16 +1991,16 @@ db.AtlasMaps_NPC_DB = {
 		{ "B",  10002,  228, 51,  499, 65,  "Blue" }, -- Connection
 		{ "B",  10002,  64,  91,  283, 124, "Blue" }, -- Connection
 		{ "C",  10002,  160, 21,  406, 28,  "Blue" }, -- Connection
-		{ 1,    1706,   188, 290, 446, 379 }, -- Skorpyron
-		{ 2,    1725,   356, 204, 668, 259 }, -- Chronomatic Anomaly
-		{ 3,    1731,   264, 70,  551, 93 },  -- Trilliax
-		{ "1'", 110791, 136, 434, 381, 564 }, -- First Arcanist Thalyssra
+		{ 1,    1706,   188, 290, 446, 379 },   -- Skorpyron
+		{ 2,    1725,   356, 204, 668, 259 },   -- Chronomatic Anomaly
+		{ 3,    1731,   264, 70,  551, 93 },    -- Trilliax
+		{ "1'", 110791, 136, 434, 381, 564 },   -- First Arcanist Thalyssra
 	},
 	TheNightholdB = {
-		{ 4,    1751,   155, 233, 460, 302 },    -- Spellblade Aluriel
-		{ 6,    1761,   408, 64,  781, 77 },     -- High Botanist Tel'arn
-		{ 8,    1713,   387, 487, 761, 637 },    -- Krosus
-		{ 10,   1737,   203, 279, 516, 358 },    -- Gul'dan
+		{ 4,    1751,   155, 233, 460, 302 },     -- Spellblade Aluriel
+		{ 6,    1761,   408, 64,  781, 77 },      -- High Botanist Tel'arn
+		{ 8,    1713,   387, 487, 761, 637 },     -- Krosus
+		{ 10,   1737,   203, 279, 516, 358 },     -- Gul'dan
 		{ "A",  10001,  50,  129, 311, 158, "Blue" }, -- Portal
 		{ "C",  10002,  163, 150, 468, 179, "Blue" }, -- Connection
 		{ "D",  10002,  180, 179, 487, 234, "Blue" }, -- Connection
@@ -2037,9 +2036,9 @@ db.AtlasMaps_NPC_DB = {
 		{ "K", 10002, 184, 318 }, -- Portal
 	},
 	TheNightholdF = {
-		{ "K", 10002, 48,  446 },    -- Portal
-		{ "K", 10002, 464, 48 },     -- Portal
-		{ "K", 10002, 142, 144 },    -- Portal
+		{ "K", 10002, 48,  446 },     -- Portal
+		{ "K", 10002, 464, 48 },      -- Portal
+		{ "K", 10002, 142, 144 },     -- Portal
 		{ 9,   1743,  251, 249, 486, 342 }, -- Grand Magistrix Elisande
 	},
 	TheNightholdG = {
