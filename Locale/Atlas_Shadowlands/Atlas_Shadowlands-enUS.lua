@@ -1,4 +1,3 @@
--- $Id: Atlas_Shadowlands-enUS.lua 3 2022-02-26 08:03:25Z arithmandar $
 --[[
 
 	Atlas, a World of Warcraft instance map browser
