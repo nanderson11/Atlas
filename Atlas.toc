@@ -59,12 +59,12 @@ Integration\WorldMap.lua
 Integration\Achievements.lua
 Integration\AtlasLootIntegration.lua
 
-Data\Classic-Retail.lua
-Data\BurningCrusade-Retail.lua
-Data\WrathoftheLichKing-Retail.lua
-Data\Cataclysm-Retail.lua
-Data\MistsofPandaria-Retail.lua
-Data\WarlordsofDraenor-Retail.lua
-Data\Legion-Retail.lua
-Data\BattleforAzeroth-Retail.lua
+# Data\Classic-Retail.lua
+# Data\BurningCrusade-Retail.lua
+# Data\WrathoftheLichKing-Retail.lua
+# Data\Cataclysm-Retail.lua
+# Data\MistsofPandaria-Retail.lua
+# Data\WarlordsofDraenor-Retail.lua
+# Data\Legion-Retail.lua
+# Data\BattleforAzeroth-Retail.lua
 Data\Shadowlands-Retail.lua

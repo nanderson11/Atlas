@@ -54,7 +54,7 @@ db.AtlasMaps = {
 	-- ///////////////////////////////////////
 	-- Instances
 	-- Plaguefall
-	PlaguefallA = {
+	--[[ 	PlaguefallA = {
 		ZoneName = { BZ["Plaguefall"]..ALC["MapA"] },
 		Location = { BZ["Maldraxxus"] },
 		DungeonID = 2069,
@@ -442,109 +442,87 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Shade of Destiny", 2447, 4),       2447 },
 		{ WHIT.."9) "..Atlas_GetBossName("Kel'Thuzad", 2440),                 2440 }, -- MapID: 2001
 		{ WHIT.."10) "..Atlas_GetBossName("Sylvanas Windrunner", 2441),       2441 }, -- MapID: 2002
-	},
+	}, ]]
 	-- Sepulcher of the First Ones
-	SepulcheroftheFirstOnesA = {
-		ZoneName = { BZ["Sepulcher of the First Ones"]..ALC["MapA"] },
-		Location = { BZ["Zereth Mortis"] },
-		DungeonID = 2288,
-		DungeonHeroicID = 2289,
-		DungeonMythicID = 2290,
-		WorldMapID = 2047,
-		JournalInstanceID = 1195,
-		Module = "Atlas_Shadowlands",
-		NextMap = "SepulcheroftheFirstOnesB",
-		{ BLUE.." A) "..ALC["Entrance"],                                        10001 },
-		{ WHIT.." 1) "..Atlas_GetBossName("Vigilant Guardian", 2458),           2458 },
-		{ WHIT..INDENT..Atlas_GetBossName("Automated Defense Matrix", 2458, 2), 2458 },
-		{ WHIT..INDENT..Atlas_GetBossName("Pre-Fabricated Sentry", 2458, 3),    2458 },
-		{ WHIT..INDENT..Atlas_GetBossName("Point Defense Drone", 2458, 4),      2458 },
-		{ WHIT..INDENT..Atlas_GetBossName("Volatile Materium", 2458, 5),        2458 },
-	},
-	SepulcheroftheFirstOnesB = {
-		ZoneName = { BZ["Sepulcher of the First Ones"]..ALC["MapB"] },
-		Location = { BZ["Zereth Mortis"] },
-		DungeonID = 2288,
-		DungeonHeroicID = 2289,
-		DungeonMythicID = 2290,
-		WorldMapID = 2048,
-		JournalInstanceID = 1195,
-		Module = "Atlas_Shadowlands",
-		PrevMap = "SepulcheroftheFirstOnesA",
-		NextMap = "SepulcheroftheFirstOnesC",
-		{ WHIT.." 2) "..Atlas_GetBossName("Dausegne, the Fallen Oracle", 2459), 2459 },
-	},
-	SepulcheroftheFirstOnesC = {
-		ZoneName = { BZ["Sepulcher of the First Ones"]..ALC["MapC"] },
-		Location = { BZ["Zereth Mortis"] },
-		DungeonID = 2288,
-		DungeonHeroicID = 2289,
-		DungeonMythicID = 2290,
-		WorldMapID = 2049,
-		JournalInstanceID = 1195,
-		Module = "Atlas_Shadowlands",
-		PrevMap = "SepulcheroftheFirstOnesB",
-		NextMap = "SepulcheroftheFirstOnesD",
-		{ WHIT.." 3) "..Atlas_GetBossName("Prototype Pantheon", 2460),           2460 },
-		{ WHIT..INDENT..Atlas_GetBossName("Prototype of War", 2460, 1),          2460 },
-		{ WHIT..INDENT..Atlas_GetBossName("Prototype of Duty", 2460, 2),         2460 },
-		{ WHIT..INDENT..Atlas_GetBossName("Prototype of Renewal", 2460, 3),      2460 },
-		{ WHIT..INDENT..Atlas_GetBossName("Prototype of Absolution", 2460, 4),   2460 },
-		{ WHIT.." 4) "..Atlas_GetBossName("Lihuvim, Principal Architect", 2461), 2461 },
-		{ WHIT..INDENT..Atlas_GetBossName("Guardian Automa", 2461, 2),           2461 },
-		{ WHIT..INDENT..Atlas_GetBossName("Degeneration Automa", 2461, 3),       2461 },
-		{ WHIT..INDENT..Atlas_GetBossName("Acquisitions Automa", 2461, 4),       2461 },
-		{ WHIT..INDENT..Atlas_GetBossName("Defense Matrix Automa", 2461, 5),     2461 },
-	},
-	SepulcheroftheFirstOnesD = {
-		ZoneName = { BZ["Sepulcher of the First Ones"]..ALC["MapD"] },
-		Location = { BZ["Zereth Mortis"] },
-		DungeonID = 2288,
-		DungeonHeroicID = 2289,
-		DungeonMythicID = 2290,
-		WorldMapID = 2061,
-		JournalInstanceID = 1195,
-		Module = "Atlas_Shadowlands",
-		PrevMap = "SepulcheroftheFirstOnesC",
-		NextMap = "SepulcheroftheFirstOnesE",
-		{ WHIT.." 5) "..Atlas_GetBossName("Skolex, the Insatiable Ravener", 2465), 2465 },
-		{ WHIT.." 6) "..Atlas_GetBossName("Artificer Xy'mox", 2470),               2470 },
-		{ WHIT..INDENT..Atlas_GetBossName("Genesis Relic", 2470, 2),               2470 },
-		{ WHIT.." 7) "..Atlas_GetBossName("Halondrus the Reclaimer", 2463),        2463 },
-	},
-	SepulcheroftheFirstOnesE = {
-		ZoneName = { BZ["Sepulcher of the First Ones"]..ALC["MapE"] },
-		Location = { BZ["Zereth Mortis"] },
-		DungeonID = 2288,
-		DungeonHeroicID = 2289,
-		DungeonMythicID = 2290,
-		WorldMapID = 2050,
-		JournalInstanceID = 1195,
-		Module = "Atlas_Shadowlands",
-		PrevMap = "SepulcheroftheFirstOnesD",
-		NextMap = "SepulcheroftheFirstOnesF",
-		{ WHIT.." 8) "..Atlas_GetBossName("Anduin Wrynn", 2469), 2469 },
-	},
-	SepulcheroftheFirstOnesF = {
-		ZoneName = { BZ["Sepulcher of the First Ones"]..ALC["MapF"] },
-		Location = { BZ["Zereth Mortis"] },
-		DungeonID = 2288,
-		DungeonHeroicID = 2289,
-		DungeonMythicID = 2290,
-		WorldMapID = 2052,
-		JournalInstanceID = 1195,
-		Module = "Atlas_Shadowlands",
-		PrevMap = "SepulcheroftheFirstOnesE",
-		{ WHIT.." 9) "..Atlas_GetBossName("Lords of Dread", 2457),         2457 },
-		{ WHIT..INDENT..Atlas_GetBossName("Mal'Ganis", 2457, 1),           2457 },
-		{ WHIT..INDENT..Atlas_GetBossName("Kin'tessa", 2457, 2),           2457 },
-		{ WHIT.."10) "..Atlas_GetBossName("Rygelon", 2467),                2467 },
-		{ WHIT..INDENT..Atlas_GetBossName("Collapsing Quasar", 2467, 2),   2467 },
-		{ WHIT..INDENT..Atlas_GetBossName("Unstable Matter", 2467, 3),     2467 },
-		{ WHIT..INDENT..Atlas_GetBossName("Unstable Antimatter", 2467, 4), 2467 },
-		{ WHIT..INDENT..Atlas_GetBossName("Cosmic Core", 2467, 5),         2467 },
-		{ WHIT..INDENT..Atlas_GetBossName("Unstable Core", 2467, 6),       2467 },
-		{ WHIT.."11) "..Atlas_GetBossName("The Jailer", 2464),             2464 },
+	SepulcheroftheFirstOnes = {
+		["instanceID"] = 2481,             -- GetRealZoneText(instanceID) to get instance name https://warcraft.wiki.gg/wiki/InstanceID
+		["location_uiMapID"] = 1970,       -- C_Map.GetMapInfo(location_uiMapID) to get location zone name https://warcraft.wiki.gg/wiki/UiMapID
+		["journalInstanceID"] = 1195,      -- https://wago.tools/db2/JournalInstance
+		["lfgDungeonID"] = { 2288, 2289, 2290 }, -- normal, heroic, mythic GetLFGDungeonInfo(lfgDungeonID) https://warcraft.wiki.gg/wiki/LfgDungeonID
+		["achievements"] = { 1234, 1234 }, -- GetAchievementInfo(achievementID)
+		["module"] = "Atlas_Shadowlands",
+		-- acronym
+		-- menu info? (continent, expansion, levels, party size, type)
+		["maps"] = {
+			{
+				["uiMapID"] = 2047,
+				["data"] = {
+					-- type, identifier, data
+					--     1 connection: from, to, x, y
+					--     2 boss: encounter, x, y
+					--     3 sub-boss: encounter, index
+					--     4 npc/item/poi: ?
+					{ 1, "A", { nil, "A", 256, 256 } },
+					{ 1, "B", { "B", 2, 128, 128 } },
+					{ 2, "1", { 2458, 278, 235 } },
+					{ 3, nil, { 2458, 2 } },
+					{ 3, nil, { 2458, 3 } },
+					{ 3, nil, { 2458, 4 } },
+					{ 3, nil, { 2458, 5 } },
+				}
+			},
+			{
+				["uiMapID"] = 2048,
+				["data"] = {
+					{ 2, "2", { 2459, 253, 235 } },
+				}
+			},
+			{
+				["uiMapID"] = 2049,
+				["data"] = {
+					{ 2, "3", { 2460, nil, nil } },
+					{ 3, nil, { 2460, 1 } },
+					{ 3, nil, { 2460, 2 } },
+					{ 3, nil, { 2460, 3 } },
+					{ 3, nil, { 2460, 4 } },
+					{ 2, "4", { 2461, nil, nil } },
+					{ 3, nil, { 2461, 2 } },
+					{ 3, nil, { 2461, 3 } },
+					{ 3, nil, { 2461, 4 } },
+					{ 3, nil, { 2461, 5 } },
+				}
+			},
+			{
+				["uiMapID"] = 2061,
+				["data"] = {
+					{ 2, "5", { 2465, 50, 300 } },
+					{ 2, "6", { 2470, 187, 205 } },
+					{ 3, nil, { 2470, 2 } },
+					{ 2, "7", { 2463, 210, 325 } },
+				}
+			},
+			{
+				["uiMapID"] = 2050,
+				["data"] = {
+					{ 2, "8", { 2469, 202, 242 } },
+				}
+			},
+			{
+				["uiMapID"] = 2052,
+				["data"] = {
+					{ 2, "9",  { 2457, 288, 200 } },
+					{ 3, nil,  { 2457, 1 } },
+					{ 3, nil,  { 2457, 2 } },
+					{ 2, "10", { 2467, 146, 205 } },
+					{ 3, nil,  { 2467, 2 } },
+					{ 3, nil,  { 2467, 3 } },
+					{ 3, nil,  { 2467, 4 } },
+					{ 3, nil,  { 2467, 5 } },
+					{ 3, nil,  { 2467, 6 } },
+					{ 2, "11", { 2464, 323, 428 } },
+				}
+			},
+		}
 	},
 }
 
@@ -557,7 +535,7 @@ db.AtlasMaps = {
  };
 /////////////////////////////////////////////]]
 db.AtlasMaps_NPC_DB = {
-	PlaguefallA = {
+	--[[ 	PlaguefallA = {
 		{ "B", 10002, 330, 438 },
 		{ 1,   2419,  299, 72 },
 		{ 2,   2403,  375, 227 },
@@ -615,26 +593,7 @@ db.AtlasMaps_NPC_DB = {
 		{ "A", 10001, 250, 340 },
 		{ 1,   2397,  246, 270 },
 		{ 2,   2417,  220, 210 },
-	},
-	SepulcheroftheFirstOnesA = {
-		{ 1, 2458, 278, 235 },
-	},
-	SepulcheroftheFirstOnesB = {
-		{ 2, 2459, 253, 235 },
-	},
-	SepulcheroftheFirstOnesD = {
-		{ 5, 2465, 50,  300 },
-		{ 6, 2470, 187, 205 },
-		{ 7, 2463, 210, 325 },
-	},
-	SepulcheroftheFirstOnesE = {
-		{ 8, 2469, 202, 242 },
-	},
-	SepulcheroftheFirstOnesF = {
-		{ 9,  2457, 288, 200 },
-		{ 10, 2467, 146, 205 },
-		{ 11, 2464, 323, 428 },
-	},
+	}, ]]
 }
 
 --[[
@@ -704,28 +663,7 @@ db.InstToEntMatches = {
 }
 
 db.MapSeries = {
-	["PlaguefallA"] = { "PlaguefallA", "PlaguefallB" },
-	["PlaguefallB"] = { "PlaguefallA", "PlaguefallB" },
-	["DeOtherSideA"] = { "DeOtherSideA", "DeOtherSideB", "DeOtherSideC", "DeOtherSideD" },
-	["DeOtherSideB"] = { "DeOtherSideA", "DeOtherSideB", "DeOtherSideC", "DeOtherSideD" },
-	["DeOtherSideC"] = { "DeOtherSideA", "DeOtherSideB", "DeOtherSideC", "DeOtherSideD" },
-	["DeOtherSideD"] = { "DeOtherSideA", "DeOtherSideB", "DeOtherSideC", "DeOtherSideD" },
-	["SanguineDepthsA"] = { "SanguineDepthsA", "SanguineDepthsB" },
-	["SanguineDepthsB"] = { "SanguineDepthsA", "SanguineDepthsB" },
-	["SpiresofAscensionA"] = { "SpiresofAscensionA", "SpiresofAscensionB" },
-	["SpiresofAscensionB"] = { "SpiresofAscensionA", "SpiresofAscensionB" },
-	["TheaterofPainA"] = { "TheaterofPainA", "TheaterofPainB", "TheaterofPainC", "TheaterofPainD" },
-	["TheaterofPainB"] = { "TheaterofPainA", "TheaterofPainB", "TheaterofPainC", "TheaterofPainD" },
-	["TheaterofPainC"] = { "TheaterofPainA", "TheaterofPainB", "TheaterofPainC", "TheaterofPainD" },
-	["TheaterofPainD"] = { "TheaterofPainA", "TheaterofPainB", "TheaterofPainC", "TheaterofPainD" },
-	["TheNecroticWakeA"] = { "TheNecroticWakeA", "TheNecroticWakeB" },
-	["TheNecroticWakeB"] = { "TheNecroticWakeA", "TheNecroticWakeB" },
-	["SepulcheroftheFirstOnesA"] = { "SepulcheroftheFirstOnesA", "SepulcheroftheFirstOnesB", "SepulcheroftheFirstOnesC", "SepulcheroftheFirstOnesD", "SepulcheroftheFirstOnesE", "SepulcheroftheFirstOnesF" },
-	["SepulcheroftheFirstOnesB"] = { "SepulcheroftheFirstOnesA", "SepulcheroftheFirstOnesB", "SepulcheroftheFirstOnesC", "SepulcheroftheFirstOnesD", "SepulcheroftheFirstOnesE", "SepulcheroftheFirstOnesF" },
-	["SepulcheroftheFirstOnesC"] = { "SepulcheroftheFirstOnesA", "SepulcheroftheFirstOnesB", "SepulcheroftheFirstOnesC", "SepulcheroftheFirstOnesD", "SepulcheroftheFirstOnesE", "SepulcheroftheFirstOnesF" },
-	["SepulcheroftheFirstOnesD"] = { "SepulcheroftheFirstOnesA", "SepulcheroftheFirstOnesB", "SepulcheroftheFirstOnesC", "SepulcheroftheFirstOnesD", "SepulcheroftheFirstOnesE", "SepulcheroftheFirstOnesF" },
-	["SepulcheroftheFirstOnesE"] = { "SepulcheroftheFirstOnesA", "SepulcheroftheFirstOnesB", "SepulcheroftheFirstOnesC", "SepulcheroftheFirstOnesD", "SepulcheroftheFirstOnesE", "SepulcheroftheFirstOnesF" },
-	["SepulcheroftheFirstOnesF"] = { "SepulcheroftheFirstOnesA", "SepulcheroftheFirstOnesB", "SepulcheroftheFirstOnesC", "SepulcheroftheFirstOnesD", "SepulcheroftheFirstOnesE", "SepulcheroftheFirstOnesF" },
+
 }
 
 db.SubZoneAssoc = {
@@ -756,7 +694,7 @@ db.DropDownLayouts_Order = {
 db.DropDownLayouts = {
 	[ATLAS_DDL_CONTINENT] = {
 		[ATLAS_DDL_CONTINENT_SHADOWLANDS] = {
-			"DeOtherSideA",
+			--[[ 			"DeOtherSideA",
 			"DeOtherSideB",
 			"DeOtherSideC",
 			"DeOtherSideD",
@@ -776,18 +714,13 @@ db.DropDownLayouts = {
 			"TazaveshB",
 			"TazaveshC",
 			"CastleNathria",
-			"SanctumofDomination",
-			"SepulcheroftheFirstOnesA",
-			"SepulcheroftheFirstOnesB",
-			"SepulcheroftheFirstOnesC",
-			"SepulcheroftheFirstOnesD",
-			"SepulcheroftheFirstOnesE",
-			"SepulcheroftheFirstOnesF",
+			"SanctumofDomination", ]]
+			"SepulcheroftheFirstOnes",
 		},
 	},
 	[ATLAS_DDL_EXPANSION] = {
 		[ATLAS_DDL_EXPANSION_SHADOWLANDS] = {
-			"DeOtherSideA",
+			--[[ 			"DeOtherSideA",
 			"DeOtherSideB",
 			"DeOtherSideC",
 			"DeOtherSideD",
@@ -807,18 +740,13 @@ db.DropDownLayouts = {
 			"TazaveshB",
 			"TazaveshC",
 			"CastleNathria",
-			"SanctumofDomination",
-			"SepulcheroftheFirstOnesA",
-			"SepulcheroftheFirstOnesB",
-			"SepulcheroftheFirstOnesC",
-			"SepulcheroftheFirstOnesD",
-			"SepulcheroftheFirstOnesE",
-			"SepulcheroftheFirstOnesF",
+			"SanctumofDomination", ]]
+			"SepulcheroftheFirstOnes",
 		},
 	},
 	[ATLAS_DDL_LEVEL] = {
 		[ATLAS_DDL_LEVEL_45TO60] = {
-			"DeOtherSideA",
+			--[[ 			"DeOtherSideA",
 			"DeOtherSideB",
 			"DeOtherSideC",
 			"DeOtherSideD",
@@ -838,13 +766,8 @@ db.DropDownLayouts = {
 			"TazaveshB",
 			"TazaveshC",
 			"CastleNathria",
-			"SanctumofDomination",
-			"SepulcheroftheFirstOnesA",
-			"SepulcheroftheFirstOnesB",
-			"SepulcheroftheFirstOnesC",
-			"SepulcheroftheFirstOnesD",
-			"SepulcheroftheFirstOnesE",
-			"SepulcheroftheFirstOnesF",
+			"SanctumofDomination", ]]
+			"SepulcheroftheFirstOnes",
 		},
 		[ATLAS_DDL_LEVEL_60TO70] = {
 
@@ -852,7 +775,7 @@ db.DropDownLayouts = {
 	},
 	[ATLAS_DDL_PARTYSIZE] = {
 		[ATLAS_DDL_PARTYSIZE_5] = {
-			"DeOtherSideA",
+			--[[ 			"DeOtherSideA",
 			"DeOtherSideB",
 			"DeOtherSideC",
 			"DeOtherSideD",
@@ -870,32 +793,22 @@ db.DropDownLayouts = {
 			"TheaterofPainD",
 			"TazaveshA",
 			"TazaveshB",
-			"TazaveshC",
+			"TazaveshC", ]]
 		},
 		[ATLAS_DDL_PARTYSIZE_10] = {
-			"CastleNathria",
-			"SanctumofDomination",
-			"SepulcheroftheFirstOnesA",
-			"SepulcheroftheFirstOnesB",
-			"SepulcheroftheFirstOnesC",
-			"SepulcheroftheFirstOnesD",
-			"SepulcheroftheFirstOnesE",
-			"SepulcheroftheFirstOnesF",
+			--"CastleNathria",
+			--"SanctumofDomination",
+			"SepulcheroftheFirstOnes",
 		},
 		[ATLAS_DDL_PARTYSIZE_20TO40] = {
-			"CastleNathria",
-			"SanctumofDomination",
-			"SepulcheroftheFirstOnesA",
-			"SepulcheroftheFirstOnesB",
-			"SepulcheroftheFirstOnesC",
-			"SepulcheroftheFirstOnesD",
-			"SepulcheroftheFirstOnesE",
-			"SepulcheroftheFirstOnesF",
+			--"CastleNathria",
+			--"SanctumofDomination",
+			"SepulcheroftheFirstOnes",
 		},
 	},
 	[ATLAS_DDL_TYPE] = {
 		[ATLAS_DDL_TYPE_INSTANCE] = {
-			"DeOtherSideA",
+			--[[ 			"DeOtherSideA",
 			"DeOtherSideB",
 			"DeOtherSideC",
 			"DeOtherSideD",
@@ -915,13 +828,8 @@ db.DropDownLayouts = {
 			"TazaveshB",
 			"TazaveshC",
 			"CastleNathria",
-			"SanctumofDomination",
-			"SepulcheroftheFirstOnesA",
-			"SepulcheroftheFirstOnesB",
-			"SepulcheroftheFirstOnesC",
-			"SepulcheroftheFirstOnesD",
-			"SepulcheroftheFirstOnesE",
-			"SepulcheroftheFirstOnesF",
+			"SanctumofDomination", ]]
+			"SepulcheroftheFirstOnes",
 		},
 		[ATLAS_DDL_TYPE_ENTRANCE] = {
 		},

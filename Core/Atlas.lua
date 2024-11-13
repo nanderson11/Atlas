@@ -179,19 +179,18 @@ local function registerModule(moduleKey)
 	end
 	-- register module maps' dropdowns menus
 	if (module.db.DropDownLayouts) then
+		local letters = { "A", "B", "C", "D", "E", "F" }
+
 		for k_cat, v_cat in pairs(module.db.DropDownLayouts) do
-			if (not addon.dropdowns.DropDownLayouts[k_cat]) then
-				addon.dropdowns.DropDownLayouts[k_cat] = v_cat
-			else
-				for k_scat, v_scat in pairs(module.db.DropDownLayouts[k_cat]) do
-					if (not addon.dropdowns.DropDownLayouts[k_cat][k_scat]) then
-						addon.dropdowns.DropDownLayouts[k_cat][k_scat] = v_scat
-					else
-						for i = 1, #module.db.DropDownLayouts[k_cat][k_scat] do
-							local v = module.db.DropDownLayouts[k_cat][k_scat][i]
-							if (not tContains(addon.dropdowns.DropDownLayouts[k_cat][k_scat], v)) then
-								tinsert(addon.dropdowns.DropDownLayouts[k_cat][k_scat], v)
-							end
+			addon.dropdowns.DropDownLayouts[k_cat] = {}
+			for k_scat, v_scat in pairs(module.db.DropDownLayouts[k_cat]) do
+				addon.dropdowns.DropDownLayouts[k_cat][k_scat] = {}
+				for i = 1, #module.db.DropDownLayouts[k_cat][k_scat] do
+					local v = module.db.DropDownLayouts[k_cat][k_scat][i]
+					for j = 1, #module.db.AtlasMaps[v]["maps"] do
+						local temp = v..letters[j];
+						if (not tContains(addon.dropdowns.DropDownLayouts[k_cat][k_scat], temp)) then
+							tinsert(addon.dropdowns.DropDownLayouts[k_cat][k_scat], temp)
 						end
 					end
 				end
@@ -436,8 +435,9 @@ end
 -- Comparator function for alphabetic sorting of maps
 -- Yey, one function for everything
 local function sortZonesAlpha(a, b)
-	local aa = sanitizeName(AtlasMaps[a].ZoneName[1])
-	local bb = sanitizeName(AtlasMaps[b].ZoneName[1])
+	print(strsub(a, 1, -2))
+	local aa = sanitizeName(GetRealZoneText(AtlasMaps[strsub(a, 1, -2)]["instanceID"]))
+	local bb = sanitizeName(GetRealZoneText(AtlasMaps[strsub(b, 1, -2)]["instanceID"]))
 	return aa < bb
 end
 
@@ -1095,7 +1095,7 @@ function Atlas_MapRefresh(mapID)
 	end
 
 	-- Zone Name and Acronym
-	local tName = base.ZoneName[1]
+	local tName = GetRealZoneText(base["instanceID"])
 	if (base.LargeMap) then
 		AtlasFrameLarge.ZoneName.Text:SetText(tName)
 	end
@@ -1364,9 +1364,9 @@ function Atlas_MapRefresh(mapID)
 	for k, v in pairs(Atlas_CoreMapsKey) do
 		-- If selected map is Atlas' core map
 		if (zoneID == v) then
-			if (base.Module) then
+			if (base["module"]) then
 				-- if the map belong to a module, set the path to module
-				AtlasMapPath = "Interface\\AddOns\\Atlas\\Images\\"..base.Module.."\\"
+				AtlasMapPath = "Interface\\AddOns\\Atlas\\Images\\"..base["module"].."\\"
 				break
 			end
 		end
@@ -1663,7 +1663,7 @@ function Atlas_AutoSelect()
 		for k_DropDownType, v_DropDownType in pairs(ATLAS_DROPDOWNS) do
 			for k_DropDownZone, v_DropDownZone in pairs(v_DropDownType) do
 				-- Compare the currentZone to the new substr of ZoneName
-				if (AtlasMaps[v_DropDownZone] and AtlasMaps[v_DropDownZone].ZoneName[1] and
+				--[[ 		if (AtlasMaps[v_DropDownZone] and AtlasMaps[v_DropDownZone].ZoneName[1] and
 						(currentZone == strsub(AtlasMaps[v_DropDownZone].ZoneName[1], strlen(AtlasMaps[v_DropDownZone].ZoneName[1]) - strlen(currentZone) + 1))
 					) then
 					profile.options.dropdowns.module = k_DropDownType
@@ -1671,7 +1671,7 @@ function Atlas_AutoSelect()
 					Atlas_Refresh()
 					debug("Found a match. Map has been changed.")
 					return
-				end
+				end ]]
 			end
 		end
 	end

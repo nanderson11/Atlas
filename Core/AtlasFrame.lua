@@ -347,15 +347,11 @@ function AtlasFrameDropDown_Initialize()
 				--colortag = ""
 			end
 
-			local zoneID           = AtlasMaps[v]
-			local zoneName         = AtlasMaps[v].ZoneName[1]
-
-			local parentZoneName   = AtlasMaps[v].ZoneName[2] or nil
-			local instanceID       = AtlasMaps[v].JournalInstanceID or nil
-			local DungeonID        = AtlasMaps[v].DungeonID or nil
-			local DungeonHeroicID  = AtlasMaps[v].DungeonHeroicID or nil
-			local DungeonMythicID  = AtlasMaps[v].DungeonMythicID or nil
-
+			local zoneName         = GetRealZoneText(AtlasMaps[v]["instanceID"])
+			local instanceID       = AtlasMaps[v]["journalInstanceID"] or nil
+			local DungeonID        = AtlasMaps[v]["lfgDungeonID"][1] or nil
+			local DungeonHeroicID  = AtlasMaps[v]["lfgDungeonID"][2] or nil
+			local DungeonMythicID  = AtlasMaps[v]["lfgDungeonID"][3] or nil
 			local typeID, subtypeID, minLevel, maxLevel, minRecLevel, maxRecLevel, maxPlayers, minGearLevel
 			local typeIDH, subtypeIDH, minLevelH, maxLevelH, minRecLevelH, maxRecLevelH, maxPlayersH, minGearLevelH
 			local typeIDM, subtypeIDM, minLevelM, maxLevelM, minRecLevelM, maxRecLevelM, maxPlayersM, minGearLevelM
