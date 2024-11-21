@@ -4,7 +4,7 @@
 
 ### Added
 
-- Classic Era: Added an LFG button in the top right that will take you to the built-in LFG tool's group browser for that instance. The built-in LFB tool (and this button) are only enabled for SoD and Classic Fresh realms.
+- Classic Era: Added an LFG button in the top right that will take you to the built-in LFG tool's group browser for that instance. The built-in LFG tool (and this button) are only enabled for SoD and Classic Fresh realms.
 
 ### Changed
 
