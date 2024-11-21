@@ -340,6 +340,24 @@ function addon:SearchAndRefresh(text)
 	Atlas_ScrollBar_Update()
 end
 
+function addon:SearchLFG()
+	-- Open LFG to the group browser
+	ShowLFGParentFrame(2);
+
+	-- Set Category
+	UIDropDownMenu_SetSelectedValue(LFGBrowseFrame.CategoryDropDown, AtlasFrameLFGButton.ActivityID[1]);
+	UIDropDownMenu_Initialize(LFGBrowseFrame.CategoryDropDown, LFGBrowseCategoryDropDown_Initialize);
+
+	-- Set Activity
+	LFGBrowseActivityDropDown_ValueReset(LFGBrowseFrame.ActivityDropDown);
+	UIDropDownMenu_ClearAll(LFGBrowseFrame.ActivityDropDown);
+	UIDropDownMenu_Initialize(LFGBrowseFrame.ActivityDropDown, LFGBrowseActivityDropDown_Initialize);
+	LFGBrowseActivityDropDown_ValueSetSelected(LFGBrowseFrame.ActivityDropDown, AtlasFrameLFGButton.ActivityID[2], true);
+
+	-- Start search
+	LFGBrowse_DoSearch();
+end
+
 local function parse_entry_strings(typeStr, id, preStr, index, lineplusoffset)
 	if (typeStr == "item") then
 		local itemID = id
@@ -1414,6 +1432,19 @@ function Atlas_MapRefresh(mapID)
 	-- The boss description to be added here
 	addon:MapAddNPCButton()
 	addon:MapAddNPCButtonLarge()
+
+	-- LFG Button
+	if (WoWClassicEra and C_LFGList.IsPremadeGroupFinderEnabled() and (base.ActivityID or base.ActivityIDSoD)) then
+		AtlasFrameLFGButton:Show();
+
+		if (C_Seasons.GetActiveSeason() == 2 and base.ActivityIDSoD) then
+			AtlasFrameLFGButton.ActivityID = base.ActivityIDSoD;
+		elseif (base.ActivityID) then
+			AtlasFrameLFGButton.ActivityID = base.ActivityID;
+		end
+	else
+		AtlasFrameLFGButton:Hide();
+	end
 end
 
 -- Refreshes the Atlas frame, usually because a new map needs to be displayed
