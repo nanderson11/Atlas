@@ -132,7 +132,8 @@
 		"GameTooltip_AddErrorLine",
 		"UIDropDownMenu_SetSelectedValue",
 		"UIDropDownMenu_Initialize",
-		"UIDropDownMenu_ClearAll"
+		"UIDropDownMenu_ClearAll",
+		"RED_FONT_COLOR_CODE"
 	],
 	"Lua.runtime.version": "Lua 5.1",
 	"Lua.runtime.builtin": {

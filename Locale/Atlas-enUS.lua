@@ -349,3 +349,6 @@ L["West"] = "West"
 L["MapNotYetAvailable"] = "This map is not yet available."
 L["Yarley <Armorer>"] = "Yarley <Armorer>"
 L["Zaladormu"] = "Zaladormu"
+
+L["Find group for this instance"] = "Find group for this instance"
+L["LFG is unavailable until level 10"] = "LFG is unavailable until level 10"

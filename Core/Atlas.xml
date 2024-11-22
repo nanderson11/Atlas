@@ -62,8 +62,7 @@
 				<HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD"/>
 				<Scripts>
 					<OnEnter>
-						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
-						GameTooltip:SetText("Find group for this instance");
+						Atlas:SearchLFG_Enter(self);
 					</OnEnter>
 					<OnLeave function="GameTooltip_Hide"/>
 					<OnClick>

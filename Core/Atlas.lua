@@ -341,6 +341,9 @@ function addon:SearchAndRefresh(text)
 end
 
 function addon:SearchLFG()
+	-- LFG tool isn't available until level 10
+	if (UnitLevel("player") < 10) then return end
+
 	-- Open LFG to the group browser
 	ShowLFGParentFrame(2);
 
@@ -356,6 +359,15 @@ function addon:SearchLFG()
 
 	-- Start search
 	LFGBrowse_DoSearch();
+end
+
+function addon:SearchLFG_Enter(button)
+	GameTooltip:SetOwner(button, "ANCHOR_RIGHT");
+	if (UnitLevel("player") < 10) then
+		GameTooltip:SetText(L["Find group for this instance"].."\n"..RED_FONT_COLOR_CODE..L["LFG is unavailable until level 10"]);
+	else
+		GameTooltip:SetText(L["Find group for this instance"]);
+	end
 end
 
 local function parse_entry_strings(typeStr, id, preStr, index, lineplusoffset)
