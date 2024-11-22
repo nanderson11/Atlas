@@ -344,7 +344,7 @@
 						</Anchor>
 					</Anchors>
 				</Texture>
-				<FontString inherits="GameFontHighlight" text="ATLAS_TITLE">
+				<FontString inherits="GameFontHighlight" text="ATLAS_TITLE_VERSION">
 					<Anchors>
 						<Anchor point="TOP">
 							<Offset>
@@ -665,7 +665,7 @@
 						</Anchor>
 					</Anchors>
 				</Texture>
-				<FontString inherits="GameFontHighlight" text="ATLAS_TITLE">
+				<FontString inherits="GameFontHighlight" text="ATLAS_TITLE_VERSION">
 					<Anchors>
 						<Anchor point="TOP">
 							<Offset>
@@ -896,7 +896,7 @@
 						</Anchor>
 					</Anchors>
 				</Texture>
-				<FontString inherits="GameFontHighlight" text="ATLAS_TITLE">
+				<FontString inherits="GameFontHighlight" text="ATLAS_TITLE_VERSION">
 					<Anchors>
 						<Anchor point="TOP">
 							<Offset>
