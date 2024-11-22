@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.3.1 - November 22, 2024
+
+### Changed
+
+- Added the current Atlas version to the title of the frame
+- Classic Era: Disabled the Atlas LFG button until level 10 (since the built-in LFG tool isn't available until then) and noted that in the tooltip
+
 ## 3.3.0 - November 21, 2024
 
 ### Added
