@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.4.0 - November 27, 2024
+
+### Added
+
+- Retail: Added Dragonflight maps, with the same caveats as the Shadowlands maps added in 3.2.0.
+
 ## 3.3.1 - November 22, 2024
 
 ### Changed
