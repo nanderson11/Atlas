@@ -1,5 +1,22 @@
 # Changelog
 
+## 3.3.1 - November 22, 2024
+
+### Changed
+
+- Added the current Atlas version to the title of the frame
+- Classic Era: Disabled the Atlas LFG button until level 10 (since the built-in LFG tool isn't available until then) and noted that in the tooltip
+
+## 3.3.0 - November 21, 2024
+
+### Added
+
+- Classic Era: Added an LFG button in the top right that will take you to the built-in LFG tool's group browser for that instance. The built-in LFG tool (and this button) are only enabled for SoD and Classic Fresh realms.
+
+### Changed
+
+- Classic Era: Update TOC to 1.15.5
+
 ## 3.2.0 - November 7, 2024
 
 ### Added

@@ -129,7 +129,11 @@
 		"TooltipBackdropTemplateMixin",
 		"SharedTooltip_SetBackdropStyle",
 		"GameTooltip_Hide",
-		"GameTooltip_AddErrorLine"
+		"GameTooltip_AddErrorLine",
+		"UIDropDownMenu_SetSelectedValue",
+		"UIDropDownMenu_Initialize",
+		"UIDropDownMenu_ClearAll",
+		"RED_FONT_COLOR_CODE"
 	],
 	"Lua.runtime.version": "Lua 5.1",
 	"Lua.runtime.builtin": {

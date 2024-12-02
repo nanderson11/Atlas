@@ -339,6 +339,36 @@ function addon:SearchAndRefresh(text)
 	Atlas_ScrollBar_Update()
 end
 
+function addon:SearchLFG()
+	-- LFG tool isn't available until level 10
+	if (UnitLevel("player") < 10) then return end
+
+	-- Open LFG to the group browser
+	ShowLFGParentFrame(2);
+
+	-- Set Category
+	UIDropDownMenu_SetSelectedValue(LFGBrowseFrame.CategoryDropDown, AtlasFrameLFGButton.ActivityID[1]);
+	UIDropDownMenu_Initialize(LFGBrowseFrame.CategoryDropDown, LFGBrowseCategoryDropDown_Initialize);
+
+	-- Set Activity
+	LFGBrowseActivityDropDown_ValueReset(LFGBrowseFrame.ActivityDropDown);
+	UIDropDownMenu_ClearAll(LFGBrowseFrame.ActivityDropDown);
+	UIDropDownMenu_Initialize(LFGBrowseFrame.ActivityDropDown, LFGBrowseActivityDropDown_Initialize);
+	LFGBrowseActivityDropDown_ValueSetSelected(LFGBrowseFrame.ActivityDropDown, AtlasFrameLFGButton.ActivityID[2], true);
+
+	-- Start search
+	LFGBrowse_DoSearch();
+end
+
+function addon:SearchLFG_Enter(button)
+	GameTooltip:SetOwner(button, "ANCHOR_RIGHT");
+	if (UnitLevel("player") < 10) then
+		GameTooltip:SetText(L["Find group for this instance"].."\n"..RED_FONT_COLOR_CODE..L["LFG is unavailable until level 10"]);
+	else
+		GameTooltip:SetText(L["Find group for this instance"]);
+	end
+end
+
 local function parse_entry_strings(typeStr, id, preStr, index, lineplusoffset)
 	if (typeStr == "item") then
 		local itemID = id
@@ -1414,6 +1444,19 @@ function Atlas_MapRefresh(mapID)
 	-- The boss description to be added here
 	addon:MapAddNPCButton()
 	addon:MapAddNPCButtonLarge()
+
+	-- LFG Button
+	if (WoWClassicEra and C_LFGList.IsPremadeGroupFinderEnabled() and (base.ActivityID or base.ActivityIDSoD)) then
+		AtlasFrameLFGButton:Show();
+
+		if (C_Seasons.GetActiveSeason() == 2 and base.ActivityIDSoD) then
+			AtlasFrameLFGButton.ActivityID = base.ActivityIDSoD;
+		elseif (base.ActivityID) then
+			AtlasFrameLFGButton.ActivityID = base.ActivityID;
+		end
+	else
+		AtlasFrameLFGButton:Hide();
+	end
 end
 
 -- Refreshes the Atlas frame, usually because a new map needs to be displayed

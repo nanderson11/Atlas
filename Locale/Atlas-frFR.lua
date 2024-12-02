@@ -289,3 +289,6 @@ L["Wave 6"] = "Vague 6"
 L["West"] = "Ouest"
 L["Yarley <Armorer>"] = "Yarley <Armurier>"
 L["Zaladormu"] = "Zaladormu"
+
+L["Find group for this instance"] = "Rechercher un groupe pour cette instance"
+L["LFG is unavailable until level 10"] = "LFG n'est pas disponible jusqu'au niveau 10"

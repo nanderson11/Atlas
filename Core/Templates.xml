@@ -141,7 +141,7 @@
 				Atlas:ToggleLock();
 			</OnClick>
 		</Scripts>
-		<HighlightTexture file="Interface\Buttons\UI-Panel-MinimizeButton-Highlight" AlphaMode="ADD"/>
+		<HighlightTexture file="Interface\Buttons\UI-Panel-MinimizeButton-Highlight" alphaMode="ADD"/>
 	</Button>
 	<Button name="AtlasFrameOptionsButtonTemplate" virtual="true" inherits="UIPanelButtonTemplate" text="ATLAS_OPTIONS_BUTTON">
 		<Size>
