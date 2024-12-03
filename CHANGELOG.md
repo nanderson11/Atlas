@@ -1,10 +1,14 @@
 # Changelog
 
-## 3.4.0 - November 27, 2024
+## 3.4.0 - December 2, 2024
 
 ### Added
 
 - Retail: Added Dragonflight maps, with the same caveats as the Shadowlands maps added in 3.2.0.
+
+### Fixed
+
+- Classic Era: Fixed Next/Previous Map buttons
 
 ## 3.3.1 - November 22, 2024
 
