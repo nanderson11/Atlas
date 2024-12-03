@@ -68,3 +68,4 @@ Data\WarlordsofDraenor-Retail.lua
 Data\Legion-Retail.lua
 Data\BattleforAzeroth-Retail.lua
 Data\Shadowlands-Retail.lua
+Data\Dragonflight-Retail.lua

@@ -133,7 +133,8 @@
 		"UIDropDownMenu_SetSelectedValue",
 		"UIDropDownMenu_Initialize",
 		"UIDropDownMenu_ClearAll",
-		"RED_FONT_COLOR_CODE"
+		"RED_FONT_COLOR_CODE",
+		"ID"
 	],
 	"Lua.runtime.version": "Lua 5.1",
 	"Lua.runtime.builtin": {
@@ -148,6 +149,6 @@
 		"utf8": "disable"
 	},
 	"Lua.workspace.library": [
-		"~\\.vscode\\extensions\\ketho.wow-api-0.17.6\\Annotations"
+		"~\\.vscode\\extensions\\ketho.wow-api-0.17.8\\Annotations"
 	]
 }
