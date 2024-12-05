@@ -34,6 +34,11 @@ local ALIL = Atlas_IngameLocales
 local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
 local addon = Atlas:NewModule(private.module_name)
 
+isSoD = false;
+if (C_Seasons.GetActiveSeason() == 2) then
+	isSoD = true;
+end
+
 local function Atlas_GetBossName(bossname, encounterID, creatureIndex)
 	local BB = Atlas_GetLocaleLibBabble("LibBabble-Boss-3.0")
 
@@ -262,7 +267,7 @@ db.AtlasMaps = {
 		ZoneName = { BZ["Gnomeregan"]..ALC["L-Parenthesis"]..ALC["Entrance"]..ALC["R-Parenthesis"] },
 		Location = { BZ["Dun Morogh"] },
 		LevelRange = "24-40",
-		PlayerLimit = { 5 },
+		PlayerLimit = { isSoD and 10 or 5 },
 		DungeonID = 13,
 		Acronym = L["Gnome"],
 		WorldMapID = 226,
@@ -284,7 +289,7 @@ db.AtlasMaps = {
 		ZoneName = { BZ["Gnomeregan"] },
 		Location = { BZ["Dun Morogh"] },
 		LevelRange = "24-40",
-		PlayerLimit = { 5 },
+		PlayerLimit = { isSoD and 10 or 5 },
 		DungeonID = 13,
 		Acronym = L["Gnome"],
 		WorldMapID = 226,
@@ -587,7 +592,7 @@ db.AtlasMaps = {
 		Location = { BZ["Swamp of Sorrows"] },
 		DungeonID = 27,
 		LevelRange = "44-60",
-		PlayerLimit = { 5 },
+		PlayerLimit = { isSoD and 20 or 5 },
 		Acronym = L["ST"],
 		WorldMapID = 220,
 		JournalInstanceID = 237,
@@ -605,7 +610,7 @@ db.AtlasMaps = {
 		Location = { BZ["Swamp of Sorrows"] },
 		DungeonID = 27,
 		LevelRange = "44-60",
-		PlayerLimit = { 5 },
+		PlayerLimit = { isSoD and 20 or 5 },
 		Acronym = L["ST"],
 		WorldMapID = 220,
 		JournalInstanceID = 237,
@@ -760,7 +765,7 @@ db.AtlasMaps = {
 		Location = { BZ["Ashenvale"] },
 		DungeonID = 9,
 		LevelRange = "20-34",
-		PlayerLimit = { 5 },
+		PlayerLimit = { isSoD and 10 or 5 },
 		Acronym = L["BFD"],
 		WorldMapID = 221,
 		JournalInstanceID = 227,
@@ -774,7 +779,7 @@ db.AtlasMaps = {
 		Location = { BZ["Ashenvale"] },
 		DungeonID = 9,
 		LevelRange = "20-34",
-		PlayerLimit = { 5 },
+		PlayerLimit = { isSoD and 10 or 5 },
 		Acronym = L["BFD"],
 		WorldMapID = 221,
 		JournalInstanceID = 227,
@@ -796,7 +801,7 @@ db.AtlasMaps = {
 		Location = { BZ["Ashenvale"] },
 		DungeonID = 9,
 		LevelRange = "20-34",
-		PlayerLimit = { 5 },
+		PlayerLimit = { isSoD and 10 or 5 },
 		Acronym = L["BFD"],
 		WorldMapID = 221,
 		JournalInstanceID = 227,
@@ -816,7 +821,7 @@ db.AtlasMaps = {
 		Location = { BZ["Ashenvale"] },
 		DungeonID = 9,
 		LevelRange = "20-34",
-		PlayerLimit = { 5 },
+		PlayerLimit = { isSoD and 10 or 5 },
 		Acronym = L["BFD"],
 		WorldMapID = 221,
 		JournalInstanceID = 227,
@@ -1001,7 +1006,7 @@ db.AtlasMaps = {
 		DungeonID = 160,
 		Acronym = L["AQ20"],
 		LevelRange = "60",
-		PlayerLimit = { 20 },
+		PlayerLimit = { isSoD and 15 or 20 },
 		WorldMapID = 247,
 		JournalInstanceID = 743,
 		ActivityID = { 114, 842 },
@@ -1031,7 +1036,7 @@ db.AtlasMaps = {
 		DungeonID = 161,
 		Acronym = L["AQ40"],
 		LevelRange = "60",
-		PlayerLimit = { 40 },
+		PlayerLimit = { isSoD and 25 or 40 },
 		WorldMapID = 319,
 		JournalInstanceID = 744,
 		ActivityID = { 114, 843 },
@@ -1199,6 +1204,67 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Ruuzlu") },
 		{ WHIT.." 8) "..Atlas_GetBossName("Zerillis")..ALC["L-Parenthesis"]..ALC["Rare"]..ALC["Comma"]..ALC["Wanders"]..ALC["R-Parenthesis"],  10004 },
 		{ WHIT.." 9) "..Atlas_GetBossName("Sandarr Dunereaver")..ALC["L-Parenthesis"]..ALC["Rare"]..ALC["R-Parenthesis"],                      10002 },
+	},
+	-- Season of Discovery
+	CL_DemonFallCanyon = {
+		ZoneName = { BZ["Demon Fall Canyon"] },
+		Location = { BZ["Ashenvale"] },
+		LevelRange = "55-60",
+		PlayerLimit = { 5 },
+		ActivityID = { 2, 1607 },
+		Module = "Atlas_ClassicWoW",
+		{ BLUE.." A) "..ALC["Entrance"],                             10001 },
+		{ BLUE.." B) "..ALC["Connection"],                           10002 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Grimroot") },
+		{ WHIT.." 2) "..Atlas_GetBossName("The Destructor's Wraith") },
+		{ WHIT.." 3) "..Atlas_GetBossName("Zilbagob") },
+		{ WHIT.." 4) "..Atlas_GetBossName("Azgaloth") },
+		{ WHIT.." 5) "..Atlas_GetBossName("Pyranis") },
+		{ WHIT.." 6) "..Atlas_GetBossName("Diathorus the Seeker") },
+		{ WHIT.." 7) "..Atlas_GetBossName("Hellscream's Phantom") },
+	},
+	CL_StormCliffs = {
+		ZoneName = { BZ["Storm Cliffs"] },
+		Location = { BZ["Azshara"] },
+		LevelRange = "60",
+		PlayerLimit = { 40 },
+		ActivityID = { 114, 1608 },
+		Module = "Atlas_ClassicWoW",
+		{ BLUE.." A) "..ALC["Entrance"],                                                                         10001 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Azuregos")..ALC["L-Parenthesis"]..ALC["Varies"]..ALC["R-Parenthesis"] },
+	},
+	CL_TaintedScar = {
+		ZoneName = { BZ["The Tainted Scar"] },
+		Location = { BZ["Blasted Lands"] },
+		LevelRange = "60",
+		PlayerLimit = { 40 },
+		ActivityID = { 114, 1609 },
+		Module = "Atlas_ClassicWoW",
+		{ BLUE.." A) "..ALC["Entrance"],                                                                                                            10001 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Dreadlord").." / "..Atlas_GetBossName("Doomguard Commander").." / "..Atlas_GetBossName("Felguard Elite") },
+		{ WHIT.." 2) "..Atlas_GetBossName("Lord Kazzak") },
+	},
+	CL_CrystalVale = {
+		ZoneName = { BZ["The Crystal Vale"] },
+		Location = { BZ["Silithus"] },
+		LevelRange = "60",
+		PlayerLimit = { 40 },
+		ActivityID = { 114, 1611 },
+		Module = "Atlas_ClassicWoW",
+		{ BLUE.." A) "..ALC["Entrance"],                       10001 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Prince Thunderaan") },
+	},
+	CL_NightmareGrove = {
+		ZoneName = { "Nightmare Grove" },
+		Location = { ALC["Varies"] },
+		LevelRange = "60",
+		PlayerLimit = { 25 },
+		ActivityID = { 114, 1610 },
+		Module = "Atlas_ClassicWoW",
+		{ WHIT.." 1) "..Atlas_GetBossName("Emeriss - Duskwood") },
+		{ WHIT.." 2) "..Atlas_GetBossName("Lethon - Feralas") },
+		{ WHIT.." 3) "..Atlas_GetBossName("Taerar - Ashenvale") },
+		{ WHIT.." 4) "..Atlas_GetBossName("Ysondre - Hinterlands") },
 	},
 }
 
@@ -1719,3 +1785,84 @@ db.DropDownLayouts = {
 		},
 	},
 }
+
+-- Season of Discovery instances
+if (isSoD) then
+	-- Add Gnomeregan and BlackfathomDeeps to party size of 10
+	db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_10] = {};
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_10], "CL_GnomereganEnt");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_10], "CL_Gnomeregan");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_10], "CL_BlackfathomDeepsEnt");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_10], "CL_BlackfathomDeepsA");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_10], "CL_BlackfathomDeepsB");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_10], "CL_BlackfathomDeepsC");
+
+	-- Add Sunken Temple to party size of 20
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_20TO40], "CL_TheSunkenTempleEnt");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_20TO40], "CL_TheSunkenTemple");
+
+	-- Redefine party size of 5 without the instances above
+	db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_5] = {
+		"CL_BlackrockMountainEnt",
+		"CL_BlackrockDepths",
+		"CL_BlackrockSpireLower",
+		"CL_BlackrockSpireUpper",
+		"CL_TheDeadmines",
+		"CL_TheDeadminesEnt",
+		"CL_DireMaulEast",
+		"CL_DireMaulEnt",
+		"CL_DireMaulNorth",
+		"CL_DireMaulWest",
+		"CL_Maraudon",
+		"CL_MaraudonEnt",
+		"CL_RagefireChasm",
+		"CL_RazorfenDowns",
+		"CL_RazorfenKraul",
+		"CL_SMArmory",
+		"CL_SMCathedral",
+		"CL_SMGraveyard",
+		"CL_SMLibrary",
+		"CL_ScarletMonasteryEnt",
+		"CL_Scholomance",
+		"CL_ShadowfangKeep",
+		"CL_TheStockade",
+		"CL_Stratholme",
+		"CL_Uldaman",
+		"CL_UldamanEnt",
+		"CL_WailingCaverns",
+		"CL_WailingCavernsEnt",
+		"CL_ZulFarrak",
+	};
+
+	-- Add new instances to the appropriate places
+	tinsert(db.DropDownLayouts[ATLAS_DDL_CONTINENT][ATLAS_DDL_CONTINENT_KALIMDOR], "CL_DemonFallCanyon");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_EXPANSION][ATLAS_DDL_EXPANSION_OLD], "CL_DemonFallCanyon");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_LEVEL][ATLAS_DDL_LEVEL_40TO60], "CL_DemonFallCanyon");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_5], "CL_DemonFallCanyon");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_TYPE][ATLAS_DDL_TYPE_INSTANCE], "CL_DemonFallCanyon");
+
+	tinsert(db.DropDownLayouts[ATLAS_DDL_CONTINENT][ATLAS_DDL_CONTINENT_KALIMDOR], "CL_StormCliffs");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_EXPANSION][ATLAS_DDL_EXPANSION_OLD], "CL_StormCliffs");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_LEVEL][ATLAS_DDL_LEVEL_60TO70], "CL_StormCliffs");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_20TO40], "CL_StormCliffs");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_TYPE][ATLAS_DDL_TYPE_INSTANCE], "CL_StormCliffs");
+
+	tinsert(db.DropDownLayouts[ATLAS_DDL_CONTINENT][ATLAS_DDL_CONTINENT_EASTERN], "CL_TaintedScar");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_EXPANSION][ATLAS_DDL_EXPANSION_OLD], "CL_TaintedScar");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_LEVEL][ATLAS_DDL_LEVEL_60TO70], "CL_TaintedScar");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_20TO40], "CL_TaintedScar");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_TYPE][ATLAS_DDL_TYPE_INSTANCE], "CL_TaintedScar");
+
+	tinsert(db.DropDownLayouts[ATLAS_DDL_CONTINENT][ATLAS_DDL_CONTINENT_KALIMDOR], "CL_CrystalVale");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_EXPANSION][ATLAS_DDL_EXPANSION_OLD], "CL_CrystalVale");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_LEVEL][ATLAS_DDL_LEVEL_60TO70], "CL_CrystalVale");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_20TO40], "CL_CrystalVale");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_TYPE][ATLAS_DDL_TYPE_INSTANCE], "CL_CrystalVale");
+
+	tinsert(db.DropDownLayouts[ATLAS_DDL_CONTINENT][ATLAS_DDL_CONTINENT_KALIMDOR], "CL_NightmareGrove");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_CONTINENT][ATLAS_DDL_CONTINENT_EASTERN], "CL_NightmareGrove");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_EXPANSION][ATLAS_DDL_EXPANSION_OLD], "CL_NightmareGrove");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_LEVEL][ATLAS_DDL_LEVEL_60TO70], "CL_NightmareGrove");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_20TO40], "CL_NightmareGrove");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_TYPE][ATLAS_DDL_TYPE_INSTANCE], "CL_NightmareGrove");
+end
