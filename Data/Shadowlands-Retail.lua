@@ -676,7 +676,6 @@ db.DropDownLayouts_Order = {
 	},
 	[ATLAS_DDL_LEVEL] = {
 		ATLAS_DDL_LEVEL_45TO60,
-		ATLAS_DDL_LEVEL_60TO70,
 	},
 	[ATLAS_DDL_EXPANSION] = {
 		ATLAS_DDL_EXPANSION_SHADOWLANDS,
@@ -688,7 +687,6 @@ db.DropDownLayouts_Order = {
 	},
 	[ATLAS_DDL_TYPE] = {
 		ATLAS_DDL_TYPE_INSTANCE,
-		ATLAS_DDL_TYPE_ENTRANCE,
 	},
 }
 db.DropDownLayouts = {
@@ -769,9 +767,6 @@ db.DropDownLayouts = {
 			"SanctumofDomination", ]]
 			"SepulcheroftheFirstOnes",
 		},
-		[ATLAS_DDL_LEVEL_60TO70] = {
-
-		},
 	},
 	[ATLAS_DDL_PARTYSIZE] = {
 		[ATLAS_DDL_PARTYSIZE_5] = {
@@ -830,8 +825,6 @@ db.DropDownLayouts = {
 			"CastleNathria",
 			"SanctumofDomination", ]]
 			"SepulcheroftheFirstOnes",
-		},
-		[ATLAS_DDL_TYPE_ENTRANCE] = {
 		},
 	},
 }

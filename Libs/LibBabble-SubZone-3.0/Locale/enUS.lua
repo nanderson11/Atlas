@@ -39,6 +39,7 @@ lib:SetBaseTranslations
 	["Abandoned Passage"] = "Abandoned Passage",
 	["Abandoned Reef"] = "Abandoned Reef",
 	["Abandoned Ruin"] = "Abandoned Ruin",
+	["Aberrus, the Shadowed Crucible"] = "Aberrus, the Shadowed Crucible",
 	["Above the Frozen Sea"] = "Above the Frozen Sea",
 	["Absolon's Vigil"] = "Absolon's Vigil",
 	["Absolution Bridge"] = "Absolution Bridge",
@@ -183,6 +184,7 @@ lib:SetBaseTranslations
 	["Amberweb Pass"] = "Amberweb Pass",
 	["Ameth'Aran"] = "Ameth'Aran",
 	["Amidst the Shadows"] = "Amidst the Shadows",
+	["Amirdrassil, the Dream's Hope"] = "Amirdrassil, the Dream's Hope",
 	["Ammen Fields"] = "Ammen Fields",
 	["Ammen Ford"] = "Ammen Ford",
 	["Ammen Vale"] = "Ammen Vale",
@@ -1390,6 +1392,7 @@ lib:SetBaseTranslations
 	["Dawnseeker's Promontory"] = "Dawnseeker's Promontory",
 	["Dawnstar Spire"] = "Dawnstar Spire",
 	["Dawnstar Village"] = "Dawnstar Village",
+	["Dawn of the Infinite"] = "Dawn of the Infinite",
 	["Dawson's Creek"] = "Dawson's Creek",
 	["Daxil's Dig"] = "Daxil's Dig",
 	["Dazar'alor"] = "Dazar'alor",
@@ -8199,6 +8202,7 @@ lib:SetBaseTranslations
 	["Zanj'ir Wash"] = "Zanj'ir Wash",
 	["Zan'vess"] = "Zan'vess",
 	["Zanza's Rise"] = "Zanza's Rise",
+	["Zaralek Cavern"] = "Zaralek Cavern",
 	["Zarkhenar Temple"] = "Zarkhenar Temple",
 	["Za'Tual"] = "Za'Tual",
 	["Zeb'ahari"] = "Zeb'ahari",
@@ -8259,4 +8263,3 @@ lib:SetBaseTranslations
 if GetLocale() == "enUS" then
 	lib:SetCurrentTranslations(true)
 end
-

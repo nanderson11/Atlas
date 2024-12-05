@@ -34,6 +34,11 @@ local ALIL = Atlas_IngameLocales
 local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
 local addon = Atlas:NewModule(private.module_name)
 
+isSoD = false;
+if (C_Seasons.GetActiveSeason() == 2) then
+	isSoD = true;
+end
+
 local function Atlas_GetBossName(bossname, encounterID, creatureIndex)
 	local BB = Atlas_GetLocaleLibBabble("LibBabble-Boss-3.0")
 
@@ -262,13 +267,13 @@ db.AtlasMaps = {
 		ZoneName = { BZ["Gnomeregan"]..ALC["L-Parenthesis"]..ALC["Entrance"]..ALC["R-Parenthesis"] },
 		Location = { BZ["Dun Morogh"] },
 		LevelRange = "24-40",
-		PlayerLimit = { 5 },
+		PlayerLimit = { isSoD and 10 or 5 },
 		DungeonID = 13,
 		Acronym = L["Gnome"],
 		WorldMapID = 226,
 		JournalInstanceID = 231,
 		Module = "Atlas_ClassicWoW",
-		NextMap = "Gnomeregan",
+		NextMap = "CL_Gnomeregan",
 		{ BLUE.."A) "..ALC["Entrance"] },
 		{ BLUE..INDENT..ALC["Meeting Stone"] },
 		{ BLUE.."B) "..BZ["Gnomeregan"]..ALC["L-Parenthesis"]..ALC["Front"]..ALC["R-Parenthesis"] },
@@ -284,7 +289,7 @@ db.AtlasMaps = {
 		ZoneName = { BZ["Gnomeregan"] },
 		Location = { BZ["Dun Morogh"] },
 		LevelRange = "24-40",
-		PlayerLimit = { 5 },
+		PlayerLimit = { isSoD and 10 or 5 },
 		DungeonID = 13,
 		Acronym = L["Gnome"],
 		WorldMapID = 226,
@@ -292,7 +297,7 @@ db.AtlasMaps = {
 		ActivityID = { 2, 803 },
 		ActivityIDSoD = { 114, 1605 }, -- SoD Raid
 		Module = "Atlas_ClassicWoW",
-		PrevMap = "GnomereganEnt",
+		PrevMap = "CL_GnomereganEnt",
 		{ BLUE.." A) "..ALC["Entrance"]..ALC["L-Parenthesis"]..ALC["Front"]..ALC["R-Parenthesis"],                             10001 },
 		{ BLUE.." B) "..ALC["Entrance"]..ALC["L-Parenthesis"]..ALC["Back"]..ALC["R-Parenthesis"],                              10002 },
 		{ WHIT.." 1) "..L["Blastmaster Emi Shortfuse"] },
@@ -346,8 +351,6 @@ db.AtlasMaps = {
 		DungeonID = 17,
 		Acronym = L["SM"],
 		Module = "Atlas_ClassicWoW",
-		PrevMap = "ScarletMonastery",
-		NextMap = "ScarletHalls",
 		{ BLUE.." A) "..ALC["Entrance"], 10001 },
 		{ BLUE.." B) "..ALC["Graveyard"] },
 		{ BLUE.." C) "..L["Cathedral"] },
@@ -535,7 +538,7 @@ db.AtlasMaps = {
 		WorldMapID = 291,
 		JournalInstanceID = 63,
 		Module = "Atlas_ClassicWoW",
-		NextMap = "TheDeadmines",
+		NextMap = "CL_TheDeadmines",
 		{ BLUE.."A) "..ALC["Entrance"] },
 		{ BLUE.."B) "..BZ["The Deadmines"] },
 		{ WHIT.."1) "..Atlas_GetBossName("Marisa du'Paige")..ALC["L-Parenthesis"]..ALC["Varies"]..ALC["R-Parenthesis"] },
@@ -589,12 +592,12 @@ db.AtlasMaps = {
 		Location = { BZ["Swamp of Sorrows"] },
 		DungeonID = 27,
 		LevelRange = "44-60",
-		PlayerLimit = { 5 },
+		PlayerLimit = { isSoD and 20 or 5 },
 		Acronym = L["ST"],
 		WorldMapID = 220,
 		JournalInstanceID = 237,
 		Module = "Atlas_ClassicWoW",
-		NextMap = "TheSunkenTemple",
+		NextMap = "CL_TheSunkenTemple",
 		{ BLUE.." A) "..ALC["Entrance"],                                                                                  10001 },
 		{ GREN..INDENT..ALC["Meeting Stone"] },
 		{ GREN..INDENT..L["Jade"]..ALC["L-Parenthesis"]..ALC["Rare"]..ALC["R-Parenthesis"] },
@@ -607,14 +610,14 @@ db.AtlasMaps = {
 		Location = { BZ["Swamp of Sorrows"] },
 		DungeonID = 27,
 		LevelRange = "44-60",
-		PlayerLimit = { 5 },
+		PlayerLimit = { isSoD and 20 or 5 },
 		Acronym = L["ST"],
 		WorldMapID = 220,
 		JournalInstanceID = 237,
 		ActivityID = { 2, 810 },
 		ActivityIDSoD = { 114, 1606 },
 		Module = "Atlas_ClassicWoW",
-		PrevMap = "TheSunkenTempleEnt",
+		PrevMap = "CL_TheSunkenTempleEnt",
 		{ ORNG..ALC["AKA"]..ALC["Colon"]..BZ["The Temple of Atal'Hakkar"] },
 		{ BLUE.." A) "..ALC["Entrance"] },
 		{ BLUE.." B) "..ALC["Stairs"] },
@@ -644,7 +647,7 @@ db.AtlasMaps = {
 		WorldMapID = 230,
 		JournalInstanceID = 239,
 		Module = "Atlas_ClassicWoW",
-		NextMap = "Uldaman",
+		NextMap = "CL_Uldaman",
 		{ BLUE.." A) "..ALC["Entrance"],                                                                                        10001 },
 		{ BLUE.." B) "..BZ["Uldaman"],                                                                                          10002 },
 		{ WHIT.." 1) "..Atlas_GetBossName("Hammertoe Grez"),                                                                    2909 },
@@ -665,7 +668,7 @@ db.AtlasMaps = {
 		JournalInstanceID = 239,
 		ActivityID = { 2, 807 },
 		Module = "Atlas_ClassicWoW",
-		PrevMap = "UldamanEnt",
+		PrevMap = "CL_UldamanEnt",
 		{ BLUE.." A) "..ALC["Entrance"]..ALC["L-Parenthesis"]..ALC["Front"]..ALC["R-Parenthesis"], 10001 },
 		{ BLUE.." B) "..ALC["Entrance"]..ALC["L-Parenthesis"]..ALC["Back"]..ALC["R-Parenthesis"],  10002 },
 		{ WHIT.." 1) "..Atlas_GetBossName("Baelog", 468, 1),                                       468 },
@@ -762,12 +765,12 @@ db.AtlasMaps = {
 		Location = { BZ["Ashenvale"] },
 		DungeonID = 9,
 		LevelRange = "20-34",
-		PlayerLimit = { 5 },
+		PlayerLimit = { isSoD and 10 or 5 },
 		Acronym = L["BFD"],
 		WorldMapID = 221,
 		JournalInstanceID = 227,
 		Module = "Atlas_ClassicWoW",
-		NextMap = "BlackfathomDeepsA",
+		NextMap = "CL_BlackfathomDeepsA",
 		{ BLUE.." A) "..ALC["Entrance"],         10001 },
 		{ BLUE.." B) "..BZ["Blackfathom Deeps"], 10002 },
 	},
@@ -776,15 +779,15 @@ db.AtlasMaps = {
 		Location = { BZ["Ashenvale"] },
 		DungeonID = 9,
 		LevelRange = "20-34",
-		PlayerLimit = { 5 },
+		PlayerLimit = { isSoD and 10 or 5 },
 		Acronym = L["BFD"],
 		WorldMapID = 221,
 		JournalInstanceID = 227,
 		ActivityID = { 2, 801 },
 		ActivityIDSoD = { 114, 1604 }, -- SoD Raid
 		Module = "Atlas_ClassicWoW",
-		PrevMap = "BlackfathomDeepsEnt",
-		NextMap = "BlackfathomDeepsB",
+		PrevMap = "CL_BlackfathomDeepsEnt",
+		NextMap = "CL_BlackfathomDeepsB",
 		{ BLUE.." A) "..ALC["Entrance"] },
 		{ WHIT.." 1) "..Atlas_GetBossName("Ghamoo-ra") },
 		{ WHIT.." 2) "..L["Lorgalis Manuscript"] },
@@ -798,15 +801,15 @@ db.AtlasMaps = {
 		Location = { BZ["Ashenvale"] },
 		DungeonID = 9,
 		LevelRange = "20-34",
-		PlayerLimit = { 5 },
+		PlayerLimit = { isSoD and 10 or 5 },
 		Acronym = L["BFD"],
 		WorldMapID = 221,
 		JournalInstanceID = 227,
 		ActivityID = { 2, 801 },
 		ActivityIDSoD = { 114, 1604 }, -- SoD Raid
 		Module = "Atlas_ClassicWoW",
-		PrevMap = "BlackfathomDeepsA",
-		NextMap = "BlackfathomDeepsC",
+		PrevMap = "CL_BlackfathomDeepsA",
+		NextMap = "CL_BlackfathomDeepsC",
 		{ WHIT.." 6) "..Atlas_GetBossName("Lorgus Jett")..ALC["L-Parenthesis"]..ALC["Varies"]..ALC["R-Parenthesis"] },
 		{ WHIT.." 7) "..Atlas_GetBossName("Baron Aquanis")..ALC["L-Parenthesis"]..ALC["Summon"]..ALC["R-Parenthesis"] },
 		{ WHIT..INDENT..L["Fathom Core"] },
@@ -818,14 +821,14 @@ db.AtlasMaps = {
 		Location = { BZ["Ashenvale"] },
 		DungeonID = 9,
 		LevelRange = "20-34",
-		PlayerLimit = { 5 },
+		PlayerLimit = { isSoD and 10 or 5 },
 		Acronym = L["BFD"],
 		WorldMapID = 221,
 		JournalInstanceID = 227,
 		ActivityID = { 2, 801 },
 		ActivityIDSoD = { 114, 1604 }, -- SoD Raid
 		Module = "Atlas_ClassicWoW",
-		PrevMap = "BlackfathomDeepsB",
+		PrevMap = "CL_BlackfathomDeepsB",
 		{ WHIT.." 9) "..Atlas_GetBossName("Old Serra'kis") },
 	},
 	CL_DireMaulEnt = {
@@ -838,7 +841,7 @@ db.AtlasMaps = {
 		WorldMapID = 235,
 		JournalInstanceID = 230,
 		Module = "Atlas_ClassicWoW",
-		NextMap = "DireMaulEast",
+		NextMap = "CL_DireMaulEast",
 		{ BLUE.." A) "..ALC["Entrance"],                                                                         10001 },
 		{ BLUE.." B) "..BZ["Dire Maul"]..ALC["L-Parenthesis"]..ALC["East"]..ALC["R-Parenthesis"],                10002 },
 		{ BLUE.." C) "..BZ["Dire Maul"]..ALC["L-Parenthesis"]..ALC["North"]..ALC["R-Parenthesis"],               10003 },
@@ -859,8 +862,8 @@ db.AtlasMaps = {
 		JournalInstanceID = 230,
 		ActivityID = { 2, 813 },
 		Module = "Atlas_ClassicWoW",
-		PrevMap = "DireMaulEnt",
-		NextMap = "DireMaulNorth",
+		PrevMap = "CL_DireMaulEnt",
+		NextMap = "CL_DireMaulNorth",
 		{ BLUE.." A-C) "..ALC["Entrance"] },
 		{ BLUE.." D) "..ALC["Exit"] },
 		{ WHIT.." 1) "..Atlas_GetBossName("Pusillin")..ALC["L-Parenthesis"]..L["Chase Begins"]..ALC["R-Parenthesis"] },
@@ -885,8 +888,8 @@ db.AtlasMaps = {
 		JournalInstanceID = 230,
 		ActivityID = { 2, 815 },
 		Module = "Atlas_ClassicWoW",
-		PrevMap = "DireMaulEast",
-		NextMap = "DireMaulWest",
+		PrevMap = "CL_DireMaulEast",
+		NextMap = "CL_DireMaulWest",
 		{ BLUE.." A) "..ALC["Entrance"],                                 10001 },
 		{ WHIT.." 1) "..Atlas_GetBossName("Guard Mol'dar", 411),         411 },
 		{ WHIT.." 2) "..Atlas_GetBossName("Stomper Kreeg", 412),         412 },
@@ -909,7 +912,7 @@ db.AtlasMaps = {
 		JournalInstanceID = 230,
 		ActivityID = { 2, 814 },
 		Module = "Atlas_ClassicWoW",
-		PrevMap = "DireMaulNorth",
+		PrevMap = "CL_DireMaulNorth",
 		{ ORNG..ALC["Key"]..ALC["Colon"]..ALIL["J'eevee's Jar"]..ALC["L-Parenthesis"]..Atlas_GetBossName("Lord Hel'nurath")..ALC["R-Parenthesis"] },
 		{ BLUE.." A) "..ALC["Entrance"],                                                                                                          10001 },
 		{ BLUE.." B) "..L["Pylons"],                                                                                                              10002 },
@@ -942,7 +945,7 @@ db.AtlasMaps = {
 		WorldMapID = 280,
 		JournalInstanceID = 232,
 		Module = "Atlas_ClassicWoW",
-		NextMap = "Maraudon",
+		NextMap = "CL_Maraudon",
 		{ BLUE.." A) "..ALC["Entrance"],                                                                                       10001 },
 		{ WHIT..INDENT..L["The Nameless Prophet"]..ALC["L-Parenthesis"]..ALC["Lower"]..ALC["R-Parenthesis"] },
 		{ BLUE.." B) "..BZ["Maraudon"]..ALC["L-Parenthesis"]..ALC["Purple"]..ALC["R-Parenthesis"],                             10002 },
@@ -964,7 +967,7 @@ db.AtlasMaps = {
 		JournalInstanceID = 232,
 		ActivityID = { 2, 809 },
 		Module = "Atlas_ClassicWoW",
-		PrevMap = "MaraudonEnt",
+		PrevMap = "CL_MaraudonEnt",
 		{ BLUE.." A) "..ALC["Entrance"]..ALC["L-Parenthesis"]..ALC["Orange"]..ALC["R-Parenthesis"],                                                        10001 },
 		{ BLUE.." B) "..ALC["Entrance"]..ALC["L-Parenthesis"]..ALC["Purple"]..ALC["R-Parenthesis"],                                                        10002 },
 		{ BLUE.." C) "..ALC["Entrance"]..ALC["L-Parenthesis"]..ALC["Portal"]..ALC["R-Parenthesis"],                                                        10003 },
@@ -1003,7 +1006,7 @@ db.AtlasMaps = {
 		DungeonID = 160,
 		Acronym = L["AQ20"],
 		LevelRange = "60",
-		PlayerLimit = { 20 },
+		PlayerLimit = { isSoD and 15 or 20 },
 		WorldMapID = 247,
 		JournalInstanceID = 743,
 		ActivityID = { 114, 842 },
@@ -1033,7 +1036,7 @@ db.AtlasMaps = {
 		DungeonID = 161,
 		Acronym = L["AQ40"],
 		LevelRange = "60",
-		PlayerLimit = { 40 },
+		PlayerLimit = { isSoD and 25 or 40 },
 		WorldMapID = 319,
 		JournalInstanceID = 744,
 		ActivityID = { 114, 843 },
@@ -1136,7 +1139,7 @@ db.AtlasMaps = {
 		WorldMapID = 279,
 		JournalInstanceID = 240,
 		Module = "Atlas_ClassicWoW",
-		NextMap = "WailingCaverns",
+		NextMap = "CL_WailingCaverns",
 		{ BLUE.." A) "..ALC["Entrance"],                                                                                  10001 },
 		{ BLUE.." B) "..BZ["Wailing Caverns"],                                                                            10002 },
 		{ WHIT.." 1) "..Atlas_GetBossName("Mad Magglish")..ALC["L-Parenthesis"]..ALC["Varies"]..ALC["R-Parenthesis"],     10003 },
@@ -1155,7 +1158,7 @@ db.AtlasMaps = {
 		JournalInstanceID = 240,
 		ActivityID = { 2, 796 },
 		Module = "Atlas_ClassicWoW",
-		PrevMap = "WailingCavernsEnt",
+		PrevMap = "CL_WailingCavernsEnt",
 		{ BLUE.." A) "..ALC["Entrance"],                                                                                                                  10001 },
 		{ WHIT.." 1) "..L["Disciple of Naralex"] },
 		{ WHIT.." 2) "..Atlas_GetBossName("Lord Cobrahn", 475),                                                                                           475 },
@@ -1201,6 +1204,67 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Ruuzlu") },
 		{ WHIT.." 8) "..Atlas_GetBossName("Zerillis")..ALC["L-Parenthesis"]..ALC["Rare"]..ALC["Comma"]..ALC["Wanders"]..ALC["R-Parenthesis"],  10004 },
 		{ WHIT.." 9) "..Atlas_GetBossName("Sandarr Dunereaver")..ALC["L-Parenthesis"]..ALC["Rare"]..ALC["R-Parenthesis"],                      10002 },
+	},
+	-- Season of Discovery
+	CL_DemonFallCanyon = {
+		ZoneName = { BZ["Demon Fall Canyon"] },
+		Location = { BZ["Ashenvale"] },
+		LevelRange = "55-60",
+		PlayerLimit = { 5 },
+		ActivityID = { 2, 1607 },
+		Module = "Atlas_ClassicWoW",
+		{ BLUE.." A) "..ALC["Entrance"],                             10001 },
+		{ BLUE.." B) "..ALC["Connection"],                           10002 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Grimroot") },
+		{ WHIT.." 2) "..Atlas_GetBossName("The Destructor's Wraith") },
+		{ WHIT.." 3) "..Atlas_GetBossName("Zilbagob") },
+		{ WHIT.." 4) "..Atlas_GetBossName("Azgaloth") },
+		{ WHIT.." 5) "..Atlas_GetBossName("Pyranis") },
+		{ WHIT.." 6) "..Atlas_GetBossName("Diathorus the Seeker") },
+		{ WHIT.." 7) "..Atlas_GetBossName("Hellscream's Phantom") },
+	},
+	CL_StormCliffs = {
+		ZoneName = { BZ["Storm Cliffs"] },
+		Location = { BZ["Azshara"] },
+		LevelRange = "60",
+		PlayerLimit = { 40 },
+		ActivityID = { 114, 1608 },
+		Module = "Atlas_ClassicWoW",
+		{ BLUE.." A) "..ALC["Entrance"],                                                                         10001 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Azuregos")..ALC["L-Parenthesis"]..ALC["Varies"]..ALC["R-Parenthesis"] },
+	},
+	CL_TaintedScar = {
+		ZoneName = { BZ["The Tainted Scar"] },
+		Location = { BZ["Blasted Lands"] },
+		LevelRange = "60",
+		PlayerLimit = { 40 },
+		ActivityID = { 114, 1609 },
+		Module = "Atlas_ClassicWoW",
+		{ BLUE.." A) "..ALC["Entrance"],                                                                                                            10001 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Dreadlord").." / "..Atlas_GetBossName("Doomguard Commander").." / "..Atlas_GetBossName("Felguard Elite") },
+		{ WHIT.." 2) "..Atlas_GetBossName("Lord Kazzak") },
+	},
+	CL_CrystalVale = {
+		ZoneName = { BZ["The Crystal Vale"] },
+		Location = { BZ["Silithus"] },
+		LevelRange = "60",
+		PlayerLimit = { 40 },
+		ActivityID = { 114, 1611 },
+		Module = "Atlas_ClassicWoW",
+		{ BLUE.." A) "..ALC["Entrance"],                       10001 },
+		{ WHIT.." 1) "..Atlas_GetBossName("Prince Thunderaan") },
+	},
+	CL_NightmareGrove = {
+		ZoneName = { "Nightmare Grove" },
+		Location = { ALC["Varies"] },
+		LevelRange = "60",
+		PlayerLimit = { 25 },
+		ActivityID = { 114, 1610 },
+		Module = "Atlas_ClassicWoW",
+		{ WHIT.." 1) "..Atlas_GetBossName("Emeriss - Duskwood") },
+		{ WHIT.." 2) "..Atlas_GetBossName("Lethon - Feralas") },
+		{ WHIT.." 3) "..Atlas_GetBossName("Taerar - Ashenvale") },
+		{ WHIT.." 4) "..Atlas_GetBossName("Ysondre - Hinterlands") },
 	},
 }
 
@@ -1721,3 +1785,84 @@ db.DropDownLayouts = {
 		},
 	},
 }
+
+-- Season of Discovery instances
+if (isSoD) then
+	-- Add Gnomeregan and BlackfathomDeeps to party size of 10
+	db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_10] = {};
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_10], "CL_GnomereganEnt");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_10], "CL_Gnomeregan");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_10], "CL_BlackfathomDeepsEnt");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_10], "CL_BlackfathomDeepsA");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_10], "CL_BlackfathomDeepsB");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_10], "CL_BlackfathomDeepsC");
+
+	-- Add Sunken Temple to party size of 20
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_20TO40], "CL_TheSunkenTempleEnt");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_20TO40], "CL_TheSunkenTemple");
+
+	-- Redefine party size of 5 without the instances above
+	db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_5] = {
+		"CL_BlackrockMountainEnt",
+		"CL_BlackrockDepths",
+		"CL_BlackrockSpireLower",
+		"CL_BlackrockSpireUpper",
+		"CL_TheDeadmines",
+		"CL_TheDeadminesEnt",
+		"CL_DireMaulEast",
+		"CL_DireMaulEnt",
+		"CL_DireMaulNorth",
+		"CL_DireMaulWest",
+		"CL_Maraudon",
+		"CL_MaraudonEnt",
+		"CL_RagefireChasm",
+		"CL_RazorfenDowns",
+		"CL_RazorfenKraul",
+		"CL_SMArmory",
+		"CL_SMCathedral",
+		"CL_SMGraveyard",
+		"CL_SMLibrary",
+		"CL_ScarletMonasteryEnt",
+		"CL_Scholomance",
+		"CL_ShadowfangKeep",
+		"CL_TheStockade",
+		"CL_Stratholme",
+		"CL_Uldaman",
+		"CL_UldamanEnt",
+		"CL_WailingCaverns",
+		"CL_WailingCavernsEnt",
+		"CL_ZulFarrak",
+	};
+
+	-- Add new instances to the appropriate places
+	tinsert(db.DropDownLayouts[ATLAS_DDL_CONTINENT][ATLAS_DDL_CONTINENT_KALIMDOR], "CL_DemonFallCanyon");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_EXPANSION][ATLAS_DDL_EXPANSION_OLD], "CL_DemonFallCanyon");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_LEVEL][ATLAS_DDL_LEVEL_40TO60], "CL_DemonFallCanyon");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_5], "CL_DemonFallCanyon");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_TYPE][ATLAS_DDL_TYPE_INSTANCE], "CL_DemonFallCanyon");
+
+	tinsert(db.DropDownLayouts[ATLAS_DDL_CONTINENT][ATLAS_DDL_CONTINENT_KALIMDOR], "CL_StormCliffs");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_EXPANSION][ATLAS_DDL_EXPANSION_OLD], "CL_StormCliffs");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_LEVEL][ATLAS_DDL_LEVEL_60TO70], "CL_StormCliffs");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_20TO40], "CL_StormCliffs");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_TYPE][ATLAS_DDL_TYPE_INSTANCE], "CL_StormCliffs");
+
+	tinsert(db.DropDownLayouts[ATLAS_DDL_CONTINENT][ATLAS_DDL_CONTINENT_EASTERN], "CL_TaintedScar");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_EXPANSION][ATLAS_DDL_EXPANSION_OLD], "CL_TaintedScar");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_LEVEL][ATLAS_DDL_LEVEL_60TO70], "CL_TaintedScar");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_20TO40], "CL_TaintedScar");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_TYPE][ATLAS_DDL_TYPE_INSTANCE], "CL_TaintedScar");
+
+	tinsert(db.DropDownLayouts[ATLAS_DDL_CONTINENT][ATLAS_DDL_CONTINENT_KALIMDOR], "CL_CrystalVale");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_EXPANSION][ATLAS_DDL_EXPANSION_OLD], "CL_CrystalVale");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_LEVEL][ATLAS_DDL_LEVEL_60TO70], "CL_CrystalVale");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_20TO40], "CL_CrystalVale");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_TYPE][ATLAS_DDL_TYPE_INSTANCE], "CL_CrystalVale");
+
+	tinsert(db.DropDownLayouts[ATLAS_DDL_CONTINENT][ATLAS_DDL_CONTINENT_KALIMDOR], "CL_NightmareGrove");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_CONTINENT][ATLAS_DDL_CONTINENT_EASTERN], "CL_NightmareGrove");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_EXPANSION][ATLAS_DDL_EXPANSION_OLD], "CL_NightmareGrove");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_LEVEL][ATLAS_DDL_LEVEL_60TO70], "CL_NightmareGrove");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_20TO40], "CL_NightmareGrove");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_TYPE][ATLAS_DDL_TYPE_INSTANCE], "CL_NightmareGrove");
+end

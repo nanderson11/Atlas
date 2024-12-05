@@ -1,5 +1,16 @@
 # Changelog
 
+## 3.4.0 - December 5, 2024
+
+### Added
+
+- Retail: Added Dragonflight maps, with the same caveats as the Shadowlands maps added in 3.2.0.
+- Classic Era: Added SoD data, including maps for Demon Fall Canyon (outside area only), Storm Cliffs, Tainted Scar and Crystal Vale.
+
+### Fixed
+
+- Classic Era: Fixed Next/Previous Map buttons
+
 ## 3.3.1 - November 22, 2024
 
 ### Changed
