@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.4.1 - December 20, 2024
+
+### Changed
+
+- Retail: Update TOC to 11.0.7
+
 ## 3.4.0 - December 5, 2024
 
 ### Added
