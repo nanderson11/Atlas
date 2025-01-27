@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.4.2 - January 26, 2025
+
+### Fixed
+
+- Retail: AtlasLoot button will show on Shadowlands and Dragonflight maps
+
 ## 3.4.1 - December 20, 2024
 
 ### Changed

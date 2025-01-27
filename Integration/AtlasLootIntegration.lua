@@ -39,7 +39,6 @@ end
 local FOLDER_NAME, private = ...
 local LibStub = _G.LibStub
 local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
-local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name);
 
 -- Atlas to AtlasLoot's module mapping
 local modules = {}
@@ -62,6 +61,8 @@ else
 		Atlas_WarlordsofDraenor  = "AtlasLoot_WarlordsofDraenor",
 		Atlas_Legion             = "AtlasLoot_Legion",
 		Atlas_BattleforAzeroth   = "AtlasLoot_BattleforAzeroth",
+		Atlas_Shadowlands        = "AtlasLoot_Shadowlands",
+		Atlas_Dragonflight       = "AtlasLoot_Dragonflight",
 	}
 end
 
