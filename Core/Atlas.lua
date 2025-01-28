@@ -548,7 +548,7 @@ local function process_Deprecated()
 				if (currVer < compatibleVer) then
 					outdated = true
 				end
-			elseif (v[2] and (strsub(currVer, 1, 1) ~= "r") and currVer < v[2]) then
+			elseif (v[2] and (strsub(currVer, 1, 1) ~= "r") and (strsub(currVer, 1, 1) ~= "@") and currVer < v[2]) then
 				outdated = true
 			end
 			if (outdated) then
