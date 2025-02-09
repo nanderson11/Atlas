@@ -1,109 +1,76 @@
 # Changelog
 
+## 3.5.0 -
+### Added
+- Retail: Added The War Within maps
+
 ## 3.4.3 - January 28, 2025
-
 ### Changed
-
 - Classic Era: Update TOC to 1.15.6
 
 ## 3.4.2 - January 26, 2025
-
 ### Fixed
-
 - Retail: AtlasLoot button will show on Shadowlands and Dragonflight maps
 
 ## 3.4.1 - December 20, 2024
-
 ### Changed
-
 - Retail: Update TOC to 11.0.7
 
 ## 3.4.0 - December 5, 2024
-
 ### Added
-
 - Retail: Added Dragonflight maps, with the same caveats as the Shadowlands maps added in 3.2.0.
 - Classic Era: Added SoD data, including maps for Demon Fall Canyon (outside area only), Storm Cliffs, Tainted Scar and Crystal Vale.
-
 ### Fixed
-
 - Classic Era: Fixed Next/Previous Map buttons
 
 ## 3.3.1 - November 22, 2024
-
 ### Changed
-
 - Added the current Atlas version to the title of the frame
 - Classic Era: Disabled the Atlas LFG button until level 10 (since the built-in LFG tool isn't available until then) and noted that in the tooltip
 
 ## 3.3.0 - November 21, 2024
-
 ### Added
-
 - Classic Era: Added an LFG button in the top right that will take you to the built-in LFG tool's group browser for that instance. The built-in LFG tool (and this button) are only enabled for SoD and Classic Fresh realms.
-
 ### Changed
-
 - Classic Era: Update TOC to 1.15.5
 
 ## 3.2.0 - November 7, 2024
-
 ### Added
-
 - Retail: Added Shadowlands maps! There are a couple asterisks, the first being that maps of interior areas aren't included. Interior minimaps work differently from exterior minimaps, and I wasn't able to find a reasonable way to make them. The second asterisk is that entrances, connections and bosses (when boss portraits are disabled) aren't marked. Previously those were embedded into the image, but I would like to change that so they get added dynamically.
 
 ## 3.1.0 - October 29, 2024
-
 ### Added
-
 - Retail and Cataclysm: Re-enabled the functionality of opening the achievement frame by clicking on an achievement in Atlas
 - Cataclysm: Like Retail, there are buttons that will take you to the Journal instance entry (Cataclysm instances only) or the Journal instance map (all instances)
 - Cataclysm: Like Retail, clicking on a boss name will open its encounter in the Journal (Cataclysm instances only)
-
 ### Changed
-
 - Retail: Update TOC to 11.0.5
 - Cataclysm: Update TOC to 4.4.1
 
 ## 3.0.0 - October 17, 2024
-
 ### Added
-
 - Added Cataclysm Classic support
-
 ### Changed
-
 - Maps from the Atlas expansion addons have been merged into Atlas (fork) itself and can be uninstalled. While this increases the minimum download size, it greatly simplifies installation and maintainability, and also lets me add Cataclysm support without forking all the expansion addons. The other addons, like Battlegrounds or Dungeon Locations, aren't merged in but will still work if they are installed.
 
 ## 2.0.2 - October 7, 2024
-
 ### Fixed
-
 - Fixed a few missed C_AddOns functions in integrations
 
 ## 2.0.1 - October 6, 2024
-
 ### Changed
-
 - Updated Ace libraries
-
 ### Fixed
-
 - Fixed error when creating a dialog
 
 ## 2.0.0 - October 5, 2024
-
 After Atlas broke with TWW, I reached out to the Atlas team about maintaining Atlas. I didn't get a response, so I decided to fork Atlas and get it working again. I hope to add Cataclysm support soon as well.
-
 ### Changed
-
 - Classic Era: Update TOC to 1.15.4
 - Retail: Update TOC to 11.0.2
 - Retail: Update functions to use C_AddOns namespace
 - Update Options button to use new Settings API
-
 ### Fixed
-
 - Classic Era: Close button is now the correct size
 
 v1.52.08 (Jul. 29, 2023)

@@ -47,6 +47,7 @@ local icon_E6 = "Interface\\ICONS\\Achievements_Zone_BrokenShore"          -- Le
 local icon_E7 = "Interface\\ICONS\\ability_racial_cityofgold"              -- BfA
 local icon_E8 = "Interface\\ICONS\\achievement_mythicdungeons_shadowlands" -- Shadowlands
 local icon_E9 = "Interface\\ICONS\\flightstone-dragonflight"               -- Dragonflight
+local icon_E10 = "Interface\\ICONS\\ui_delves"                             -- TWW
 
 -- Continent Icons
 local icon_EasternKingdom = "Interface\\ICONS\\Achievement_Zone_EasternKingdoms_01" -- Eastern Kingdom
@@ -62,6 +63,7 @@ local icon_Zandalar = "Interface\\ICONS\\spell_arcane_portalzandalar"           
 --local icon_Nazjatar = "Interface\\ICONS\\spell_arcane_portalzandalar"             -- Nazjatar
 local icon_Shadowlands = "Interface\\ICONS\\spell_arcane_teleportoribos"            -- Shadowlands
 local icon_DragonIsles = "Interface\\ICONS\\spell_arcane_teleportvaldrakken"        -- Dragon Isles
+local icon_KhazAlgar = "Interface\\ICONS\\inv_spell_arcane_telepotdornogal"         -- Khaz Algar
 
 --[[
 ************************************************************************************************
@@ -157,6 +159,7 @@ else
 	ATLAS_DDL_CONTINENT_NAZJATAR = L["ATLAS_DDL_CONTINENT_NAZJATAR"]
 	ATLAS_DDL_CONTINENT_SHADOWLANDS = format("|T%s:0:0|t %s", icon_Shadowlands, L["ATLAS_DDL_CONTINENT_SHADOWLANDS"])
 	ATLAS_DDL_CONTINENT_DRAGONISLES = format("|T%s:0:0|t %s", icon_DragonIsles, L["ATLAS_DDL_CONTINENT_DRAGONISLES"])
+	ATLAS_DDL_CONTINENT_KHAZALGAR = format("|T%s:0:0|t %s", icon_KhazAlgar, L["ATLAS_DDL_CONTINENT_KHAZALGAR"])
 end
 -- Level
 ATLAS_DDL_LEVEL            = L["ATLAS_DDL_LEVEL"]
@@ -216,6 +219,7 @@ else
 	ATLAS_DDL_EXPANSION_BFA2         = format("|T%s:0:0|t %s", icon_E7, L["ATLAS_DDL_EXPANSION_BFA2"])
 	ATLAS_DDL_EXPANSION_SHADOWLANDS  = format("|T%s:0:0|t %s", icon_E8, L["ATLAS_DDL_EXPANSION_SHADOWLANDS"])
 	ATLAS_DDL_EXPANSION_DRAGONFLIGHT = format("|T%s:0:0|t %s", icon_E9, L["ATLAS_DDL_EXPANSION_DRAGONFLIGHT"])
+	ATLAS_DDL_EXPANSION_TWW          = format("|T%s:0:0|t %s", icon_E10, L["ATLAS_DDL_EXPANSION_TWW"])
 end
 ATLAS_DDL_TYPE               = L["ATLAS_DDL_TYPE"]
 ATLAS_DDL_TYPE_INSTANCE      = L["ATLAS_DDL_TYPE_INSTANCE"]
