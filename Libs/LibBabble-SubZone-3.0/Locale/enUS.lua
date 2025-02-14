@@ -3190,6 +3190,7 @@ lib:SetBaseTranslations
 	["Karazan Chess"] = "Karazan Chess",
 	["Karazhan"] = "Karazhan",
 	["Karazhan Catacombs"] = "Karazhan Catacombs",
+	["Karazhan Crypts"] = "Karazhan Crypts",
 	["Kargath"] = "Kargath",
 	["Kargathar Proving Grounds"] = "Kargathar Proving Grounds",
 	["Kargathia Keep"] = "Kargathia Keep",

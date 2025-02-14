@@ -1,8 +1,9 @@
 # Changelog
 
-## 3.5.0 -
+## 3.5.0 - February 13, 2025
 ### Added
-- Retail: Added The War Within maps
+- Retail: Added The War Within maps, with the same caveats as Dragonflight and Shadowlands maps
+- Classic Era: Added a Karazhan Crypts entry (no map, because the game doesn't have a minimap for it)
 
 ## 3.4.3 - January 28, 2025
 ### Changed

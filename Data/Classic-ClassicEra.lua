@@ -1223,6 +1223,27 @@ db.AtlasMaps = {
 		{ WHIT.." 6) "..Atlas_GetBossName("Diathorus the Seeker") },
 		{ WHIT.." 7) "..Atlas_GetBossName("Hellscream's Phantom") },
 	},
+	CL_KarazhanCrypts = {
+		ZoneName = { BZ["Karazhan Crypts"] },
+		Location = { BZ["Deadwind Pass"] },
+		LevelRange = "60",
+		PlayerLimit = { 5 },
+		ActivityID = { 2, 1693 },
+		Module = "Atlas_ClassicWoW",
+		{ WHIT.." 1) "..Atlas_GetBossName("The Warden") },
+		{ WHIT.." 2) "..Atlas_GetBossName("The Failed Apprentice") },
+		{ WHIT..INDENT..Atlas_GetBossName("Kaigy Maryla") },
+		{ WHIT..INDENT..Atlas_GetBossName("Sairuh Maryla") },
+		{ WHIT..INDENT..Atlas_GetBossName("Barian Maryla") },
+		{ WHIT.." 3) "..Atlas_GetBossName("Opera of Malediction") },
+		{ WHIT..INDENT..Atlas_GetBossName("Goblin Gang") },
+		{ WHIT..INDENT..Atlas_GetBossName("Trizivast") },
+		{ WHIT.." 4) "..Atlas_GetBossName("Harbinger of Sin") },
+		{ WHIT.." 5) "..Atlas_GetBossName("Creeping Malison") },
+		{ WHIT.." 6) "..Atlas_GetBossName("Kharon")..ALC["L-Parenthesis"]..ALC["Summon"]..ALC["R-Parenthesis"] },
+		{ WHIT.." 7) "..Atlas_GetBossName("Unk'omon")..ALC["L-Parenthesis"]..ALC["Summon"]..ALC["R-Parenthesis"] },
+		{ WHIT.." 8) "..Atlas_GetBossName("Dark Rider")..ALC["L-Parenthesis"]..ALC["Summon"]..ALC["R-Parenthesis"] },
+	},
 	CL_StormCliffs = {
 		ZoneName = { BZ["Storm Cliffs"] },
 		Location = { BZ["Azshara"] },
@@ -1840,6 +1861,12 @@ if (isSoD) then
 	tinsert(db.DropDownLayouts[ATLAS_DDL_LEVEL][ATLAS_DDL_LEVEL_40TO60], "CL_DemonFallCanyon");
 	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_5], "CL_DemonFallCanyon");
 	tinsert(db.DropDownLayouts[ATLAS_DDL_TYPE][ATLAS_DDL_TYPE_INSTANCE], "CL_DemonFallCanyon");
+
+	tinsert(db.DropDownLayouts[ATLAS_DDL_CONTINENT][ATLAS_DDL_CONTINENT_EASTERN], "CL_KarazhanCrypts");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_EXPANSION][ATLAS_DDL_EXPANSION_OLD], "CL_KarazhanCrypts");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_LEVEL][ATLAS_DDL_LEVEL_40TO60], "CL_KarazhanCrypts");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_5], "CL_KarazhanCrypts");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_TYPE][ATLAS_DDL_TYPE_INSTANCE], "CL_KarazhanCrypts");
 
 	tinsert(db.DropDownLayouts[ATLAS_DDL_CONTINENT][ATLAS_DDL_CONTINENT_KALIMDOR], "CL_StormCliffs");
 	tinsert(db.DropDownLayouts[ATLAS_DDL_EXPANSION][ATLAS_DDL_EXPANSION_OLD], "CL_StormCliffs");
