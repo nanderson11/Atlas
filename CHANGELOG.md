@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.5.1 - February 18, 2025
+### Changed
+- Cataclysm: Update TOC to 4.4.2
+- Retail and Cataclysm: Re-enabled instance journal button for Dragon Soul, End Time, Well of Eternity and Hour of Twilight
+
 ## 3.5.0 - February 13, 2025
 ### Added
 - Retail: Added The War Within maps, with the same caveats as Dragonflight and Shadowlands maps

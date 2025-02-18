@@ -207,7 +207,7 @@ db.AtlasMaps = {
 		Acronym = L["CoT-DS"],
 		PlayerLimit = { 10, 25 },
 		WorldMapID = 410,
-		--JournalInstanceID = 187,
+		JournalInstanceID = 187,
 		Module = "Atlas_Cataclysm",
 		NextMap = "CoTDragonSoulB",
 		{ BLUE.." A) "..ALC["Entrance"],                                                                                   10001 },
@@ -248,7 +248,7 @@ db.AtlasMaps = {
 		Acronym = L["CoT-DS"],
 		PlayerLimit = { 10, 25 },
 		WorldMapID = 410,
-		--JournalInstanceID = 187,
+		JournalInstanceID = 187,
 		Module = "Atlas_Cataclysm",
 		PrevMap = "CoTDragonSoulA",
 		NextMap = "CoTDragonSoulC",
@@ -288,7 +288,7 @@ db.AtlasMaps = {
 		Acronym = L["CoT-DS"],
 		PlayerLimit = { 10, 25 },
 		WorldMapID = 410,
-		--JournalInstanceID = 187,
+		JournalInstanceID = 187,
 		Module = "Atlas_Cataclysm",
 		PrevMap = "CoTDragonSoulB",
 		{ WHIT.." 6) "..Atlas_GetBossName("Warmaster Blackhorn", 332),  332 },
@@ -325,7 +325,7 @@ db.AtlasMaps = {
 		DungeonID = 435,
 		Acronym = L["CoT-ET"],
 		WorldMapID = 401,
-		--JournalInstanceID = 184,
+		JournalInstanceID = 184,
 		Module = "Atlas_Cataclysm",
 		{ BLUE.." A) "..ALC["Entrance"],                                                                                       10001 },
 		{ GREN..INDENT..L["Alurmi"] },
@@ -350,7 +350,7 @@ db.AtlasMaps = {
 		DungeonID = 439,
 		Acronym = L["CoT-HoT"],
 		WorldMapID = 399,
-		--JournalInstanceID = 186,
+		JournalInstanceID = 186,
 		Module = "Atlas_Cataclysm",
 		{ BLUE.." A) "..ALC["Entrance"],                                                                                          10001 },
 		{ GREN..INDENT..L["Thrall"] },
@@ -370,7 +370,7 @@ db.AtlasMaps = {
 		DungeonID = 437,
 		Acronym = L["CoT-WoE"],
 		WorldMapID = 398,
-		--JournalInstanceID = 185,
+		JournalInstanceID = 185,
 		Module = "Atlas_Cataclysm",
 		{ BLUE.." A) "..ALC["Entrance"],                                   10001 },
 		{ GREN..INDENT..L["Alurmi"] },
@@ -1265,8 +1265,8 @@ db.SubZoneData = {
 ]]
 db.OutdoorZoneToAtlas = {
 	[BZ["Burning Steppes"]] = "BlackrockMountainEnt", -- Classic WoW, Catalysm, Draenor
-	[BZ["Searing Gorge"]] = "BlackrockMountainEnt",  -- Classic WoW, Catalysm, Draenor
-	[BZ["Tanaris"]] = "CavernsOfTimeEnt",            -- Burning Crusade, WoLTK, Catalysm
+	[BZ["Searing Gorge"]] = "BlackrockMountainEnt", -- Classic WoW, Catalysm, Draenor
+	[BZ["Tanaris"]] = "CavernsOfTimeEnt",          -- Burning Crusade, WoLTK, Catalysm
 	[BZ["Tol Barad"]] = "BaradinHold",
 	[BZ["The Dragon Wastes"]] = "CoTDragonSoulA",
 	[BZ["Mount Hyjal"]] = "Firelands",
