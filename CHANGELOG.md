@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.5.2 - February 25, 2025
+### Changed
+- Retail: Added category and group to TOC
+- Retail: Update TOC to 11.1.0
+### Fixed
+- Retail: Fixed error when sorting by level
+
 ## 3.5.1 - February 18, 2025
 ### Changed
 - Cataclysm: Update TOC to 4.4.2

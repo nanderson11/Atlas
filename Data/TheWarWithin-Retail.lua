@@ -397,7 +397,7 @@ db.DropDownLayouts = {
 		},
 	},
 	[ATLAS_DDL_LEVEL] = {
-		[ATLAS_DDL_LEVEL_60TO70] = {
+		[ATLAS_DDL_LEVEL_70TO80] = {
 			"TheRookery",
 			"TheStonevault",
 			"PrioryoftheSacredFlame",

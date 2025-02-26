@@ -1,4 +1,5 @@
-## Interface: 110007
+## Interface: 110100
+
 ## Title: Atlas
 ## Title-deDE: Atlas
 ## Title-esES: Atlas
@@ -9,6 +10,7 @@
 ## Title-ruRU: Atlas
 ## Title-zhCN: Atlas
 ## Title-zhTW: Atlas
+
 ## Notes: Instance Map Browser
 ## Notes-deDE: Instanzkarten-Browser
 ## Notes-esES: Navegador de Mapas de Mazmorras
@@ -19,8 +21,22 @@
 ## Notes-ruRU: Обозреватель подземелий
 ## Notes-zhCN: |cff00CC33副本地图浏览器|r
 ## Notes-zhTW: |cff00CC33Atlas 地圖集主程式|r
+
+## Category-enUS: Map
+## Category-deDE: Karte
+## Category-esES: Mapa
+## Category-esMX: Mapa
+## Category-frFR: Carte
+## Category-itIT: Mappa
+## Category-koKR: 지도
+## Category-ptBR: Mapa
+## Category-ruRU: Карта
+## Category-zhCN: 地图
+## Category-zhTW: 地圖
+
 ## Author: nanderson11
 ## Version: @project-version@
+## Group: Atlas
 ## X-Website: https://github.com/nanderson11/Atlas
 ## X-Category: Map
 ## X-License: GPLv2
