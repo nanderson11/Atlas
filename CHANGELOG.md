@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.6.0 - March 5, 2025
+### Added
+- Retail: Added Operation: Floodgate map
+- Retail: Added Liberation of Undermine map
+
 ## 3.5.2 - February 25, 2025
 ### Changed
 - Retail: Added category and group to TOC

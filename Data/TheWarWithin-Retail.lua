@@ -180,6 +180,35 @@ db.AtlasMaps = {
 		{ WHIT.." 3) "..Atlas_GetBossName("The Coaglamation", 2600),       2600 },
 		{ WHIT.." 4) "..Atlas_GetBossName("Izo, the Grand Splicer", 2596), 2596 },
 	},
+	OperationFloodgateA = {
+		ZoneName = { BZ["Operation: Floodgate"]..ALC["MapA"] },
+		Location = { BZ["Ringing Deeps"] },
+		DungeonID = 2791,
+		DungeonHeroicID = 2812,
+		DungeonMythicID = 2793,
+		WorldMapID = 2387,
+		JournalInstanceID = 1298,
+		Module = "Atlas_TheWarWithin",
+		NextMap = "OperationFloodgateB",
+		{ WHIT.." 1) "..Atlas_GetBossName("Big M.O.M.M.A.", 2648),         2648 },
+		{ WHIT..INDENT..Atlas_GetBossName("Darkfuse Mechadrone", 2648, 2), 2648 },
+		{ WHIT.." 2) "..Atlas_GetBossName("Demolition Duo", 2649),         2649 },
+		{ WHIT..INDENT..Atlas_GetBossName("Keeza Quickfuse", 2649, 1),     2649 },
+		{ WHIT..INDENT..Atlas_GetBossName("Bront", 2649, 2),               2649 },
+		{ WHIT.." 3) "..Atlas_GetBossName("Swampface", 2650),              2650 },
+	},
+	OperationFloodgateB = {
+		ZoneName = { BZ["Operation: Floodgate"]..ALC["MapB"] },
+		Location = { BZ["Ringing Deeps"] },
+		DungeonID = 2791,
+		DungeonHeroicID = 2812,
+		DungeonMythicID = 2793,
+		WorldMapID = 2388,
+		JournalInstanceID = 1298,
+		PrevMap = "OperationFloodgateA",
+		Module = "Atlas_TheWarWithin",
+		{ WHIT.." 4) "..Atlas_GetBossName("Geezle Gigazap", 2651), 2651 },
+	},
 	NerubarPalace = {
 		ZoneName = { BZ["Nerub-ar Palace"] },
 		Location = { BZ["Azj-Kahet"] },
@@ -215,6 +244,45 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Caustic Skitterer", 2602, 6),          2602 },
 		{ WHIT..INDENT..Atlas_GetBossName("Summoned Acolyte", 2602, 7),           2602 },
 		{ WHIT..INDENT..Atlas_GetBossName("Gloom Hatchling", 2602, 8),            2602 },
+	},
+	LiberationofUndermine = {
+		ZoneName = { BZ["Liberation of Undermine"] },
+		Location = { BZ["Undermine"] },
+		DungeonID = 2779,
+		--DungeonHeroicID = ,
+		--DungeonMythicID = ,
+		WorldMapID = 2406,
+		JournalInstanceID = 1296,
+		Module = "Atlas_TheWarWithin",
+		{ WHIT.." 1) "..Atlas_GetBossName("Vexie and the Geargrinders", 2639), 2639 },
+		{ WHIT..INDENT..Atlas_GetBossName("The Geargrinder", 2639, 1),         2639 },
+		{ WHIT..INDENT..Atlas_GetBossName("Vexie Fullthrottle", 2639, 2),      2639 },
+		{ WHIT..INDENT..Atlas_GetBossName("Geargrinder Biker", 2639, 3),       2639 },
+		{ WHIT..INDENT..Atlas_GetBossName("Pit Mechanic", 2639, 4),            2639 },
+		{ WHIT..INDENT..Atlas_GetBossName("Support Rig", 2639, 5),             2639 },
+		{ WHIT.." 2) "..Atlas_GetBossName("Cauldron of Carnage", 2640),        2640 },
+		{ WHIT..INDENT..Atlas_GetBossName("Flarendo the Furious", 2640, 1),    2640 },
+		{ WHIT..INDENT..Atlas_GetBossName("Torq the Tempest", 2640, 2),        2640 },
+		{ WHIT.." 3) "..Atlas_GetBossName("Rik Reverb", 2641),                 2641 },
+		{ WHIT..INDENT..Atlas_GetBossName("Amplifier", 2641, 2),               2641 },
+		{ WHIT.." 4) "..Atlas_GetBossName("Stix Bunkjunker", 2642),            2642 },
+		{ WHIT..INDENT..Atlas_GetBossName("Scrap Shooter", 2642, 2),           2642 },
+		{ WHIT..INDENT..Atlas_GetBossName("Junkyard Hyena", 2642, 3),          2642 },
+		{ WHIT..INDENT..Atlas_GetBossName("Territorial Bombshell", 2642, 4),   2642 },
+		{ WHIT.." 5) "..Atlas_GetBossName("Sprocketmonger Lockenstock", 2653), 2653 },
+		{ WHIT..INDENT..Atlas_GetBossName("Beam Turret", 2653, 2),             2653 },
+		{ WHIT..INDENT..Atlas_GetBossName("Rocket Launcher", 2653, 3),         2653 },
+		{ WHIT..INDENT..Atlas_GetBossName("Mega Magnet", 2653, 4),             2653 },
+		{ WHIT..INDENT..Atlas_GetBossName("Void Turret", 2653, 5),             2653 },
+		{ WHIT..INDENT..Atlas_GetBossName("Void Launcher", 2653, 6),           2653 },
+		{ WHIT.." 6) "..Atlas_GetBossName("The One-Armed Bandit", 2644),       2644 },
+		{ WHIT..INDENT..Atlas_GetBossName("Reel Assistant", 2644, 2),          2644 },
+		{ WHIT.." 7) "..Atlas_GetBossName("Mug'Zee, Heads of Security", 2645), 2645 },
+		{ WHIT..INDENT..Atlas_GetBossName("Unstable Crawler Mine", 2645, 2),   2645 },
+		{ WHIT..INDENT..Atlas_GetBossName("Gallagio Goon", 2645, 3),           2645 },
+		{ WHIT..INDENT..Atlas_GetBossName("Volunteer Rocketeer", 2645, 4),     2645 },
+		{ WHIT..INDENT..Atlas_GetBossName("Mk II Electro Shocker", 2645, 5),   2645 },
+		{ WHIT.." 8) "..Atlas_GetBossName("Chrome King Gallywix", 2646),       2646 },
 	},
 }
 
@@ -264,6 +332,14 @@ db.AtlasMaps_NPC_DB = {
 		{ 3, 2600, 256, 424 },
 		{ 4, 2596, 256, 457 },
 	},
+	OperationFloodgateA = {
+		{ 1, 2648, 93,  309 },
+		{ 2, 2649, 351, 349 },
+		{ 3, 2650, 251, 373 },
+	},
+	OperationFloodgateB = {
+		{ 4, 2651, 359, 407 },
+	},
 	NerubarPalace = {
 		{ 1, 2607, 369, 142 },
 		{ 2, 2611, 367, 314 },
@@ -273,6 +349,16 @@ db.AtlasMaps_NPC_DB = {
 		{ 6, 2601, 138, 313 },
 		{ 7, 2608, 187, 323 },
 		{ 8, 2602, 137, 376 },
+	},
+	LiberationofUndermine = {
+		{ 1, 2639, 164, 228 },
+		{ 2, 2640, 183, 141 },
+		{ 3, 2641, 112, 142 },
+		{ 4, 2642, 219, 339 },
+		{ 5, 2653, 91,  335 },
+		{ 6, 2644, 402, 226 },
+		{ 7, 2645, 437, 287 },
+		{ 8, 2646, 437, 374 },
 	},
 }
 
@@ -343,7 +429,8 @@ db.InstToEntMatches = {
 }
 
 db.MapSeries = {
-
+	["OperationFloodgateA"] = { "OperationFloodgateA", "OperationFloodgateB" },
+	["OperationFloodgateB"] = { "OperationFloodgateA", "OperationFloodgateB" },
 }
 
 db.SubZoneAssoc = {
@@ -380,7 +467,10 @@ db.DropDownLayouts = {
 			"DarkflameCleft",
 			"TheDawnbreaker",
 			"CityofThreads",
+			"OperationFloodgateA",
+			"OperationFloodgateB",
 			"NerubarPalace",
+			"LiberationofUndermine",
 		}
 	},
 	[ATLAS_DDL_EXPANSION] = {
@@ -393,7 +483,10 @@ db.DropDownLayouts = {
 			"DarkflameCleft",
 			"TheDawnbreaker",
 			"CityofThreads",
+			"OperationFloodgateA",
+			"OperationFloodgateB",
 			"NerubarPalace",
+			"LiberationofUndermine",
 		},
 	},
 	[ATLAS_DDL_LEVEL] = {
@@ -406,7 +499,10 @@ db.DropDownLayouts = {
 			"DarkflameCleft",
 			"TheDawnbreaker",
 			"CityofThreads",
+			"OperationFloodgateA",
+			"OperationFloodgateB",
 			"NerubarPalace",
+			"LiberationofUndermine",
 		},
 	},
 	[ATLAS_DDL_PARTYSIZE] = {
@@ -419,12 +515,16 @@ db.DropDownLayouts = {
 			"DarkflameCleft",
 			"TheDawnbreaker",
 			"CityofThreads",
+			"OperationFloodgateA",
+			"OperationFloodgateB",
 		},
 		[ATLAS_DDL_PARTYSIZE_10] = {
 			"NerubarPalace",
+			"LiberationofUndermine",
 		},
 		[ATLAS_DDL_PARTYSIZE_20TO40] = {
 			"NerubarPalace",
+			"LiberationofUndermine",
 		},
 	},
 	[ATLAS_DDL_TYPE] = {
@@ -437,7 +537,10 @@ db.DropDownLayouts = {
 			"DarkflameCleft",
 			"TheDawnbreaker",
 			"CityofThreads",
+			"OperationFloodgateA",
+			"OperationFloodgateB",
 			"NerubarPalace",
+			"LiberationofUndermine",
 		},
 	},
 }
