@@ -338,7 +338,7 @@ db.AtlasMaps_NPC_DB = {
 		{ 3, 2650, 251, 373 },
 	},
 	OperationFloodgateB = {
-		{ 4, 2651, 359, 407 },
+		{ 4, 2651, 363, 408 },
 	},
 	NerubarPalace = {
 		{ 1, 2607, 369, 142 },
