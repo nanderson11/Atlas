@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.6.1 - April 8, 2025
+### Changed
+- Classic Era: Update TOC to 1.15.7
+### Fixed
+- Retail: Operation: Floodgate B map is a bit less blurry
+
 ## 3.6.0 - March 5, 2025
 ### Added
 - Retail: Added Operation: Floodgate map
