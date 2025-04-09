@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.6.2 -
+### Fixed
+- Retail: Fix adventure journal map for Blackrock Spire
+
 ## 3.6.1 - April 8, 2025
 ### Changed
 - Classic Era: Update TOC to 1.15.7
