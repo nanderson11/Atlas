@@ -134,7 +134,8 @@
 		"UIDropDownMenu_Initialize",
 		"UIDropDownMenu_ClearAll",
 		"RED_FONT_COLOR_CODE",
-		"ID"
+		"ID",
+		"C_Seasons"
 	],
 	"Lua.runtime.version": "Lua 5.1",
 	"Lua.runtime.builtin": {

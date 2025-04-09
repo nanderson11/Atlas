@@ -34,7 +34,7 @@ local ALIL = Atlas_IngameLocales
 local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
 local addon = Atlas:NewModule(private.module_name)
 
-isSoD = false;
+local isSoD = false;
 if (C_Seasons.GetActiveSeason() == 2) then
 	isSoD = true;
 end

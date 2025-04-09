@@ -246,7 +246,7 @@ function Atlas_EncounterJournal_LootCallback(itemID)
 
 	for i, item in ipairs(scrollFrame.buttons) do
 		if item.itemID == itemID and item:IsShown() then
-			Atlas_EncounterJournal_SetLootButton(item, item.index);
+			Atlas_EncounterJournal_SetLootButton(item);
 		end
 	end
 end

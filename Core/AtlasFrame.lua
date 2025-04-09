@@ -337,7 +337,7 @@ function AtlasFrameDropDown_Initialize()
 				local dungeon_difficulty = addon:GetDungeonDifficultyColor(minRecLevelM)
 				colortag = addon:FormatColor(dungeon_difficulty)
 			elseif (addon.db.profile.options.dropdowns.color and AtlasMaps[v].MinLevel) then
-				if (type(AtlasMaps[v].MinLevel) == number) then
+				if (type(AtlasMaps[v].MinLevel) == "number") then
 					local dungeon_difficulty = addon:GetDungeonDifficultyColor(AtlasMaps[v].MinLevel)
 					colortag = addon:FormatColor(dungeon_difficulty)
 				else
