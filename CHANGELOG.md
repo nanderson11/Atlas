@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.6.3 - April 27, 2025
+### Fixed
+- Cataclysm: Add missing classic UBRS
+
 ## 3.6.2 - April 22, 2025
 ### Changed
 - Retail: Update TOC to 11.1.5
