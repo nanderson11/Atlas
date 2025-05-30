@@ -1340,8 +1340,7 @@ function Atlas_MapRefresh(mapID)
 		AtlasFrame.AdventureJournal.instanceID = base.JournalInstanceID
 		AtlasFrameLarge.AdventureJournal.instanceID = base.JournalInstanceID
 		AtlasFrameSmall.AdventureJournal.instanceID = base.JournalInstanceID
-		-- Classic only has Cataclysm encounters available
-		if ((WoWClassic and base.Module == "Atlas_Cataclysm") or WoWRetail) then
+		if (WoWClassic or WoWRetail) then
 			AtlasFrameAdventureJournalButton:Show()
 			AtlasFrameLargeAdventureJournalButton:Show()
 			AtlasFrameSmallAdventureJournalButton:Show()

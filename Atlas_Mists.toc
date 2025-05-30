@@ -1,4 +1,4 @@
-## Interface: 40402
+## Interface: 50500
 ## Title: Atlas
 ## Title-deDE: Atlas
 ## Title-esES: Atlas
@@ -63,3 +63,4 @@ Data\Classic-Classic.lua
 Data\BurningCrusade-Classic.lua
 Data\WrathoftheLichKing-Classic.lua
 Data\Cataclysm-Classic.lua
+Data\MistsofPandaria-Classic.lua
