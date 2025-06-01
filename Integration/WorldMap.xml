@@ -35,7 +35,6 @@
 					<Anchors>
 						<Anchor point="TOPLEFT" x="2" y="-4"/>
 					</Anchors>
-					<Color r="1" g="1" b="1" a="1"/>
 				</Texture>
 			</Layer>
 			<Layer level="ARTWORK">
@@ -46,7 +45,7 @@
 					</Anchors>
 				</Texture>
 			</Layer>
-			<Layer level="ARTWORK">
+			<Layer level="OVERLAY">
 				<Texture parentKey="Border" file="Interface\Minimap\MiniMap-TrackingBorder">
 					<Size x="54" y="54"/>
 					<Anchors>
@@ -55,12 +54,7 @@
 				</Texture>
 			</Layer>
 		</Layers>
-		<HighlightTexture name="$parentHightlight" file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD">
-			<Size x="48" y="48"/>
-			<Anchors>
-				<Anchor point="CENTER"/>
-			</Anchors>
-		</HighlightTexture>
+		<HighlightTexture name="$parentHightlight" file="Interface\Minimap\UI-Minimap-ZoomButton-Highlight" alphaMode="ADD" />
 		<Scripts>
 			<OnLoad method="OnLoad"/>
 			<OnEnter method="OnEnter"/>
