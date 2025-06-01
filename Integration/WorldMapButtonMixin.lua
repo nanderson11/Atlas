@@ -53,7 +53,7 @@ function AtlasWorldMapButtonMixin:OnLoad()
 end
 
 function AtlasWorldMapButtonMixin:OnEnter()
-	GameTooltip:SetOwner(self, "ANCHOR_TOPRIGHT")
+	GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
 	GameTooltip:SetText(ATLAS_CLICK_TO_OPEN, nil, nil, nil, nil, 1)
 end
 
