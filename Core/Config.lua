@@ -277,23 +277,12 @@ local function getOptions()
 									end,
 									set = function(info, value)
 										addon.db.profile.options.worldMapButton = value
-										if (WoWClassicEra) then
-											if (addon.db.profile.options.worldMapButton) then
-												AtlasToggleFromWorldMap:Show()
-											else
-												AtlasToggleFromWorldMap:Hide()
-											end
+										if (addon.db.profile.options.worldMapButton) then
+											addon.WorldMap.Button:Show()
 										else
-											if (addon.db.profile.options.worldMapButton) then
-												addon.WorldMap.Button:Show()
-											else
-												addon.WorldMap.Button:Hide()
-											end
+											addon.WorldMap.Button:Hide()
 										end
 									end,
-									--[[									disabled = function()
-										if WoWClassicEra then return true end
-									end,]]
 								},
 
 								autoSelect = {

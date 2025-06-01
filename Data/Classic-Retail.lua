@@ -2028,7 +2028,7 @@ local wowversion = select(4, GetBuildInfo())
 if wowversion > 40000 and wowversion < 60000 then
 	tinsert(db.DropDownLayouts[ATLAS_DDL_CONTINENT][ATLAS_DDL_CONTINENT_EASTERN], "CL_BlackrockSpireUpper");
 	tinsert(db.DropDownLayouts[ATLAS_DDL_EXPANSION][ATLAS_DDL_EXPANSION_OLD], "CL_BlackrockSpireUpper");
-	tinsert(db.DropDownLayouts[ATLAS_DDL_LEVEL][ATLAS_DDL_LEVEL_40TO60], "CL_BlackrockSpireUpper");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_LEVEL][ATLAS_DDL_LEVEL_10TO30], "CL_BlackrockSpireUpper");
 	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_5], "CL_BlackrockSpireUpper");
 	tinsert(db.DropDownLayouts[ATLAS_DDL_TYPE][ATLAS_DDL_TYPE_INSTANCE], "CL_BlackrockSpireUpper");
 end

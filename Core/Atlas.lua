@@ -1893,18 +1893,10 @@ local function initialization()
 	end
 
 	check_Modules()
-	if (WoWClassicEra) then
-		if (profile.options.worldMapButton) then
-			AtlasToggleFromWorldMap:Show()
-		else
-			AtlasToggleFromWorldMap:Hide()
-		end
+	if (profile.options.worldMapButton) then
+		addon.WorldMap.Button:Show()
 	else
-		if (profile.options.worldMapButton) then
-			addon.WorldMap.Button:Show()
-		else
-			addon.WorldMap.Button:Hide()
-		end
+		addon.WorldMap.Button:Hide()
 	end
 end
 
@@ -1954,17 +1946,9 @@ function addon:Refresh()
 	AtlasFrame:SetClampedToScreen(profile.options.frames.clamp)
 	AtlasFrameLarge:SetClampedToScreen(profile.options.frames.clamp)
 	AtlasFrameSmall:SetClampedToScreen(profile.options.frames.clamp)
-	if (WoWClassicEra) then
-		if (profile.options.worldMapButton) then
-			AtlasToggleFromWorldMap:Show()
-		else
-			AtlasToggleFromWorldMap:Hide()
-		end
+	if (profile.options.worldMapButton) then
+		addon.WorldMap.Button:Show()
 	else
-		if (profile.options.worldMapButton) then
-			addon.WorldMap.Button:Show()
-		else
-			addon.WorldMap.Button:Hide()
-		end
+		addon.WorldMap.Button:Hide()
 	end
 end

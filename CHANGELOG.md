@@ -3,8 +3,11 @@
 ## 3.6.4 - May 31, 2025
 An update for Mists Classic is in progress, and will likely come out the day before Mists prepatch, since it isn't currently compatible with Cata Classic.
 ### Changed
-- Updated lib: Krowi's World Map Buttons
+- Classic Era: Switched world map button to Krowi's World Map Buttons
+- Updated lib Krowi's World Map Buttons
 ### Fixed
+- Cataclysm: Fixed error from adding classic UBRS
+- Cataclysm: Fixed error from TBC instances being in the WOTLK data
 - Retail: Fixed world map button highlight
 
 ## 3.6.3 - April 27, 2025
