@@ -6,6 +6,7 @@ An update for Mists Classic is in progress, and will likely come out the day bef
 - Classic Era: Switched world map button to Krowi's World Map Buttons
 - Updated lib Krowi's World Map Buttons
 ### Fixed
+- Cataclysm: Fixed error from adding classic UBRS
 - Retail: Fixed world map button highlight
 
 ## 3.6.3 - April 27, 2025
