@@ -1486,15 +1486,19 @@ db.DropDownLayouts = {
 			"CoTBlackMorass", -- Burning Crusade
 			"CavernsOfTimeEnt", -- Burning Crusade
 			"CoTOldHillsbrad", -- Burning Crusade
+			"GruulsLair",    -- Burning Crusade
 			"HellfireCitadelEnt", -- Burning Crusade
+			"HCMagtheridonsLair", -- Burning Crusade
 			"HCBloodFurnace", -- Burning Crusade
 			"HCHellfireRamparts", -- Burning Crusade
 			"HCTheShatteredHalls", -- Burning Crusade
 			"MagistersTerrace", -- Burning Crusade
+			"SunwellPlateau", -- Burning Crusade
 			"TempestKeepEnt", -- Burning Crusade
 			"TempestKeepArcatraz", -- Burning Crusade
 			"TempestKeepBotanica", -- Burning Crusade
 			"TempestKeepMechanar", -- Burning Crusade
+			"TempestKeepTheEye", -- Burning Crusade
 			"BlackTempleBasement", -- Burning Crusade
 			"BlackTempleStart", -- Burning Crusade
 			"BlackTempleTop", -- Burning Crusade

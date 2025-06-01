@@ -7,6 +7,7 @@ An update for Mists Classic is in progress, and will likely come out the day bef
 - Updated lib Krowi's World Map Buttons
 ### Fixed
 - Cataclysm: Fixed error from adding classic UBRS
+- Cataclysm: Fixed error from TBC instances being in the WOTLK data
 - Retail: Fixed world map button highlight
 
 ## 3.6.3 - April 27, 2025

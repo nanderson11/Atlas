@@ -2193,12 +2193,7 @@ db.DropDownLayouts = {
 			"FHHallsOfReflection", -- WrathoftheLichKing
 			"FHPitOfSaron",  -- WrathoftheLichKing
 			"FHTheForgeOfSouls", -- WrathoftheLichKing
-			"GruulsLair",    -- WrathoftheLichKing
 			"Gundrak",       -- WrathoftheLichKing
-			"HellfireCitadelEnt", -- WrathoftheLichKing
-			"HCMagtheridonsLair", -- WrathoftheLichKing
-			"SunwellPlateau", -- WrathoftheLichKing
-			"TempestKeepTheEye", -- WrathoftheLichKing
 			"TheNexus",      -- WrathoftheLichKing
 			"TheOculus",     -- WrathoftheLichKing
 			"TrialOfTheChampion", -- WrathoftheLichKing
