@@ -1,8 +1,4 @@
-# Atlas, a World of Warcraft instance map browser
-Forked and maintained in 2024 by nanderson11
-Copyright 2005 ~ 2010 - Dan Gilbert <dan.b.gilbert at gmail dot com>
-Copyright 2010 - Lothaer <lothayer at gmail dot com>, Atlas Team
-Copyright 2011 ~ 2020 - Arith Hsu, Atlas Team <atlas.addon at gmail dot com>
+Updated and maintained fork of [Atlas](https://www.curseforge.com/wow/addons/atlas). This fork includes all maps from previous expansion map packs, as well as new SL, DF and TWW maps.
 
 ## About Atlas
 Atlas is an addon for World of Warcraft that includes detailed maps for every
@@ -33,17 +29,7 @@ detailed drop and item information for every encounter, but there are also
 packages for quest information and major city maps as well.
 
 ## Map Packs
-Atlas currently places the maps in separate addons. You need these map packs to view any maps.
-You can get these map packs at the links below.
-
-* [Battle for Azeroth](https://www.curseforge.com/wow/addons/atlas-battle-for-azeroth)
-* [Legion](https://www.curseforge.com/wow/addons/atlas-legion)
-* [Warlords of Draenor](https://www.curseforge.com/wow/addons/atlas-worldofdraenor)
-* [Mist of Pandaria](https://www.curseforge.com/wow/addons/atlas-mistsofpandaria)
-* [Cataclysm](https://www.curseforge.com/wow/addons/atlas-cataclysm)
-* [Wrath of the Lich King](https://www.curseforge.com/wow/addons/atlas-wrathofthelichking)
-* [Burning Crusade](https://www.curseforge.com/wow/addons/atlas-burningcrusade)
-* [Classic](https://www.curseforge.com/wow/addons/atlas-classicwow)
+Atlas (fork) v3 now includes the maps from the expansion addons (like Atlas Legion). It's recommended you disable or uninstall the expansion addons to prevent errors. The non-expansion addons (like Atlas Battlegrounds) aren't included directly, but will continue to work if you have those addons installed.
 
 ## Past Contributors
 * Arith - Project Manager
