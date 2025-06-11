@@ -1923,13 +1923,8 @@ function addon:OnEnable()
 		registerModule(k)
 	end
 
-	-- On Classic and Classic Era, fix the close button size
-	if (WoWClassicEra or WoWClassic) then
-		AtlasFrameCloseButton:SetSize(32, 32);
-		AtlasFrameCloseButton:SetPoint("TOPRIGHT", "AtlasFrame", "TOPRIGHT", 5, -7);
-		AtlasFrameLockButton:SetSize(32, 32);
-		AtlasFrameLockButton:SetPoint("RIGHT", "AtlasFrameCloseButton", "LEFT", 10, 0);
-	end
+	AtlasFrame:SetPortraitToAsset("Interface\\WorldMap\\WorldMap-Icon");
+	AtlasFrame:SetTitle(ATLAS_TITLE_VERSION);
 end
 
 function addon:Refresh()

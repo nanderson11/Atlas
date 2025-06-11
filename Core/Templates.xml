@@ -125,7 +125,7 @@
 		<Anchors>
 			<Anchor point="RIGHT" relativeTo="$parentCloseButton" relativePoint="LEFT">
 				<Offset>
-					<AbsDimension x="5" y="1"/>
+					<AbsDimension x="10"/>
 				</Offset>
 			</Anchor>
 		</Anchors>
