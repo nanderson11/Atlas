@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.6.6 - June 21, 2025
+### Fixed
+- Retail: Fix errors when LibBabble-SubZone is installed as a separate library
+
 ## 3.6.5 - June 17, 2025
 ### Changed
 - Retail: Update TOC to 11.1.7
