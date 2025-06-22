@@ -303,6 +303,14 @@ local function bossButtonUpdate(button, encounterID, instanceID, b_iconImage, mo
 			if (iconImage) then
 				SetPortraitTextureFromCreatureDisplayID(button.bgImage, displayInfo)
 			end
+			-- if (only if you're currently in this instance) then
+			-- will have to fire this function when you zone in or out, it doesn't seem to fire now
+			-- also todo: set defeated text in tooltip on button in tooltip on boss list, and change the boss pic in the list to an x
+			local complete = C_EncounterJournal.IsEncounterComplete(encounterID);
+			button.DefeatedOpacity:SetShown(complete);
+			button.DefeatedOverlay:SetShown(complete);
+			button.bgImage:SetDesaturation(complete and 0.7 or 0);
+			--end
 		end
 	end
 end
