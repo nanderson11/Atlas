@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.7.0 - June 30, 2025
+### Added
+- Cata/MoP: Added support for Mists of Pandaria Classic
+
 ## 3.6.6 - June 21, 2025
 ### Fixed
 - Retail: Fix errors when LibBabble-SubZone is installed as a separate library
