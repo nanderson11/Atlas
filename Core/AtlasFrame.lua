@@ -60,15 +60,11 @@ function addon:UpdateLock()
 	if (addon.db.profile.options.frames.lock) then
 		AtlasLockNorm:SetTexture(btnLckUp)
 		AtlasLockPush:SetTexture(btnLckDn)
-		AtlasLockLargeNorm:SetTexture(btnLckUp)
-		AtlasLockLargePush:SetTexture(btnLckDn)
 		AtlasLockSmallNorm:SetTexture(btnLckUp)
 		AtlasLockSmallPush:SetTexture(btnLckDn)
 	else
 		AtlasLockNorm:SetTexture(btnUlckUp)
 		AtlasLockPush:SetTexture(btnUnlckDn)
-		AtlasLockLargeNorm:SetTexture(btnUlckUp)
-		AtlasLockLargePush:SetTexture(btnUnlckDn)
 		AtlasLockSmallNorm:SetTexture(btnUlckUp)
 		AtlasLockSmallPush:SetTexture(btnUnlckDn)
 	end
@@ -85,7 +81,6 @@ end
 function addon:UpdateAlpha()
 	local alpha = addon.db.profile.options.frames.alpha
 	AtlasFrame:SetAlpha(alpha)
-	AtlasFrameLarge:SetAlpha(alpha)
 	AtlasFrameSmall:SetAlpha(alpha)
 end
 
@@ -93,7 +88,6 @@ end
 function addon:UpdateScale()
 	local scale = addon.db.profile.options.frames.scale
 	AtlasFrame:SetScale(scale)
-	AtlasFrameLarge:SetScale(scale)
 	AtlasFrameSmall:SetScale(scale)
 end
 
@@ -112,26 +106,6 @@ function addon:PrevNextMap_OnClick(self)
 				Atlas_Refresh()
 				return
 			end
-		end
-	end
-end
-
-function addon:ToggleWindowSize()
-	if (AtlasFrameLarge:IsVisible()) then
-		if (ATLAS_SMALLFRAME_SELECTED) then
-			AtlasFrameLarge:Hide()
-			AtlasFrameSmall:Show()
-		else
-			AtlasFrameLarge:Hide()
-			AtlasFrame:Show()
-		end
-	else
-		if (ATLAS_SMALLFRAME_SELECTED) then
-			AtlasFrameSmall:Hide()
-			AtlasFrameLarge:Show()
-		else
-			AtlasFrame:Hide()
-			AtlasFrameLarge:Show()
 		end
 	end
 end
@@ -267,10 +241,6 @@ function AtlasFrameDropDownType_OnShow()
 	LibDD:UIDropDownMenu_SetSelectedID(AtlasFrameDropDownType, id)
 	LibDD:UIDropDownMenu_SetWidth(AtlasFrameDropDownType, ATLAS_DROPDOWN_WIDTH)
 
-	LibDD:UIDropDownMenu_Initialize(AtlasFrameLargeDropDownType, AtlasFrameDropDownType_Initialize)
-	LibDD:UIDropDownMenu_SetSelectedID(AtlasFrameLargeDropDownType, id)
-	LibDD:UIDropDownMenu_SetWidth(AtlasFrameLargeDropDownType, ATLAS_DROPDOWN_WIDTH)
-
 	LibDD:UIDropDownMenu_Initialize(AtlasFrameSmallDropDownType, AtlasFrameDropDownType_Initialize)
 	LibDD:UIDropDownMenu_SetSelectedID(AtlasFrameSmallDropDownType, id)
 	LibDD:UIDropDownMenu_SetWidth(AtlasFrameSmallDropDownType, ATLAS_DROPDOWN_WIDTH)
@@ -283,7 +253,6 @@ function AtlasFrameDropDownType_OnClick(self)
 	local profile = addon.db.profile
 
 	LibDD:UIDropDownMenu_SetSelectedID(AtlasFrameDropDownType, typeID)
-	LibDD:UIDropDownMenu_SetSelectedID(AtlasFrameLargeDropDownType, typeID)
 	LibDD:UIDropDownMenu_SetSelectedID(AtlasFrameSmallDropDownType, typeID)
 
 	profile.options.dropdowns.module = typeID
@@ -484,10 +453,6 @@ function AtlasFrameDropDown_OnShow()
 	LibDD:UIDropDownMenu_SetSelectedID(AtlasFrameDropDown, id)
 	LibDD:UIDropDownMenu_SetWidth(AtlasFrameDropDown, ATLAS_DROPDOWN_WIDTH)
 
-	LibDD:UIDropDownMenu_Initialize(AtlasFrameLargeDropDown, AtlasFrameDropDown_Initialize)
-	LibDD:UIDropDownMenu_SetSelectedID(AtlasFrameLargeDropDown, id)
-	LibDD:UIDropDownMenu_SetWidth(AtlasFrameLargeDropDown, ATLAS_DROPDOWN_WIDTH)
-
 	LibDD:UIDropDownMenu_Initialize(AtlasFrameSmallDropDown, AtlasFrameDropDown_Initialize)
 	LibDD:UIDropDownMenu_SetSelectedID(AtlasFrameSmallDropDown, id)
 	LibDD:UIDropDownMenu_SetWidth(AtlasFrameSmallDropDown, ATLAS_DROPDOWN_WIDTH)
@@ -500,7 +465,6 @@ function AtlasFrameDropDown_OnClick(self)
 	local profile = addon.db.profile
 	local typeID = profile.options.dropdowns.module
 	LibDD:UIDropDownMenu_SetSelectedID(AtlasFrameDropDown, mapID)
-	LibDD:UIDropDownMenu_SetSelectedID(AtlasFrameLargeDropDown, mapID)
 	LibDD:UIDropDownMenu_SetSelectedID(AtlasFrameSmallDropDown, mapID)
 
 	profile.options.dropdowns.zone = mapID
@@ -556,8 +520,4 @@ function AtlasSwitchDD_Sort(a, b)
 	local aa = AtlasMaps[a].ZoneName[1]
 	local bb = AtlasMaps[b].ZoneName[1]
 	return aa < bb
-end
-
-function AtlasFrameLarge_OnShow(self)
-	addon:MapAddNPCButtonLarge()
 end

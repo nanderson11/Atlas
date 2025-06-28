@@ -3,6 +3,8 @@
 ## 3.7.0 - June 30, 2025
 ### Added
 - Cata/MoP: Added support for Mists of Pandaria Classic
+### Removed
+- Removed the slightly larger map option available for some of the Legion instances
 
 ## 3.6.6 - June 21, 2025
 ### Fixed

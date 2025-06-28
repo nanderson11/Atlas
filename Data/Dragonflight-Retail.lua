@@ -363,7 +363,7 @@ db.AtlasMaps = {
 --[[ /////////////////////////////////////////
  Atlas Map NPC Description Data
  zoneID = {
-	{ ID or letter mark, encounterID or customizedID, x, y, x_largeMap, y_largeMap, color of the letter mark };
+	{ ID or letter mark, encounterID or customizedID, x, y, color of the letter mark };
 	{ "A", 10001, 241, 460 };
 	{ 1, 1694, 373, 339 };
  };

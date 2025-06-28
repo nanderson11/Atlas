@@ -273,34 +273,6 @@
 			</Anchors>
 		</HighlightTexture>
 	</Button>
-	<Button name="AtlasFrameSizeUpButtonTemplate" hidden="true" virtual="true">
-		<Size x="32" y="32"/>
-		<Anchors>
-			<Anchor point="TOPLEFT" relativeTo="$parent" x="505" y="-76"/>
-		</Anchors>
-		<Scripts>
-			<OnClick>
-				Atlas:ToggleWindowSize()
-			</OnClick>
-		</Scripts>
-		<NormalTexture file="Interface\Buttons\UI-Panel-BiggerButton-Up"/>
-		<PushedTexture file="Interface\Buttons\UI-Panel-BiggerButton-Down"/>
-		<HighlightTexture file="Interface\Buttons\UI-Panel-MinimizeButton-Highlight" alphaMode="ADD"/>
-	</Button>
-	<Button name="AtlasFrameSizeDownButtonTemplate" virtual="true">
-		<Size x="32" y="32"/>
-		<Anchors>
-			<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPRIGHT" x="-28" y="-77"/>
-		</Anchors>
-		<Scripts>
-			<OnClick>
-				Atlas:ToggleWindowSize()
-			</OnClick>
-		</Scripts>
-		<NormalTexture file="Interface\Buttons\UI-Panel-SmallerButton-Up"/>
-		<PushedTexture file="Interface\Buttons\UI-Panel-SmallerButton-Down"/>
-		<HighlightTexture file="Interface\Buttons\UI-Panel-MinimizeButton-Highlight" alphaMode="ADD"/>
-	</Button>
 	<Button name="AtlasFrameCollapseButtonTemplate" virtual="true">
 		<Size x="32" y="32"/>
 		<Anchors>
