@@ -1748,6 +1748,8 @@ function addon:OnEnable()
 
 	AtlasFrame:SetPortraitToAsset("Interface\\WorldMap\\WorldMap-Icon");
 	AtlasFrame:SetTitle(ATLAS_TITLE_VERSION);
+	AtlasFrameSmall:SetPortraitToAsset("Interface\\WorldMap\\WorldMap-Icon");
+	AtlasFrameSmall:SetTitle(ATLAS_TITLE_VERSION);
 end
 
 function addon:Refresh()

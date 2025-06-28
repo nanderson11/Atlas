@@ -106,18 +106,6 @@
 	</Frame>
 
 	<!-- Atlas Frame Button Templates -->
-	<Button name="AtlasFrameCloseButtonTemplate" inherits="UIPanelCloseButton" virtual="true">
-		<Size>
-			<AbsDimension x="20" y="20"/>
-		</Size>
-		<Anchors>
-			<Anchor point="TOPRIGHT" relativeTo="$parent" relativePoint="TOPRIGHT">
-				<Offset>
-					<AbsDimension x="-2" y="-14"/>
-				</Offset>
-			</Anchor>
-		</Anchors>
-	</Button>
 	<Button name="AtlasFrameLockButtonTemplate" virtual="true">
 		<Size>
 			<AbsDimension x="32" y="32"/>
