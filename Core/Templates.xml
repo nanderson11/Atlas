@@ -201,12 +201,7 @@
 		</Scripts>
 		<NormalTexture file="Interface\AddOns\Atlas\Images\UI-WorldMap-Icon"/>
 		<PushedTexture file="Interface\AddOns\Atlas\Images\UI-WorldMap-Icon"/>
-		<HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD" setAllPoints="true">
-			<Size x="48" y="48"/>
-			<Anchors>
-				<Anchor point="CENTER"/>
-			</Anchors>
-		</HighlightTexture>
+		<HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD" />
 	</Button>
 	<Button name="AtlasFrameAdventureJournalButtonTemplate" virtual="true" hidden="true" toplevel="true">
 		<Size x="32" y="32"/>
@@ -226,12 +221,7 @@
 		</Scripts>
 		<NormalTexture file="Interface\AddOns\Atlas\Images\UI-EJ-PortraitIcon"/>
 		<PushedTexture file="Interface\AddOns\Atlas\Images\UI-EJ-PortraitIcon"/>
-		<HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD" setAllPoints="true">
-			<Size x="48" y="48"/>
-			<Anchors>
-				<Anchor point="CENTER"/>
-			</Anchors>
-		</HighlightTexture>
+		<HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD" />
 	</Button>
 	<Button name="AtlasFrameAtlasLootButtonTemplate" virtual="true" hidden="true" toplevel="true">
 		<Size x="22" y="22"/>
@@ -254,12 +244,7 @@
 			</OnLeave>
 		</Scripts>
 		<NormalTexture file="Interface\Icons\INV_Box_01"/>
-		<HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD" setAllPoints="true">
-			<Size x="48" y="48"/>
-			<Anchors>
-				<Anchor point="CENTER"/>
-			</Anchors>
-		</HighlightTexture>
+		<HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD" />
 	</Button>
 	<Button name="AtlasFrameCollapseButtonTemplate" virtual="true">
 		<Size x="32" y="32"/>
