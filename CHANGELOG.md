@@ -3,6 +3,7 @@
 ## 3.7.0 - June 30, 2025
 ### Added
 - Cata/MoP: Added support for Mists of Pandaria Classic
+- Classic Era: Added a Scarlet Enclave entry (no map)
 ### Removed
 - Removed the slightly larger map option available for some of the Legion instances
 

@@ -4807,6 +4807,7 @@ lib:SetBaseTranslations
 	["Scarab Terrace"] = "Scarab Terrace",
 	["Scarlet Base Camp"] = "Scarlet Base Camp",
 	["Scarlet Encampment"] = "Scarlet Encampment",
+	["Scarlet Enclave"] = "Scarlet Enclave",
 	["Scarlet Halls"] = "Scarlet Halls",
 	["Scarlet Halls, Dark Ranger"] = "Scarlet Halls, Dark Ranger",
 	["Scarlet Hold"] = "Scarlet Hold",
