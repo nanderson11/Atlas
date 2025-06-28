@@ -81,19 +81,14 @@ function addon:EnableAtlasLootButton(base, zoneID)
 			AtlasFrame.AtlasLoot.instanceID = base.JournalInstanceID;
 			AtlasFrame.AtlasLoot.AtlasMapID = zoneID;
 			AtlasFrame.AtlasLoot.AtlasModule = base.Module or base.ALModule;
-			AtlasFrameLarge.AtlasLoot.instanceID = base.JournalInstanceID;
-			AtlasFrameLarge.AtlasLoot.AtlasMapID = zoneID;
-			AtlasFrameLarge.AtlasLoot.AtlasModule = base.Module or base.ALModule;
 			AtlasFrameSmall.AtlasLoot.instanceID = base.JournalInstanceID;
 			AtlasFrameSmall.AtlasLoot.AtlasMapID = zoneID;
 			AtlasFrameSmall.AtlasLoot.AtlasModule = base.Module or base.ALModule;
 
 			AtlasFrameAtlasLootButton:Show();
-			AtlasFrameLargeAtlasLootButton:Show();
 			AtlasFrameSmallAtlasLootButton:Show();
 		else
 			AtlasFrameAtlasLootButton:Hide();
-			AtlasFrameLargeAtlasLootButton:Hide();
 			AtlasFrameSmallAtlasLootButton:Hide();
 		end
 	end

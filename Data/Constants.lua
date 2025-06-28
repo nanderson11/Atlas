@@ -136,7 +136,6 @@ Syntax:
 		WorldMapID = uiMapID,
 		DungeonLevel = level number of the dungeon map series,
 		Module = "map module name",
-		LargeMap = "large map's prefix name",
 		PrevMap = "previous map name",
 		NextMap = "next map name",
 		{ "list entry 1", id of list entry or encounter id },

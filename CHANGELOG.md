@@ -1,5 +1,20 @@
 # Changelog
 
+## 3.7.0 - June 30, 2025
+### Added
+- Cata/MoP: Added support for Mists of Pandaria Classic
+- Classic Era: Added a Scarlet Enclave entry (no map)
+### Removed
+- Removed the slightly larger map option available for some of the Legion instances
+
+## 3.6.6 - June 21, 2025
+### Fixed
+- Retail: Fix errors when LibBabble-SubZone is installed as a separate library
+
+## 3.6.5 - June 17, 2025
+### Changed
+- Retail: Update TOC to 11.1.7
+
 ## 3.6.4 - May 31, 2025
 An update for Mists Classic is in progress, and will likely come out the day before Mists prepatch, since it isn't currently compatible with Cata Classic.
 ### Changed
