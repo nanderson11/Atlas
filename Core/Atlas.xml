@@ -46,7 +46,7 @@
 				<Anchors>
 					<Anchor point="TOPRIGHT">
 						<Offset>
-							<AbsDimension x="-25" y="-44" />
+							<AbsDimension x="-25" y="-39" />
 						</Offset>
 					</Anchor>
 				</Anchors>
@@ -76,7 +76,7 @@
 				<Anchors>
 					<Anchor point="BOTTOMRIGHT">
 						<Offset>
-							<AbsDimension x="-210" y="0"/>
+							<AbsDimension x="-210" y="4"/>
 						</Offset>
 					</Anchor>
 				</Anchors>
@@ -147,12 +147,12 @@
 			</Button>
 			<ScrollFrame name="AtlasScrollBar" inherits="FauxScrollFrameTemplate">
 				<Size>
-					<AbsDimension x="460" y="392" />
+					<AbsDimension x="470" y="392" />
 				</Size>
 				<Anchors>
 					<Anchor point="TOPLEFT">
 						<Offset>
-							<AbsDimension x="530" y="-201"/>
+							<AbsDimension x="520" y="-192"/>
 						</Offset>
 					</Anchor>
 				</Anchors>
@@ -187,14 +187,49 @@
 					</Layer>
 				</Layers>
 			</Frame>
-			<Frame inherits="InsetFrameTemplate">
+			<Button name="$parentMapZoneName" parentKey="ZoneName" inherits="AtlasFrameMapZoneNameTemplate"/>
+			<Button name="$parentNextMapButton" parentKey="NextMap" inherits="AtlasFrameNextMapButtonTemplate"/>
+			<Button name="$parentPrevMapButton" parentKey="PrevMap" inherits="AtlasFramePrevMapButtonTemplate"/>
+			<Button name="$parentAdventureJournalMapButton" parentKey="AdventureJournalMap" inherits="AtlasFrameAdventureJournalMapButtonTemplate"/>
+			<Button name="$parentAdventureJournalButton" parentKey="AdventureJournal" inherits="AtlasFrameAdventureJournalButtonTemplate"/>
+			<Button name="$parentAtlasLootButton" parentKey="AtlasLoot" inherits="AtlasFrameAtlasLootButtonTemplate"/>
+			<Button name="$parentCollapseButton" inherits="AtlasFrameCollapseButtonTemplate"/>
+			<Frame name="$parentMapFrame" parentKey="MapFrame" inherits="InsetFrameTemplate">
+				<Size x="519" y="519"/>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+						<Offset>
+							<AbsDimension x="2" y="-74"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="AtlasMap">
+							<Size x="512" y="512"/>
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+									<Offset>
+										<AbsDimension x="4" y="-4"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</Texture>
+					</Layer>
+					<Layer level="OVERLAY">
+						<FontString name="AtlasMap_Text" inherits="GameFontHighlightLarge" justifyH="CENTER" justifyV="MIDDLE">
+						</FontString>
+					</Layer>
+				</Layers>
+			</Frame>
+			<Frame name="$parentTopInset" inherits="InsetFrameTemplate">
 				<Size>
-					<AbsDimension x="450" y="110"/>
+					<AbsDimension x="496" y="110"/>
 				</Size>
 				<Anchors>
-					<Anchor point="TOPLEFT">
+					<Anchor point="TOPLEFT" relativeTo="$parentMapFrame" relativePoint="TOPRIGHT">
 						<Offset>
-							<AbsDimension x="546" y="-84"/>
+							<AbsDimension x="0" y="0"/>
 						</Offset>
 					</Anchor>
 				</Anchors>
@@ -203,7 +238,7 @@
 						<Anchors>
 							<Anchor point="TOPLEFT">
 								<Offset>
-									<AbsDimension x="0" y="0"/>
+									<AbsDimension x="15" y="-7"/>
 								</Offset>
 							</Anchor>
 						</Anchors>
@@ -269,40 +304,17 @@
 					</Frame>
 				</Frames>
 			</Frame>
-			<Button name="$parentMapZoneName" parentKey="ZoneName" inherits="AtlasFrameMapZoneNameTemplate"/>
-			<Button name="$parentNextMapButton" parentKey="NextMap" inherits="AtlasFrameNextMapButtonTemplate"/>
-			<Button name="$parentPrevMapButton" parentKey="PrevMap" inherits="AtlasFramePrevMapButtonTemplate"/>
-			<Button name="$parentAdventureJournalMapButton" parentKey="AdventureJournalMap" inherits="AtlasFrameAdventureJournalMapButtonTemplate"/>
-			<Button name="$parentAdventureJournalButton" parentKey="AdventureJournal" inherits="AtlasFrameAdventureJournalButtonTemplate"/>
-			<Button name="$parentAtlasLootButton" parentKey="AtlasLoot" inherits="AtlasFrameAtlasLootButtonTemplate"/>
-			<Button name="$parentCollapseButton" inherits="AtlasFrameCollapseButtonTemplate"/>
-			<Frame name="$parentMapFrame" parentKey="MapFrame" inherits="InsetFrameTemplate">
-				<Size x="512" y="512"/>
+			<Frame inherits="InsetFrameTemplate">
+				<Size>
+					<AbsDimension x="496" y="409"/>
+				</Size>
 				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+					<Anchor point="TOPLEFT" relativeTo="$parentTopInset" relativePoint="BOTTOMLEFT">
 						<Offset>
-							<AbsDimension x="18" y="-84"/>
+							<AbsDimension x="0" y="0"/>
 						</Offset>
 					</Anchor>
 				</Anchors>
-				<Layers>
-					<Layer level="BACKGROUND">
-						<Texture name="AtlasMap">
-							<Size x="512" y="512"/>
-							<Anchors>
-								<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
-									<Offset>
-										<AbsDimension x="0" y="0"/>
-									</Offset>
-								</Anchor>
-							</Anchors>
-						</Texture>
-					</Layer>
-					<Layer level="OVERLAY">
-						<FontString name="AtlasMap_Text" inherits="GameFontHighlightLarge" justifyH="CENTER" justifyV="MIDDLE">
-						</FontString>
-					</Layer>
-				</Layers>
 			</Frame>
 		</Frames>
 		<Scripts>
@@ -347,7 +359,7 @@
 
 	<Frame name="AtlasFrameSmall" toplevel="true" enableMouse="true" movable="true" parent="UIParent" hidden="true" inherits="PortraitFrameTemplate">
 		<Size>
-			<AbsDimension x="534" y="631"/>
+			<AbsDimension x="526" y="631"/>
 		</Size>
 		<Anchors>
  			<Anchor point="TOPLEFT">
@@ -370,11 +382,11 @@
 			<Button name="$parentExpandButton" inherits="AtlasFrameExpandButtonTemplate"/>
 			<Button name="$parentMapZoneName" parentKey="ZoneName" inherits="AtlasFrameMapZoneNameTemplate"/>
 			<Frame name="$parentMapFrame" parentKey="MapFrame" inherits="InsetFrameTemplate">
-				<Size x="512" y="512"/>
+				<Size x="519" y="519"/>
 				<Anchors>
 					<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
 						<Offset>
-							<AbsDimension x="18" y="-84"/>
+							<AbsDimension x="2" y="-74"/>
 						</Offset>
 					</Anchor>
 				</Anchors>
@@ -385,7 +397,7 @@
 							<Anchors>
 								<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
 									<Offset>
-										<AbsDimension x="0" y="0"/>
+										<AbsDimension x="4" y="-4"/>
 									</Offset>
 								</Anchor>
 							</Anchors>

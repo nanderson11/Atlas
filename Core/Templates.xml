@@ -162,7 +162,7 @@
 		<Anchors>
 			<Anchor point="TOPLEFT" relativeTo="$parent">
 				<Offset>
-					<AbsDimension x="502" y="-599"/>
+					<AbsDimension x="494" y="-595"/>
 				</Offset>
 			</Anchor>
 		</Anchors>
@@ -174,7 +174,7 @@
 		<Anchors>
 			<Anchor point="TOPLEFT" relativeTo="$parent">
 				<Offset>
-					<AbsDimension x="13" y="-599"/>
+					<AbsDimension x="2" y="-595"/>
 				</Offset>
 			</Anchor>
 		</Anchors>
@@ -254,7 +254,7 @@
 	<Button name="AtlasFrameCollapseButtonTemplate" virtual="true">
 		<Size x="32" y="32"/>
 		<Anchors>
-			<Anchor point="TOPLEFT" relativeTo="$parent" x="505" y="-570"/>
+			<Anchor point="TOPLEFT" relativeTo="$parent" x="495" y="-565"/>
 		</Anchors>
 		<Scripts>
 			<OnClick>
@@ -275,7 +275,7 @@
 	<Button name="AtlasFrameExpandButtonTemplate" virtual="true">
 		<Size x="32" y="32"/>
 		<Anchors>
-			<Anchor point="TOPLEFT" relativeTo="$parent" x="505" y="-570"/>
+			<Anchor point="TOPLEFT" relativeTo="$parent" x="495" y="-565"/>
 		</Anchors>
 		<Scripts>
 			<OnClick>
