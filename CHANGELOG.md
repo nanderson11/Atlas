@@ -4,6 +4,8 @@
 ### Added
 - Cata/MoP: Added support for Mists of Pandaria Classic
 - Classic Era: Added a Scarlet Enclave entry (no map)
+### Changed
+- Changed to the native frame template, which is mostly only noticeable on retail
 ### Removed
 - Removed the slightly larger map option available for some of the Legion instances
 
