@@ -1755,6 +1755,7 @@ function addon:OnEnable()
 	if (WoWRetail) then
 		AtlasFrameLockButton:SetPoint("RIGHT", "AtlasFrameCloseButton", "LEFT", 6, 0)
 		AtlasFrameSmallLockButton:SetPoint("RIGHT", "AtlasFrameSmallCloseButton", "LEFT", 6, 0)
+		AtlasScrollBar:SetPoint("TOPLEFT", 516, -202)
 	end
 end
 

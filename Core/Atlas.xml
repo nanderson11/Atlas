@@ -147,12 +147,12 @@
 			</Button>
 			<ScrollFrame name="AtlasScrollBar" inherits="FauxScrollFrameTemplate">
 				<Size>
-					<AbsDimension x="470" y="392" />
+					<AbsDimension x="470" y="382" />
 				</Size>
 				<Anchors>
 					<Anchor point="TOPLEFT">
 						<Offset>
-							<AbsDimension x="520" y="-192"/>
+							<AbsDimension x="520" y="-202"/>
 						</Offset>
 					</Anchor>
 				</Anchors>
@@ -224,7 +224,7 @@
 			</Frame>
 			<Frame name="$parentTopInset" inherits="InsetFrameTemplate">
 				<Size>
-					<AbsDimension x="496" y="110"/>
+					<AbsDimension x="496" y="120"/>
 				</Size>
 				<Anchors>
 					<Anchor point="TOPLEFT" relativeTo="$parentMapFrame" relativePoint="TOPRIGHT">
@@ -238,7 +238,7 @@
 						<Anchors>
 							<Anchor point="TOPLEFT">
 								<Offset>
-									<AbsDimension x="15" y="-7"/>
+									<AbsDimension x="15" y="-5"/>
 								</Offset>
 							</Anchor>
 						</Anchors>
@@ -306,7 +306,7 @@
 			</Frame>
 			<Frame inherits="InsetFrameTemplate">
 				<Size>
-					<AbsDimension x="496" y="409"/>
+					<AbsDimension x="496" y="399"/>
 				</Size>
 				<Anchors>
 					<Anchor point="TOPLEFT" relativeTo="$parentTopInset" relativePoint="BOTTOMLEFT">
