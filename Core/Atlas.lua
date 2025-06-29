@@ -1750,6 +1750,16 @@ function addon:OnEnable()
 	AtlasFrame:SetTitle(ATLAS_TITLE_VERSION);
 	AtlasFrameSmall:SetPortraitToAsset("Interface\\WorldMap\\WorldMap-Icon");
 	AtlasFrameSmall:SetTitle(ATLAS_TITLE_VERSION);
+
+	-- On retail, adjust the position and level of the lock and options buttons
+	if (WoWRetail) then
+		AtlasFrameLockButton:SetFrameLevel(999)
+		AtlasFrameSmallLockButton:SetFrameLevel(999)
+		AtlasFrameLockButton:SetPoint("RIGHT", "AtlasFrameCloseButton", "LEFT", 6, 0)
+		AtlasFrameSmallLockButton:SetPoint("RIGHT", "AtlasFrameSmallCloseButton", "LEFT", 6, 0)
+		AtlasFrameOptionsButton:SetFrameLevel(999)
+		AtlasFrameSmallOptionsButton:SetFrameLevel(999)
+	end
 end
 
 function addon:Refresh()
