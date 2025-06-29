@@ -776,11 +776,11 @@ function addon:MapAddNPCButton()
 				bossButtonUpdate(bossbuttonS, info_id, base.JournalInstanceID, true)
 
 				bossbutton:ClearAllPoints()
-				bossbutton:SetPoint("TOPLEFT", "AtlasFrame", "TOPLEFT", info_x + 18 - 15, -info_y - 82 + 15)
+				bossbutton:SetPoint("TOPLEFT", "AtlasFrame", "TOPLEFT", info_x + 4 - 15, -info_y - 76 + 15)
 				bossbutton:Show()
 
 				bossbuttonS:ClearAllPoints()
-				bossbuttonS:SetPoint("TOPLEFT", "AtlasFrameSmall", "TOPLEFT", info_x + 18 - 15, -info_y - 82 + 15)
+				bossbuttonS:SetPoint("TOPLEFT", "AtlasFrameSmall", "TOPLEFT", info_x + 4 - 15, -info_y - 76 + 15)
 				bossbuttonS:Show()
 
 				bossindex = bossindex + 1
@@ -817,7 +817,7 @@ function addon:MapAddNPCButton()
 						end
 					end
 				end
-				button:SetPoint("TOPLEFT", "AtlasFrame", "TOPLEFT", info_x + 18, -info_y - 82)
+				button:SetPoint("TOPLEFT", "AtlasFrame", "TOPLEFT", info_x + 4, -info_y - 76)
 				button:SetID(info_id)
 				-- TODO: This will set a letter texture on non-encounter buttons but it should be formatted text because there are some things that are not just letters
 				--       The other problem is just restricting it to new maps
@@ -829,7 +829,7 @@ function addon:MapAddNPCButton()
 					end
 				end ]]
 				button:Show()
-				buttonS:SetPoint("TOPLEFT", "AtlasFrameSmall", "TOPLEFT", info_x + 18, -info_y - 82)
+				buttonS:SetPoint("TOPLEFT", "AtlasFrameSmall", "TOPLEFT", info_x + 4, -info_y - 76)
 				buttonS:SetID(info_id)
 				buttonS:Show()
 
