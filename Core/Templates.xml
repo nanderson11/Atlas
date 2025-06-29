@@ -106,7 +106,7 @@
 	</Frame>
 
 	<!-- Atlas Frame Button Templates -->
-	<Button name="AtlasFrameLockButtonTemplate" virtual="true">
+	<Button name="AtlasFrameLockButtonTemplate" virtual="true" frameStrata="HIGH">
 		<Size>
 			<AbsDimension x="32" y="32"/>
 		</Size>
@@ -131,7 +131,7 @@
 		</Scripts>
 		<HighlightTexture file="Interface\Buttons\UI-Panel-MinimizeButton-Highlight" alphaMode="ADD"/>
 	</Button>
-	<Button name="AtlasFrameOptionsButtonTemplate" virtual="true" inherits="UIPanelButtonTemplate" text="ATLAS_OPTIONS_BUTTON">
+	<Button name="AtlasFrameOptionsButtonTemplate" virtual="true" inherits="UIPanelButtonTemplate" text="ATLAS_OPTIONS_BUTTON" frameStrata="HIGH">
 		<Size>
 			<AbsDimension x="80" y="20"/>
 		</Size>
