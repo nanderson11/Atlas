@@ -597,7 +597,6 @@ function Atlas_OnLoad(self)
 
 	-- Allows Atlas to be closed with the Escape key
 	tinsert(UISpecialFrames, "AtlasFrame")
-	tinsert(UISpecialFrames, "AtlasFrameLarge")
 	tinsert(UISpecialFrames, "AtlasFrameSmall")
 
 	-- Dragging involves some special registration
@@ -785,11 +784,11 @@ function addon:MapAddNPCButton()
 				bossButtonUpdate(bossbuttonS, info_id, base.JournalInstanceID, true)
 
 				bossbutton:ClearAllPoints()
-				bossbutton:SetPoint("TOPLEFT", "AtlasFrame", "TOPLEFT", info_x + 18 - 15, -info_y - 82 + 15)
+				bossbutton:SetPoint("TOPLEFT", "AtlasFrame", "TOPLEFT", info_x + 4 - 15, -info_y - 76 + 15)
 				bossbutton:Show()
 
 				bossbuttonS:ClearAllPoints()
-				bossbuttonS:SetPoint("TOPLEFT", "AtlasFrameSmall", "TOPLEFT", info_x + 18 - 15, -info_y - 82 + 15)
+				bossbuttonS:SetPoint("TOPLEFT", "AtlasFrameSmall", "TOPLEFT", info_x + 4 - 15, -info_y - 76 + 15)
 				bossbuttonS:Show()
 
 				bossindex = bossindex + 1
@@ -826,7 +825,7 @@ function addon:MapAddNPCButton()
 						end
 					end
 				end
-				button:SetPoint("TOPLEFT", "AtlasFrame", "TOPLEFT", info_x + 18, -info_y - 82)
+				button:SetPoint("TOPLEFT", "AtlasFrame", "TOPLEFT", info_x + 4, -info_y - 76)
 				button:SetID(info_id)
 				-- TODO: This will set a letter texture on non-encounter buttons but it should be formatted text because there are some things that are not just letters
 				--       The other problem is just restricting it to new maps
@@ -838,7 +837,7 @@ function addon:MapAddNPCButton()
 					end
 				end ]]
 				button:Show()
-				buttonS:SetPoint("TOPLEFT", "AtlasFrameSmall", "TOPLEFT", info_x + 18, -info_y - 82)
+				buttonS:SetPoint("TOPLEFT", "AtlasFrameSmall", "TOPLEFT", info_x + 4, -info_y - 76)
 				buttonS:SetID(info_id)
 				buttonS:Show()
 
@@ -880,143 +879,6 @@ function addon:MapAddNPCButton()
 		buttonS:Hide()
 		buttonindexS = buttonindexS + 1
 		buttonS = _G["AtlasMapNPCButtonS"..buttonindexS]
-	end
-end
-
-function addon:MapAddNPCButtonLarge()
-	local zoneID = ATLAS_DROPDOWNS[profile.options.dropdowns.module][profile.options.dropdowns.zone]
-	local t = AtlasMaps_NPC_DB[zoneID]
-	local data = AtlasMaps
-	local base = data[zoneID]
-	local i = 1
-	local bossindex = 1
-	local buttonindex = 1
-	local bossbutton, button
-
-	if (t) then
-		while (t[i]) do
-			local info_mark     = t[i][1]
-			local info_id       = t[i][2]
-			local info_x        = t[i][5]
-			local info_y        = t[i][6]
-			local info_colortag = t[i][7]
-
-			if (WoWRetail and info_id < 10000 and info_x and info_y and profile.options.frames.showBossPotrait) then
-				bossbutton = _G["AtlasMapBossButtonL"..bossindex]
-				if (not bossbutton) then
-					bossbutton = CreateFrame("Button", "AtlasMapBossButtonL"..bossindex, AtlasFrameLarge, "AtlasFrameBossButtonTemplate")
-				end
-				bossButtonCleanUp(bossbutton)
-				bossButtonUpdate(bossbutton, info_id, base.JournalInstanceID, true)
-				bossbutton:ClearAllPoints()
-				bossbutton:SetPoint("TOPLEFT", "AtlasFrameLarge", "TOPLEFT", info_x, -info_y - 82 + 15)
-				bossbutton:Show()
-
-				bossindex = bossindex + 1
-			elseif (info_x and info_y) then
-				button = _G["AtlasMapNPCButtonL"..buttonindex]
-				if (not button) then
-					button = CreateFrame("Button", "AtlasMapNPCButtonL"..buttonindex, AtlasFrameLarge, "AtlasMapNPCButtonTemplate")
-				end
-				local text = _G[button:GetName().."_Text"]
-				if (text) then
-					text:SetText("")
-				end
-				button.TaxiImage:SetTexture(nil)
-				button.bgImage:SetTexture(nil)
-
-				local tip_title
-				for k, v in pairs(AtlasMaps[zoneID]) do
-					if (v[2] == info_id) then
-						tip_title = v[1]
-						local _, endpos = strfind(tip_title, ") ")
-						if (endpos) then
-							button.tooltiptitle = strsub(tip_title, endpos + 1)
-						end
-						break
-					end
-				end
-
-				if (info_colortag) then
-					if (info_colortag == "Dungeon" or info_colortag == "Raid") then
-						button.bgImage:SetTexture("Interface\\MINIMAP\\"..info_colortag)
-					elseif (info_colortag == "Battlegrounds") then
-						button.bgImage:SetTexture("Interface\\MINIMAP\\Tracking\\BattleMaster")
-					elseif (info_colortag == "PvP") then
-						button.bgImage:SetAtlas("worldquest-icon-pvp-ffa", true)
-					elseif (info_colortag == "FlightMaster") then
-						button.TaxiImage:SetTexture("Interface\\MINIMAP\\Tracking\\FlightMaster")
-						button.TaxiImage:SetTexCoord(0, 1, 0, 1)
-					elseif (info_colortag == "TaxiAlliance" or info_colortag == "TaxiHorde" or info_colortag == "TaxiNeutral") then
-						button.TaxiImage:SetTexture("Interface\\AddOns\\Atlas\\Images\\POIICONS")
-						button.TaxiImage:SetTexCoord(unpack(ATLAS_TAXI_TCOORDS[info_colortag]))
-					elseif (info_colortag == "White" or
-							info_colortag == "Yellow" or
-							info_colortag == "Red" or
-							info_colortag == "Orange" or
-							info_colortag == "Green" or
-							info_colortag == "Purple" or
-							info_colortag == "Blue") then
-						if (not text) then
-							text = button:CreateFontString(button:GetName().."_Text", "OVERLAY", "AtlasSystemFont_Large_Outline_Thick")
-						end
-						text:SetPoint("CENTER", button, "CENTER", 0, 0)
-						text:SetText(info_mark)
-						text:SetTextColor(unpack(ATLAS_FONT_COLORS[info_colortag]))
-						button:SetWidth(20)
-						button:SetHeight(20)
-					elseif (info_colortag == "HUNTER" or
-							info_colortag == "WARLOCK" or
-							info_colortag == "PRIEST" or
-							info_colortag == "PALADIN" or
-							info_colortag == "MAGE" or
-							info_colortag == "ROGUE" or
-							info_colortag == "DRUID" or
-							info_colortag == "SHAMAN" or
-							info_colortag == "WARRIOR" or
-							info_colortag == "DEATHKNIGHT" or
-							info_colortag == "MONK" or
-							info_colortag == "DEMONHUNTER") then
-						if (not text) then
-							text = button:CreateFontString(button:GetName().."_Text", "OVERLAY", "AtlasSystemFont_Large_Outline_Thick")
-						end
-						local color = RAID_CLASS_COLORS[info_colortag]
-						text:SetPoint("CENTER", button, "CENTER", 0, 0)
-						text:SetText(info_mark)
-						text:SetTextColor(color.r, color.g, color.b)
-						button:SetWidth(20)
-						button:SetHeight(20)
-					else
-						-- Do Nothing
-					end
-				end
-				button:SetPoint("TOPLEFT", "AtlasFrameLarge", "TOPLEFT", info_x + 18, -info_y - 82)
-				button:SetID(info_id)
-				button:Show()
-
-				buttonindex = buttonindex + 1
-			else
-				-- Do Nothing
-			end
-
-			i = i + 1
-		end
-	end
-
-	bossbutton = _G["AtlasMapBossButtonL"..bossindex]
-	while bossbutton do
-		bossbutton.bgImage:SetTexture(nil)
-		bossbutton:Hide()
-		bossindex = bossindex + 1
-		bossbutton = _G["AtlasMapBossButtonL"..bossindex]
-	end
-
-	button = _G["AtlasMapNPCButtonL"..buttonindex]
-	while button do
-		button.bgImage:SetTexture(nil)
-		button:Hide()
-		buttonindex = buttonindex + 1
-		button = _G["AtlasMapNPCButtonL"..buttonindex]
 	end
 end
 
@@ -1134,9 +996,6 @@ function Atlas_MapRefresh(mapID)
 
 	-- Zone Name and Acronym
 	local tName = base.ZoneName[1]
-	if (base.LargeMap) then
-		AtlasFrameLarge.ZoneName.Text:SetText(tName)
-	end
 	AtlasFrameSmall.ZoneName.Text:SetText(tName)
 	AtlasFrame.ZoneName.Text:SetText(tName)
 	if (profile.options.frames.showAcronyms and base.Acronym ~= nil) then
@@ -1346,23 +1205,18 @@ function Atlas_MapRefresh(mapID)
 	-- Check if Journal Encounter Instance is available
 	if (base.JournalInstanceID) then
 		AtlasFrame.AdventureJournal.instanceID = base.JournalInstanceID
-		AtlasFrameLarge.AdventureJournal.instanceID = base.JournalInstanceID
 		AtlasFrameSmall.AdventureJournal.instanceID = base.JournalInstanceID
-		-- Classic only has Cataclysm encounters available
-		if ((WoWClassic and base.Module == "Atlas_Cataclysm") or WoWRetail) then
+		if (WoWClassic or WoWRetail) then
 			AtlasFrameAdventureJournalButton:Show()
-			AtlasFrameLargeAdventureJournalButton:Show()
 			AtlasFrameSmallAdventureJournalButton:Show()
 			Atlas_SetEJBackground(base.JournalInstanceID)
 		else
 			AtlasFrameAdventureJournalButton:Hide()
-			AtlasFrameLargeAdventureJournalButton:Hide()
 			AtlasFrameSmallAdventureJournalButton:Hide()
 			Atlas_SetEJBackground()
 		end
 	else
 		AtlasFrameAdventureJournalButton:Hide()
-		AtlasFrameLargeAdventureJournalButton:Hide()
 		AtlasFrameSmallAdventureJournalButton:Hide()
 		Atlas_SetEJBackground()
 	end
@@ -1370,33 +1224,22 @@ function Atlas_MapRefresh(mapID)
 	-- Check if WorldMap ID is available, if so, show the map button
 	if (base.WorldMapID) then
 		AtlasFrame.AdventureJournalMap.mapID = base.WorldMapID
-		AtlasFrameLarge.AdventureJournalMap.mapID = base.WorldMapID
 		AtlasFrameSmall.AdventureJournalMap.mapID = base.WorldMapID
 		if (WoWClassic or WoWRetail) then
 			AtlasFrameAdventureJournalMapButton:Show()
-			AtlasFrameLargeAdventureJournalMapButton:Show()
 			AtlasFrameSmallAdventureJournalMapButton:Show()
 		end
 	else
 		AtlasFrameAdventureJournalMapButton:Hide()
-		AtlasFrameLargeAdventureJournalMapButton:Hide()
 		AtlasFrameSmallAdventureJournalMapButton:Hide()
 	end
 
 	-- Check if DungeonLevel ID is available
 	if (base.DungeonLevel) then
 		AtlasFrame.AdventureJournalMap.dungeonLevel = base.DungeonLevel
-		AtlasFrameLarge.AdventureJournalMap.dungeonLevel = base.DungeonLevel
 		AtlasFrameSmall.AdventureJournalMap.dungeonLevel = base.DungeonLevel
 	end
 
-	if (base.LargeMap) then
-		AtlasFrameSizeUpButton:Show()
-		AtlasFrameSmallSizeUpButton:Show()
-	else
-		AtlasFrameSizeUpButton:Hide()
-		AtlasFrameSmallSizeUpButton:Hide()
-	end
 	-- Searching for the map path from Atlas or from plugins
 	local AtlasMapPath
 	for k, v in pairs(Atlas_CoreMapsKey) do
@@ -1442,16 +1285,8 @@ function Atlas_MapRefresh(mapID)
 		AtlasMapS_Text:Hide()
 	end
 
-	-- Large Atlas map
-	if (base.LargeMap) then
-		for i = 1, 12 do
-			_G["AtlasMapLarge"..i]:SetTexture(AtlasMapPath..zoneID.."\\"..base.LargeMap..i)
-		end
-	end
-
 	-- The boss description to be added here
 	addon:MapAddNPCButton()
-	addon:MapAddNPCButtonLarge()
 
 	-- LFG Button
 	if (WoWClassicEra and C_LFGList.IsPremadeGroupFinderEnabled() and (base.ActivityID or base.ActivityIDSoD)) then
@@ -1487,17 +1322,6 @@ function Atlas_Refresh(mapID)
 	local base = data[zoneID]
 	if (not base) then
 		return
-	end
-
-	-- Dealing with the scenario that when user is in a large map, but then the newly selected map does not have large map
-	if (not base.LargeMap and AtlasFrameLarge:IsVisible()) then
-		if (ATLAS_SMALLFRAME_SELECTED) then
-			AtlasFrameLarge:Hide()
-			AtlasFrameSmall:Show()
-		else
-			AtlasFrameLarge:Hide()
-			AtlasFrame:Show()
-		end
 	end
 
 	if WoWRetail then
@@ -1865,7 +1689,6 @@ end
 local function initialization()
 	-- Make the Atlas window go all the way to the edge of the screen, exactly
 	AtlasFrame:SetClampRectInsets(12, 0, -12, 0)
-	AtlasFrameLarge:SetClampRectInsets(12, 0, -12, 0)
 	AtlasFrameSmall:SetClampRectInsets(12, 0, -12, 0)
 
 	ATLAS_MAX_MENUITEMS = profile.options.dropdowns.maxItems or ATLAS_MAX_MENUITEMS
@@ -1884,7 +1707,6 @@ local function initialization()
 	addon:UpdateAlpha()
 	addon:UpdateScale()
 	AtlasFrame:SetClampedToScreen(profile.options.frames.clamp)
-	AtlasFrameLarge:SetClampedToScreen(profile.options.frames.clamp)
 	AtlasFrameSmall:SetClampedToScreen(profile.options.frames.clamp)
 
 	-- Make an LDB object
@@ -1932,12 +1754,16 @@ function addon:OnEnable()
 		registerModule(k)
 	end
 
-	-- On Classic and Classic Era, fix the close button size
-	if (WoWClassicEra or WoWClassic) then
-		AtlasFrameCloseButton:SetSize(32, 32);
-		AtlasFrameCloseButton:SetPoint("TOPRIGHT", "AtlasFrame", "TOPRIGHT", 5, -7);
-		AtlasFrameLockButton:SetSize(32, 32);
-		AtlasFrameLockButton:SetPoint("RIGHT", "AtlasFrameCloseButton", "LEFT", 10, 0);
+	AtlasFrame:SetPortraitToAsset("Interface\\WorldMap\\WorldMap-Icon");
+	AtlasFrame:SetTitle(ATLAS_TITLE_VERSION);
+	AtlasFrameSmall:SetPortraitToAsset("Interface\\WorldMap\\WorldMap-Icon");
+	AtlasFrameSmall:SetTitle(ATLAS_TITLE_VERSION);
+
+	-- On retail, adjust the position of the lock button
+	if (WoWRetail) then
+		AtlasFrameLockButton:SetPoint("RIGHT", "AtlasFrameCloseButton", "LEFT", 6, 0)
+		AtlasFrameSmallLockButton:SetPoint("RIGHT", "AtlasFrameSmallCloseButton", "LEFT", 6, 0)
+		AtlasScrollBar:SetPoint("TOPLEFT", 516, -202)
 	end
 end
 
@@ -1953,7 +1779,6 @@ function addon:Refresh()
 	addon:UpdateAlpha()
 	addon:UpdateScale()
 	AtlasFrame:SetClampedToScreen(profile.options.frames.clamp)
-	AtlasFrameLarge:SetClampedToScreen(profile.options.frames.clamp)
 	AtlasFrameSmall:SetClampedToScreen(profile.options.frames.clamp)
 	if (profile.options.worldMapButton) then
 		addon.WorldMap.Button:Show()

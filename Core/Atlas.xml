@@ -24,7 +24,7 @@
 -->
 
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ https://raw.githubusercontent.com/Meorawr/wow-ui-schema/main/UI.xsd">
-	<Frame name="AtlasFrame" toplevel="true" enableMouse="true" movable="true" parent="UIParent" hidden="true">
+	<Frame name="AtlasFrame" toplevel="true" enableMouse="true" movable="true" parent="UIParent" hidden="true" inherits="PortraitFrameTemplate">
 		<Size>
 			<AbsDimension x="1023" y="631"/>
 		</Size>
@@ -36,7 +36,6 @@
  			</Anchor>
  		</Anchors>
 		<Frames>
-			<Button name="$parentCloseButton" inherits="AtlasFrameCloseButtonTemplate"/>
 			<Button name="$parentLockButton" inherits="AtlasFrameLockButtonTemplate">
 				<NormalTexture name="AtlasLockNorm"/>
 				<PushedTexture name="AtlasLockPush"/>
@@ -47,7 +46,7 @@
 				<Anchors>
 					<Anchor point="TOPRIGHT">
 						<Offset>
-							<AbsDimension x="-25" y="-44" />
+							<AbsDimension x="-25" y="-39" />
 						</Offset>
 					</Anchor>
 				</Anchors>
@@ -77,7 +76,7 @@
 				<Anchors>
 					<Anchor point="BOTTOMRIGHT">
 						<Offset>
-							<AbsDimension x="-210" y="0"/>
+							<AbsDimension x="-210" y="4"/>
 						</Offset>
 					</Anchor>
 				</Anchors>
@@ -148,12 +147,12 @@
 			</Button>
 			<ScrollFrame name="AtlasScrollBar" inherits="FauxScrollFrameTemplate">
 				<Size>
-					<AbsDimension x="460" y="392" />
+					<AbsDimension x="470" y="382" />
 				</Size>
 				<Anchors>
 					<Anchor point="TOPLEFT">
 						<Offset>
-							<AbsDimension x="530" y="-201"/>
+							<AbsDimension x="520" y="-202"/>
 						</Offset>
 					</Anchor>
 				</Anchors>
@@ -188,88 +187,19 @@
 					</Layer>
 				</Layers>
 			</Frame>
-			<Frame name="AtlasText_ZoneName" inherits="AtlasHeaderTextTemplate">
-				<Anchors>
-					<Anchor point="TOPLEFT">
-						<Offset>
-							<AbsDimension x="546" y="-84"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-			</Frame>
-			<Frame name="AtlasText_Location" inherits="AtlasSubHeaderTextTemplate">
-				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="AtlasText_ZoneName" relativePoint="TOPLEFT">
-						<Offset>
-							<AbsDimension x="0" y="-20"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-			</Frame>
-			<Frame name="AtlasText_LevelRange" inherits="AtlasSubHeaderTextTemplate">
-				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="AtlasText_Location" relativePoint="TOPLEFT">
-						<Offset>
-							<AbsDimension x="0" y="-15"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-			</Frame>
-			<Frame name="AtlasText_RecommendedRange" inherits="AtlasSubHeaderTextTemplate">
-				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="AtlasText_LevelRange" relativePoint="TOPLEFT">
-						<Offset>
-							<AbsDimension x="0" y="-15"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-			</Frame>
-			<Frame name="AtlasText_MinLevel" inherits="AtlasSubHeaderTextTemplate">
-				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="AtlasText_RecommendedRange" relativePoint="TOPLEFT">
-						<Offset>
-							<AbsDimension x="0" y="-15"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-			</Frame>
-			<Frame name="AtlasText_PlayerLimit" inherits="AtlasSubHeaderTextTemplate">
-				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="AtlasText_MinLevel" relativePoint="TOPLEFT">
-						<Offset>
-							<AbsDimension x="0" y="-15"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-			</Frame>
-			<Frame name="AtlasText_MinGearLevel" inherits="AtlasSubHeaderTextTemplate">
-				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="AtlasText_PlayerLimit" relativePoint="TOPLEFT">
-						<Offset>
-							<AbsDimension x="0" y="-15"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-				<Scripts>
-					<OnEnter>
-						Atlas:DungeonMinGearLevelToolTip(self);
-					</OnEnter>
-				</Scripts>
-			</Frame>
 			<Button name="$parentMapZoneName" parentKey="ZoneName" inherits="AtlasFrameMapZoneNameTemplate"/>
 			<Button name="$parentNextMapButton" parentKey="NextMap" inherits="AtlasFrameNextMapButtonTemplate"/>
 			<Button name="$parentPrevMapButton" parentKey="PrevMap" inherits="AtlasFramePrevMapButtonTemplate"/>
 			<Button name="$parentAdventureJournalMapButton" parentKey="AdventureJournalMap" inherits="AtlasFrameAdventureJournalMapButtonTemplate"/>
 			<Button name="$parentAdventureJournalButton" parentKey="AdventureJournal" inherits="AtlasFrameAdventureJournalButtonTemplate"/>
 			<Button name="$parentAtlasLootButton" parentKey="AtlasLoot" inherits="AtlasFrameAtlasLootButtonTemplate"/>
-			<Button name="$parentSizeUpButton" inherits="AtlasFrameSizeUpButtonTemplate"/>
 			<Button name="$parentCollapseButton" inherits="AtlasFrameCollapseButtonTemplate"/>
-			<Frame name="$parentMapFrame" parentKey="MapFrame">
-				<Size x="512" y="512"/>
+			<Frame name="$parentMapFrame" parentKey="MapFrame" inherits="InsetFrameTemplate">
+				<Size x="519" y="519"/>
 				<Anchors>
 					<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
 						<Offset>
-							<AbsDimension x="18" y="-84"/>
+							<AbsDimension x="2" y="-74"/>
 						</Offset>
 					</Anchor>
 				</Anchors>
@@ -280,7 +210,7 @@
 							<Anchors>
 								<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
 									<Offset>
-										<AbsDimension x="0" y="0"/>
+										<AbsDimension x="4" y="-4"/>
 									</Offset>
 								</Anchor>
 							</Anchors>
@@ -292,68 +222,101 @@
 					</Layer>
 				</Layers>
 			</Frame>
+			<Frame name="$parentTopInset" inherits="InsetFrameTemplate">
+				<Size>
+					<AbsDimension x="496" y="120"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentMapFrame" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Frames>
+					<Frame name="AtlasText_ZoneName" inherits="AtlasHeaderTextTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT">
+								<Offset>
+									<AbsDimension x="15" y="-5"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Frame>
+					<Frame name="AtlasText_Location" inherits="AtlasSubHeaderTextTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="AtlasText_ZoneName" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="-20"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Frame>
+					<Frame name="AtlasText_LevelRange" inherits="AtlasSubHeaderTextTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="AtlasText_Location" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="-15"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Frame>
+					<Frame name="AtlasText_RecommendedRange" inherits="AtlasSubHeaderTextTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="AtlasText_LevelRange" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="-15"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Frame>
+					<Frame name="AtlasText_MinLevel" inherits="AtlasSubHeaderTextTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="AtlasText_RecommendedRange" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="-15"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Frame>
+					<Frame name="AtlasText_PlayerLimit" inherits="AtlasSubHeaderTextTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="AtlasText_MinLevel" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="-15"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Frame>
+					<Frame name="AtlasText_MinGearLevel" inherits="AtlasSubHeaderTextTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="AtlasText_PlayerLimit" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="-15"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnEnter>
+								Atlas:DungeonMinGearLevelToolTip(self);
+							</OnEnter>
+						</Scripts>
+					</Frame>
+				</Frames>
+			</Frame>
+			<Frame inherits="InsetFrameTemplate">
+				<Size>
+					<AbsDimension x="496" y="399"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTopInset" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Frame>
 		</Frames>
-		<Layers>
-			<Layer level="ARTWORK">
-				<Texture file="Interface\AddOns\Atlas\Images\AtlasFrame-TopLeft">
-					<Size>
-						<AbsDimension x="512" y="128"/>
-					</Size>
-					<Anchors>
-						<Anchor point="TOPLEFT">
-							<Offset>
-								<AbsDimension x="0" y="0"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</Texture>
-				<Texture file="Interface\AddOns\Atlas\Images\AtlasFrame-BottomLeft">
-					<Size>
-						<AbsDimension x="512" y="512"/>
-					</Size>
-					<Anchors>
-						<Anchor point="TOPLEFT">
-							<Offset>
-								<AbsDimension x="0" y="-128"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</Texture>
-				<Texture file="Interface\AddOns\Atlas\Images\AtlasFrame-TopRight">
-					<Size>
-						<AbsDimension x="512" y="128"/>
-					</Size>
-					<Anchors>
-						<Anchor point="TOPLEFT">
-							<Offset>
-								<AbsDimension x="512" y="0"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</Texture>
-				<Texture file="Interface\AddOns\Atlas\Images\AtlasFrame-BottomRight">
-					<Size>
-						<AbsDimension x="512" y="512"/>
-					</Size>
-					<Anchors>
-						<Anchor point="TOPLEFT">
-							<Offset>
-								<AbsDimension x="512" y="-128"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</Texture>
-				<FontString inherits="GameFontHighlight" text="ATLAS_TITLE_VERSION">
-					<Anchors>
-						<Anchor point="TOP">
-							<Offset>
-								<AbsDimension x="20" y="-16"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</FontString>
-			</Layer>
-		</Layers>
 		<Scripts>
 			<OnLoad>
 				Atlas.Templates.CreateFrameDropDownType(self:GetName().."DropDownType", self)
@@ -394,9 +357,9 @@
 		</Scripts>
 	</Frame>
 
-	<Frame name="AtlasFrameLarge" toplevel="true" enableMouse="true" movable="true" parent="UIParent" hidden="true">
+	<Frame name="AtlasFrameSmall" toplevel="true" enableMouse="true" movable="true" parent="UIParent" hidden="true" inherits="PortraitFrameTemplate">
 		<Size>
-			<AbsDimension x="1023" y="790"/>
+			<AbsDimension x="526" y="631"/>
 		</Size>
 		<Anchors>
  			<Anchor point="TOPLEFT">
@@ -406,403 +369,6 @@
  			</Anchor>
  		</Anchors>
 		<Frames>
-			<Button name="$parentCloseButton" inherits="AtlasFrameCloseButtonTemplate"/>
-			<Button name="$parentLockButton" inherits="AtlasFrameLockButtonTemplate">
-				<NormalTexture name="AtlasLockLargeNorm"/>
-				<PushedTexture name="AtlasLockLargePush"/>
-			</Button>
-			<Button name="$parentOptionsButton" inherits="AtlasFrameOptionsButtonTemplate"/>
-			<Button name="$parentSizeDownButton" inherits="AtlasFrameSizeDownButtonTemplate"/>
-			<Button name="$parentNextMapButton" parentKey="NextMap" inherits="AtlasFrameNextMapButtonTemplate"/>
-			<Button name="$parentPrevMapButton" parentKey="PrevMap" inherits="AtlasFramePrevMapButtonTemplate"/>
-			<Button name="$parentAdventureJournalMapButton" parentKey="AdventureJournalMap" hidden="true">
-				<Size x="32" y="32"/>
-				<Anchors>
-					<Anchor point="BOTTOMRIGHT" relativeTo="$parent">
-						<Offset>
-							<AbsDimension x="0" y="4"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-				<Scripts>
-					<OnClick>
-						Atlas:AdventureJournal_MapButton_OnClick(self);
-					</OnClick>
-					<OnEnter>
-						GameTooltip:SetOwner(self, "ANCHOR_TOPRIGHT");
-						GameTooltip:SetText(ATLAS_OPEN_WOWMAP_WINDOW, nil, nil, nil, nil, false);
-					</OnEnter>
-					<OnLeave>
-						GameTooltip:Hide();
-					</OnLeave>
-				</Scripts>
-				<NormalTexture file="Interface\AddOns\Atlas\Images\UI-WorldMap-Icon"/>
-				<PushedTexture file="Interface\AddOns\Atlas\Images\UI-WorldMap-Icon"/>
-				<HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD" setAllPoints="true">
-					<Size x="48" y="48"/>
-					<Anchors>
-						<Anchor point="CENTER"/>
-					</Anchors>
-				</HighlightTexture>
-			</Button>
-			<Button name="$parentAdventureJournalButton" parentKey="AdventureJournal" hidden="true" toplevel="true">
-				<Size>
-					<AbsDimension x="32" y="32" />
-				</Size>
-				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="$parentAdventureJournalMapButton" relativePoint="TOPLEFT" x="-24" y="0"/>
-				</Anchors>
-				<NormalTexture file="Interface\AddOns\Atlas\Images\UI-EJ-PortraitIcon"/>
-				<PushedTexture file="Interface\AddOns\Atlas\Images\UI-EJ-PortraitIcon"/>
-				<HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD" setAllPoints="true">
-					<Size x="48" y="48"/>
-					<Anchors>
-						<Anchor point="CENTER"/>
-					</Anchors>
-				</HighlightTexture>
-				<Scripts>
-					<OnEnter>
-						Atlas:AdventureJournalButton_OnEnter(self);
-					</OnEnter>
-					<OnClick>
-						Atlas:AdventureJournalButton_OnClick(self);
-					</OnClick>
-					<OnLeave>
-						GameTooltip:Hide();
-					</OnLeave>
-				</Scripts>
-			</Button>
-			<Button name="$parentAtlasLootButton" parentKey="AtlasLoot" inherits="AtlasFrameAtlasLootButtonTemplate"/>
-			<Button name="$parentMapZoneName" parentKey="ZoneName">
-				<Size>
-					<AbsDimension x="10" y="60"/>
-				</Size>
-				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
-						<Offset>
-							<AbsDimension x="512" y="-84"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-				<Layers>
-					<Layer level="ARTWORK">
-						<FontString name="$parent_Text" parentKey="Text" inherits="AtlasZoneTextFont" justifyH="CENTER">
-							<Anchors>
-								<Anchor point="TOP">
-									<Offset>
-										<AbsDimension x="0" y="0"/>
-									</Offset>
-								</Anchor>
-							</Anchors>
-						</FontString>
-					</Layer>
-				</Layers>
-			</Button>
-			<Frame name="$parentBossButtonFrame" setAllPoints="true"/>
-			<Frame name="$parentMapFrame" parentKey="MapFrame">
-				<Size x="1002" y="668"/>
-				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
-						<Offset>
-							<AbsDimension x="17" y="-84"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-				<Layers>
-					<Layer level="BACKGROUND">
-						<Texture name="AtlasMapLarge1">
-							<Size x="256" y="256"/>
-							<Anchors>
-								<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
-									<Offset>
-										<AbsDimension x="0" y="0"/>
-									</Offset>
-								</Anchor>
-							</Anchors>
-						</Texture>
-						<Texture name="AtlasMapLarge2">
-							<Size x="256" y="256"/>
-							<Anchors>
-								<Anchor point="TOPLEFT" relativeTo="AtlasMapLarge1" relativePoint="TOPRIGHT"/>
-							</Anchors>
-						</Texture>
-						<Texture name="AtlasMapLarge3">
-							<Size x="256" y="256"/>
-							<Anchors>
-								<Anchor point="TOPLEFT" relativeTo="AtlasMapLarge2" relativePoint="TOPRIGHT"/>
-							</Anchors>
-						</Texture>
-						<Texture name="AtlasMapLarge4">
-							<Size x="256" y="256"/>
-							<Anchors>
-								<Anchor point="TOPLEFT" relativeTo="AtlasMapLarge3" relativePoint="TOPRIGHT"/>
-							</Anchors>
-						</Texture>
-						<Texture name="AtlasMapLarge5">
-							<Size x="256" y="256"/>
-							<Anchors>
-								<Anchor point="TOPLEFT" relativeTo="AtlasMapLarge1" relativePoint="BOTTOMLEFT"/>
-							</Anchors>
-						</Texture>
-						<Texture name="AtlasMapLarge6">
-							<Size x="256" y="256"/>
-							<Anchors>
-								<Anchor point="TOPLEFT" relativeTo="AtlasMapLarge5" relativePoint="TOPRIGHT"/>
-							</Anchors>
-						</Texture>
-						<Texture name="AtlasMapLarge7">
-							<Size x="256" y="256"/>
-							<Anchors>
-								<Anchor point="TOPLEFT" relativeTo="AtlasMapLarge6" relativePoint="TOPRIGHT"/>
-							</Anchors>
-						</Texture>
-						<Texture name="AtlasMapLarge8">
-							<Size x="256" y="256"/>
-							<Anchors>
-								<Anchor point="TOPLEFT" relativeTo="AtlasMapLarge7" relativePoint="TOPRIGHT"/>
-							</Anchors>
-						</Texture>
-						<Texture name="AtlasMapLarge9">
-							<Size x="256" y="256"/>
-							<Anchors>
-								<Anchor point="TOPLEFT" relativeTo="AtlasMapLarge5" relativePoint="BOTTOMLEFT"/>
-							</Anchors>
-						</Texture>
-						<Texture name="AtlasMapLarge10">
-							<Size x="256" y="256"/>
-							<Anchors>
-								<Anchor point="TOPLEFT" relativeTo="AtlasMapLarge9" relativePoint="TOPRIGHT"/>
-							</Anchors>
-						</Texture>
-						<Texture name="AtlasMapLarge11">
-							<Size x="256" y="256"/>
-							<Anchors>
-								<Anchor point="TOPLEFT" relativeTo="AtlasMapLarge10" relativePoint="TOPRIGHT"/>
-							</Anchors>
-						</Texture>
-						<Texture name="AtlasMapLarge12">
-							<Size x="256" y="256"/>
-							<Anchors>
-								<Anchor point="TOPLEFT" relativeTo="AtlasMapLarge11" relativePoint="TOPRIGHT"/>
-							</Anchors>
-						</Texture>
-					</Layer>
-				</Layers>
-			</Frame>
-		</Frames>
-		<Layers>
-			<Layer level="ARTWORK">
-				<Texture file="Interface\AddOns\Atlas\Images\AtlasFrameLarge-TopLeft">
-					<Size>
-						<AbsDimension x="512" y="512"/>
-					</Size>
-					<Anchors>
-						<Anchor point="TOPLEFT">
-							<Offset>
-								<AbsDimension x="0" y="0"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</Texture>
-				<Texture file="Interface\AddOns\Atlas\Images\AtlasFrameLarge-TopRight">
-					<Size>
-						<AbsDimension x="512" y="512"/>
-					</Size>
-					<Anchors>
-						<Anchor point="TOPLEFT">
-							<Offset>
-								<AbsDimension x="512" y="0"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</Texture>
-				<Texture file="Interface\AddOns\Atlas\Images\AtlasFrameLarge-MidLeft">
-					<Size>
-						<AbsDimension x="512" y="256"/>
-					</Size>
-					<Anchors>
-						<Anchor point="TOPLEFT">
-							<Offset>
-								<AbsDimension x="0" y="-512"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</Texture>
-				<Texture file="Interface\AddOns\Atlas\Images\AtlasFrameLarge-MidRight">
-					<Size>
-						<AbsDimension x="512" y="256"/>
-					</Size>
-					<Anchors>
-						<Anchor point="TOPLEFT">
-							<Offset>
-								<AbsDimension x="512" y="-512"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</Texture>
-				<Texture file="Interface\AddOns\Atlas\Images\AtlasFrameLarge-BottomLeft">
-					<Size>
-						<AbsDimension x="512" y="32"/>
-					</Size>
-					<Anchors>
-						<Anchor point="TOPLEFT">
-							<Offset>
-								<AbsDimension x="0" y="-768"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</Texture>
-				<Texture file="Interface\AddOns\Atlas\Images\AtlasFrameLarge-BottomRight">
-					<Size>
-						<AbsDimension x="512" y="32"/>
-					</Size>
-					<Anchors>
-						<Anchor point="TOPLEFT">
-							<Offset>
-								<AbsDimension x="512" y="-768"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</Texture>
-				<FontString inherits="GameFontHighlight" text="ATLAS_TITLE_VERSION">
-					<Anchors>
-						<Anchor point="TOP">
-							<Offset>
-								<AbsDimension x="20" y="-16"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</FontString>
-			</Layer>
-			<Layer level="BACKGROUND">
-				<Texture name="AtlasMapLarge1">
-					<Size x="256" y="256"/>
-					<Anchors>
-						<Anchor point="TOPLEFT" relativeTo="AtlasFrameLarge" relativePoint="TOPLEFT">
-							<Offset>
-								<AbsDimension x="17" y="-84"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</Texture>
-				<Texture name="AtlasMapLarge2">
-					<Size x="256" y="256"/>
-					<Anchors>
-						<Anchor point="TOPLEFT" relativeTo="AtlasMapLarge1" relativePoint="TOPRIGHT"/>
-					</Anchors>
-				</Texture>
-				<Texture name="AtlasMapLarge3">
-					<Size x="256" y="256"/>
-					<Anchors>
-						<Anchor point="TOPLEFT" relativeTo="AtlasMapLarge2" relativePoint="TOPRIGHT"/>
-					</Anchors>
-				</Texture>
-				<Texture name="AtlasMapLarge4">
-					<Size x="256" y="256"/>
-					<Anchors>
-						<Anchor point="TOPLEFT" relativeTo="AtlasMapLarge3" relativePoint="TOPRIGHT"/>
-					</Anchors>
-				</Texture>
-				<Texture name="AtlasMapLarge5">
-					<Size x="256" y="256"/>
-					<Anchors>
-						<Anchor point="TOPLEFT" relativeTo="AtlasMapLarge1" relativePoint="BOTTOMLEFT"/>
-					</Anchors>
-				</Texture>
-				<Texture name="AtlasMapLarge6">
-					<Size x="256" y="256"/>
-					<Anchors>
-						<Anchor point="TOPLEFT" relativeTo="AtlasMapLarge5" relativePoint="TOPRIGHT"/>
-					</Anchors>
-				</Texture>
-				<Texture name="AtlasMapLarge7">
-					<Size x="256" y="256"/>
-					<Anchors>
-						<Anchor point="TOPLEFT" relativeTo="AtlasMapLarge6" relativePoint="TOPRIGHT"/>
-					</Anchors>
-				</Texture>
-				<Texture name="AtlasMapLarge8">
-					<Size x="256" y="256"/>
-					<Anchors>
-						<Anchor point="TOPLEFT" relativeTo="AtlasMapLarge7" relativePoint="TOPRIGHT"/>
-					</Anchors>
-				</Texture>
-				<Texture name="AtlasMapLarge9">
-					<Size x="256" y="256"/>
-					<Anchors>
-						<Anchor point="TOPLEFT" relativeTo="AtlasMapLarge5" relativePoint="BOTTOMLEFT"/>
-					</Anchors>
-				</Texture>
-				<Texture name="AtlasMapLarge10">
-					<Size x="256" y="256"/>
-					<Anchors>
-						<Anchor point="TOPLEFT" relativeTo="AtlasMapLarge9" relativePoint="TOPRIGHT"/>
-					</Anchors>
-				</Texture>
-				<Texture name="AtlasMapLarge11">
-					<Size x="256" y="256"/>
-					<Anchors>
-						<Anchor point="TOPLEFT" relativeTo="AtlasMapLarge10" relativePoint="TOPRIGHT"/>
-					</Anchors>
-				</Texture>
-				<Texture name="AtlasMapLarge12">
-					<Size x="256" y="256"/>
-					<Anchors>
-						<Anchor point="TOPLEFT" relativeTo="AtlasMapLarge11" relativePoint="TOPRIGHT"/>
-					</Anchors>
-				</Texture>
-			</Layer>
-		</Layers>
-		<Scripts>
-			<OnLoad>
-				self.DropDownType = Atlas.Templates.CreateFrameDropDownType(self:GetName().."DropDownType", self)
-				self.DropDown = Atlas.Templates.CreateFrameDropDown(self:GetName().."DropDown", self)
-			</OnLoad>
-			<OnShow>
-				AtlasFrameLarge_OnShow(self)
-				PlaySound(844);
-			</OnShow>
-			<OnHide>
-				AtlasFrameLarge:StopMovingOrSizing();
-				PlaySound(845);
-			</OnHide>
-			<OnMouseDown>
-				if(button == "LeftButton") then
-					Atlas:StartMoving(self);
-				end
-			</OnMouseDown>
-			<OnDragStop>
-				AtlasFrameLarge:StopMovingOrSizing();
-			</OnDragStop>
-			<OnMouseUp>
-				AtlasFrameLarge:StopMovingOrSizing();
-				if (button == "RightButton") then
-					if (Atlas.db.profile.options.frames.rightClick) then
-						if (AtlasFrameLarge:IsVisible()) then
-							AtlasFrameLarge:Hide();
-						else
-							AtlasFrameLarge:Show();
-						end
-						ToggleFrame(WorldMapFrame);
-					end
-				end
-			</OnMouseUp>
-		</Scripts>
-	</Frame>
-
-	<Frame name="AtlasFrameSmall" toplevel="true" enableMouse="true" movable="true" parent="UIParent" hidden="true">
-		<Size>
-			<AbsDimension x="534" y="631"/>
-		</Size>
-		<Anchors>
- 			<Anchor point="TOPLEFT">
- 				<Offset>
- 					<AbsDimension x="0" y="-104"/>
- 				</Offset>
- 			</Anchor>
- 		</Anchors>
-		<Frames>
-			<Button name="$parentCloseButton" inherits="AtlasFrameCloseButtonTemplate"/>
 			<Button name="$parentLockButton" inherits="AtlasFrameLockButtonTemplate">
 				<NormalTexture name="AtlasLockSmallNorm"/>
 				<PushedTexture name="AtlasLockSmallPush"/>
@@ -814,14 +380,13 @@
 			<Button name="$parentAdventureJournalButton" parentKey="AdventureJournal" inherits="AtlasFrameAdventureJournalButtonTemplate"/>
 			<Button name="$parentAtlasLootButton" parentKey="AtlasLoot" inherits="AtlasFrameAtlasLootButtonTemplate"/>
 			<Button name="$parentExpandButton" inherits="AtlasFrameExpandButtonTemplate"/>
-			<Button name="$parentSizeUpButton" inherits="AtlasFrameSizeUpButtonTemplate"/>
 			<Button name="$parentMapZoneName" parentKey="ZoneName" inherits="AtlasFrameMapZoneNameTemplate"/>
-			<Frame name="$parentMapFrame" parentKey="MapFrame">
-				<Size x="512" y="512"/>
+			<Frame name="$parentMapFrame" parentKey="MapFrame" inherits="InsetFrameTemplate">
+				<Size x="519" y="519"/>
 				<Anchors>
 					<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
 						<Offset>
-							<AbsDimension x="18" y="-84"/>
+							<AbsDimension x="2" y="-74"/>
 						</Offset>
 					</Anchor>
 				</Anchors>
@@ -832,7 +397,7 @@
 							<Anchors>
 								<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
 									<Offset>
-										<AbsDimension x="0" y="0"/>
+										<AbsDimension x="4" y="-4"/>
 									</Offset>
 								</Anchor>
 							</Anchors>
@@ -845,67 +410,6 @@
 				</Layers>
 			</Frame>
 		</Frames>
-		<Layers>
-			<Layer level="ARTWORK">
-				<Texture file="Interface\AddOns\Atlas\Images\AtlasFrameSmall-TopLeft">
-					<Size>
-						<AbsDimension x="512" y="128"/>
-					</Size>
-					<Anchors>
-						<Anchor point="TOPLEFT">
-							<Offset>
-								<AbsDimension x="0" y="0"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</Texture>
-				<Texture file="Interface\AddOns\Atlas\Images\AtlasFrameSmall-BottomLeft">
-					<Size>
-						<AbsDimension x="512" y="512"/>
-					</Size>
-					<Anchors>
-						<Anchor point="TOPLEFT">
-							<Offset>
-								<AbsDimension x="0" y="-128"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</Texture>
-				<Texture file="Interface\AddOns\Atlas\Images\AtlasFrameSmall-TopRight">
-					<Size>
-						<AbsDimension x="32" y="128"/>
-					</Size>
-					<Anchors>
-						<Anchor point="TOPLEFT">
-							<Offset>
-								<AbsDimension x="512" y="0"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</Texture>
-				<Texture file="Interface\AddOns\Atlas\Images\AtlasFrameSmall-BottomRight">
-					<Size>
-						<AbsDimension x="32" y="512"/>
-					</Size>
-					<Anchors>
-						<Anchor point="TOPLEFT">
-							<Offset>
-								<AbsDimension x="512" y="-128"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</Texture>
-				<FontString inherits="GameFontHighlight" text="ATLAS_TITLE_VERSION">
-					<Anchors>
-						<Anchor point="TOP">
-							<Offset>
-								<AbsDimension x="20" y="-16"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</FontString>
-			</Layer>
-		</Layers>
 		<Scripts>
 			<OnLoad>
 				Atlas.Templates.CreateFrameDropDownType(self:GetName().."DropDownType", self)
@@ -931,11 +435,7 @@
 				AtlasFrameSmall:StopMovingOrSizing();
 				if (button == "RightButton") then
 					if (Atlas.db.profile.options.frames.rightClick) then
-						if (AtlasFrameLarge:IsVisible()) then
-							AtlasFrameLarge:Hide();
-						else
-							AtlasFrameLarge:Show();
-						end
+						Atlas_Toggle();
 						ToggleFrame(WorldMapFrame);
 					end
 				end

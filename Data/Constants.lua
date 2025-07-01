@@ -34,7 +34,7 @@ ATLAS_VERSION = C_AddOns.GetAddOnMetadata(private.addon_name, "Version")
 ATLAS_PLAYER_FACTION = UnitFactionGroup("player")
 ATLAS_DROPDOWNS = {}
 ATLAS_INST_ENT_DROPDOWN = {}
-ATLAS_NUM_LINES = 26
+ATLAS_NUM_LINES = 25
 ATLAS_CUR_LINES = 0
 ATLAS_SCROLL_LIST = {}
 ATLAS_SCROLL_ID = {}
@@ -136,7 +136,6 @@ Syntax:
 		WorldMapID = uiMapID,
 		DungeonLevel = level number of the dungeon map series,
 		Module = "map module name",
-		LargeMap = "large map's prefix name",
 		PrevMap = "previous map name",
 		NextMap = "next map name",
 		{ "list entry 1", id of list entry or encounter id },

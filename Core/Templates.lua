@@ -34,7 +34,7 @@ private.Templates = Templates
 function Templates.CreateFrameDropDownType(name, parent)
 	local f = _G[name] or LibDD:Create_UIDropDownMenu(name, parent)
 
-	f:SetPoint("TOPLEFT", parent, 60, -50)
+	f:SetPoint("TOPLEFT", parent, 48, -40)
 
 	f.Label = f:CreateFontString(name.."Label", "BACKGROUND", "GameFontNormalSmall")
 	f.Label:SetText(ATLAS_STRING_SELECT_CAT)

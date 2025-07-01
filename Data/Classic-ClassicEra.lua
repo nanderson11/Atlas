@@ -1287,6 +1287,33 @@ db.AtlasMaps = {
 		{ WHIT.." 3) "..Atlas_GetBossName("Taerar - Ashenvale") },
 		{ WHIT.." 4) "..Atlas_GetBossName("Ysondre - Hinterlands") },
 	},
+	CL_ScarletEnclave = {
+		ZoneName = { BZ["Scarlet Enclave"] },
+		Location = { BZ["Eastern Plaguelands"] },
+		LevelRange = "60",
+		PlayerLimit = { 40 },
+		ActivityID = { 114, 1710 },
+		Module = "Atlas_ClassicWoW",
+		{ WHIT.." 1) "..Atlas_GetBossName("Balnazzar") },
+		{ WHIT.." 2) "..Atlas_GetBossName("High Commander Beatrix") },
+		{ WHIT..INDENT..Atlas_GetBossName("Cannon Mistress Lind") },
+		{ WHIT..INDENT..Atlas_GetBossName("Cardinal Stiltz") },
+		{ WHIT..INDENT..Atlas_GetBossName("Shield Warden Stein") },
+		{ WHIT..INDENT..Atlas_GetBossName("Knight-Captain Fratley") },
+		{ WHIT..INDENT..Atlas_GetBossName("Arcanist Hilda") },
+		{ WHIT..INDENT..Atlas_GetBossName("Bowmaster Puck") },
+		{ WHIT.." 3) "..Atlas_GetBossName("Solistrasza") },
+		{ WHIT.." 4) "..Atlas_GetBossName("Mason The Echo") },
+		{ WHIT.." 5) "..Atlas_GetBossName("Alexei The Beastlord") },
+		{ WHIT..INDENT..Atlas_GetBossName("Sir Dornel") },
+		{ WHIT.." 6) "..Atlas_GetBossName("Reborn Council") },
+		{ WHIT..INDENT..Atlas_GetBossName("Herod") },
+		{ WHIT..INDENT..Atlas_GetBossName("Doan") },
+		{ WHIT..INDENT..Atlas_GetBossName("Vishas") },
+		{ WHIT.." 7) "..Atlas_GetBossName("Lilian Voss") },
+		{ WHIT..INDENT..Atlas_GetBossName("Putress") },
+		{ WHIT.." 8) "..Atlas_GetBossName("Grand Crusader Caldoran") },
+	},
 }
 
 
@@ -1886,10 +1913,17 @@ if (isSoD) then
 	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_20TO40], "CL_CrystalVale");
 	tinsert(db.DropDownLayouts[ATLAS_DDL_TYPE][ATLAS_DDL_TYPE_INSTANCE], "CL_CrystalVale");
 
+	-- Nightmare Grove is on both continents, so it gets added to both lists
 	tinsert(db.DropDownLayouts[ATLAS_DDL_CONTINENT][ATLAS_DDL_CONTINENT_KALIMDOR], "CL_NightmareGrove");
 	tinsert(db.DropDownLayouts[ATLAS_DDL_CONTINENT][ATLAS_DDL_CONTINENT_EASTERN], "CL_NightmareGrove");
 	tinsert(db.DropDownLayouts[ATLAS_DDL_EXPANSION][ATLAS_DDL_EXPANSION_OLD], "CL_NightmareGrove");
 	tinsert(db.DropDownLayouts[ATLAS_DDL_LEVEL][ATLAS_DDL_LEVEL_60TO70], "CL_NightmareGrove");
 	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_20TO40], "CL_NightmareGrove");
 	tinsert(db.DropDownLayouts[ATLAS_DDL_TYPE][ATLAS_DDL_TYPE_INSTANCE], "CL_NightmareGrove");
+
+	tinsert(db.DropDownLayouts[ATLAS_DDL_CONTINENT][ATLAS_DDL_CONTINENT_EASTERN], "CL_ScarletEnclave");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_EXPANSION][ATLAS_DDL_EXPANSION_OLD], "CL_ScarletEnclave");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_LEVEL][ATLAS_DDL_LEVEL_60TO70], "CL_ScarletEnclave");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_20TO40], "CL_ScarletEnclave");
+	tinsert(db.DropDownLayouts[ATLAS_DDL_TYPE][ATLAS_DDL_TYPE_INSTANCE], "CL_ScarletEnclave");
 end

@@ -106,26 +106,14 @@
 	</Frame>
 
 	<!-- Atlas Frame Button Templates -->
-	<Button name="AtlasFrameCloseButtonTemplate" inherits="UIPanelCloseButton" virtual="true">
-		<Size>
-			<AbsDimension x="20" y="20"/>
-		</Size>
-		<Anchors>
-			<Anchor point="TOPRIGHT" relativeTo="$parent" relativePoint="TOPRIGHT">
-				<Offset>
-					<AbsDimension x="-2" y="-14"/>
-				</Offset>
-			</Anchor>
-		</Anchors>
-	</Button>
-	<Button name="AtlasFrameLockButtonTemplate" virtual="true">
+	<Button name="AtlasFrameLockButtonTemplate" virtual="true" frameStrata="HIGH">
 		<Size>
 			<AbsDimension x="32" y="32"/>
 		</Size>
 		<Anchors>
 			<Anchor point="RIGHT" relativeTo="$parentCloseButton" relativePoint="LEFT">
 				<Offset>
-					<AbsDimension x="5" y="1"/>
+					<AbsDimension x="10"/>
 				</Offset>
 			</Anchor>
 		</Anchors>
@@ -143,7 +131,7 @@
 		</Scripts>
 		<HighlightTexture file="Interface\Buttons\UI-Panel-MinimizeButton-Highlight" alphaMode="ADD"/>
 	</Button>
-	<Button name="AtlasFrameOptionsButtonTemplate" virtual="true" inherits="UIPanelButtonTemplate" text="ATLAS_OPTIONS_BUTTON">
+	<Button name="AtlasFrameOptionsButtonTemplate" virtual="true" inherits="UIPanelButtonTemplate" text="ATLAS_OPTIONS_BUTTON" frameStrata="HIGH">
 		<Size>
 			<AbsDimension x="80" y="20"/>
 		</Size>
@@ -174,7 +162,7 @@
 		<Anchors>
 			<Anchor point="TOPLEFT" relativeTo="$parent">
 				<Offset>
-					<AbsDimension x="502" y="-599"/>
+					<AbsDimension x="494" y="-595"/>
 				</Offset>
 			</Anchor>
 		</Anchors>
@@ -186,7 +174,7 @@
 		<Anchors>
 			<Anchor point="TOPLEFT" relativeTo="$parent">
 				<Offset>
-					<AbsDimension x="13" y="-599"/>
+					<AbsDimension x="2" y="-595"/>
 				</Offset>
 			</Anchor>
 		</Anchors>
@@ -213,12 +201,7 @@
 		</Scripts>
 		<NormalTexture file="Interface\AddOns\Atlas\Images\UI-WorldMap-Icon"/>
 		<PushedTexture file="Interface\AddOns\Atlas\Images\UI-WorldMap-Icon"/>
-		<HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD" setAllPoints="true">
-			<Size x="48" y="48"/>
-			<Anchors>
-				<Anchor point="CENTER"/>
-			</Anchors>
-		</HighlightTexture>
+		<HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD" />
 	</Button>
 	<Button name="AtlasFrameAdventureJournalButtonTemplate" virtual="true" hidden="true" toplevel="true">
 		<Size x="32" y="32"/>
@@ -238,12 +221,7 @@
 		</Scripts>
 		<NormalTexture file="Interface\AddOns\Atlas\Images\UI-EJ-PortraitIcon"/>
 		<PushedTexture file="Interface\AddOns\Atlas\Images\UI-EJ-PortraitIcon"/>
-		<HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD" setAllPoints="true">
-			<Size x="48" y="48"/>
-			<Anchors>
-				<Anchor point="CENTER"/>
-			</Anchors>
-		</HighlightTexture>
+		<HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD" />
 	</Button>
 	<Button name="AtlasFrameAtlasLootButtonTemplate" virtual="true" hidden="true" toplevel="true">
 		<Size x="22" y="22"/>
@@ -266,45 +244,17 @@
 			</OnLeave>
 		</Scripts>
 		<NormalTexture file="Interface\Icons\INV_Box_01"/>
-		<HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD" setAllPoints="true">
-			<Size x="48" y="48"/>
+		<HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD">
+			<Size x="32" y="32"/>
 			<Anchors>
 				<Anchor point="CENTER"/>
 			</Anchors>
 		</HighlightTexture>
 	</Button>
-	<Button name="AtlasFrameSizeUpButtonTemplate" hidden="true" virtual="true">
-		<Size x="32" y="32"/>
-		<Anchors>
-			<Anchor point="TOPLEFT" relativeTo="$parent" x="505" y="-76"/>
-		</Anchors>
-		<Scripts>
-			<OnClick>
-				Atlas:ToggleWindowSize()
-			</OnClick>
-		</Scripts>
-		<NormalTexture file="Interface\Buttons\UI-Panel-BiggerButton-Up"/>
-		<PushedTexture file="Interface\Buttons\UI-Panel-BiggerButton-Down"/>
-		<HighlightTexture file="Interface\Buttons\UI-Panel-MinimizeButton-Highlight" alphaMode="ADD"/>
-	</Button>
-	<Button name="AtlasFrameSizeDownButtonTemplate" virtual="true">
-		<Size x="32" y="32"/>
-		<Anchors>
-			<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPRIGHT" x="-28" y="-77"/>
-		</Anchors>
-		<Scripts>
-			<OnClick>
-				Atlas:ToggleWindowSize()
-			</OnClick>
-		</Scripts>
-		<NormalTexture file="Interface\Buttons\UI-Panel-SmallerButton-Up"/>
-		<PushedTexture file="Interface\Buttons\UI-Panel-SmallerButton-Down"/>
-		<HighlightTexture file="Interface\Buttons\UI-Panel-MinimizeButton-Highlight" alphaMode="ADD"/>
-	</Button>
 	<Button name="AtlasFrameCollapseButtonTemplate" virtual="true">
 		<Size x="32" y="32"/>
 		<Anchors>
-			<Anchor point="TOPLEFT" relativeTo="$parent" x="505" y="-570"/>
+			<Anchor point="TOPLEFT" relativeTo="$parent" x="495" y="-565"/>
 		</Anchors>
 		<Scripts>
 			<OnClick>
@@ -325,7 +275,7 @@
 	<Button name="AtlasFrameExpandButtonTemplate" virtual="true">
 		<Size x="32" y="32"/>
 		<Anchors>
-			<Anchor point="TOPLEFT" relativeTo="$parent" x="505" y="-570"/>
+			<Anchor point="TOPLEFT" relativeTo="$parent" x="495" y="-565"/>
 		</Anchors>
 		<Scripts>
 			<OnClick>

@@ -59,7 +59,7 @@ Integration\WorldMap.lua
 Integration\Achievements.lua
 Integration\AtlasLootIntegration.lua
 
-Data\Classic-Retail.lua
+Data\Classic-Classic.lua
 Data\BurningCrusade-Classic.lua
-Data\WrathoftheLichKing-Retail.lua
-Data\Cataclysm-Retail.lua
+Data\WrathoftheLichKing-Classic.lua
+Data\Cataclysm-Classic.lua

@@ -27,15 +27,10 @@
 		"GetQuestsCompleted",
 		"DEFAULT_CHAT_FRAME",
 		"AtlasFrameSmall",
-		"AtlasFrameLarge",
 		"AtlasFrameAdventureJournalButton",
-		"AtlasFrameLargeAdventureJournalButton",
 		"AtlasFrameSmallAdventureJournalButton",
 		"AtlasFrameAdventureJournalMapButton",
-		"AtlasFrameLargeAdventureJournalMapButton",
 		"AtlasFrameSmallAdventureJournalMapButton",
-		"AtlasFrameSizeUpButton",
-		"AtlasFrameSmallSizeUpButton",
 		"AtlasSwitchButton",
 		"AtlasFrameCloseButton",
 		"AtlasFrameLockButton",
@@ -158,5 +153,6 @@
 	],
 	"Lua.workspace.ignoreDir": [
 		"Libs"
-	]
+	],
+	"Lua.type.weakUnionCheck": true
 }
