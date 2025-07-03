@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.7.1 - July 3, 2025
+### Fixed
+- Cata/MoP: Remove dungeon journal buttons for instances that aren't in the game just yet
+
 ## 3.7.0 - June 30, 2025
 ### Added
 - Cata/MoP: Added support for Mists of Pandaria Classic
