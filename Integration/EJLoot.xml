@@ -247,14 +247,16 @@
 		</Scripts>
 	</Button>
 
-	<Frame name="AtlasEJLootFrame" toplevel="true" enableMouse="true" parent="AtlasFrame" hidden="true" frameStrata="HIGH">
-		<Size>
-			<AbsDimension x="475" y="380"/>
-		</Size>
+	<Frame name="AtlasEJLootFrame" toplevel="true" enableMouse="true" parent="AtlasFrameBottomInset" hidden="true" frameStrata="HIGH">
 		<Anchors>
-			<Anchor point="TOPLEFT">
+			<Anchor point="TOPLEFT" relativeTo="AtlasFrameBottomInset" relativePoint="TOPLEFT">
 				<Offset>
-					<AbsDimension x="536" y="-203"/>
+					<AbsDimension x="4" y="-4"/>
+				</Offset>
+			</Anchor>
+			<Anchor point="BOTTOMRIGHT" relativeTo="AtlasFrameBottomInset" relativePoint="BOTTOMRIGHT">
+				<Offset>
+					<AbsDimension x="-4" y="4"/>
 				</Offset>
 			</Anchor>
 		</Anchors>
@@ -271,7 +273,7 @@
 		</Layers>
 		<Frames>
 			<Button name="$parentCloseButton" inherits="UIPanelCloseButton">
-				<Size x="30" y="30"/>
+				<Size x="24" y="24"/>
 				<Anchors>
 					<Anchor point="TOPRIGHT" relativeTo="$parent" x="8" y="8"/>
 				</Anchors>
@@ -282,7 +284,7 @@
 				</Scripts>
 			</Button>
 			<ScrollFrame name="$parentLootScrollFrame" parentKey="lootScroll" inherits="HybridScrollFrameTemplate">
-				<Size x="455" y="260"/>
+				<Size x="468" y="260"/>
 				<Anchors>
 					<Anchor point="TOPLEFT" x="20" y="-45"/>
 				</Anchors>

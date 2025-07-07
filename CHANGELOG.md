@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.7.2 -
+### Fixed
+- Retail: Fix position of EJ loot frame
+
 ## 3.7.1 - July 3, 2025
 ### Fixed
 - Cata/MoP: Remove dungeon journal buttons for instances that aren't in the game just yet
