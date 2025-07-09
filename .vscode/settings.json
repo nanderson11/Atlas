@@ -141,7 +141,11 @@
 		"LinkUtil",
 		"CLASS_ICON_TCOORDS",
 		"FOLLOWERLIST_LABEL_UNCOLLECTED",
-		"COLLECTED"
+		"COLLECTED",
+		"GameTooltip_AddColoredLine",
+		"DUNGEON_ENCOUNTER_DEFEATED",
+		"Clamp",
+		"SOUNDKIT"
 	],
 	"Lua.runtime.version": "Lua 5.1",
 	"Lua.runtime.builtin": {

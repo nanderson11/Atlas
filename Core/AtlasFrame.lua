@@ -149,6 +149,9 @@ function AtlasEntry_OnUpdate(self)
 				GameTooltip:SetOwner(self, "ANCHOR_TOPRIGHT")
 				GameTooltip.NineSlice:SetCenterColor(0, 0, 0, 1 * addon.db.profile.options.frames.alpha)
 				GameTooltip:SetText(self.tooltiptitle, 1, 1, 1, 1)
+				if (self.encounterID and C_EncounterJournal.IsEncounterComplete(self.encounterID)) then
+					GameTooltip_AddColoredLine(GameTooltip, DUNGEON_ENCOUNTER_DEFEATED, RED_FONT_COLOR);
+				end
 				if (self.tooltiptext) then
 					GameTooltip:AddLine(self.tooltiptext, nil, nil, nil, 1)
 				end
