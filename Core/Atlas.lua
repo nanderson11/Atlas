@@ -60,6 +60,18 @@ local LDB = LibStub("LibDataBroker-1.1"):NewDataObject("Atlas", {
 	type = "launcher",
 	text = L["ATLAS_TITLE"],
 	icon = "Interface\\WorldMap\\WorldMap-Icon",
+	OnClick = function(_, button)
+		if button == "LeftButton" then
+			Atlas_Toggle()
+		elseif button == "RightButton" then
+			addon:OpenOptions()
+		end
+	end,
+	OnTooltipShow = function(tooltip)
+		if not tooltip or not tooltip.AddLine then return end
+		tooltip:AddLine("|cffffffff"..ATLAS_TITLE)
+		tooltip:AddLine(ATLAS_LDB_HINT)
+	end
 })
 
 local minimapButton = LibStub("LibDBIcon-1.0")
@@ -1672,12 +1684,6 @@ function addon:isModuleOrPluginLoaded()
 			hide_on_escape = true,
 		})
 		LibDialog:Spawn("NeedModuleOrPlugin")
-
-		LDB.OnTooltipShow = function(tooltip)
-			if not tooltip or not tooltip.AddLine then return end
-			tooltip:AddLine("|cffffffff"..L["ATLAS_TITLE"])
-			tooltip:AddLine(L["ATLAS_NO_MODULE_OR_PLUGIN"])
-		end
 	end
 end
 
@@ -1705,20 +1711,6 @@ local function initialization()
 	addon:UpdateScale()
 	AtlasFrame:SetClampedToScreen(profile.options.frames.clamp)
 	AtlasFrameSmall:SetClampedToScreen(profile.options.frames.clamp)
-
-	-- Make an LDB object
-	LDB.OnClick = function(self, button)
-		if button == "LeftButton" then
-			Atlas_Toggle()
-		elseif button == "RightButton" then
-			addon:OpenOptions()
-		end
-	end
-	LDB.OnTooltipShow = function(tooltip)
-		if not tooltip or not tooltip.AddLine then return end
-		tooltip:AddLine("|cffffffff"..ATLAS_TITLE)
-		tooltip:AddLine(ATLAS_LDB_HINT)
-	end
 
 	check_Modules()
 	if (profile.options.worldMapButton) then
