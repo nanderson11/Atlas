@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.8.1 -
+### Fixed
+- Retail: Fixed Addon Compartment button
+
 ## 3.8.0 - July 9, 2025
 ### Added
 - Retail: Added a defeated indicator to boss portraits and boss tooltips, like the built-in instance map (Note that this will only be as good as the built-in map, which sometimes doesn't mark bosses as defeated)
