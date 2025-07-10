@@ -3,6 +3,8 @@
 ## 3.8.0 -
 ### Added
 - Retail: Added a defeated indicator to boss portraits and boss tooltips, like the built-in instance map (Note that this will only be as good as the built-in map, which sometimes doesn't mark bosses as defeated)
+### Changed
+- Cata/MoP: Enabled boss portraits on the map (if enabled in Atlas options) and in the boss list
 ### Fixed
 - Retail: Fix position of EJ loot frame
 

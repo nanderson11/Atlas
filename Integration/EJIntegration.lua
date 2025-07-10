@@ -61,7 +61,7 @@ function addon:GetBossName(bossname, encounterID, creatureIndex, moduleName)
 	local LL
 	if (moduleName) then LL = LibStub("AceLocale-3.0"):GetLocale("Atlas_"..moduleName) end
 
-	if (WoWRetail) then
+	if (WoWRetail or WoWClassic) then
 		if (encounterID and EJ_GetEncounterInfo) then
 			local _, encounter, iconImage
 			if (not creatureIndex) then
