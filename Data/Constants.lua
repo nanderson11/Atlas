@@ -216,6 +216,7 @@ constants.defaults = {
 		minimap = {
 			hide = false,
 			minimapPos = 190,
+			showInCompartment = true,
 		},
 		dropdowns = {
 		},
