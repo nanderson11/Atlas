@@ -77,7 +77,7 @@ function addon:EnableAtlasLootButton(base, zoneID)
 				showbutton = true;
 			end
 		end
-		if (showbutton) then
+		if (showbutton and base.JournalInstanceID) then
 			AtlasFrame.AtlasLoot.instanceID = base.JournalInstanceID;
 			AtlasFrame.AtlasLoot.AtlasMapID = zoneID;
 			AtlasFrame.AtlasLoot.AtlasModule = base.Module or base.ALModule;

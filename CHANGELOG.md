@@ -3,6 +3,7 @@
 ## 3.8.1 -
 ### Fixed
 - Retail: Fixed Addon Compartment button
+- Retail: Fixed AtlasLoot button showing on maps that didn't have an instance associated with them
 
 ## 3.8.0 - July 9, 2025
 ### Added
