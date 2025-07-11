@@ -416,6 +416,7 @@
 				Atlas.Templates.CreateFrameDropDown(self:GetName().."DropDown", self)
 			</OnLoad>
 			<OnShow>
+				Atlas_OnShow();
 				ATLAS_SMALLFRAME_SELECTED = true;
 				PlaySound(844);
 			</OnShow>

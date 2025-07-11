@@ -1,6 +1,8 @@
 # Changelog
 
-## 3.8.1 -
+## 3.9.0 -
+### Changed
+- Apply map autoselect (if enabled) to the small Atlas map as well
 ### Fixed
 - Retail: Fixed Addon Compartment button
 - Retail: Fixed AtlasLoot button showing on maps that didn't have an instance associated with them
