@@ -6,6 +6,7 @@
 ### Fixed
 - Retail: Fixed Addon Compartment button
 - Retail: Fixed AtlasLoot button showing on maps that didn't have an instance associated with them
+- Retail: Fixed Hylbrande's position in Tazavesh (Blizzard map is wrong)
 
 ## 3.8.0 - July 9, 2025
 ### Added
