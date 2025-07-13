@@ -82,7 +82,6 @@ Clique com o botão direito para abrir as opções do Atlas.]=]
 L["ATLAS_MINIMAPLDB_HINT"] = [=[Clique com o botão esquerdo para abrir o Atlas.
 Clique com o botão direito para as opções do Atlas.
 Clique com o botão esquerdo e arraste para mover este botão.]=]
-L["ATLAS_OPEN_ADDON_LIST"] = "Abra a lista de addons"
 L["ATLAS_OPTIONS_AUTOSEL"] = "Selecione automaticamente o Mapa da Instância"
 L["ATLAS_OPTIONS_AUTOSEL_TIP"] = "Selecione automaticamente o Mapa da Instância, o Atlas vai detectar a sua localização para escolher o melhor mapa de instância para você."
 L["ATLAS_OPTIONS_BOSS_DESC"] = "Mostre a descrição do Chefe quando dsiponível"

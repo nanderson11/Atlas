@@ -628,8 +628,6 @@ end
 
 -- Simple function to toggle the visibility of the Atlas frame
 function Atlas_Toggle()
-	addon:isModuleOrPluginLoaded()
-	if (ATLAS_MODULE_MENUS == 0 and ATLAS_PLUGIN_MENUS == 0) then return end
 	if (ATLAS_SMALLFRAME_SELECTED) then
 		if (AtlasFrameSmall:IsVisible()) then
 			HideUIPanel(AtlasFrameSmall)
@@ -1622,68 +1620,6 @@ function addon:CheckAddonStatus(addonName)
 		return true
 	else
 		return false
-	end
-end
-
--- Detect if not all modules / plugins are installed
-local function check_Modules()
-	if (not profile.options.checkMissingModules) then
-		return
-	end
-	local Module_List = addon.constants.moduleList
-
-	-- Check for outdated modules, build a list of them, then disable them and tell the player
-	local List = {}
-	for _, module in pairs(Module_List) do
-		local loadable = select(4, C_AddOns.GetAddOnInfo(module))
-		local enabled = C_AddOns.GetAddOnEnableState(module, UnitName("player"))
-		if ((enabled == 0) or (not loadable)) then
-			tinsert(List, module)
-		end
-	end
-	if (#List > 0) then
-		local textList = ""
-		for _, str in pairs(List) do
-			textList = textList.."\n"..str
-		end
-
-		LibDialog:Register("DetectMissing", {
-			text = L["ATLAS_MISSING_MODULE"].."\n|cff6666ff"..textList.."|r\n",
-			buttons = {
-				{
-					text = CLOSE,
-				},
-				{
-					text = L["ATLAS_OPEN_ADDON_LIST"],
-					on_click = AddonList_Show,
-				},
-			},
-			width = 500,
-			show_while_dead = false,
-			hide_on_escape = true,
-		})
-		LibDialog:Spawn("DetectMissing")
-	end
-end
-
-function addon:isModuleOrPluginLoaded()
-	if (ATLAS_MODULE_MENUS == 0 and ATLAS_PLUGIN_MENUS == 0) then
-		LibDialog:Register("NeedModuleOrPlugin", {
-			text = L["ATLAS_NO_MODULE_OR_PLUGIN"],
-			buttons = {
-				{
-					text = CLOSE,
-				},
-				{
-					text = L["ATLAS_OPEN_ADDON_LIST"],
-					on_click = AddonList_Show,
-				},
-			},
-			width = 400,
-			show_while_dead = false,
-			hide_on_escape = true,
-		})
-		LibDialog:Spawn("NeedModuleOrPlugin")
 	end
 end
 

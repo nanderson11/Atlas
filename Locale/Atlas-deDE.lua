@@ -158,18 +158,7 @@ Rechte Maustaste drücken, um die Atlas-Optionen anzuzeigen.]=]
 L["ATLAS_MINIMAPLDB_HINT"] = [=[Linke Maustaste drücken, um Atlas zu öffnen.
 Rechte Maustaste drücken, um die Atlas-Optionen anzuzeigen.
 Linke Maustaste gedrückt halten, um diesen Schalter zu verschieben.]=]
-L["ATLAS_MISSING_MODULE"] = [=[Atlas hat fehlende Module/Plugins erkannt.
-
-Es könnte sein, dass du veraltete Module/Plugins verwendest, die von Atlas deaktiviert wurden.
-Wenn du jetzt alle aktualisiert hast, öffne deine Addonliste, um nachzusehen, ob alle aktiviert wurden.
-
-Wenn du dir sicher bist, dass du diese "fehlenden" Module/Plugins nicht benötigst und du daher diese Meldung nicht sehen willst, kannst du die Meldung im Optionsmenü deaktivieren.
-
-Liste fehlender Module/Plugins:]=]
-L["ATLAS_NO_MODULE_OR_PLUGIN"] = [=[|cffff66ffError:|r
-Atlas kann kein Kartenmodul oder Plugin ermitteln was installiert und aktiviert ist. Beachte, dass Atlas selbst ein Kartenbrowser ist. Du musst mindestens ein Kartenmodul oder ein Plugin installieren, um die Karten durchsuchen zu können.]=]
 L["ATLAS_OPEN_ACHIEVEMENT"] = "Klicken, um das Erfolgsfenster zu öffnen."
-L["ATLAS_OPEN_ADDON_LIST"] = "Addon-Liste öffnen"
 L["ATLAS_OPEN_ADVENTURE"] = "Klicken, um den Abenteuerführer zu öffnen."
 L["ATLAS_OPEN_ATLASLOOT_WINDOW"] = "Klicken, um das AtlasLoot-Fenster zu öffnen."
 L["ATLAS_OPEN_WOWMAP_WINDOW"] = "Klicken, um die Karte des Abenteuerführers zu öffnen."
@@ -185,8 +174,6 @@ L["ATLAS_OPTIONS_BUTPOS"] = "Schalterposition"
 L["ATLAS_OPTIONS_BUTRAD"] = "Schalterradius"
 L["ATLAS_OPTIONS_BUTTON"] = "Optionen"
 L["ATLAS_OPTIONS_CATDD"] = "Sortierung der Karten nach:"
-L["ATLAS_OPTIONS_CHECKMODULE"] = "Über fehlende Module/Plugins benachrichtigen."
-L["ATLAS_OPTIONS_CHECKMODULE_TIP"] = "Aktivieren Sie diese Option, um nach dem Starten von WoW zu prüfen, ob Module/Plugins fehlen."
 L["ATLAS_OPTIONS_CLAMPED"] = "Fenster im Bildschirm festhalten"
 L["ATLAS_OPTIONS_CLAMPED_TIP"] = "Atlasfenster im Bildschirm festhalten. Deaktivieren, um das Atlasfenster über den Spielfensterrand hinaus bewegen zu können."
 L["ATLAS_OPTIONS_COLORINGDROPDOWN"] = "Instanzlisten nach Schwierigkeit färben"

@@ -135,8 +135,6 @@ L["ATLAS_MINIMAPLDB_HINT"] = [=[Clic-Gauche pour ouvrir Atlas.
 Clic-Droit pour les options d'Atlas.
 Clic-Gauche et glisser pour déplacer ce bouton.
 |cff6666ffhttp://www.atlasmod.com/|cffffffff]=]
-L["ATLAS_MISSING_MODULE"] = "Atlas a détecté des module(s)/plug-in(s) manquant : "
-L["ATLAS_OPEN_ADDON_LIST"] = "Ouvrir la liste des addons"
 L["ATLAS_OPEN_ADVENTURE"] = "Cliquer pour ouvrir la fenêtre du Guilde de l'aventurier"
 L["ATLAS_OPTIONS_ACRONYMS"] = "Afficher les acronymes VO/VF"
 L["ATLAS_OPTIONS_ACRONYMS_TIP"] = "Afficher les acronymes de l'instance dans les détails de la carte"
@@ -149,8 +147,6 @@ L["ATLAS_OPTIONS_BUTPOS"] = "Position du bouton"
 L["ATLAS_OPTIONS_BUTRAD"] = "Rayon du bouton"
 L["ATLAS_OPTIONS_BUTTON"] = "Options"
 L["ATLAS_OPTIONS_CATDD"] = "Trier les instances par :"
-L["ATLAS_OPTIONS_CHECKMODULE"] = "Me rappeler en cas de module(s)/plug-in(s) manquant."
-L["ATLAS_OPTIONS_CHECKMODULE_TIP"] = "Activer pour vérifier après le chargement de WoW s'il manque un module/plug-in Atlas."
 L["ATLAS_OPTIONS_CLAMPED"] = "Fixer la fenêtre à l'écran"
 L["ATLAS_OPTIONS_CLAMPED_TIP"] = "Fixer la fenêtre à l'écran, désactiver pour permettre de déplacer le fenêtre d'Atlas."
 L["ATLAS_OPTIONS_COLORINGDROPDOWN"] = "Afficher les donjons de la liste par couleurs de difficulté"

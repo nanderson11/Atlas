@@ -244,28 +244,10 @@ constants.defaults = {
 				maxItems = 30,
 			},
 			worldMapButton = true,                               -- AtlasWorldMapButtonShown
-			checkMissingModules = false,                         -- AtlasCheckModule
 			last_compatible_version = ATLAS_OLDEST_VERSION_SAME_SETTINGS, -- AtlasVersion
 		},
 		options_copied = false,
 	},
-}
-
-constants.moduleList = {
-	"Atlas_ClassicWoW",
-	"Atlas_BurningCrusade",
-	"Atlas_WrathoftheLichKing",
-	"Atlas_Cataclysm",
-	"Atlas_MistsofPandaria",
-	"Atlas_WarlordsofDraenor",
-	"Atlas_Legion",
-	"Atlas_BattleforAzeroth",
-	"Atlas_Battlegrounds",
-	"Atlas_DungeonLocs",
-	"Atlas_OutdoorRaids",
-	"Atlas_Transportation",
-	"Atlas_Scenarios",
-	"Atlas_ClassOrderHalls",
 }
 
 constants.deprecatedList = {

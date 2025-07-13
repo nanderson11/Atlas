@@ -156,23 +156,7 @@ L["ATLAS_LDB_HINT"] = [=[좌클릭 - Atlas 열기.
 L["ATLAS_MINIMAPLDB_HINT"] = [=[좌클릭은 Atlas 열기.
 우클릭은 Atlas 옵션.
 좌클릭 끌기는 이 버튼 이동. ]=]
-L["ATLAS_MISSING_MODULE"] = [=[Atlas가 누락된 모듈 / 플러그인을 감지했습니다.
-
-Atlas가 비활성화 한 오래된 모듈 / 플러그인이 있을 수 있습니다.
-최신 버전을 모두 설치 한 경우 애드온 목록으로 이동하여 모든 기능이 활성화되어 있는지 확인하세요.
-
-\"누락된\" 모듈 / 플러그인이 필요하지 않고 이 메시지를 다시 표시하지 않으려는 경우 옵션 패널로 이동하여 알림을 비활성화 할 수 있습니다.
-
-누락된 모듈 / 플러그인 목록:
-]=]
-L["ATLAS_NO_MODULE_OR_PLUGIN"] = [=[|cffff66ff오류:|r
-Atlas는 설치 및 활성화 된 맵 모듈 또는
-플러그인을 감지 할 수 없습니다.
-Atlas 자체는 맵 브라우저이므로 맵을
-찾아 보려면 최소한 하나의 맵 모듈 또는
-플러그인을 설치해야 합니다.]=]
 L["ATLAS_OPEN_ACHIEVEMENT"] = "상세 업적을 열려면 클릭하세요."
-L["ATLAS_OPEN_ADDON_LIST"] = "애드온 목록 열기"
 L["ATLAS_OPEN_ADVENTURE"] = "모험 안내서 창을 열려면 클릭하세요."
 L["ATLAS_OPEN_ATLASLOOT_WINDOW"] = "AtlasLoot 창을 열려면 클릭하세요."
 L["ATLAS_OPEN_WOWMAP_WINDOW"] = "모험 안내서 지도 창을 열려면 클릭하세요."
@@ -188,8 +172,6 @@ L["ATLAS_OPTIONS_BUTPOS"] = "버튼 위치"
 L["ATLAS_OPTIONS_BUTRAD"] = "버튼 반지름"
 L["ATLAS_OPTIONS_BUTTON"] = "옵션"
 L["ATLAS_OPTIONS_CATDD"] = "인스턴스 지도 정렬 방식:"
-L["ATLAS_OPTIONS_CHECKMODULE"] = "누락된 모듈 / 플러그인 알림."
-L["ATLAS_OPTIONS_CHECKMODULE_TIP"] = "와우가 로드된 후 누락된 Atlas 모듈 / 플러그인이 있는지 확인합니다."
 L["ATLAS_OPTIONS_CLAMPED"] = "창을 화면에 가둠"
 L["ATLAS_OPTIONS_CLAMPED_TIP"] = "게임 화면 밖으로 마우스로 끌 수 없도록 Atlas 창을 화면에 가둡니다."
 L["ATLAS_OPTIONS_COLORINGDROPDOWN"] = "인스턴스 드롭다운을 색상으로 표시"

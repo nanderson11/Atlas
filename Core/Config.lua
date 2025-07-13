@@ -290,19 +290,6 @@ local function getOptions()
 							type = "group",
 							name = L["ATLAS_OPTIONS_HEADER_ADDONCONFIG"],
 							args = {
-								checkMissingModules = {
-									order = 21,
-									type = "toggle",
-									name = L["ATLAS_OPTIONS_CHECKMODULE"],
-									desc = L["ATLAS_OPTIONS_CHECKMODULE_TIP"],
-									width = "double",
-									get = function()
-										return addon.db.profile.options.checkMissingModules
-									end,
-									set = function(info, value)
-										addon.db.profile.options.checkMissingModules = value
-									end,
-								},
 								worldMapButton = {
 									order = 22,
 									type = "toggle",

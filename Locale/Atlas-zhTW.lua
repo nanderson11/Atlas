@@ -154,23 +154,7 @@ L["ATLAS_LDB_HINT"] = [=[左鍵開啟 Atlas。
 L["ATLAS_MINIMAPLDB_HINT"] = [=[左鍵開啟 Atlas。
 右鍵開啟 Atlas 選項。
 左鍵並拖曳以移動圖示按鈕位置。]=]
-L["ATLAS_MISSING_MODULE"] = [=[Atlas 已偵測到遺失的模組／插件。
-
-這有可能是因為先前您有過期的模組／插件而被 Atlas 停用。
-如果您現在已經將所有的模組／插件安裝到最新版，請到插件列表裡確認是否所有的項目都已被啟用。
-
-如果您確認您不需要這些「遺失」的插件並且不想繼續看到這樣的通知，您可以到選項視窗去關閉通知。
-
-以下是遺失的模組／插件列表：
-]=]
-L["ATLAS_NO_MODULE_OR_PLUGIN"] = [=[|cffff66ff錯誤：|r
-Atlas 無法偵測到任何的地圖
-模組或插件被安裝且啟用。
-提醒您，Atlas 本身只是個地圖
-瀏覽器，您將必須至少安裝一個
-地圖模組或插件以瀏覽地圖。]=]
 L["ATLAS_OPEN_ACHIEVEMENT"] = "按下以開啟成就細節。"
-L["ATLAS_OPEN_ADDON_LIST"] = "開啟插件列表"
 L["ATLAS_OPEN_ADVENTURE"] = "按下以開啟冒險指南視窗。"
 L["ATLAS_OPEN_ATLASLOOT_WINDOW"] = "按下以開啟 AtlasLoot 視窗。"
 L["ATLAS_OPEN_WOWMAP_WINDOW"] = "按下以開啟冒險指南地圖視窗。"
@@ -186,8 +170,6 @@ L["ATLAS_OPTIONS_BUTPOS"] = "按鈕位置"
 L["ATLAS_OPTIONS_BUTRAD"] = "按鈕半徑範圍"
 L["ATLAS_OPTIONS_BUTTON"] = "選項"
 L["ATLAS_OPTIONS_CATDD"] = "副本地圖分類方式:"
-L["ATLAS_OPTIONS_CHECKMODULE"] = "提醒我是否有遺失的模組或插件"
-L["ATLAS_OPTIONS_CHECKMODULE_TIP"] = "勾選以在每次登入 WoW 時檢查是否有遺失的 Atlas 模組或插件。"
 L["ATLAS_OPTIONS_CLAMPED"] = "使 Atlas 視窗不超出遊戲畫面"
 L["ATLAS_OPTIONS_CLAMPED_TIP"] = "使 Atlas 視窗被拖曳時不會超出遊戲主畫面的邊界，關閉此選項則可將 Atlas 視窗拖曳並超出遊戲畫面邊界"
 L["ATLAS_OPTIONS_COLORINGDROPDOWN"] = "副本清單以難易度色彩顯示"

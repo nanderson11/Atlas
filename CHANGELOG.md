@@ -6,6 +6,8 @@
 - When the small Atlas map is partially transparent, hovering over it will bring it back to full opacity
 ### Changed
 - Apply map autoselect (if enabled) to the small Atlas map as well
+### Removed
+- Removed option to check for disabled modules
 ### Fixed
 - Retail: Fixed Addon Compartment button
 - Retail: Fixed AtlasLoot button showing on maps that didn't have an instance associated with them

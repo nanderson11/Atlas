@@ -155,17 +155,7 @@ Click derecho para mostrar el menú.]=]
 L["ATLAS_MINIMAPLDB_HINT"] = [=[Click izquierdo para abrir Atlas.
 Click derecho para mostrar las opciones.
 Click izquierdo y arrastrar para mover este botón.]=]
-L["ATLAS_MISSING_MODULE"] = [=[Atlas ha detectado algunos módulos o plugins faltantes.
-
-Esto podría deberse a que tenías instalados módulos o plug-ins obsoletos que Atlas desactivó.
-Si ya has instalado todas sus versiones actualizadas, revisa la lista de addons para asegurarte de que todos estén activados.
-
-Si estás seguro de que no necesitas esos módulos o plug-ins "faltantes" y no quieres volver a ver este mensaje, puedes desactivarlo desde el panel de opciones.
-
-Lista de módulos / plug-ins faltantes:]=]
-L["ATLAS_NO_MODULE_OR_PLUGIN"] = "|cffff66ffError:|r Atlas no ha detectado ningún módulo de mapa o plugin instalado y habilitado. Ten en cuenta que Atlas es un explorador de mapas, debes instalar al menos un módulo de mapas o un plugin para explorar los mapas."
 L["ATLAS_OPEN_ACHIEVEMENT"] = "Clic para abrir los detalles de los logros."
-L["ATLAS_OPEN_ADDON_LIST"] = "Abrir lista de addons"
 L["ATLAS_OPEN_ADVENTURE"] = "Click para abrir la ventana de la Guía de mazmorras."
 L["ATLAS_OPEN_ATLASLOOT_WINDOW"] = "Clic para abrir la ventana de AtlasLoot."
 L["ATLAS_OPEN_WOWMAP_WINDOW"] = "Haz click para abrir el Mapa del Diario de Aventuras."
@@ -181,8 +171,6 @@ L["ATLAS_OPTIONS_BUTPOS"] = "Posición del icono"
 L["ATLAS_OPTIONS_BUTRAD"] = "Radio del botón"
 L["ATLAS_OPTIONS_BUTTON"] = "Opciones"
 L["ATLAS_OPTIONS_CATDD"] = "Ordenar los mapas de mazmorra por:"
-L["ATLAS_OPTIONS_CHECKMODULE"] = "Recuérdame que módulo(s) / plug-in(s) falta(n)."
-L["ATLAS_OPTIONS_CHECKMODULE_TIP"] = "Activar para comprobar si falta algún módulo / plug-in de Atlas después del inicio de WoW."
 L["ATLAS_OPTIONS_CLAMPED"] = "Ajustar ventana a la pantalla"
 L["ATLAS_OPTIONS_CLAMPED_TIP"] = "Fija la ventana de Atlas. Desactiva el poder mover la ventana de Atlas fuera de la pantalla del juego."
 L["ATLAS_OPTIONS_COLORINGDROPDOWN"] = "Mostrar listado de mazmorras con colores"

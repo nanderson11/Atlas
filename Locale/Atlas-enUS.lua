@@ -162,23 +162,7 @@ Right-Click for Atlas options.]=]
 L["ATLAS_MINIMAPLDB_HINT"] = [=[Left-Click to open Atlas.
 Right-Click for Atlas options.
 Left-click and drag to move this button.]=]
-L["ATLAS_MISSING_MODULE"] = [=[Atlas has detected some missing module(s) / plugin(s).
-
-It could be you had outdated module(s) / plugin(s) which had been disabled by Atlas.
-If you have now installed all latest ones, go to your addon list to see if all of them have been enabled.
-
-If you are sure that you don't need those \"missing\" module(s) / plugin(s) and do not want to see this message again, you can go to option panel to disable the notification.
-
-List of missing module(s) / plugin(s):
-]=]
-L["ATLAS_NO_MODULE_OR_PLUGIN"] = [=[|cffff66ffError:|r
-Atlas can not detect any of map module
-or plugin installed and enabled.
-Note that Atlas itself is a map browser,
-you will have to at least install one
-map module or plugin to browse the maps.]=]
 L["ATLAS_OPEN_ACHIEVEMENT"] = "Click to open achievement details."
-L["ATLAS_OPEN_ADDON_LIST"] = "Open addon list"
 L["ATLAS_OPEN_ADVENTURE"] = "Click to open Adventure Journal window."
 L["ATLAS_OPEN_ATLASLOOT_WINDOW"] = "Click to open AtlasLoot window."
 L["ATLAS_OPEN_WOWMAP_WINDOW"] = "Click to open Adventure Journal Map window."
@@ -194,8 +178,6 @@ L["ATLAS_OPTIONS_BUTPOS"] = "Button Position"
 L["ATLAS_OPTIONS_BUTRAD"] = "Button Radius"
 L["ATLAS_OPTIONS_BUTTON"] = "Options"
 L["ATLAS_OPTIONS_CATDD"] = "Sort Instance Maps by:"
-L["ATLAS_OPTIONS_CHECKMODULE"] = "Remind me for missing module(s) / plug-in(s)."
-L["ATLAS_OPTIONS_CHECKMODULE_TIP"] = "Enable to perform checking if any missing Atlas module / plug-in after WoW loaded."
 L["ATLAS_OPTIONS_CLAMPED"] = "Clamp window to screen"
 L["ATLAS_OPTIONS_CLAMPED_TIP"] = "Clamp Atlas window to screen, disable to allow Atlas window can be dragged outside the game screen."
 L["ATLAS_OPTIONS_COLORINGDROPDOWN"] = "Show instance dropdown in colors"

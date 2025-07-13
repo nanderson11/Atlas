@@ -136,8 +136,6 @@ Click derecho para mostrar el menú.]=]
 L["ATLAS_MINIMAPLDB_HINT"] = [=[Click izquierdo para abrir Atlas.
 Click derecho para mostrar las opciones.
 Click izquierdo y arrastrar para mover este botón.]=]
-L["ATLAS_MISSING_MODULE"] = "Atlas has detected missing module(s) / plugin(s): "
-L["ATLAS_OPEN_ADDON_LIST"] = "Abrir lista de addon."
 L["ATLAS_OPEN_ADVENTURE"] = "Click para abrir la ventana de la Guía de mazmorras."
 L["ATLAS_OPTIONS_ACRONYMS"] = "Mostrar acrónimos"
 L["ATLAS_OPTIONS_ACRONYMS_TIP"] = "Muestra el acrónimo de la mazmorra en los detalles del mapa."
@@ -150,8 +148,6 @@ L["ATLAS_OPTIONS_BUTPOS"] = "Posición del icono"
 L["ATLAS_OPTIONS_BUTRAD"] = "Radio del botón"
 L["ATLAS_OPTIONS_BUTTON"] = "Opciones"
 L["ATLAS_OPTIONS_CATDD"] = "Ordenar los mapas de mazmorra por:"
-L["ATLAS_OPTIONS_CHECKMODULE"] = "Recuérdame que módulo(s) / plug-in(s) falta(n)."
-L["ATLAS_OPTIONS_CHECKMODULE_TIP"] = "Activar para comprobar si falta algún módulo / plug-in de Atlas después del inicio de WoW."
 L["ATLAS_OPTIONS_CLAMPED"] = "Ajustar ventana a la pantalla"
 L["ATLAS_OPTIONS_CLAMPED_TIP"] = "Fija la ventana de Atlas. Desactiva el poder mover la ventana de Atlas fuera de la pantalla del juego."
 L["ATLAS_OPTIONS_COLORINGDROPDOWN"] = "Mostrar listado de mazmorras con colores"
