@@ -1650,7 +1650,6 @@ local function initialization()
 	AtlasFrame:SetClampedToScreen(profile.options.frames.clamp)
 	AtlasFrameSmall:SetClampedToScreen(profile.options.frames.clamp)
 
-	check_Modules()
 	if (profile.options.worldMapButton) then
 		addon.WorldMap.Button:Show()
 	else
