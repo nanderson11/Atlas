@@ -81,6 +81,10 @@ end
 function addon:UpdateAlpha()
 	local alpha = addon.db.profile.options.frames.alpha
 	AtlasFrame:SetAlpha(alpha)
+end
+
+function addon:UpdateSmallAlpha()
+	local alpha = addon.db.profile.options.frames.smallAlpha
 	AtlasFrameSmall:SetAlpha(alpha)
 end
 
@@ -88,6 +92,10 @@ end
 function addon:UpdateScale()
 	local scale = addon.db.profile.options.frames.scale
 	AtlasFrame:SetScale(scale)
+end
+
+function addon:UpdateSmallScale()
+	local scale = addon.db.profile.options.frames.smallScale
 	AtlasFrameSmall:SetScale(scale)
 end
 

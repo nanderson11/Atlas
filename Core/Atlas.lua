@@ -1708,7 +1708,9 @@ local function initialization()
 	Atlas_Refresh()
 	addon:UpdateLock()
 	addon:UpdateAlpha()
+	addon:UpdateSmallAlpha()
 	addon:UpdateScale()
+	addon:UpdateSmallScale()
 	AtlasFrame:SetClampedToScreen(profile.options.frames.clamp)
 	AtlasFrameSmall:SetClampedToScreen(profile.options.frames.clamp)
 
@@ -1750,6 +1752,7 @@ function addon:OnEnable()
 	AtlasFrame:SetTitle(ATLAS_TITLE_VERSION);
 	AtlasFrameSmall:SetPortraitToAsset("Interface\\WorldMap\\WorldMap-Icon");
 	AtlasFrameSmall:SetTitle(ATLAS_TITLE_VERSION);
+	AtlasFrameSmallCloseButton:SetPropagateMouseMotion(true)
 
 	-- On retail, adjust the position of the lock button
 	if (WoWRetail) then
@@ -1769,7 +1772,9 @@ function addon:Refresh()
 	AtlasFrameDropDown_OnShow()
 	addon:UpdateLock()
 	addon:UpdateAlpha()
+	addon:UpdateSmallAlpha()
 	addon:UpdateScale()
+	addon:UpdateSmallScale()
 	AtlasFrame:SetClampedToScreen(profile.options.frames.clamp)
 	AtlasFrameSmall:SetClampedToScreen(profile.options.frames.clamp)
 	if (profile.options.worldMapButton) then

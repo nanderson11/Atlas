@@ -145,7 +145,8 @@
 		"GameTooltip_AddColoredLine",
 		"DUNGEON_ENCOUNTER_DEFEATED",
 		"Clamp",
-		"SOUNDKIT"
+		"SOUNDKIT",
+		"AtlasFrameSmallCloseButton"
 	],
 	"Lua.runtime.version": "Lua 5.1",
 	"Lua.runtime.builtin": {

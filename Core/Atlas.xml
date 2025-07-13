@@ -369,18 +369,18 @@
  			</Anchor>
  		</Anchors>
 		<Frames>
-			<Button name="$parentLockButton" inherits="AtlasFrameLockButtonTemplate">
+			<Button name="$parentLockButton" inherits="AtlasFrameLockButtonTemplate" propagateMouseInput="Motion">
 				<NormalTexture name="AtlasLockSmallNorm"/>
 				<PushedTexture name="AtlasLockSmallPush"/>
 			</Button>
-			<Button name="$parentOptionsButton" inherits="AtlasFrameOptionsButtonTemplate"/>
-			<Button name="$parentNextMapButton" parentKey="NextMap" inherits="AtlasFrameNextMapButtonTemplate"/>
-			<Button name="$parentPrevMapButton" parentKey="PrevMap" inherits="AtlasFramePrevMapButtonTemplate"/>
-			<Button name="$parentAdventureJournalMapButton" parentKey="AdventureJournalMap" inherits="AtlasFrameAdventureJournalMapButtonTemplate"/>
-			<Button name="$parentAdventureJournalButton" parentKey="AdventureJournal" inherits="AtlasFrameAdventureJournalButtonTemplate"/>
-			<Button name="$parentAtlasLootButton" parentKey="AtlasLoot" inherits="AtlasFrameAtlasLootButtonTemplate"/>
-			<Button name="$parentExpandButton" inherits="AtlasFrameExpandButtonTemplate"/>
-			<Button name="$parentMapZoneName" parentKey="ZoneName" inherits="AtlasFrameMapZoneNameTemplate"/>
+			<Button name="$parentOptionsButton" inherits="AtlasFrameOptionsButtonTemplate" propagateMouseInput="Motion"/>
+			<Button name="$parentNextMapButton" parentKey="NextMap" inherits="AtlasFrameNextMapButtonTemplate" propagateMouseInput="Motion"/>
+			<Button name="$parentPrevMapButton" parentKey="PrevMap" inherits="AtlasFramePrevMapButtonTemplate" propagateMouseInput="Motion"/>
+			<Button name="$parentAdventureJournalMapButton" parentKey="AdventureJournalMap" inherits="AtlasFrameAdventureJournalMapButtonTemplate" propagateMouseInput="Motion"/>
+			<Button name="$parentAdventureJournalButton" parentKey="AdventureJournal" inherits="AtlasFrameAdventureJournalButtonTemplate" propagateMouseInput="Motion"/>
+			<Button name="$parentAtlasLootButton" parentKey="AtlasLoot" inherits="AtlasFrameAtlasLootButtonTemplate" propagateMouseInput="Motion"/>
+			<Button name="$parentExpandButton" inherits="AtlasFrameExpandButtonTemplate" propagateMouseInput="Motion"/>
+			<Button name="$parentMapZoneName" parentKey="ZoneName" inherits="AtlasFrameMapZoneNameTemplate" propagateMouseInput="Motion"/>
 			<Frame name="$parentMapFrame" parentKey="MapFrame" inherits="InsetFrameTemplate">
 				<Size x="519" y="519"/>
 				<Anchors>
@@ -441,6 +441,12 @@
 					end
 				end
 			</OnMouseUp>
+			<OnEnter>
+				AtlasFrameSmall:SetAlpha(1)
+			</OnEnter>
+			<OnLeave>
+				Atlas:UpdateSmallAlpha()
+			</OnLeave>
 		</Scripts>
 	</Frame>
 </Ui>

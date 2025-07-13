@@ -319,7 +319,7 @@
 		</Layers>
 	</Button>
 
-	<Button name="AtlasMapButtonTemplate" virtual="true">
+	<Button name="AtlasMapButtonTemplate" virtual="true" propagateMouseInput="Motion">
 		<Scripts>
 			<OnEnter>
 				if (self.tooltiptitle) then
