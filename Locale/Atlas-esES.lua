@@ -54,7 +54,6 @@ L["Andormu <Keepers of Time>"] = "Andormu <Vigilantes del Tiempo"
 L["Arazmodu <The Scale of Sands>"] = "Arazmodu <La Escama de las Arenas>"
 L["Arcane Container"] = "Contenedor Arcano"
 L["Arms Warrior"] = "Guerrero Armas"
-L["ATLAS_BUTTON_CLOSE"] = "Cerrar"
 L["ATLAS_CLICK_TO_OPEN"] = "Haz click para abrir el mapa de Atlas"
 L["ATLAS_CLOSE_ATLASLOOT_WINDOW"] = "Clic derecho para cerrar la ventana de AtlasLoot."
 L["ATLAS_COLLAPSE_BUTTON"] = "Haz click para cerrar el panel de legendarios"
@@ -124,37 +123,10 @@ L["ATLAS_DEP_MSG4"] = "Una vez que tengas los últimos instalados, no olvides ha
 L["ATLAS_DEP_OK"] = "Vale"
 L["ATLAS_ENTRANCE_BUTTON"] = "Entrada"
 L["ATLAS_EXPAND_BUTTON"] = "Click para abrir el panel con la leyenda de Atlas."
-L["ATLAS_INFO"] = "Información de Atlas"
-L["ATLAS_INFO_12200"] = [=[Aviso importante:
-
-Debido al aumento del tamaño en los
-archivos de este accesorio, se han separado parte de los mapas de mazmorras,
-y otros accesorios internos en módulos separados.
-
-Los usuarios que descarguen este accesorio desde conocidas páginas web obtendrán
-únicamente el núcleo del accesorio, el cual solo contiene la función del núcleo
-y los mapas de la última expansión.
-
-Los usuarios que también quieran descargar los mapas de las mazmorras antiguas y
-los mapas de todos los plug-ins
-de Atlas hechos por nosotros, tendrán que
-descargarselos por separado.
-
-Para mas información accede a:
-http://www.atlasmod.com/phpBB3/viewtopic.php?t=1522]=]
-L["ATLAS_INFO_12201"] = [=[Te informamos de que hemos creado un nuevo plug-in - |cff6666ffAtlas Escenarios|cffffffff,
-que contiene los nuevos mapas de los escenarios introducidos en WoW 5.0.
-
-Para mas detalles aacede a nuestra web, y no olvides de descargarlo /
-instalarlo por separado.
-|cff6666ffhttp://www.atlasmod.com/|cffffffff]=]
 L["ATLAS_INSTANCE_BUTTON"] = "Mazmorra"
 L["ATLAS_LDB_HINT"] = [=[Click izquierdo para abrir Atlas.
 Click central para opciones.
 Click derecho para mostrar el menú.]=]
-L["ATLAS_MINIMAPLDB_HINT"] = [=[Click izquierdo para abrir Atlas.
-Click derecho para mostrar las opciones.
-Click izquierdo y arrastrar para mover este botón.]=]
 L["ATLAS_OPEN_ACHIEVEMENT"] = "Clic para abrir los detalles de los logros."
 L["ATLAS_OPEN_ADVENTURE"] = "Click para abrir la ventana de la Guía de mazmorras."
 L["ATLAS_OPEN_ATLASLOOT_WINDOW"] = "Clic para abrir la ventana de AtlasLoot."
@@ -167,8 +139,6 @@ L["ATLAS_OPTIONS_BOSS_DESC"] = "Muestra la descripción del jefe cuando este dis
 L["ATLAS_OPTIONS_BOSS_DESC_SCALE"] = "Escala de las ventanitas con la descripción del jefe en el mapa"
 L["ATLAS_OPTIONS_BOSS_DESC_TIP"] = "Cuando pasas el ratón por encima del número del jefe, muestra la descripción del jefe si la información está disponible."
 L["ATLAS_OPTIONS_BOSS_POTRAIT"] = "Mostrar retrato del jefe cuando esté disponible"
-L["ATLAS_OPTIONS_BUTPOS"] = "Posición del icono"
-L["ATLAS_OPTIONS_BUTRAD"] = "Radio del botón"
 L["ATLAS_OPTIONS_BUTTON"] = "Opciones"
 L["ATLAS_OPTIONS_CATDD"] = "Ordenar los mapas de mazmorra por:"
 L["ATLAS_OPTIONS_CLAMPED"] = "Ajustar ventana a la pantalla"
@@ -177,7 +147,6 @@ L["ATLAS_OPTIONS_COLORINGDROPDOWN"] = "Mostrar listado de mazmorras con colores"
 L["ATLAS_OPTIONS_COLORINGDROPDOWN_TIP"] = "Muestra con colores el nivel de dificultad de la mazmorra, basándose en el nivel mínimo recomendado de la mazmorra y en el nivel del personaje. "
 L["ATLAS_OPTIONS_CTRL"] = "Pulsar control para ver las herramientas"
 L["ATLAS_OPTIONS_CTRL_TIP"] = "Activa mostrar ventanas emergentes de texto mientras pulsas Ctrl y pasas el ratón por encima de la información del mapa. Es util cuando el texto es demasiado largo y no se puede mostrar en la ventana."
-L["ATLAS_OPTIONS_DONTSHOWAGAIN"] = "No mostrar la misma información de nuevo."
 L["ATLAS_OPTIONS_HEADER_ADDONCONFIG"] = "Configuraciones de addons"
 L["ATLAS_OPTIONS_LOCK"] = "Bloquea la ventana de Atlas"
 L["ATLAS_OPTIONS_LOCK_TIP"] = "Bloquea / desbloquea la ventana de Atlas."
@@ -185,7 +154,6 @@ L["ATLAS_OPTIONS_MAXMENUITEMS"] = "Número máximo de elementos de menú"
 L["ATLAS_OPTIONS_MAXMENUITEMS_TIP"] = "Configurar el número máximo de elementos del menú desplegable que se mostrarán antes de dividir a otra categoría de menú."
 L["ATLAS_OPTIONS_RCLICK"] = "Botón derecho para mapa del mundo"
 L["ATLAS_OPTIONS_RCLICK_TIP"] = "Activa click derecho en la ventana del Atlas para cambiar al mapa del mundo."
-L["ATLAS_OPTIONS_RESETPOS"] = "Resetear posición"
 L["ATLAS_OPTIONS_SCALE"] = "Escala"
 L["ATLAS_OPTIONS_SHOWBUT"] = "Mostrar botón en el minimapa"
 L["ATLAS_OPTIONS_SHOWBUT_TIP"] = "Muestra el botón de Atlas en el minimapa."
@@ -244,12 +212,10 @@ L["Holy Priest"] = "Sacerdote Sagrado"
 L["Hyphen"] = "-"
 L["Imp"] = "Duendecillo"
 L["Key"] = "Llave"
-L["L-DQuote"] = "\""
 L["Lothos Riftwaker"] = "Lothos Levantagrietas"
 L["Love is in the Air"] = "Amor en el aire"
 L["Lower"] = "Abajo"
 L["L-Parenthesis"] = "("
-L["L-SBracket"] = "["
 L["Lunar Festival"] = "Festival lunar"
 L["MapA"] = " [A]"
 L["MapB"] = " [B]"
@@ -261,11 +227,6 @@ L["MapG"] = "[G]"
 L["MapH"] = "[H]"
 L["MapI"] = "[I]"
 L["MapJ"] = "[J]"
-L["MapsNotFound"] = [=[La mazmorra actual no dispone de su
-imagen de mapa correspondiente.
-
-Por favor, asegurate de tener instalado
-el módulo(s) de mapas Atlas correspondiente.]=]
 L["Meeting Stone"] = "Piedra de encuentro"
 L["Middle"] = "Medio"
 L["Midsummer Festival"] = "Festival del solsticio de verano"
@@ -281,18 +242,15 @@ L["Outside"] = "Fuera"
 L["Period"] = "."
 L["Portal"] = "Portal"
 L["Portal to %s"] = "Portal a %s"
-L["PossibleMissingModule"] = "Posiblemente este mapa es de este módulo: "
 L["Profile Options"] = "Opciones de perfil"
 L["Protection Warrior"] = "Guerrero Protección"
 L["Purple"] = "Morado"
 L["Random"] = "Aleatorio"
 L["Rare"] = "Raro"
-L["R-DQuote"] = "\""
 L["Repair"] = "Reparar"
 L["Retribution Paladin"] = "Paladín Reprensión"
 L["Rewards"] = "Recompensas"
 L["R-Parenthesis"] = ")"
-L["R-SBracket"] = "]"
 L["Scale and Transparency"] = "Escala y transparencia"
 L["Scarshield Quartermaster <Scarshield Legion>"] = "Intendente del Escudo del Estigma <Legión Escudo del Estigma>"
 L["Second Stop"] = "Segunda parada"

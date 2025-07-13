@@ -54,7 +54,6 @@ L["Andormu <Keepers of Time>"] = "安杜姆 <時光守望者>"
 L["Arazmodu <The Scale of Sands>"] = "阿拉斯莫杜 <流沙之鱗>"
 L["Arcane Container"] = "秘法容器"
 L["Arms Warrior"] = "武戰"
-L["ATLAS_BUTTON_CLOSE"] = "關閉"
 L["ATLAS_CLICK_TO_OPEN"] = "按下以開啟 Atlas 地圖視窗。"
 L["ATLAS_CLOSE_ATLASLOOT_WINDOW"] = "右鍵點擊以關閉 AtlasLoot 視窗。"
 L["ATLAS_COLLAPSE_BUTTON"] = "按下以收起 Atlas 的地圖說明窗格。"
@@ -126,34 +125,10 @@ L["ATLAS_DEP_MSG4"] = [=[當您將過期的模組/相依插件替換並安裝成
 L["ATLAS_DEP_OK"] = "OK"
 L["ATLAS_ENTRANCE_BUTTON"] = "入口"
 L["ATLAS_EXPAND_BUTTON"] = "按下以展開 Atlas 的地圖說明窗格。"
-L["ATLAS_INFO"] = "Atlas 訊息"
-L["ATLAS_INFO_12200"] = [=[重要提示：
-
-由於副本插件檔案大小日益增加，我們已獨立出部分副本地圖和內建插件
-到單獨的模組。
-
-您從各大遊戲插件網站所下載的 Atlas 插件，可能只包含了主要的核心功能
-與最新資料片裡的副本地圖。
-
-若您想要取得包含舊的資料片的所有地圖，以及 Atlas 團隊所開發的其他
-模組，您必須分別下載這些獨立模組的壓縮檔並分別進行安裝。
-
-請詳讀我們論壇的這個討論串以了解更多詳情：
-|cff6666ffhttp://www.atlasmod.com/phpBB3/viewtopic.php?t=1522|cffffffff
-或造訪我們的首頁：
-|cff6666ffhttp://www.atlasmod.com/|cffffffff]=]
-L["ATLAS_INFO_12201"] = [=[我們最近新增了一個新的 Atlas 插件 - |cff6666ffAtlas 情境地圖|cffffffff，用以提供 WoW 5.0
-起新增的情境事件的地圖。
-
-請參見我們的網站以取得更詳細的資訊，並請記得分別下載並安裝此插件。
-|cff6666ffhttp://www.atlasmod.com/|cffffffff]=]
 L["ATLAS_INSTANCE_BUTTON"] = "副本"
 L["ATLAS_LDB_HINT"] = [=[左鍵開啟 Atlas。
 中鍵開啟 Atlas 選項。
 右鍵打開顯示選單。"]=]
-L["ATLAS_MINIMAPLDB_HINT"] = [=[左鍵開啟 Atlas。
-右鍵開啟 Atlas 選項。
-左鍵並拖曳以移動圖示按鈕位置。]=]
 L["ATLAS_OPEN_ACHIEVEMENT"] = "按下以開啟成就細節。"
 L["ATLAS_OPEN_ADVENTURE"] = "按下以開啟冒險指南視窗。"
 L["ATLAS_OPEN_ATLASLOOT_WINDOW"] = "按下以開啟 AtlasLoot 視窗。"
@@ -166,8 +141,6 @@ L["ATLAS_OPTIONS_BOSS_DESC"] = "當首領資訊可獲取時，顯示該資訊"
 L["ATLAS_OPTIONS_BOSS_DESC_SCALE"] = "首領資訊提示視窗大小比率"
 L["ATLAS_OPTIONS_BOSS_DESC_TIP"] = "當滑鼠游標移動到地圖上首領的標號時，並且首領資訊可獲取時，顯示該首領的相關資訊。"
 L["ATLAS_OPTIONS_BOSS_POTRAIT"] = "當首領頭像可獲取時，顯示首領頭像"
-L["ATLAS_OPTIONS_BUTPOS"] = "按鈕位置"
-L["ATLAS_OPTIONS_BUTRAD"] = "按鈕半徑範圍"
 L["ATLAS_OPTIONS_BUTTON"] = "選項"
 L["ATLAS_OPTIONS_CATDD"] = "副本地圖分類方式:"
 L["ATLAS_OPTIONS_CLAMPED"] = "使 Atlas 視窗不超出遊戲畫面"
@@ -176,7 +149,6 @@ L["ATLAS_OPTIONS_COLORINGDROPDOWN"] = "副本清單以難易度色彩顯示"
 L["ATLAS_OPTIONS_COLORINGDROPDOWN_TIP"] = "依據副本建議的最低進入等級、以及玩家現今等級的差異，將副本清單以難易度色彩顯示。"
 L["ATLAS_OPTIONS_CTRL"] = "按住 Ctrl 鍵以顯示工具提示"
 L["ATLAS_OPTIONS_CTRL_TIP"] = "勾選後，當滑鼠移到地圖資訊欄位時，按下 Ctrl 控制鍵，則會將資訊的完整資訊以提示型態顯示。當資訊過長而被截斷時很有用。"
-L["ATLAS_OPTIONS_DONTSHOWAGAIN"] = "不再顯示相同訊息。"
 L["ATLAS_OPTIONS_HEADER_ADDONCONFIG"] = "插件設定"
 L["ATLAS_OPTIONS_HEADER_DISPLAY"] = "顯示選項"
 L["ATLAS_OPTIONS_LOCK"] = "鎖定 Atlas 視窗位置"
@@ -185,7 +157,6 @@ L["ATLAS_OPTIONS_MAXMENUITEMS"] = "選單最大值"
 L["ATLAS_OPTIONS_MAXMENUITEMS_TIP"] = "設定下拉選單最大可顯示的地圖數量，超過後才分割至下一個地圖類別。"
 L["ATLAS_OPTIONS_RCLICK"] = "滑鼠右鍵開啟世界地圖"
 L["ATLAS_OPTIONS_RCLICK_TIP"] = "啟用在 Atlas 視窗中按下滑鼠右鍵自動切換到魔獸的世界地圖"
-L["ATLAS_OPTIONS_RESETPOS"] = "重設位置"
 L["ATLAS_OPTIONS_SCALE"] = "視窗大小比率"
 L["ATLAS_OPTIONS_SHOWBUT"] = "在小地圖旁顯示 Atlas 按鈕"
 L["ATLAS_OPTIONS_SHOWBUT_TIP"] = "在小地圖旁顯示 Atlas 按鈕"
@@ -244,12 +215,10 @@ L["Holy Priest"] = "神聖牧師"
 L["Hyphen"] = "－"
 L["Imp"] = "小鬼"
 L["Key"] = "鑰匙"
-L["L-DQuote"] = "「"
 L["Lothos Riftwaker"] = "洛索斯·天痕"
 L["Love is in the Air"] = "愛就在身邊"
 L["Lower"] = "下層"
 L["L-Parenthesis"] = "（"
-L["L-SBracket"] = "【"
 L["Lunar Festival"] = "新年慶典"
 L["MapA"] = " [1]"
 L["MapB"] = " [2]"
@@ -261,9 +230,6 @@ L["MapG"] = " [7]"
 L["MapH"] = " [8]"
 L["MapI"] = " [9]"
 L["MapJ"] = " [10]"
-L["MapsNotFound"] = [=[目前的副本找不到對應的地圖影像檔。
-
-請確認您是否有安裝 Atlas 相關的副本地圖模組。]=]
 L["Meeting Stone"] = "集合石"
 L["Middle"] = "中間"
 L["Midsummer Festival"] = "仲夏節慶"
@@ -279,22 +245,18 @@ L["Outside"] = "戶外"
 L["Period"] = "。"
 L["Portal"] = "傳送門"
 L["Portal to %s"] = "到%s的傳送門"
-L["PossibleMissingModule"] = "遺失的地圖應是來自以下的模組："
 L["Profile Options"] = "設定檔選項"
 L["Protection Warrior"] = "防戰"
 L["Purple"] = "紫"
 L["Random"] = "隨機"
 L["Rare"] = "稀有"
-L["R-DQuote"] = "」"
 L["Repair"] = "修理"
 L["Retribution Paladin"] = "懲戒聖騎"
 L["Rewards"] = "獎勵"
 L["R-Parenthesis"] = "）"
-L["R-SBracket"] = "】"
 L["Scale and Transparency"] = "大小與透明度"
 L["Scarshield Quartermaster <Scarshield Legion>"] = "裂盾軍需官 <裂盾軍團>"
 L["Second Stop"] = "第二停留點"
-L["Semicolon"] = "；"
 L["Shadow Priest"] = "暗影牧師"
 L["Slash"] = "／"
 L["Soridormi <The Scale of Sands>"] = "索芮朵蜜 <流沙之鱗>"

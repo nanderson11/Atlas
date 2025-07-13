@@ -51,7 +51,6 @@ L["Andormu <Keepers of Time>"] = "Andormu <Les Gardiens du temps>"
 L["Arazmodu <The Scale of Sands>"] = "Arazmodu <La Balance des sables>"
 L["Arcane Container"] = "Récipient arcanique"
 L["Arms Warrior"] = "Guerrier Armes"
-L["ATLAS_BUTTON_CLOSE"] = "Fermer"
 L["ATLAS_CLICK_TO_OPEN"] = "Cliquez pour ouvrir la fenêtre de carte Atlas."
 L["ATLAS_CLOSE_ATLASLOOT_WINDOW"] = "Clic-droit pour fermer la fenêtre AtlasLoot."
 L["ATLAS_COLLAPSE_BUTTON"] = "Clic pour fermer le panneau Atlas'legend."
@@ -103,38 +102,10 @@ L["ATLAS_DEP_MSG2"] = "Ils ont été désactivés pour ce personnage."
 L["ATLAS_DEP_MSG3"] = "Les supprimer de votre dossier AddOns."
 L["ATLAS_DEP_OK"] = "Ok"
 L["ATLAS_ENTRANCE_BUTTON"] = "Entrée"
-L["ATLAS_INFO"] = "Atlas Information"
-L["ATLAS_INFO_12200"] = [=[Information importante :
-
-Suite à l'augmentation de la taille des fichiers de l'addon, nous avons déplacé
-une partie de nos cartes des donjons et créé des modules séparés avec.
-
-Les utilisateurs qui téléchargent nos addons à partir de fameux sites tiers
-pourraient n'avoir que l'addon principal qui ne contient que les fonctions de
-base et les cartes de la dernière extension de WoW.
-
-Si vous souhaitez également voir les cartes des vieilles extensions, et donc
-avoir tous ces modules Atlas que nous avons fait, vous devez les télécharger
-et les installer séparément.
-
-Pour plus d'information, lire le sujet suivant sur notre forum :
-|cff6666ffhttp://www.atlasmod.com/phpBB3/viewtopic.php?t=1522|cffffffff
-
-Ou visiter notre site web pour voir où les télécharger.
-|cff6666ffhttp://www.atlasmod.com/]=]
-L["ATLAS_INFO_12201"] = [=[Veuillez noter que nous avons créé un nouveau plug-in - |cff6666ffAtlas Scenarios|cffffffff,
-afin de fournir les cartes des scénarios introduits dans WoW 5.0.
-
-Visitez notre site web pour plus de détail, et n'oubliez pas de le
-télécharger/installer séparément.]=]
 L["ATLAS_INSTANCE_BUTTON"] = "Instance"
 L["ATLAS_LDB_HINT"] = [=[Clic-Gauche pour ouvrir Atlas.
 Clic-Milieu pour les options d'Atlas.
 Clic-Droit pour le menu d'affichage.]=]
-L["ATLAS_MINIMAPLDB_HINT"] = [=[Clic-Gauche pour ouvrir Atlas.
-Clic-Droit pour les options d'Atlas.
-Clic-Gauche et glisser pour déplacer ce bouton.
-|cff6666ffhttp://www.atlasmod.com/|cffffffff]=]
 L["ATLAS_OPEN_ADVENTURE"] = "Cliquer pour ouvrir la fenêtre du Guilde de l'aventurier"
 L["ATLAS_OPTIONS_ACRONYMS"] = "Afficher les acronymes VO/VF"
 L["ATLAS_OPTIONS_ACRONYMS_TIP"] = "Afficher les acronymes de l'instance dans les détails de la carte"
@@ -143,8 +114,6 @@ L["ATLAS_OPTIONS_AUTOSEL_TIP"] = "Sélection automatique de la carte, Atlas dét
 L["ATLAS_OPTIONS_BOSS_DESC"] = "Afficher la description des boss, si disponible"
 L["ATLAS_OPTIONS_BOSS_DESC_SCALE"] = "Mise à l'échelle de l'info-bulles pour les descriptions de boss sur la carte"
 L["ATLAS_OPTIONS_BOSS_DESC_TIP"] = "Afficher la description d'un boss au passage de la souris sur son numéro, si disponible."
-L["ATLAS_OPTIONS_BUTPOS"] = "Position du bouton"
-L["ATLAS_OPTIONS_BUTRAD"] = "Rayon du bouton"
 L["ATLAS_OPTIONS_BUTTON"] = "Options"
 L["ATLAS_OPTIONS_CATDD"] = "Trier les instances par :"
 L["ATLAS_OPTIONS_CLAMPED"] = "Fixer la fenêtre à l'écran"
@@ -153,12 +122,10 @@ L["ATLAS_OPTIONS_COLORINGDROPDOWN"] = "Afficher les donjons de la liste par coul
 L["ATLAS_OPTIONS_COLORINGDROPDOWN_TIP"] = "Basé sur le niveau minimum recommandé par le donjon et le niveau du joueur, pour afficher le donjon avec des couleurs de difficulté."
 L["ATLAS_OPTIONS_CTRL"] = "Maintenir la touche Ctrl enfoncée pour voir les infobulles"
 L["ATLAS_OPTIONS_CTRL_TIP"] = "Maintenir la touche Ctrl enfoncée pour voir les infobulles au passage de la souris. Très utile quand le texte est trop long pour apparaitre dans la fenêtre."
-L["ATLAS_OPTIONS_DONTSHOWAGAIN"] = "Ne pas remontrer de nouveau l'information"
 L["ATLAS_OPTIONS_LOCK"] = "Verrouiller la fenêtre d'Atlas"
 L["ATLAS_OPTIONS_LOCK_TIP"] = "Verrouiller/déverrouiller la fenêtre d'Atlas"
 L["ATLAS_OPTIONS_RCLICK"] = "Clic droit pour afficher la carte du monde"
 L["ATLAS_OPTIONS_RCLICK_TIP"] = "Active le clic droit dans la fenêtre Atlas pour afficher la carte du monde."
-L["ATLAS_OPTIONS_RESETPOS"] = "Position initiale"
 L["ATLAS_OPTIONS_SCALE"] = "Échelle"
 L["ATLAS_OPTIONS_SHOWBUT"] = "Afficher le bouton sur la mini-carte"
 L["ATLAS_OPTIONS_SHOWBUT_TIP"] = "Afficher le bouton Atlas autour de la mini-carte"
@@ -214,12 +181,10 @@ L["Holy Priest"] = "Prêtre Sacré"
 L["Hyphen"] = "-"
 L["Imp"] = "Diablotin"
 L["Key"] = "Clé"
-L["L-DQuote"] = "\""
 L["Lothos Riftwaker"] = "Lothos Ouvrefaille"
 L["Love is in the Air"] = "De l'amour dans l'air"
 L["Lower"] = "En bas"
 L["L-Parenthesis"] = "("
-L["L-SBracket"] = "["
 L["Lunar Festival"] = "Festival lunaire"
 L["MapA"] = " [A]"
 L["MapB"] = " [B]"
@@ -231,8 +196,6 @@ L["MapG"] = " [G]"
 L["MapH"] = " [H]"
 L["MapI"] = " [I]"
 L["MapJ"] = " [J]"
-L["MapsNotFound"] = [=[Le donjon actuellement sélectionné n'a pas d'image de la carte correspondante.
-Assurez-vous d'avoir installé le bon module de cartes d'Atlas]=]
 L["Meeting Stone"] = "Pierre de rencontre"
 L["Middle"] = "Milieu"
 L["Midsummer Festival"] = "Solstice d'été : la fête du Feu"
@@ -251,15 +214,12 @@ L["Protection Warrior"] = "Guerrier Protection"
 L["Purple"] = "Violet"
 L["Random"] = "Aléatoire"
 L["Rare"] = "Rare"
-L["R-DQuote"] = "\""
 L["Repair"] = "Réparation"
 L["Retribution Paladin"] = "Paladin Vindicte"
 L["Rewards"] = "Récompenses"
 L["R-Parenthesis"] = ") "
-L["R-SBracket"] = "]"
 L["Scarshield Quartermaster <Scarshield Legion>"] = "Intendant du Bouclier balafré <Légion du Bouclier balafré>"
 L["Second Stop"] = "Deuxième arrêt"
-L["Semicolon"] = "; "
 L["Shadow Priest"] = "Prêtre Ombre"
 L["Slash"] = "/ "
 L["Soridormi <The Scale of Sands>"] = "Soridormi <La Balance des sables>"

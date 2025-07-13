@@ -58,7 +58,6 @@ L["Andormu <Keepers of Time>"] = "Andormu <Hüter der Zeit>"
 L["Arazmodu <The Scale of Sands>"] = "Arazmodu <Die Wächter der Sande>"
 L["Arcane Container"] = "Arkaner Behälter"
 L["Arms Warrior"] = "Waffenkrieger"
-L["ATLAS_BUTTON_CLOSE"] = "Schließen"
 L["ATLAS_CLICK_TO_OPEN"] = "Klicken, um das Atlas-Kartenfenster zu öffnen."
 L["ATLAS_CLOSE_ATLASLOOT_WINDOW"] = "Rechtsklicken, um das AtlasLoot-Fenster zu schließen."
 L["ATLAS_COLLAPSE_BUTTON"] = "Klicken, um Atlas' Legende zu schließen."
@@ -132,32 +131,9 @@ vergessen Sie nicht, sie in der Addon-Liste zu aktivieren.]=]
 L["ATLAS_DEP_OK"] = "OK"
 L["ATLAS_ENTRANCE_BUTTON"] = "Eingang"
 L["ATLAS_EXPAND_BUTTON"] = "Klicken, um Atlas' Legende zu öffnen."
-L["ATLAS_INFO"] = "Atlas Information"
-L["ATLAS_INFO_12200"] = [=[Wichtiger Hinweis:
-
-Da die Addondatei stets größer wird, wurde ein Teil
-der Instanzkarten in getrennte Module verschoben.
-
-Beim Download des Addons von den bekannten Webseiten
-erhält man daher nun lediglich das Haupt-Addon mit den Kernfunktionen
-und den Instanzkarten von Cataclysm.
-
-Wer alle alten Instanzkarten und alle Atlas Plugins benötigt,
-muss diese seperat herunterladen.
-
-Mehr Infos dazu gibt es im Forum:
-http://www.atlasmod.com/phpBB3/viewtopic.php?t=1522]=]
-L["ATLAS_INFO_12201"] = [=[Bitte beachten Sie, dass ein neues Plugin |cff6666ffAtlas Scenarios|cffffffff mit den Karten der neuen Szenarien erstellt wurde.
-
-Besuchen Sie für weitere Details unsere Webseite und vergessen Sie nicht,
-das Plugin separat zu installieren.
-|cff6666ffhttp://www.atlasmod.com/|cffffffff]=]
 L["ATLAS_INSTANCE_BUTTON"] = "Instanz"
 L["ATLAS_LDB_HINT"] = [=[Linke Maustaste drücken, um Atlas zu öffnen.
 Rechte Maustaste drücken, um die Atlas-Optionen anzuzeigen.]=]
-L["ATLAS_MINIMAPLDB_HINT"] = [=[Linke Maustaste drücken, um Atlas zu öffnen.
-Rechte Maustaste drücken, um die Atlas-Optionen anzuzeigen.
-Linke Maustaste gedrückt halten, um diesen Schalter zu verschieben.]=]
 L["ATLAS_OPEN_ACHIEVEMENT"] = "Klicken, um das Erfolgsfenster zu öffnen."
 L["ATLAS_OPEN_ADVENTURE"] = "Klicken, um den Abenteuerführer zu öffnen."
 L["ATLAS_OPEN_ATLASLOOT_WINDOW"] = "Klicken, um das AtlasLoot-Fenster zu öffnen."
@@ -170,8 +146,6 @@ L["ATLAS_OPTIONS_BOSS_DESC"] = "Bossbeschreibungen anzeigen, wenn verfügbar"
 L["ATLAS_OPTIONS_BOSS_DESC_SCALE"] = "Skalierung der Bossbeschreibungen auf der Karte"
 L["ATLAS_OPTIONS_BOSS_DESC_TIP"] = "Beim Überfahren der Bossnummer mit dem Mauszeiger wird, wenn verfügbar, eine Bossbeschreibung angezeigt."
 L["ATLAS_OPTIONS_BOSS_POTRAIT"] = "Bossportrait, falls verfügbar, anzeigen"
-L["ATLAS_OPTIONS_BUTPOS"] = "Schalterposition"
-L["ATLAS_OPTIONS_BUTRAD"] = "Schalterradius"
 L["ATLAS_OPTIONS_BUTTON"] = "Optionen"
 L["ATLAS_OPTIONS_CATDD"] = "Sortierung der Karten nach:"
 L["ATLAS_OPTIONS_CLAMPED"] = "Fenster im Bildschirm festhalten"
@@ -180,7 +154,6 @@ L["ATLAS_OPTIONS_COLORINGDROPDOWN"] = "Instanzlisten nach Schwierigkeit färben"
 L["ATLAS_OPTIONS_COLORINGDROPDOWN_TIP"] = "Färbt die Instanzliste in Abhängigkeit von der empfohlenen Minimalstufe und deiner Stufe ein. Diese Einfärbung hilft dir den Schwierigkeitsgrad der Instanz zu sehen."
 L["ATLAS_OPTIONS_CTRL"] = "Steuerung drücken, um Tooltips anzuzeigen"
 L["ATLAS_OPTIONS_CTRL_TIP"] = "Aktivieren, um die Kartendetails beim Drücken der Strg-Taste und Überfahren eines Eintrages anzuzeigen. Nützlich, falls der dargestellte Text länger als das Fenster groß ist."
-L["ATLAS_OPTIONS_DONTSHOWAGAIN"] = "Diese Information nicht erneut anzeigen."
 L["ATLAS_OPTIONS_HEADER_ADDONCONFIG"] = "Addonkonfigurationen"
 L["ATLAS_OPTIONS_HEADER_DISPLAY"] = "Anzeigeoptionen"
 L["ATLAS_OPTIONS_LOCK"] = "Atlasfenster fixieren"
@@ -189,7 +162,6 @@ L["ATLAS_OPTIONS_MAXMENUITEMS"] = "Maximale Zahl Menüeinträge"
 L["ATLAS_OPTIONS_MAXMENUITEMS_TIP"] = "Legt die maximale Zahl an Einträgen im Dropdown-Menü fest, bevor die Einträge in eine andere Menükategorie aufgeteilt werden."
 L["ATLAS_OPTIONS_RCLICK"] = "Rechte Maustaste für Weltkarte drücken"
 L["ATLAS_OPTIONS_RCLICK_TIP"] = "Aktiviert das Rechtsklicken im Atlasfenster, um die WoW-Weltkarte anzuzeigen."
-L["ATLAS_OPTIONS_RESETPOS"] = "Position zurücksetzen"
 L["ATLAS_OPTIONS_SCALE"] = "Skalierung"
 L["ATLAS_OPTIONS_SHOWBUT"] = "Minikartenschalter anzeigen"
 L["ATLAS_OPTIONS_SHOWBUT_TIP"] = "Atlas' Schalter an der Minikarte anzeigen."
@@ -250,12 +222,10 @@ L["Holy Priest"] = "Heiligpriesterin"
 L["Hyphen"] = " - "
 L["Imp"] = "Wichtel"
 L["Key"] = "Schlüssel"
-L["L-DQuote"] = "\""
 L["Lothos Riftwaker"] = "Lothos Felsspalter"
 L["Love is in the Air"] = "Liebe liegt in der Luft"
 L["Lower"] = "Unten"
 L["L-Parenthesis"] = " ("
-L["L-SBracket"] = "["
 L["Lunar Festival"] = "Mondfest"
 L["MapA"] = " [A]"
 L["MapB"] = " [B]"
@@ -267,11 +237,6 @@ L["MapG"] = " [G]"
 L["MapH"] = " [H]"
 L["MapI"] = " [I]"
 L["MapJ"] = " [J]"
-L["MapsNotFound"] = [=[Für die gewählte Instanz wurde
-keine anzuzeigende Karte gefunden.
-
-Bitte stellen Sie sicher, dass die erforderlichen
-Atlas-Kartenmodule installiert sind. ]=]
 L["Meeting Stone"] = "Versammlungsstein"
 L["Middle"] = "Mitte"
 L["Midsummer Festival"] = "Sonnenwendfest"
@@ -287,22 +252,18 @@ L["Outside"] = "Außerhalb"
 L["Period"] = ". "
 L["Portal"] = "Portal"
 L["Portal to %s"] = "Portal zu %s"
-L["PossibleMissingModule"] = "Diese Karte ist sehr wahrscheinlich in folgendem Modul enthalten: "
 L["Profile Options"] = "Profiloptionen"
 L["Protection Warrior"] = "Schutzkrieger"
 L["Purple"] = "Lila"
 L["Random"] = "Zufällig"
 L["Rare"] = "Selten"
-L["R-DQuote"] = "\""
 L["Repair"] = "Reparieren"
 L["Retribution Paladin"] = "Vergeltungspaladin"
 L["Rewards"] = "Belohnungen"
 L["R-Parenthesis"] = ") "
-L["R-SBracket"] = "]"
 L["Scale and Transparency"] = "Skalierung und Transparenz"
 L["Scarshield Quartermaster <Scarshield Legion>"] = "Rüstmeister der Schmetterschilde <Schmetterschildlegion>"
 L["Second Stop"] = "Zweiter Halt"
-L["Semicolon"] = "; "
 L["Shadow Priest"] = "Schattenpriesterin"
 L["Slash"] = " / "
 L["Soridormi <The Scale of Sands>"] = "Soridormi <Die Wächter der Sande>"

@@ -52,7 +52,6 @@ L["Andormu <Keepers of Time>"] = "Andormu <Keepers of Time>"
 L["Arazmodu <The Scale of Sands>"] = "Arazmodu <The Scale of Sands>"
 L["Arcane Container"] = "Arcane Container"
 L["Arms Warrior"] = "Arms Warrior"
-L["ATLAS_BUTTON_CLOSE"] = "Close"
 L["ATLAS_CLICK_TO_OPEN"] = "Click to open Atlas map window."
 L["ATLAS_CLOSE_ATLASLOOT_WINDOW"] = "Right-click to close AtlasLoot window."
 L["ATLAS_COLLAPSE_BUTTON"] = "Click to close Atlas' legend panel."
@@ -132,36 +131,9 @@ L["ATLAS_DEP_OK"] = "Ok"
 L["ATLAS_INCLUDED_MODULES"] = "Atlas (fork) v3 now includes the expansion maps directly. To avoid errors, please disable or uninstall the expansion addons, like Atlas Legion. Other non-expansion specific Atlas addons, like Atlas Battlegrounds, aren't included and should continue to work if you have them. This message is hidden when the expansion addons are disabled or uninstalled."
 L["ATLAS_ENTRANCE_BUTTON"] = "Entrance"
 L["ATLAS_EXPAND_BUTTON"] = "Click to open Atlas' legend panel."
-L["ATLAS_INFO"] = "Atlas Information"
-L["ATLAS_INFO_12200"] = [=[Important Notice:
-
-Due to the concern of increasing addon file size, we have moved out
-npart of our dungeon maps and built-in plug-ins into separated addon package.
-
-Users who download our addons from some of the famous game web sites
-nmay only get our core addon which only include the Atlas core function
-nand the latest WoW expansion maps.
-
-If you also want to see all the old expansions' maps, and also want all those
-Atlas plug-ins made by us, you have to download and install them separately.
-
-Read below forum topic for more information:
-|cff6666ffhttp://www.atlasmod.com/phpBB3/viewtopic.php?t=1522|cffffffff
-
-Or visit our website to see where to download:
-|cff6666ffhttp://www.atlasmod.com/|cffffffff]=]
-L["ATLAS_INFO_12201"] = [=[Please be advised that we have created a new plug-in - |cff6666ffAtlas Scenarios|cffffffff, to
-nprovide the brand-new Scenarios maps introduced in WoW 5.0.
-
-Check out our web site for more details, and don't forget to download /
-install it separately.
-|cff6666ffhttp://www.atlasmod.com/|cffffffff]=]
 L["ATLAS_INSTANCE_BUTTON"] = "Instance"
 L["ATLAS_LDB_HINT"] = [=[Left-Click to open Atlas.
 Right-Click for Atlas options.]=]
-L["ATLAS_MINIMAPLDB_HINT"] = [=[Left-Click to open Atlas.
-Right-Click for Atlas options.
-Left-click and drag to move this button.]=]
 L["ATLAS_OPEN_ACHIEVEMENT"] = "Click to open achievement details."
 L["ATLAS_OPEN_ADVENTURE"] = "Click to open Adventure Journal window."
 L["ATLAS_OPEN_ATLASLOOT_WINDOW"] = "Click to open AtlasLoot window."
@@ -174,8 +146,6 @@ L["ATLAS_OPTIONS_BOSS_DESC"] = "Show boss description when available"
 L["ATLAS_OPTIONS_BOSS_DESC_SCALE"] = "Boss Description Map ToolTip Scale"
 L["ATLAS_OPTIONS_BOSS_DESC_TIP"] = "When mouse hover the boss number, display the boss description when relative information is available."
 L["ATLAS_OPTIONS_BOSS_POTRAIT"] = "Show boss potrait when available"
-L["ATLAS_OPTIONS_BUTPOS"] = "Button Position"
-L["ATLAS_OPTIONS_BUTRAD"] = "Button Radius"
 L["ATLAS_OPTIONS_BUTTON"] = "Options"
 L["ATLAS_OPTIONS_CATDD"] = "Sort Instance Maps by:"
 L["ATLAS_OPTIONS_CLAMPED"] = "Clamp window to screen"
@@ -184,7 +154,6 @@ L["ATLAS_OPTIONS_COLORINGDROPDOWN"] = "Show instance dropdown in colors"
 L["ATLAS_OPTIONS_COLORINGDROPDOWN_TIP"] = "Based on the instance's recommended minimul level and player's level, to show the instance with difficulty colors."
 L["ATLAS_OPTIONS_CTRL"] = "Hold down Control for tooltips"
 L["ATLAS_OPTIONS_CTRL_TIP"] = "Enable to show tooltips text while hold down control key and mouse over the map info. Useful when the text is too long to be displayed in the window."
-L["ATLAS_OPTIONS_DONTSHOWAGAIN"] = "Don't show the same information again."
 L["ATLAS_OPTIONS_HEADER_ADDONCONFIG"] = "Addon Configurations"
 L["ATLAS_OPTIONS_HEADER_DISPLAY"] = "Display Options"
 L["ATLAS_OPTIONS_LOCK"] = "Lock Atlas window"
@@ -193,7 +162,6 @@ L["ATLAS_OPTIONS_MAXMENUITEMS"] = "Maximum Number of Menu Items"
 L["ATLAS_OPTIONS_MAXMENUITEMS_TIP"] = "Configure the maximum number of dropdown menu items to be displayed before spliting to another menu category."
 L["ATLAS_OPTIONS_RCLICK"] = "Right-Click for World Map"
 L["ATLAS_OPTIONS_RCLICK_TIP"] = "Enable the Right-Click in Atlas window to switch to WoW World Map."
-L["ATLAS_OPTIONS_RESETPOS"] = "Reset Position"
 L["ATLAS_OPTIONS_SCALE"] = "Scale"
 L["ATLAS_OPTIONS_SHOWBUT"] = "Show Button on Minimap"
 L["ATLAS_OPTIONS_SHOWBUT_TIP"] = "Show Atlas button around the minimap."
@@ -254,12 +222,10 @@ L["Holy Priest"] = "Holy Priest"
 L["Hyphen"] = " - "
 L["Imp"] = "Imp"
 L["Key"] = "Key"
-L["L-DQuote"] = "\""
 L["Lothos Riftwaker"] = "Lothos Riftwaker"
 L["Love is in the Air"] = "Love is in the Air"
 L["Lower"] = "Lower"
 L["L-Parenthesis"] = " ("
-L["L-SBracket"] = "["
 L["Lunar Festival"] = "Lunar Festival"
 L["MapA"] = " [A]"
 L["MapB"] = " [B]"
@@ -271,11 +237,6 @@ L["MapG"] = " [G]"
 L["MapH"] = " [H]"
 L["MapI"] = " [I]"
 L["MapJ"] = " [J]"
-L["MapsNotFound"] = [=[The current selected instance does not have a
-corresponding map image associated with.
-
-Please make sure you have installed
-the corresponding Atlas map module(s).]=]
 L["Meeting Stone"] = "Meeting Stone"
 L["Middle"] = "Middle"
 L["Midsummer Festival"] = "Midsummer Festival"
@@ -291,22 +252,18 @@ L["Outside"] = "Outside"
 L["Period"] = ". "
 L["Portal"] = "Portal"
 L["Portal to %s"] = "Portal to %s"
-L["PossibleMissingModule"] = "It is likely this map is from this module: "
 L["Profile Options"] = "Profile Options"
 L["Protection Warrior"] = "Protection Warrior"
 L["Purple"] = "Purple"
 L["Random"] = "Random"
 L["Rare"] = "Rare"
-L["R-DQuote"] = "\""
 L["Repair"] = "Repair"
 L["Retribution Paladin"] = "Retribution Paladin"
 L["Rewards"] = "Rewards"
 L["R-Parenthesis"] = ") "
-L["R-SBracket"] = "]"
 L["Scale and Transparency"] = "Scale and Transparency"
 L["Scarshield Quartermaster <Scarshield Legion>"] = "Scarshield Quartermaster <Scarshield Legion>"
 L["Second Stop"] = "Second Stop"
-L["Semicolon"] = " "
 L["Shadow Priest"] = "Shadow Priest"
 L["Slash"] = " / "
 L["Soridormi <The Scale of Sands>"] = "Soridormi <The Scale of Sands>"
