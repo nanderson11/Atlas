@@ -4,6 +4,9 @@
 ### Changed
 - Retail: Updated TOC to 11.2.0
 - Removed the one use of LibDialog and replaced with a print
+### Fixed
+- MoP: Added dungeon journal buttons for raids that are available now
+- Retail/MoP: Fixed Mogu'shan Vaults dungeon journal map button going to Terrace of Endless Spring
 
 ## 3.9.0 - July 14, 2025
 ### Added

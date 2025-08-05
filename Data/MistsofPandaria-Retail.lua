@@ -161,7 +161,7 @@ db.AtlasMaps = {
 		DungeonHeroicID = 532,
 		Acronym = L["MV"],
 		PlayerLimit = "10/25",
-		WorldMapID = 456,
+		WorldMapID = 471,
 		JournalInstanceID = 317,
 		Module = "Atlas_MistsofPandaria",
 		{ BLUE.." A) "..ALC["Entrance"],                                         10001 },
@@ -1267,14 +1267,14 @@ db.SubZoneData = {
 ]]
 db.OutdoorZoneToAtlas = {
 	[BZ["Dread Wastes"]] = "HeartofFear",
-	[BZ["Kun-Lai Summit"]] = "MoguShanVaults",            -- MoP
-	[BZ["Tirisfal Glades"]] = "ScarletMonasteryEnt",      -- MoP
-	[BZ["Western Plaguelands"]] = "Scholomance",          -- MoP
-	[BZ["Townlong Steppes"]] = "SiegeofNiuzaoTempleA",    -- MoP
+	[BZ["Kun-Lai Summit"]] = "MoguShanVaults",           -- MoP
+	[BZ["Tirisfal Glades"]] = "ScarletMonasteryEnt",     -- MoP
+	[BZ["Western Plaguelands"]] = "Scholomance",         -- MoP
+	[BZ["Townlong Steppes"]] = "SiegeofNiuzaoTempleA",   -- MoP
 	[BZ["Vale of Eternal Blossoms"]] = "SiegeofOrgrimmarA", -- MoP
-	[BZ["The Jade Forest"]] = "TempleOfTheJadeSerpent",   -- MoP
-	[BZ["The Veiled Stair"]] = "TerraceofEndlessSpring",  -- MoP
-	[BZ["Isle of Thunder"]] = "ThroneofThunderA",         -- MoP
+	[BZ["The Jade Forest"]] = "TempleOfTheJadeSerpent",  -- MoP
+	[BZ["The Veiled Stair"]] = "TerraceofEndlessSpring", -- MoP
+	[BZ["Isle of Thunder"]] = "ThroneofThunderA",        -- MoP
 	[BZ["Valley of the Four Winds"]] = "StormstoutBrewery",
 }
 
