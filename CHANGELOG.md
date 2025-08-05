@@ -1,7 +1,8 @@
 # Changelog
 
-## 3.9.1
+## 3.9.1 - August 5, 2025
 ### Changed
+- Retail: Updated TOC to 11.2.0
 - Removed the one use of LibDialog and replaced with a print
 
 ## 3.9.0 - July 14, 2025
