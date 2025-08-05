@@ -124,7 +124,6 @@ L["ATLAS_DEP_MSG3"] = [=[AddOns 폴더에서 파일을 삭제하고 최신 버�
 
 오래된 플러그인/모듈/애드온 목록:]=]
 L["ATLAS_DEP_MSG4"] = "최신 버전을 설치했으면 애드온 목록에서 최신 버전을 활성화해야 합니다."
-L["ATLAS_DEP_OK"] = "확인"
 L["ATLAS_ENTRANCE_BUTTON"] = "입구"
 L["ATLAS_EXPAND_BUTTON"] = "Atlas 일러두기 패널을 열려면 클릭하세요."
 L["ATLAS_INSTANCE_BUTTON"] = "인스턴스"

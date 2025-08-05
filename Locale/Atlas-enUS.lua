@@ -127,7 +127,6 @@ L["ATLAS_DEP_MSG3"] = [=[Delete it/them from your AddOns folder and get the late
 List of outdated plugin(s)/module(s)/addon(s):]=]
 L["ATLAS_DEP_MSG4"] = [=[Once you have the latest ones installed,
 don't forget to enable them from Addon list.]=]
-L["ATLAS_DEP_OK"] = "Ok"
 L["ATLAS_INCLUDED_MODULES"] = "Atlas (fork) v3 now includes the expansion maps directly. To avoid errors, please disable or uninstall the expansion addons, like Atlas Legion. Other non-expansion specific Atlas addons, like Atlas Battlegrounds, aren't included and should continue to work if you have them. This message is hidden when the expansion addons are disabled or uninstalled."
 L["ATLAS_ENTRANCE_BUTTON"] = "Entrance"
 L["ATLAS_EXPAND_BUTTON"] = "Click to open Atlas' legend panel."

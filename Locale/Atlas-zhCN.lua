@@ -122,7 +122,6 @@ L["ATLAS_DEP_MSG3"] = [=[请从插件目录（AddOns）中将其删除并安装�
 过期扩展/模块/插件列表：]=]
 L["ATLAS_DEP_MSG4"] = [=[每当安一个装最新的，
 别忘了在插件列表里启用它。]=]
-L["ATLAS_DEP_OK"] = "确定"
 L["ATLAS_ENTRANCE_BUTTON"] = "入口"
 L["ATLAS_EXPAND_BUTTON"] = "点击打开 Atlas 传奇面板。"
 L["ATLAS_INSTANCE_BUTTON"] = "副本"

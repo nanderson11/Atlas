@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.9.1
+### Changed
+- Removed the one use of LibDialog and replaced with a print
+
 ## 3.9.0 - July 14, 2025
 ### Added
 - Added separate options for the scale and transparency of the small Atlas map, so that you can easily toggle back and forth between a full-size Atlas map, and a minimap-like Atlas map

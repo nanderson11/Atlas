@@ -49,7 +49,6 @@ addon.Notes = select(3, C_AddOns.GetAddOnInfo(addon.Name))
 _G.Atlas = addon
 
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
-local LibDialog = LibStub("LibDialog-1.0")
 local AceDB = LibStub("AceDB-3.0")
 local LibDD = LibStub:GetLibrary("LibUIDropDownMenu-4.0")
 
@@ -541,7 +540,7 @@ local function process_Deprecated()
 		"Atlas_Legion",
 		"Atlas_BattleforAzeroth"
 	};
-	for index, module in ipairs(includedModules) do
+	for _, module in ipairs(includedModules) do
 		if (C_AddOns.GetAddOnEnableState(module) ~= 0) then
 			includedModulePresent = true;
 		end
@@ -578,19 +577,7 @@ local function process_Deprecated()
 		for k, v in pairs(OldList) do
 			textList = textList.."\n"..v..", "..C_AddOns.GetAddOnMetadata(v, "Version")
 		end
-
-		LibDialog:Register("ATLAS_OLD_MODULES", {
-			text = L["ATLAS_DEP_MSG1"].."\n"..L["ATLAS_DEP_MSG3"].."\n|cff6666ff"..textList.."|r\n\n"..L["ATLAS_DEP_MSG4"],
-			buttons = {
-				{
-					text = OKAY,
-				},
-			},
-			width = 550,
-			show_while_dead = false,
-			hide_on_escape = true,
-		})
-		LibDialog:Spawn("ATLAS_OLD_MODULES")
+		DEFAULT_CHAT_FRAME:AddMessage(L["ATLAS_DEP_MSG1"].."\n"..L["ATLAS_DEP_MSG3"].."\n|cff6666ff"..textList.."|r\n\n"..L["ATLAS_DEP_MSG4"]);
 	end
 end
 

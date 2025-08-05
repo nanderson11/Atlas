@@ -100,7 +100,6 @@ L["ATLAS_DDL_TYPE_INSTANCE"] = "Instances"
 L["ATLAS_DEP_MSG1"] = "Atlas a détecté un ou plusieurs addon(s) qui ne sont pas à jour."
 L["ATLAS_DEP_MSG2"] = "Ils ont été désactivés pour ce personnage."
 L["ATLAS_DEP_MSG3"] = "Les supprimer de votre dossier AddOns."
-L["ATLAS_DEP_OK"] = "Ok"
 L["ATLAS_ENTRANCE_BUTTON"] = "Entrée"
 L["ATLAS_INSTANCE_BUTTON"] = "Instance"
 L["ATLAS_LDB_HINT"] = [=[Clic-Gauche pour ouvrir Atlas.

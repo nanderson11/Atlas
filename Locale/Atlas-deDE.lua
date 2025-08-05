@@ -128,7 +128,6 @@ L["ATLAS_DEP_MSG3"] = [=[Entfernen Sie diese(s) aus Ihrem Verzeichnis AddOns und
 Liste veralteter Plugins/Module/Addons:]=]
 L["ATLAS_DEP_MSG4"] = [=[Sobald Sie die neuesten installiert haben,
 vergessen Sie nicht, sie in der Addon-Liste zu aktivieren.]=]
-L["ATLAS_DEP_OK"] = "OK"
 L["ATLAS_ENTRANCE_BUTTON"] = "Eingang"
 L["ATLAS_EXPAND_BUTTON"] = "Klicken, um Atlas' Legende zu öffnen."
 L["ATLAS_INSTANCE_BUTTON"] = "Instanz"

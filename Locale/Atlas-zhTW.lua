@@ -122,7 +122,6 @@ L["ATLAS_DEP_MSG3"] = [=[請將這個/這些模組從 AddOns 目錄移除，
 以下是過期的模組/相依插件列表：]=]
 L["ATLAS_DEP_MSG4"] = [=[當您將過期的模組/相依插件替換並安裝成新版之後，
 請別忘記在插件列表裡啟用它(們)。]=]
-L["ATLAS_DEP_OK"] = "OK"
 L["ATLAS_ENTRANCE_BUTTON"] = "入口"
 L["ATLAS_EXPAND_BUTTON"] = "按下以展開 Atlas 的地圖說明窗格。"
 L["ATLAS_INSTANCE_BUTTON"] = "副本"
