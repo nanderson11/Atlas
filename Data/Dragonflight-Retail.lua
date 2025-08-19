@@ -38,6 +38,14 @@ local function Atlas_GetBossName(bossname, encounterID, creatureIndex)
 	return Atlas:GetBossName(bossname, encounterID, creatureIndex, private.module_name)
 end
 
+-- Use https://wago.tools/db2/areatable for ids
+local z = C_Map.GetAreaInfo
+-- Use https://wago.tools/db2/JournalInstance for ids
+local function i(id)
+	local temp = EJ_GetInstanceInfo(id)
+	return temp
+end
+
 local BLUE = "|cff6666ff"
 local GREN = "|cff66cc33"
 local GREY = "|cff999999"
@@ -105,7 +113,7 @@ db.AtlasMaps = {
 		{ WHIT.." 4) "..Atlas_GetBossName("Decatriarch Wratheye", 2474), 2474 },
 	},
 	DawnoftheInfinite = {
-		ZoneName = { BZ["Dawn of the Infinite"] },
+		ZoneName = { i(1209) },
 		Location = { BZ["Thaldraszus"] },
 		-- DungeonHeroicID = 1, -- TBD: DawnoftheInfinite gets split into two heroics
 		DungeonMythicID = 2430,
@@ -278,8 +286,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Flamesworn Herald", 2499, 8),           2499 },
 	},
 	Aberrus = {
-		ZoneName = { BZ["Aberrus, the Shadowed Crucible"] },
-		Location = { BZ["Zaralek Cavern"] },
+		ZoneName = { i(1208) },
+		Location = { z(14022) },
 		DungeonID = 2403,
 		DungeonHeroicID = 2404,
 		DungeonMythicID = 2405,
@@ -314,7 +322,7 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Null Glimmer", 2520, 3),              2520 },
 	},
 	AmirdrassilA = {
-		ZoneName = { BZ["Amirdrassil, the Dream's Hope"]..ALC["MapA"] },
+		ZoneName = { i(1207)..ALC["MapA"] },
 		Location = { BZ["Emerald Dream"] },
 		DungeonID = 2502,
 		DungeonHeroicID = 2503,
@@ -343,7 +351,7 @@ db.AtlasMaps = {
 		{ WHIT.." 7) "..Atlas_GetBossName("Smolderon", 2563),                    2563 },
 	},
 	AmirdrassilB = {
-		ZoneName = { BZ["Amirdrassil, the Dream's Hope"]..ALC["MapB"] },
+		ZoneName = { i(1207)..ALC["MapB"] },
 		Location = { BZ["Emerald Dream"] },
 		DungeonID = 2502,
 		DungeonHeroicID = 2503,

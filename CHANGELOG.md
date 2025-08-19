@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.10.0 - August 18, 2025
+### Added
+- Retail: Added Eco-Dome Al'dani map
+- Retail: Added external area of Manaforge Omega map
+- Retail: Added translations for instance names and zone names for TWW and a few remaining cases in Dragonflight
+
 ## 3.9.1 - August 5, 2025
 ### Changed
 - Retail: Updated TOC to 11.2.0

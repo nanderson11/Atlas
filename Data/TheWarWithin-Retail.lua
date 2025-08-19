@@ -26,7 +26,6 @@ local FOLDER_NAME, private = ...
 private.addon_name = "Atlas_TheWarWithin"
 private.module_name = "TheWarWithin"
 
-local BZ = Atlas_GetLocaleLibBabble("LibBabble-SubZone-3.0")
 local ALC = LibStub("AceLocale-3.0"):GetLocale("Atlas")
 local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
 local TWW = Atlas:NewModule(private.module_name)
@@ -36,6 +35,14 @@ TWW.db = db
 
 local function Atlas_GetBossName(bossname, encounterID, creatureIndex)
 	return Atlas:GetBossName(bossname, encounterID, creatureIndex, private.module_name)
+end
+
+-- Use https://wago.tools/db2/areatable for ids
+local z = C_Map.GetAreaInfo
+-- Use https://wago.tools/db2/JournalInstance for ids
+local function i(id)
+	local temp = EJ_GetInstanceInfo(id)
+	return temp
 end
 
 local BLUE = "|cff6666ff"
@@ -54,8 +61,8 @@ db.AtlasMaps = {
 	-- ///////////////////////////////////////
 	-- Instances
 	TheRookery = {
-		ZoneName = { BZ["The Rookery"] },
-		Location = { BZ["Dornogal"] },
+		ZoneName = { i(1268) },
+		Location = { z(14771) },
 		DungeonID = 2637,
 		DungeonHeroicID = 2658,
 		DungeonMythicID = 2717,
@@ -70,8 +77,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Stormrider Vokmar", 2568, 4),  2568 },
 	},
 	TheStonevault = {
-		ZoneName = { BZ["The Stonevault"] },
-		Location = { BZ["Ringing Deeps"] },
+		ZoneName = { i(1269) },
+		Location = { z(14795) },
 		DungeonID = 2693,
 		DungeonHeroicID = 2694,
 		DungeonMythicID = 2720,
@@ -87,8 +94,8 @@ db.AtlasMaps = {
 		{ WHIT.." 4) "..Atlas_GetBossName("Void Speaker Eirich", 2582), 2582 },
 	},
 	PrioryoftheSacredFlame = {
-		ZoneName = { BZ["Priory of the Sacred Flame"] },
-		Location = { BZ["Hallowfall"] },
+		ZoneName = { i(1267) },
+		Location = { z(14838) },
 		DungeonID = 2695,
 		DungeonHeroicID = 2696,
 		DungeonMythicID = 2697,
@@ -104,8 +111,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Arathi Neophyte", 2573, 2),     2573 },
 	},
 	AraKaraCityofEchoes = {
-		ZoneName = { BZ["Ara-Kara, City of Echoes"] },
-		Location = { BZ["Azj-Kahet"] },
+		ZoneName = { i(1271) },
+		Location = { z(14752) },
 		DungeonID = 2604,
 		DungeonHeroicID = 2605,
 		DungeonMythicID = 2606,
@@ -119,8 +126,8 @@ db.AtlasMaps = {
 		{ WHIT.." 3) "..Atlas_GetBossName("Ki'katal the Harvester", 2585),  2585 },
 	},
 	CinderbrewMeadery = {
-		ZoneName = { BZ["Cinderbrew Meadery"] },
-		Location = { BZ["Isle of Dorn"] },
+		ZoneName = { i(1272) },
+		Location = { z(14717) },
 		DungeonID = 2689,
 		DungeonHeroicID = 2690,
 		DungeonMythicID = 2691,
@@ -137,8 +144,8 @@ db.AtlasMaps = {
 		{ WHIT.." 4) "..Atlas_GetBossName("Goldie Baronbottom", 2589),    2589 },
 	},
 	DarkflameCleft = {
-		ZoneName = { BZ["Darkflame Cleft"] },
-		Location = { BZ["Ringing Deeps"] },
+		ZoneName = { i(1210) },
+		Location = { z(14795) },
 		DungeonID = 2518,
 		DungeonHeroicID = 2519,
 		DungeonMythicID = 2520,
@@ -152,8 +159,8 @@ db.AtlasMaps = {
 		{ WHIT.." 4) "..Atlas_GetBossName("The Darkness", 2561),    2561 },
 	},
 	TheDawnbreaker = {
-		ZoneName = { BZ["The Dawnbreaker"] },
-		Location = { BZ["Hallowfall"] },
+		ZoneName = { i(1270) },
+		Location = { z(14838) },
 		DungeonID = 2523,
 		DungeonHeroicID = 2524,
 		DungeonMythicID = 2525,
@@ -165,8 +172,8 @@ db.AtlasMaps = {
 		{ WHIT.." 3) "..Atlas_GetBossName("Rasha'nan", 2593),           2593 },
 	},
 	CityofThreads = {
-		ZoneName = { BZ["City of Threads"] },
-		Location = { BZ["Azj-Kahet"] },
+		ZoneName = { i(1274) },
+		Location = { z(14752) },
 		DungeonID = 2642,
 		DungeonHeroicID = 2643,
 		DungeonMythicID = 2647,
@@ -181,8 +188,8 @@ db.AtlasMaps = {
 		{ WHIT.." 4) "..Atlas_GetBossName("Izo, the Grand Splicer", 2596), 2596 },
 	},
 	OperationFloodgateA = {
-		ZoneName = { BZ["Operation: Floodgate"]..ALC["MapA"] },
-		Location = { BZ["Ringing Deeps"] },
+		ZoneName = { i(1298)..ALC["MapA"] },
+		Location = { z(14795) },
 		DungeonID = 2791,
 		DungeonHeroicID = 2812,
 		DungeonMythicID = 2793,
@@ -198,8 +205,8 @@ db.AtlasMaps = {
 		{ WHIT.." 3) "..Atlas_GetBossName("Swampface", 2650),              2650 },
 	},
 	OperationFloodgateB = {
-		ZoneName = { BZ["Operation: Floodgate"]..ALC["MapB"] },
-		Location = { BZ["Ringing Deeps"] },
+		ZoneName = { i(1298)..ALC["MapB"] },
+		Location = { z(14795) },
 		DungeonID = 2791,
 		DungeonHeroicID = 2812,
 		DungeonMythicID = 2793,
@@ -209,9 +216,25 @@ db.AtlasMaps = {
 		Module = "Atlas_TheWarWithin",
 		{ WHIT.." 4) "..Atlas_GetBossName("Geezle Gigazap", 2651), 2651 },
 	},
+	EcoDomeAldani = {
+		ZoneName = { i(1303) },
+		Location = { z(15336) },
+		DungeonID = 2987,
+		DungeonHeroicID = 2988,
+		DungeonMythicID = 2989,
+		WorldMapID = 2449,
+		JournalInstanceID = 1303,
+		Module = "Atlas_TheWarWithin",
+		{ WHIT.." 1) "..Atlas_GetBossName("Azhiccar", 2675),            2675 },
+		{ WHIT..INDENT..Atlas_GetBossName("Frenzied Mite", 2675, 2),    2675 },
+		{ WHIT.." 2) "..Atlas_GetBossName("Taah'bat and A'wazj", 2676), 2676 },
+		{ WHIT..INDENT..Atlas_GetBossName("Taah'bat", 2676, 1),         2676 },
+		{ WHIT..INDENT..Atlas_GetBossName("A'wazj", 2676, 2),           2676 },
+		{ WHIT.." 3) "..Atlas_GetBossName("Soul-Scribe", 2677),         2677 },
+	},
 	NerubarPalace = {
-		ZoneName = { BZ["Nerub-ar Palace"] },
-		Location = { BZ["Azj-Kahet"] },
+		ZoneName = { i(1273) },
+		Location = { z(14752) },
 		DungeonID = 2645,
 		--DungeonHeroicID = ,
 		--DungeonMythicID = ,
@@ -246,11 +269,11 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Gloom Hatchling", 2602, 8),            2602 },
 	},
 	LiberationofUndermine = {
-		ZoneName = { BZ["Liberation of Undermine"] },
-		Location = { BZ["Undermine"] },
+		ZoneName = { i(1296) },
+		Location = { z(15347) },
 		DungeonID = 2779,
-		--DungeonHeroicID = ,
-		--DungeonMythicID = ,
+		DungeonHeroicID = 2892,
+		DungeonMythicID = 2893,
 		WorldMapID = 2406,
 		JournalInstanceID = 1296,
 		Module = "Atlas_TheWarWithin",
@@ -283,6 +306,55 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Volunteer Rocketeer", 2645, 4),     2645 },
 		{ WHIT..INDENT..Atlas_GetBossName("Mk II Electro Shocker", 2645, 5),   2645 },
 		{ WHIT.." 8) "..Atlas_GetBossName("Chrome King Gallywix", 2646),       2646 },
+	},
+	ManaforgeOmegaA = {
+		ZoneName = { i(1302)..ALC["MapA"] },
+		Location = { z(15336) },
+		DungeonID = 2805,
+		DungeonHeroicID = 3073,
+		DungeonMythicID = 3074,
+		WorldMapID = 2460,
+		JournalInstanceID = 1302,
+		Module = "Atlas_TheWarWithin",
+		NextMap = "ManaforgeOmegaB",
+		{ WHIT.." 1) "..Atlas_GetBossName("Plexus Sentinel", 2684),              2684 },
+		{ WHIT..INDENT..Atlas_GetBossName("Volatile Manifestation", 2684, 2),    2684 },
+		{ WHIT.." 5) "..Atlas_GetBossName("The Soul Hunters", 2688),             2688 },
+		{ WHIT..INDENT..Atlas_GetBossName("Adarus Duskblaze", 2688, 1),          2688 },
+		{ WHIT..INDENT..Atlas_GetBossName("Velaryn Bloodwrath", 2688, 2),        2688 },
+		{ WHIT..INDENT..Atlas_GetBossName("Ilyssa Darksorrow", 2688, 3),         2688 },
+		{ WHIT.." 6) "..Atlas_GetBossName("Fractillus", 2747),                   2747 },
+		{ WHIT.." 7) "..Atlas_GetBossName("Nexus-King Salhadaar", 2690),         2690 },
+		{ WHIT..INDENT..Atlas_GetBossName("The Royal Voidwing", 2690, 2),        2690 },
+		{ WHIT..INDENT..Atlas_GetBossName("Manaforged Titan", 2690, 3),          2690 },
+		{ WHIT..INDENT..Atlas_GetBossName("Nexus-Prince Ky'vor", 2690, 4),       2690 },
+		{ WHIT..INDENT..Atlas_GetBossName("Nexus-Prince Xevvos", 2690, 5),       2690 },
+		{ WHIT..INDENT..Atlas_GetBossName("Shadowguard Reaper", 2690, 6),        2690 },
+		{ WHIT.." 8) "..Atlas_GetBossName("Dimensius, the All-Devouring", 2691), 2691 },
+		{ WHIT..INDENT..Atlas_GetBossName("Artoshion", 2691, 2),                 2691 },
+		{ WHIT..INDENT..Atlas_GetBossName("Pargoth", 2691, 3),                   2691 },
+	},
+	ManaforgeOmegaB = {
+		ZoneName = { i(1302)..ALC["MapB"] },
+		Location = { z(15336) },
+		DungeonID = 2805,
+		DungeonHeroicID = 3073,
+		DungeonMythicID = 3074,
+		WorldMapID = 2460,
+		JournalInstanceID = 1302,
+		Module = "Atlas_TheWarWithin",
+		PrevMap = "ManaforgeOmegaA",
+		{ WHIT.." 2) "..Atlas_GetBossName("Loom'ithar", 2686),                2686 },
+		{ WHIT.." 3) "..Atlas_GetBossName("Soulbinder Naazindhri", 2685),     2685 },
+		{ WHIT..INDENT..Atlas_GetBossName("Shadowguard Mage", 2685, 2),       2685 },
+		{ WHIT..INDENT..Atlas_GetBossName("Shadowguard Assassin", 2685, 3),   2685 },
+		{ WHIT..INDENT..Atlas_GetBossName("Shadowguard Phaseblade", 2685, 4), 2685 },
+		{ WHIT.." 4) "..Atlas_GetBossName("Forgeweaver Araz", 2687),          2687 },
+		{ WHIT..INDENT..Atlas_GetBossName("Arcane Echo", 2687, 2),            2687 },
+		{ WHIT..INDENT..Atlas_GetBossName("Arcane Collector", 2687, 3),       2687 },
+		{ WHIT..INDENT..Atlas_GetBossName("Shielded Attendant", 2687, 4),     2687 },
+		{ WHIT..INDENT..Atlas_GetBossName("Arcane Manifestation", 2687, 5),   2687 },
+		{ WHIT..INDENT..Atlas_GetBossName("Void Manifestation", 2687, 6),     2687 },
 	},
 }
 
@@ -340,6 +412,11 @@ db.AtlasMaps_NPC_DB = {
 	OperationFloodgateB = {
 		{ 4, 2651, 363, 408 },
 	},
+	EcoDomeAldani = {
+		{ 1, 2675, 330, 387 },
+		{ 2, 2676, 305, 240 },
+		{ 3, 2677, 128, 203 },
+	},
 	NerubarPalace = {
 		{ 1, 2607, 369, 142 },
 		{ 2, 2611, 367, 314 },
@@ -359,6 +436,11 @@ db.AtlasMaps_NPC_DB = {
 		{ 6, 2644, 402, 226 },
 		{ 7, 2645, 437, 287 },
 		{ 8, 2646, 437, 374 },
+	},
+	ManaforgeOmegaA = {
+		{ 1, 2684, 397, 227 },
+		{ 5, 2688, 79,  296 },
+		{ 6, 2747, 127, 235 },
 	},
 }
 
@@ -431,6 +513,8 @@ db.InstToEntMatches = {
 db.MapSeries = {
 	["OperationFloodgateA"] = { "OperationFloodgateA", "OperationFloodgateB" },
 	["OperationFloodgateB"] = { "OperationFloodgateA", "OperationFloodgateB" },
+	["ManaforgeOmegaA"] = { "ManaforgeOmegaA", "ManaforgeOmegaB" },
+	["ManaforgeOmegaB"] = { "ManaforgeOmegaA", "ManaforgeOmegaB" },
 }
 
 db.SubZoneAssoc = {
@@ -469,8 +553,11 @@ db.DropDownLayouts = {
 			"CityofThreads",
 			"OperationFloodgateA",
 			"OperationFloodgateB",
+			"EcoDomeAldani",
 			"NerubarPalace",
 			"LiberationofUndermine",
+			"ManaforgeOmegaA",
+			"ManaforgeOmegaB",
 		}
 	},
 	[ATLAS_DDL_EXPANSION] = {
@@ -485,8 +572,11 @@ db.DropDownLayouts = {
 			"CityofThreads",
 			"OperationFloodgateA",
 			"OperationFloodgateB",
+			"EcoDomeAldani",
 			"NerubarPalace",
 			"LiberationofUndermine",
+			"ManaforgeOmegaA",
+			"ManaforgeOmegaB",
 		},
 	},
 	[ATLAS_DDL_LEVEL] = {
@@ -501,8 +591,11 @@ db.DropDownLayouts = {
 			"CityofThreads",
 			"OperationFloodgateA",
 			"OperationFloodgateB",
+			"EcoDomeAldani",
 			"NerubarPalace",
 			"LiberationofUndermine",
+			"ManaforgeOmegaA",
+			"ManaforgeOmegaB",
 		},
 	},
 	[ATLAS_DDL_PARTYSIZE] = {
@@ -517,6 +610,7 @@ db.DropDownLayouts = {
 			"CityofThreads",
 			"OperationFloodgateA",
 			"OperationFloodgateB",
+			"EcoDomeAldani",
 		},
 		[ATLAS_DDL_PARTYSIZE_10] = {
 			"NerubarPalace",
@@ -525,6 +619,8 @@ db.DropDownLayouts = {
 		[ATLAS_DDL_PARTYSIZE_20TO40] = {
 			"NerubarPalace",
 			"LiberationofUndermine",
+			"ManaforgeOmegaA",
+			"ManaforgeOmegaB",
 		},
 	},
 	[ATLAS_DDL_TYPE] = {
@@ -539,8 +635,11 @@ db.DropDownLayouts = {
 			"CityofThreads",
 			"OperationFloodgateA",
 			"OperationFloodgateB",
+			"EcoDomeAldani",
 			"NerubarPalace",
 			"LiberationofUndermine",
+			"ManaforgeOmegaA",
+			"ManaforgeOmegaB",
 		},
 	},
 }
