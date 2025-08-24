@@ -45,11 +45,6 @@ local FOLDER_NAME, private = ...
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local LibDD = LibStub:GetLibrary("LibUIDropDownMenu-4.0")
 
-local EJ_GetLootInfoByIndex = EJ_GetLootInfoByIndex
-if WoWRetail then
-	EJ_GetLootInfoByIndex = C_EncounterJournal.GetLootInfoByIndex
-end
-
 local ATLAS_EJ_DIFFICULTIES =
 {
 	{ size = "5",                            prefix = PLAYER_DIFFICULTY1,           difficultyID = 1 },
@@ -195,7 +190,7 @@ function Atlas_EncounterJournal_UpdateDifficulty(newDifficultyID)
 end
 
 function Atlas_EncounterJournal_SetLootButton(item)
-	local itemInfo = EJ_GetLootInfoByIndex(item.index);
+	local itemInfo = C_EncounterJournal.GetLootInfoByIndex(item.index);
 	if (itemInfo and itemInfo.name) then
 		item.name:SetText(WrapTextInColorCode(itemInfo.name, itemInfo.itemQuality));
 		item.icon:SetTexture(itemInfo.icon);
@@ -214,7 +209,7 @@ function Atlas_EncounterJournal_SetLootButton(item)
 		if (numEncounters == 1) then
 			item.boss:SetFormattedText(BOSS_INFO_STRING, EJ_GetEncounterInfo(itemInfo.encounterID));
 		elseif (numEncounters == 2) then
-			local itemInfoSecond = EJ_GetLootInfoByIndex(item.index, 2);
+			local itemInfoSecond = C_EncounterJournal.GetLootInfoByIndex(item.index, 2);
 			local secondEncounterID = itemInfoSecond and itemInfoSecond.encounterID;
 			if (itemInfo.encounterID and secondEncounterID) then
 				item.boss:SetFormattedText(BOSS_INFO_STRING_TWO, EJ_GetEncounterInfo(itemInfo.encounterID), EJ_GetEncounterInfo(secondEncounterID));
@@ -326,6 +321,8 @@ function Atlas_EncounterJournal_SetTooltip(link)
 	end
 
 	GameTooltip:SetAnchorType("ANCHOR_RIGHT");
+	-- This parameters are undocumented, but they do work
+	---@diagnostic disable-next-line: redundant-parameter
 	GameTooltip:SetHyperlink(link, classID, specID);
 	GameTooltip_ShowCompareItem();
 end
@@ -467,7 +464,7 @@ function Atlas_EncounterJournal_InitLootFilter(self, level)
 		LibDD:UIDropDownMenu_AddButton(info, level);
 
 		info.notCheckable = nil;
-		local numSpecs = GetNumSpecializationsForClassID(classID);
+		local numSpecs = C_SpecializationInfo.GetNumSpecializationsForClassID(classID);
 		for i = 1, numSpecs do
 			local specID, specName = GetSpecializationInfoForClassID(classID, i, sex);
 			info.leftPadding = 10;
@@ -503,7 +500,7 @@ function Atlas_EncounterJournal_InitLootSlotFilter(self, level)
 	local isLootSlotPresent = {};
 	local numLoot = EJ_GetNumLoot();
 	for i = 1, numLoot do
-		local itemInfo = EJ_GetLootInfoByIndex(i);
+		local itemInfo = C_EncounterJournal.GetLootInfoByIndex(i);
 		local filterType = itemInfo and itemInfo.filterType;
 		if (filterType) then
 			isLootSlotPresent[filterType] = true;
