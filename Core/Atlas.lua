@@ -353,7 +353,7 @@ local function searchText(text)
 			local achievementID = strmatch(data[i][2], "ac=(%d+)")
 			ATLAS_SCROLL_LIST[i] = {
 				type = "Achievement",
-				data = achievementID
+				data = tonumber(achievementID)
 			}
 		elseif (data[i][3] and data[i][3] ~= "") then
 			ATLAS_SCROLL_LIST[i] = {
