@@ -38,6 +38,22 @@ local FOLDER_NAME, private = ...
 local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
+function addon:GetAchievementName(button, achievementID)
+	-- WOLTKC starts to introduce achievement system, so we are only skipping this for Classic Era
+	if (WoWClassicEra) then return end
+
+	local _, name, _, completed, month, day, year, description, _, icon, _, _, _, earnedBy = GetAchievementInfo(achievementID)
+	if (name) then
+		if (completed) then
+			name = format("      |T%d:0:0|t |CFFFFFFFF%s", icon, name)
+		else
+			name = format("      |T%d:0:0|t |CFF808080%s", icon, name)
+		end
+
+		button.Text:SetText(name)
+	end
+end
+
 function addon:AchievementButtonUpdate(button, achievementID)
 	-- WOLTKC starts to introduce achievement system, so we are only skipping this for Classic Era
 	if (WoWClassicEra) then return end

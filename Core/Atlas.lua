@@ -336,13 +336,30 @@ local function searchText(text)
 	end
 
 	-- Populate the scroll frame entries list, the update func will do the rest
+	wipe(ATLAS_SCROLL_LIST)
 	local i = 1
 	while (data[i] ~= nil) do
-		ATLAS_SCROLL_LIST[i] = data[i][1]
-		if (data[i][2] ~= nil) then
-			ATLAS_SCROLL_ID[i] = { data[i][2], base.JournalInstanceID or 0, data[i][3] or "", data[i][4] or "" }
-		else
-			ATLAS_SCROLL_ID[i] = { 0, 0, "", "" }
+		if (data[i][2] == nil) then
+			ATLAS_SCROLL_LIST[i] = {
+				type = "string",
+				data = data[i][1]
+			}
+		elseif (type(data[i][2]) == "number" and not data[i][3]) then
+			ATLAS_SCROLL_LIST[i] = {
+				type = "boss",
+				data = { data[i][1], data[i][2] }
+			}
+		elseif (type(data[i][2]) == "string") then
+			local achievementID = strmatch(data[i][2], "ac=(%d+)")
+			ATLAS_SCROLL_LIST[i] = {
+				type = "achievement",
+				data = achievementID
+			}
+		elseif (data[i][3] and data[i][3] ~= "") then
+			ATLAS_SCROLL_LIST[i] = {
+				type = "item",
+				data = { data[i][1], data[i][2], data[i][4] }
+			}
 		end
 		i = i + 1
 	end
@@ -399,8 +416,14 @@ function Atlas_ScrollBar_Update()
 	local mapdata = AtlasMaps
 	local base = mapdata[zoneID]
 
+	if (AtlasFrameBottomInset.ScrollBox) then
+		local DataProvider = CreateDataProvider(ATLAS_SCROLL_LIST)
+		local ScrollView = AtlasFrameBottomInset.ScrollBox:GetView()
+		ScrollView:SetDataProvider(DataProvider)
+	end
+
 	GameTooltip:Hide()
-	local lineplusoffset
+	--[[ local lineplusoffset
 	FauxScrollFrame_Update(AtlasScrollBar, ATLAS_CUR_LINES, ATLAS_NUM_LINES, 15)
 	for i = 1, ATLAS_NUM_LINES do
 		local button = _G["AtlasEntry"..i]
@@ -432,7 +455,7 @@ function Atlas_ScrollBar_Update()
 		elseif (button) then
 			button:Hide()
 		end
-	end
+	end ]]
 end
 
 local function simpleSearch(data, text)
@@ -1346,18 +1369,6 @@ function Atlas_Refresh(mapID)
 	AtlasSearchEditBox:SetText("")
 	AtlasSearchEditBox:ClearFocus()
 
-	-- Create and align any new entry buttons that we need
-	for i = 1, ATLAS_CUR_LINES do
-		if (not _G["AtlasEntry"..i]) then
-			local f = CreateFrame("Button", "AtlasEntry"..i, AtlasFrame, "AtlasEntryTemplate")
-			if i == 1 then
-				f:SetPoint("TOPLEFT", "AtlasScrollBar", "TOPLEFT", 16, -2)
-			else
-				f:SetPoint("TOPLEFT", "AtlasEntry"..(i - 1), "BOTTOMLEFT")
-			end
-		end
-	end
-
 	Atlas_ScrollBar_Update()
 
 	-- Deal with the switch to entrance/instance button here
@@ -1610,9 +1621,20 @@ function addon:CheckAddonStatus(addonName)
 	end
 end
 
--- Initializes everything relating to saved variables and data in other lua files
--- This should be called ONLY when we're sure our variables are in memory
-local function initialization()
+-- ///////////////////////////////////////////////////////
+function addon:OnInitialize()
+	self.db = AceDB:New("AtlasDB", addon.constants.defaults, true)
+
+	profile = self.db.profile
+
+	minimapButton:Register("Atlas", LDB, self.db.profile.minimap)
+	self:RegisterChatCommand("atlasbutton", Atlas_ButtonToggle2)
+	self:RegisterChatCommand("atlas", Atlas_Toggle)
+
+	self.db.RegisterCallback(self, "OnProfileChanged", "Refresh")
+	self.db.RegisterCallback(self, "OnProfileCopied", "Refresh")
+	self.db.RegisterCallback(self, "OnProfileReset", "Refresh")
+
 	-- Make the Atlas window go all the way to the edge of the screen, exactly
 	AtlasFrame:SetClampRectInsets(12, 0, -12, 0)
 	AtlasFrameSmall:SetClampRectInsets(12, 0, -12, 0)
@@ -1628,7 +1650,6 @@ local function initialization()
 	end
 
 	-- Now that saved variables have been loaded, update everything accordingly
-	Atlas_Refresh()
 	addon:UpdateLock()
 	addon:UpdateAlpha()
 	addon:UpdateSmallAlpha()
@@ -1642,23 +1663,7 @@ local function initialization()
 	else
 		addon.WorldMap.Button:Hide()
 	end
-end
 
--- ///////////////////////////////////////////////////////
-function addon:OnInitialize()
-	self.db = AceDB:New("AtlasDB", addon.constants.defaults, true)
-
-	profile = self.db.profile
-
-	minimapButton:Register("Atlas", LDB, self.db.profile.minimap)
-	self:RegisterChatCommand("atlasbutton", Atlas_ButtonToggle2)
-	self:RegisterChatCommand("atlas", Atlas_Toggle)
-
-	self.db.RegisterCallback(self, "OnProfileChanged", "Refresh")
-	self.db.RegisterCallback(self, "OnProfileCopied", "Refresh")
-	self.db.RegisterCallback(self, "OnProfileReset", "Refresh")
-
-	initialization()
 	self:SetupOptions()
 end
 
@@ -1680,8 +1685,73 @@ function addon:OnEnable()
 	if (WoWRetail) then
 		AtlasFrameLockButton:SetPoint("RIGHT", "AtlasFrameCloseButton", "LEFT", 6, 0)
 		AtlasFrameSmallLockButton:SetPoint("RIGHT", "AtlasFrameSmallCloseButton", "LEFT", 6, 0)
-		AtlasScrollBar:SetPoint("TOPLEFT", 516, -202)
 	end
+
+	-- Create scroll frame
+	local ScrollBox = CreateFrame("Frame", nil, AtlasFrameBottomInset, "WowScrollBoxList")
+	ScrollBox:SetPoint("TOPLEFT", 15, -5)
+	ScrollBox:SetSize(456, 389)
+
+	local ScrollBar
+	if WoWRetail then
+		ScrollBar = CreateFrame("EventFrame", nil, AtlasFrameBottomInset, "MinimalScrollBar")
+		ScrollBar:SetPoint("TOPLEFT", ScrollBox, "TOPRIGHT")
+		ScrollBar:SetPoint("BOTTOMLEFT", ScrollBox, "BOTTOMRIGHT")
+	else
+		ScrollBar = CreateFrame("EventFrame", nil, AtlasFrameBottomInset, "WowClassicScrollBar")
+		ScrollBar:SetPoint("TOPLEFT", ScrollBox, "TOPRIGHT", -3, 6)
+		ScrollBar:SetPoint("BOTTOMLEFT", ScrollBox, "BOTTOMRIGHT", -3, -7)
+	end
+
+	local DataProvider = CreateDataProvider()
+	local ScrollView = CreateScrollBoxListLinearView()
+	ScrollView:SetDataProvider(DataProvider)
+
+	ScrollUtil.InitScrollBoxListWithScrollBar(ScrollBox, ScrollBar, ScrollView)
+
+	local function Initializer(button, data)
+		button.info = data
+
+		-- Set Text
+		if data.type == "achievement" then
+			addon:GetAchievementName(button, data.data)
+		elseif data.type == "string" then
+			button.Text:SetText(data.data)
+		elseif data.type == "item" then
+			local itemName = C_Item.GetItemInfo(data.data[2])
+			itemName = itemName or C_Item.GetItemInfo(data.data[2]) or data.data[3] or ""
+			button.Text:SetText(data.data[1]..itemName)
+		else
+			button.Text:SetText(data.data[1])
+		end
+
+		button:SetScript("OnClick", function()
+			if button.info.type == "achievement" then
+				addon:OpenAchievement(button.info.data)
+			end
+		end)
+
+		button:SetScript("OnEnter", function()
+			GameTooltip:SetOwner(button, "ANCHOR_TOPRIGHT")
+			if button.info.type == "achievement" then
+				GameTooltip:SetHyperlink(GetAchievementLink(button.info.data))
+			elseif button.info.type == "item" then
+				GameTooltip:SetHyperlink("item:"..button.info.data[2])
+			end
+			GameTooltip:Show()
+		end)
+		button:SetScript("OnLeave", function()
+			GameTooltip:Hide()
+		end)
+	end
+	ScrollView:SetElementInitializer("AtlasEntryTemplate", Initializer)
+
+	ScrollBar:SetHideIfUnscrollable(true)
+
+	AtlasFrameBottomInset.ScrollBox = ScrollBox
+
+	-- Initial data fetch
+	Atlas_Refresh()
 end
 
 function addon:Refresh()

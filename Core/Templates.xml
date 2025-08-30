@@ -60,28 +60,6 @@
 		</Scripts>
 	</Button>
 
-	<Frame name="AtlasHeaderTextTemplate" virtual="true">
-		<Size>
-			<AbsDimension x="450" y="20" />
-		</Size>
-		<Layers>
-			<Layer level="OVERLAY">
-				<FontString name="$parent_Text" inherits="GameFontHighlightLarge" justifyH="LEFT">
-					<Size>
-						<AbsDimension x="450" y="20"/>
-					</Size>
-				</FontString>
-			</Layer>
-		</Layers>
-		<Scripts>
-			<OnUpdate>
-				AtlasEntry_OnUpdate(self);
-			</OnUpdate>
-			<OnLeave>
-				GameTooltip:Hide();
-			</OnLeave>
-		</Scripts>
-	</Frame>
 	<Frame name="AtlasSubHeaderTextTemplate" virtual="true">
 		<Size>
 			<AbsDimension x="450" y="15" />
@@ -95,14 +73,6 @@
 				</FontString>
 			</Layer>
 		</Layers>
-		<Scripts>
-			<OnUpdate>
-				AtlasEntry_OnUpdate(self);
-			</OnUpdate>
-			<OnLeave>
-				GameTooltip:Hide();
-			</OnLeave>
-		</Scripts>
 	</Frame>
 
 	<!-- Atlas Frame Button Templates -->

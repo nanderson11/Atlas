@@ -157,7 +157,11 @@
 		"LFGBrowseActivityDropDown_ValueSetSelected",
 		"LFGBrowse_DoSearch",
 		"LFGBrowseCategoryDropDown_Initialize",
-		"GetQuestGreenRange"
+		"GetQuestGreenRange",
+		"ScrollUtil",
+		"CreateDataProvider",
+		"CreateScrollBoxListLinearView",
+		"AtlasFrameBottomInset"
 	],
 	"Lua.runtime.version": "Lua 5.1",
 	"Lua.runtime.builtin": {
@@ -177,5 +181,8 @@
 	"Lua.workspace.ignoreDir": [
 		"Libs"
 	],
-	"Lua.type.weakUnionCheck": true
+	"Lua.type.weakUnionCheck": true,
+	"Lua.diagnostics.disable": [
+		"need-check-nil"
+	]
 }

@@ -145,26 +145,6 @@
 					</OnClick>
 				</Scripts>
 			</Button>
-			<ScrollFrame name="AtlasScrollBar" inherits="FauxScrollFrameTemplate">
-				<Size>
-					<AbsDimension x="470" y="382" />
-				</Size>
-				<Anchors>
-					<Anchor point="TOPLEFT">
-						<Offset>
-							<AbsDimension x="520" y="-202"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-				<Scripts>
-					<OnVerticalScroll>
-						FauxScrollFrame_OnVerticalScroll(self, offset, 15, Atlas_ScrollBar_Update);
-					</OnVerticalScroll>
-					<OnShow>
-						Atlas_ScrollBar_Update()
-					</OnShow>
-				</Scripts>
-			</ScrollFrame>
 			<Frame name="AtlasSearchContainer">
 				<Size>
 					<AbsDimension x="362" y="32" />
@@ -234,7 +214,10 @@
 					</Anchor>
 				</Anchors>
 				<Frames>
-					<Frame name="AtlasText_ZoneName" inherits="AtlasHeaderTextTemplate">
+					<Frame name="AtlasText_ZoneName">
+						<Size>
+							<AbsDimension x="450" y="20" />
+						</Size>
 						<Anchors>
 							<Anchor point="TOPLEFT">
 								<Offset>
@@ -242,6 +225,15 @@
 								</Offset>
 							</Anchor>
 						</Anchors>
+						<Layers>
+							<Layer level="OVERLAY">
+								<FontString name="$parent_Text" inherits="GameFontHighlightLarge" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="450" y="20"/>
+									</Size>
+								</FontString>
+							</Layer>
+						</Layers>
 					</Frame>
 					<Frame name="AtlasText_Location" inherits="AtlasSubHeaderTextTemplate">
 						<Anchors>
