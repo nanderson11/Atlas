@@ -341,23 +341,23 @@ local function searchText(text)
 	while (data[i] ~= nil) do
 		if (data[i][2] == nil) then
 			ATLAS_SCROLL_LIST[i] = {
-				type = "string",
+				type = "String",
 				data = data[i][1]
 			}
 		elseif (type(data[i][2]) == "number" and not data[i][3]) then
 			ATLAS_SCROLL_LIST[i] = {
-				type = "boss",
+				type = "Boss",
 				data = { data[i][1], data[i][2] }
 			}
 		elseif (type(data[i][2]) == "string") then
 			local achievementID = strmatch(data[i][2], "ac=(%d+)")
 			ATLAS_SCROLL_LIST[i] = {
-				type = "achievement",
+				type = "Achievement",
 				data = achievementID
 			}
 		elseif (data[i][3] and data[i][3] ~= "") then
 			ATLAS_SCROLL_LIST[i] = {
-				type = "item",
+				type = "Item",
 				data = { data[i][1], data[i][2], data[i][4] }
 			}
 		end
@@ -1709,42 +1709,17 @@ function addon:OnEnable()
 
 	ScrollUtil.InitScrollBoxListWithScrollBar(ScrollBox, ScrollBar, ScrollView)
 
-	local function Initializer(button, data)
-		button.info = data
-
-		-- Set Text
-		if data.type == "achievement" then
-			addon:GetAchievementName(button, data.data)
-		elseif data.type == "string" then
-			button.Text:SetText(data.data)
-		elseif data.type == "item" then
-			local itemName = C_Item.GetItemInfo(data.data[2])
-			itemName = itemName or C_Item.GetItemInfo(data.data[2]) or data.data[3] or ""
-			button.Text:SetText(data.data[1]..itemName)
-		else
-			button.Text:SetText(data.data[1])
-		end
-
-		button:SetScript("OnClick", function()
-			if button.info.type == "achievement" then
-				addon:OpenAchievement(button.info.data)
-			end
-		end)
-
-		button:SetScript("OnEnter", function()
-			GameTooltip:SetOwner(button, "ANCHOR_TOPRIGHT")
-			if button.info.type == "achievement" then
-				GameTooltip:SetHyperlink(GetAchievementLink(button.info.data))
-			elseif button.info.type == "item" then
-				GameTooltip:SetHyperlink("item:"..button.info.data[2])
-			end
-			GameTooltip:Show()
-		end)
-		button:SetScript("OnLeave", function()
-			GameTooltip:Hide()
-		end)
+	local function Initializer(frame, data)
+		frame.info = data
+		frame:Init(data)
 	end
-	ScrollView:SetElementInitializer("AtlasEntryTemplate", Initializer)
+
+	local function CustomFactory(factory, data)
+		local template = "Atlas"..data.type.."EntryTemplate"
+		factory(template, Initializer)
+	end
+
+	ScrollView:SetElementFactory(CustomFactory)
 
 	ScrollBar:SetHideIfUnscrollable(true)
 

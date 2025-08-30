@@ -24,7 +24,7 @@
 -->
 
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ https://raw.githubusercontent.com/Meorawr/wow-ui-schema/main/UI.xsd">
-	<Button name="AtlasEntryTemplate" hidden="true" virtual="true" toplevel="false">
+	<Button name="AtlasAchievementEntryTemplate" hidden="true" registerForClicks="RightButtonDown, LeftButtonDown" virtual="true" mixin="AtlasAchievementEntryMixin">
 		<Size>
 			<AbsDimension x="440" y="15" />
 		</Size>
@@ -44,20 +44,77 @@
 			</Anchors>
 		</HighlightTexture>
 		<Scripts>
-			<OnLoad>
-				self:RegisterForClicks("LeftButtonDown", "RightButtonDown");
-			</OnLoad>
-			<OnUpdate>
-				AtlasEntry_OnUpdate(self);
-			</OnUpdate>
-			<OnLeave>
-				GameTooltip:Hide();
-				GameTooltip:SetScale(ATLAS_GAMETOOLTIP_ORIGINAL_SCALE);
-			</OnLeave>
-			<OnClick>
-				AtlasEntry_OnClick(self, button);
-			</OnClick>
-		</Scripts>
+          <OnClick method="OnClick"/>
+		  <OnEnter method="OnEnter"/>
+		  <OnLeave method="OnLeave"/>
+        </Scripts>
+	</Button>
+
+	<Button name="AtlasBossEntryTemplate" hidden="true" registerForClicks="RightButtonDown, LeftButtonDown" virtual="true" mixin="AtlasBossEntryMixin">
+		<Size>
+			<AbsDimension x="440" y="15" />
+		</Size>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="$parent_Text" parentKey="Text" inherits="GameFontHighlight" nonspacewrap="true" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="440" y="15" />
+					</Size>
+				</FontString>
+			</Layer>
+		</Layers>
+		<HighlightTexture name="$parentHightlight" file="Interface\QuestFrame\UI-QuestTitleHighlight" alphaMode="ADD">
+			<Size x="440" y="15"/>
+			<Anchors>
+				<Anchor point="TOPLEFT"/>
+			</Anchors>
+		</HighlightTexture>
+		<Scripts>
+          <OnClick method="OnClick"/>
+		  <OnEnter method="OnEnter"/>
+		  <OnLeave method="OnLeave"/>
+        </Scripts>
+	</Button>
+
+	<Button name="AtlasItemEntryTemplate" hidden="true" registerForClicks="RightButtonDown, LeftButtonDown" virtual="true" mixin="AtlasItemEntryMixin">
+		<Size>
+			<AbsDimension x="440" y="15" />
+		</Size>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="$parent_Text" parentKey="Text" inherits="GameFontHighlight" nonspacewrap="true" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="440" y="15" />
+					</Size>
+				</FontString>
+			</Layer>
+		</Layers>
+		<HighlightTexture name="$parentHightlight" file="Interface\QuestFrame\UI-QuestTitleHighlight" alphaMode="ADD">
+			<Size x="440" y="15"/>
+			<Anchors>
+				<Anchor point="TOPLEFT"/>
+			</Anchors>
+		</HighlightTexture>
+		<Scripts>
+          <OnClick method="OnClick"/>
+		  <OnEnter method="OnEnter"/>
+		  <OnLeave method="OnLeave"/>
+        </Scripts>
+	</Button>
+
+	<Button name="AtlasStringEntryTemplate" hidden="true" virtual="true" mixin="AtlasStringEntryMixin">
+		<Size>
+			<AbsDimension x="440" y="15" />
+		</Size>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="$parent_Text" parentKey="Text" inherits="GameFontHighlight" nonspacewrap="true" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="440" y="15" />
+					</Size>
+				</FontString>
+			</Layer>
+		</Layers>
 	</Button>
 
 	<Frame name="AtlasSubHeaderTextTemplate" virtual="true">

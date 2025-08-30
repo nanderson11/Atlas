@@ -108,6 +108,7 @@ function addon:AchievementButtonUpdate(button, achievementID)
 	end
 end
 
+-- TODO: I broke this somehow
 function addon:OpenAchievement(achievementID)
 	-- WOLTKC starts to introduce achievement system, so we are only skipping this for Classic Era
 	if (WoWClassicEra) then return end

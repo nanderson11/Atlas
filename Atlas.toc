@@ -52,6 +52,7 @@ Data\AreaIDs.lua
 Libs\Libs.xml
 Locale\Locales.xml
 
+Core\Mixins.lua
 Core\FontsTemplates.xml
 Core\Templates.lua
 Core\Templates.xml
