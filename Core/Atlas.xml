@@ -292,6 +292,9 @@
 							<OnEnter>
 								Atlas:DungeonMinGearLevelToolTip(self);
 							</OnEnter>
+							<OnLeave>
+								GameTooltip:Hide()
+							</OnLeave>
 						</Scripts>
 					</Frame>
 				</Frames>

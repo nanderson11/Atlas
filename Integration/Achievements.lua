@@ -23,24 +23,9 @@
 
 --]]
 
--- Determine WoW TOC Version
-local WoWClassicEra, WoWClassic, WoWRetail
-local wowversion = select(4, GetBuildInfo())
-if wowversion < 20000 then
-	WoWClassicEra = true
-elseif wowversion > 20000 and wowversion < 90000 then
-	WoWClassic = true
-elseif wowversion > 90000 then
-	WoWRetail = true
-end
-
-local FOLDER_NAME, private = ...
-local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
-local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
-
-function addon:GetAchievementName(button, achievementID)
-	-- WOLTKC starts to introduce achievement system, so we are only skipping this for Classic Era
-	if (WoWClassicEra) then return end
+function Atlas:GetAchievementName(button, achievementID)
+	-- Break on versions before WOTLK
+	if (select(4, GetBuildInfo()) < 30000) then return end
 
 	local _, name, _, completed, month, day, year, description, _, icon, _, _, _, earnedBy = GetAchievementInfo(achievementID)
 	if (name) then
@@ -54,63 +39,9 @@ function addon:GetAchievementName(button, achievementID)
 	end
 end
 
-function addon:AchievementButtonUpdate(button, achievementID)
-	-- WOLTKC starts to introduce achievement system, so we are only skipping this for Classic Era
-	if (WoWClassicEra) then return end
-
-	button.achievementID = achievementID
-	button.link = GetAchievementLink(achievementID) or nil
-
-	local _, name, _, completed, month, day, year, description, _, icon, _, _, _, earnedBy = GetAchievementInfo(achievementID)
-	if (name) then
-		button.tooltiptitle = format("|T%d:0:0|t |cFFFFFFFF%s|r", icon, name)
-		local tooltiptext = description
-		local numCriteria = GetAchievementNumCriteria(achievementID)
-
-		if (numCriteria and numCriteria > 0) then
-			for i = 1, numCriteria do
-				local criteriaString, criteriaType, criteriaCompleted, quantity, reqQuantity, _, flags, assetID, quantityString = GetAchievementCriteriaInfo(achievementID, i)
-				if (criteriaType) then
-					if (criteriaType == CRITERIA_TYPE_ACHIEVEMENT and assetID) then
-						local _, aname, _, acompleted = GetAchievementInfo(assetID)
-						if (acompleted) then
-							tooltiptext = tooltiptext.."\n|CFFFFFFFF - "..aname
-						else
-							tooltiptext = tooltiptext.."\n|CFF808080 - "..aname
-						end
-					elseif (bit.band(flags, EVALUATION_TREE_FLAG_PROGRESS_BAR) == EVALUATION_TREE_FLAG_PROGRESS_BAR) then
-						--elseif (criteriaString == "" or reqQuantity > 1) then
-						if (quantity >= reqQuantity) then
-							tooltiptext = tooltiptext.."\n|CFFFFFFFF - "..quantityString
-						else
-							tooltiptext = tooltiptext.."\n|CFF808080 - "..quantityString
-						end
-					else
-						if (criteriaCompleted) then
-							tooltiptext = tooltiptext.."\n|CFFFFFFFF - "..criteriaString
-						else
-							tooltiptext = tooltiptext.."\n|CFF808080 - "..criteriaString
-						end
-					end
-				end
-			end
-		end
-
-		if (completed) then
-			name = format("      |T%d:0:0|t |CFFFFFFFF%s", icon, name)
-			tooltiptext = tooltiptext.."\n|CFF00FF00"..format(ACHIEVEMENT_TOOLTIP_COMPLETE, earnedBy, month, day, year)
-		else
-			name = format("      |T%d:0:0|t |CFF808080%s", icon, name)
-		end
-
-		button.Text:SetText(name)
-		button.tooltiptext = tooltiptext.."\n|CFF8080FF"..L["ATLAS_OPEN_ACHIEVEMENT"].."|R"
-	end
-end
-
-function addon:OpenAchievement(achievementID)
-	-- WOLTKC starts to introduce achievement system, so we are only skipping this for Classic Era
-	if (WoWClassicEra) then return end
+function Atlas:OpenAchievement(achievementID)
+	-- Break on versions before WOTLK
+	if (select(4, GetBuildInfo()) < 30000) then return end
 
 	if not achievementID then return end
 

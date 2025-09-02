@@ -412,10 +412,6 @@ function addon:SearchLFG_Enter(button)
 end
 
 function Atlas_ScrollBar_Update()
-	local zoneID = ATLAS_DROPDOWNS[profile.options.dropdowns.module] and ATLAS_DROPDOWNS[profile.options.dropdowns.module][profile.options.dropdowns.zone] or ATLAS_DROPDOWNS[1][1]
-	local mapdata = AtlasMaps
-	local base = mapdata[zoneID]
-
 	if (AtlasFrameBottomInset.ScrollBox) then
 		local DataProvider = CreateDataProvider(ATLAS_SCROLL_LIST)
 		local ScrollView = AtlasFrameBottomInset.ScrollBox:GetView()
@@ -423,39 +419,6 @@ function Atlas_ScrollBar_Update()
 	end
 
 	GameTooltip:Hide()
-	--[[ local lineplusoffset
-	FauxScrollFrame_Update(AtlasScrollBar, ATLAS_CUR_LINES, ATLAS_NUM_LINES, 15)
-	for i = 1, ATLAS_NUM_LINES do
-		local button = _G["AtlasEntry"..i]
-		if button then bossButtonCleanUp(button); end
-
-		lineplusoffset = i + FauxScrollFrame_GetOffset(AtlasScrollBar)
-		if (lineplusoffset <= ATLAS_CUR_LINES) then
-			_G["AtlasEntry"..i.."_Text"]:SetText(ATLAS_SCROLL_LIST[lineplusoffset])
-			if (ATLAS_SCROLL_ID[lineplusoffset]) then
-				if (type(ATLAS_SCROLL_ID[lineplusoffset][1]) == "number") then
-					local id = ATLAS_SCROLL_ID[lineplusoffset][1]
-					bossButtonUpdate(button, ATLAS_SCROLL_ID[lineplusoffset][1], ATLAS_SCROLL_ID[lineplusoffset][2], false, base.Module or base.ALModule)
-				elseif (type(ATLAS_SCROLL_ID[lineplusoffset][1]) == "string") then
-					-- handling achievement
-					local spos, epos = strfind(ATLAS_SCROLL_ID[lineplusoffset][1], "ac=")
-					if (spos) then
-						local achievementID = strsub(ATLAS_SCROLL_ID[lineplusoffset][1], epos + 1)
-						achievementID = tonumber(achievementID)
-						addon:AchievementButtonUpdate(button, achievementID)
-					end
-				else
-				end
-
-				if (ATLAS_SCROLL_ID[lineplusoffset][3] and ATLAS_SCROLL_ID[lineplusoffset][3] ~= "") then
-					parse_entry_strings(ATLAS_SCROLL_ID[lineplusoffset][3], ATLAS_SCROLL_ID[lineplusoffset][1], ATLAS_SCROLL_ID[lineplusoffset][4], i, lineplusoffset)
-				end
-			end
-			button:Show()
-		elseif (button) then
-			button:Hide()
-		end
-	end ]]
 end
 
 local function simpleSearch(data, text)
@@ -1572,10 +1535,8 @@ function addon:DungeonMinGearLevelToolTip(self)
 
 	if (checkInstanceHasGearLevel() or base.MinGearLevel) then
 		GameTooltip:SetOwner(self, "ANCHOR_TOP")
-		GameTooltip.NineSlice:SetCenterColor(0, 0, 0, 1 * profile.options.frames.alpha)
 		GameTooltip:SetText(str, 1, 1, 1, nil, 1)
 		GameTooltip:AddLine(STAT_AVERAGE_ITEM_LEVEL_TOOLTIP)
-		GameTooltip:SetScale(profile.options.frames.boss_description_scale * profile.options.frames.scale)
 		GameTooltip:Show()
 	end
 end

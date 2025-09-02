@@ -43,6 +43,7 @@ Core\Templates.xml
 Core\IngameLocales.lua
 
 # Core
+Core\Mixins.lua
 Core\Atlas.lua
 Core\AtlasFrame.lua
 Core\Atlas.xml
