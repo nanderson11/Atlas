@@ -33,11 +33,21 @@ function AtlasBossEntryMixin:Init(data)
 	self.Text:SetText(data.text)
 end
 
-function AtlasBossEntryMixin:OnClick()
+function AtlasBossEntryMixin:OnClick(button)
 	if (self.data.instanceID and self.data.encounterID) then
-		-- TODO: AtlasLoot RightButton
-		-- Atlas:AtlasLootButton_OnClick(self)
-		Atlas:AdventureJournal_EncounterButton_OnClick(self.data.instanceID, self.data.encounterID)
+		if IsShiftKeyDown() then
+			local chat = ChatEdit_GetActiveWindow();
+			if chat then
+				local _, _, _, _, link = EJ_GetEncounterInfo(self.data.encounterID)
+				if link then
+					chat:Insert(link);
+				end
+			end
+		elseif (button == "RightButton") then
+			Atlas:AtlasLootButton_OnClick(self)
+		else
+			Atlas:AdventureJournal_EncounterButton_OnClick(self.data.instanceID, self.data.encounterID)
+		end
 	end
 end
 
@@ -64,8 +74,8 @@ function AtlasBossEntryMixin:OnEnter()
 			end
 		end ]]
 
-		if (self.data.encounterID and C_AdventureJournal) then
-			if (C_AdventureJournal.CanBeShown()) then
+		if (self.data.encounterID) then
+			if (EJ_GetEncounterInfo) then
 				GameTooltip:AddLine(ATLAS_OPEN_ADVENTURE, 0.5, 0.5, 1, true)
 			end
 			if (Atlas:CheckAddonStatus("AtlasLoot")) then

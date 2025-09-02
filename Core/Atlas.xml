@@ -320,9 +320,6 @@
 				LibDD:Create_UIDropDownMenu("AtlasSwitchDD", self)
 				Atlas_OnLoad(self);
 			</OnLoad>
-			<OnEvent>
-				Atlas_OnEvent(self, event, ...);
-			</OnEvent>
 			<OnShow>
 				Atlas_OnShow();
 				PlaySound(844);

@@ -357,31 +357,20 @@
 						GameTooltip_AddColoredLine(GameTooltip, DUNGEON_ENCOUNTER_DEFEATED, RED_FONT_COLOR);
 					end
 					GameTooltip:AddLine(self.tooltiptext, nil, nil, nil, true);
-					if (self.overviewDescription) then
-						GameTooltip:AddLine("\n"..OVERVIEW, 1, 1, 1, 1)
-						GameTooltip:AddLine(self.overviewDescription, nil, nil, nil, 1);
-						if (self.roleOverview) then
-							GameTooltip:AddLine("\n"..self.roleOverview, nil, nil, nil, 1);
-						end
-					end
-					if (self.encounterID and C_AdventureJournal) then
-						local disabled = not C_AdventureJournal.CanBeShown();
-						if (not disabled) then
+					if (self.encounterID) then
+						if (EJ_GetEncounterInfo) then
 							GameTooltip:AddLine(ATLAS_OPEN_ADVENTURE, 0.5, 0.5, 1, true);
+						end
+						if (C_AdventureJournal) then
 							GameTooltip:AddLine(ATLAS_TOGGLE_LOOT, 0.5, 0.5, 1, true);
 						end
 					end
-					GameTooltip:SetScale(Atlas.db.profile.options.frames.boss_description_scale * Atlas.db.profile.options.frames.scale);
 					GameTooltip:Show();
 				end
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
-				GameTooltip:SetScale(ATLAS_GAMETOOLTIP_ORIGINAL_SCALE);
 			</OnLeave>
-			<OnShow>
-				self:SetFrameLevel(self:GetParent():GetFrameLevel() + 10);
-			</OnShow>
 		</Scripts>
 	</Button>
 	<Button name="AtlasMapNPCButtonTemplate" inherits="AtlasMapButtonTemplate" virtual="true">
@@ -521,11 +510,7 @@
 				self:RegisterForClicks("LeftButtonDown", "RightButtonDown");
 			</OnLoad>
 			<OnClick>
-				if (IsShiftKeyDown() and self.link) then
-					if (IsModifiedClick("CHATLINK") and ChatEdit_GetActiveWindow()) then
-						ChatEdit_InsertLink(self.link);
-					end
-				elseif (button == "LeftButton") then
+				if (button == "LeftButton") then
 					Atlas:AdventureJournal_EncounterButton_OnClick(self.instanceID, self.encounterID);
 				end
 			</OnClick>

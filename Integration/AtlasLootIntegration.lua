@@ -78,12 +78,14 @@ function addon:EnableAtlasLootButton(base, zoneID)
 			end
 		end
 		if (showbutton and base.JournalInstanceID) then
-			AtlasFrame.AtlasLoot.instanceID = base.JournalInstanceID;
-			AtlasFrame.AtlasLoot.AtlasMapID = zoneID;
-			AtlasFrame.AtlasLoot.AtlasModule = base.Module or base.ALModule;
-			AtlasFrameSmall.AtlasLoot.instanceID = base.JournalInstanceID;
-			AtlasFrameSmall.AtlasLoot.AtlasMapID = zoneID;
-			AtlasFrameSmall.AtlasLoot.AtlasModule = base.Module or base.ALModule;
+			AtlasFrame.AtlasLoot.data = {
+				instanceID = base.JournalInstanceID,
+				module = base.Module or base.ALModule,
+			};
+			AtlasFrameSmall.AtlasLoot.data = {
+				instanceID = base.JournalInstanceID,
+				module = base.Module or base.ALModule,
+			};
 
 			AtlasFrameAtlasLootButton:Show();
 			AtlasFrameSmallAtlasLootButton:Show();
@@ -96,6 +98,7 @@ end
 
 function addon:AtlasLootButton_OnClick(self, button)
 	if (not addon:CheckAddonStatus("AtlasLoot")) then return end
+
 	if (button == "RightButton") then
 		if (AtlasLoot.GUI.frame:IsVisible()) then
 			AtlasLoot.GUI.frame:Hide();
@@ -103,10 +106,10 @@ function addon:AtlasLootButton_OnClick(self, button)
 	else
 		local db = AtlasLoot.db.GUI;
 
-		local instanceID = self.instanceID or nil;
-		local ALModule = modules[self.AtlasModule] or nil;
-		local encounterID = self.encounterID or nil;
-		local bossID = self.bossID or nil;
+		local instanceID = self.data.instanceID or nil;
+		local ALModule = modules[self.data.module] or nil;
+		local encounterID = self.data.encounterID or nil;
+		local bossID = self.data.bossID or nil;
 
 		if (not instanceID) then return; end
 		if (not ALModule) then return; end

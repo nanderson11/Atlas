@@ -122,7 +122,7 @@ db.AtlasMaps = {
 		{ GREN..INDENT..ALC["Blacksmithing Plans"] },
 		{ WHIT.."12) "..Atlas_GetBossName("Hurley Blackbreath", 380),                                                                                      380 },
 		{ ORNG..INDENT..Atlas_GetBossName("Coren Direbrew")..ALC["L-Parenthesis"]..ALC["Brewfest"]..ALC["R-Parenthesis"] },
-		{ WHIT.."13) "..Atlas_GetBossName("Ribbly Screwspigot", 382),                                                                                      382 },
+		-- { WHIT.."13) "..Atlas_GetBossName("Ribbly Screwspigot", 382),                                                                                      382 },
 		{ WHIT.."14) "..Atlas_GetBossName("Phalanx", 381),                                                                                                 381 },
 		{ WHIT..INDENT..Atlas_GetBossName("Plugger Spazzring", 383),                                                                                       383 },
 		{ GREN..INDENT..L["Private Rocknot"] },
@@ -1095,7 +1095,7 @@ db.AtlasMaps_NPC_DB = {
 		{ 10,    378,   20,  399 }, -- General Angerforge
 		{ 11,    379,   21,  309 }, -- Golem Lord Argelmach
 		{ 12,    380,   105, 283 }, -- Hurley Blackbreath
-		{ 13,    382,   111, 301 }, -- Ribbly Screwspigot
+		-- { 13,    382,   111, 301 }, -- Ribbly Screwspigot
 		{ 14,    381,   131, 300 }, -- Phalanx
 		{ 15,    384,   151, 230 }, -- Ambassador Flamelash
 		{ 16,    385,   160, 107 }, -- The Seven

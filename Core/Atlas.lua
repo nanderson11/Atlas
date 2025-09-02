@@ -253,12 +253,6 @@ end
 local function bossButtonUpdate(button, encounterID, instanceID, b_iconImage, moduleData)
 	if (WoWClassicEra) then return end
 
-	local rolesByFlag = {
-		[0] = "TANK",
-		[1] = "DAMAGER",
-		[2] = "HEALER"
-	}
-
 	button:SetID(encounterID)
 	button.encounterID = encounterID
 	if (instanceID and instanceID ~= 0) then
@@ -266,41 +260,11 @@ local function bossButtonUpdate(button, encounterID, instanceID, b_iconImage, mo
 	end
 	button.AtlasModule = moduleData or nil
 
-	local ejbossname, description, _, rootSectionID, link = EJ_GetEncounterInfo(encounterID)
+	local ejbossname, description, _, _, link = EJ_GetEncounterInfo(encounterID)
 	if (ejbossname) then
 		button.tooltiptitle = ejbossname
 		button.tooltiptext = description
 		button.link = link
-
-		local sectionInfo = C_EncounterJournal.GetSectionInfo(rootSectionID)
-
-		if (sectionInfo and addon:EncounterJournal_IsHeaderTypeOverview(sectionInfo.headerType)) then
-			button.overviewDescription = sectionInfo.description or nil
-			local nextSectionID = sectionInfo.firstChildSectionID or nil
-
-			local spec, role
-
-			spec = GetSpecialization()
-			if (spec) then
-				role = GetSpecializationRole(spec)
-			else
-				role = "DAMAGER"
-			end
-
-			local description
-			local i = 1
-			while nextSectionID do
-				local flag1 = C_EncounterJournal.GetSectionIconFlags(nextSectionID)
-				sectionInfo = C_EncounterJournal.GetSectionInfo(nextSectionID)
-				if (role == rolesByFlag[flag1]) then
-					description = gsub(sectionInfo.description, "$bullet;", "- ")
-					button.roleOverview = "|cffffffff"..sectionInfo.title.."|r".."\n"..description
-					break
-				end
-				i = i + 1
-				nextSectionID = sectionInfo.firstChildSectionID
-			end
-		end
 
 		if (b_iconImage) then
 			local id, name, description, displayInfo, iconImage, uiModelSceneID = EJ_GetCreatureInfo(1, encounterID)
@@ -339,12 +303,16 @@ local function searchText(text)
 	wipe(ATLAS_SCROLL_LIST)
 	local i = 1
 	while (data[i] ~= nil) do
-		if (data[i][2] == nil) then
+		if (data[i][3] and data[i][3] ~= "") then
 			ATLAS_SCROLL_LIST[i] = {
-				type = "String",
-				data = { text = data[i][1] }
+				type = "Item",
+				data = {
+					text = data[i][1],
+					itemID = data[i][2],
+					fallbackName = data[i][4],
+				}
 			}
-		elseif (type(data[i][2]) == "number" and not data[i][3]) then
+		elseif (type(data[i][2]) == "number" and data[i][2] < 10000 and select(4, GetBuildInfo()) > 40000) then
 			ATLAS_SCROLL_LIST[i] = {
 				type = "Boss",
 				data = {
@@ -360,14 +328,10 @@ local function searchText(text)
 				type = "Achievement",
 				data = { achievementID = tonumber(achievementID) }
 			}
-		elseif (data[i][3] and data[i][3] ~= "") then
+		else
 			ATLAS_SCROLL_LIST[i] = {
-				type = "Item",
-				data = {
-					text = data[i][1],
-					itemID = data[i][2],
-					fallbackName = data[i][4],
-				}
+				type = "String",
+				data = { text = data[i][1] }
 			}
 		end
 		i = i + 1
@@ -582,11 +546,6 @@ function Atlas_OnLoad(self)
 
 	-- Dragging involves some special registration
 	self:RegisterForDrag("LeftButton")
-end
-
--- Main Atlas event handler
-function Atlas_OnEvent(self, event, ...)
-	local arg1 = ...
 end
 
 --Called whenever the Atlas frame is displayed
@@ -928,7 +887,6 @@ function Atlas_MapRefresh(mapID)
 	local icontext_instance
 
 	if (base.DungeonID) then
-		-- name, typeID, subtypeID, minLevel, maxLevel, recLevel, minRecLevel, maxRecLevel, expansionLevel, groupID, textureFilename, difficulty, maxPlayers, description, isHoliday, bonusRepAmount, minPlayers, isTimeWalker, _, minGearLevel = GetLFGDungeonInfo(dungeonID)
 		if (GetLFGDungeonInfo) then
 			_, typeID, subtypeID, minLevel, maxLevel, _, minRecLevel, maxRecLevel, _, _, _, _, maxPlayers, _, _, _, _, _, _, minGearLevel = GetLFGDungeonInfo(base.DungeonID)
 		end

@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.11.0 -
+### Changed
+- UI updates to the boss list, including a new scrollbar and only clickable entries will highlight when moused over
+### Removed
+- Retail: Removed role mechanics from tooltips
+### Fixed
+- Retail: Fixed empty boss portrait in BRD
+- MoP: Fixed buttons not showing tooltip hints to open the journal
+
 ## 3.10.0 - August 18, 2025
 ### Added
 - Retail: Added Eco-Dome Al'dani map
