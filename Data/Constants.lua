@@ -34,10 +34,7 @@ ATLAS_VERSION = C_AddOns.GetAddOnMetadata(private.addon_name, "Version")
 ATLAS_PLAYER_FACTION = UnitFactionGroup("player")
 ATLAS_DROPDOWNS = {}
 ATLAS_INST_ENT_DROPDOWN = {}
-ATLAS_NUM_LINES = 25
-ATLAS_CUR_LINES = 0
 ATLAS_SCROLL_LIST = {}
-ATLAS_SCROLL_ID = {}
 ATLAS_DATA = {}
 ATLAS_SEARCH_METHOD = nil
 ATLAS_PLUGINS = {}
@@ -53,8 +50,6 @@ ATLAS_MAX_MENUITEMS = 30
 ATLAS_MODULE_MENUS = 0
 ATLAS_PLUGIN_MENUS = 0
 ATLAS_DROPDOWN_TYPES = {}
-
-ATLAS_GAMETOOLTIP_ORIGINAL_SCALE = GameTooltip:GetScale()
 
 -- Only update this version number when the options have been revised and a force update is needed.
 ATLAS_OLDEST_VERSION_SAME_SETTINGS = "1.24.00"
@@ -221,19 +216,16 @@ constants.defaults = {
 		dropdowns = {
 		},
 		options = {
-			autoSelect = false,   -- AtlasAutoSelect
+			autoSelect = false, -- AtlasAutoSelect
 			frames = {
-				alpha = 1.0,      -- AtlasAlpha
+				alpha = 1.0, -- AtlasAlpha
 				smallAlpha = 1.0, -- AtlasAlpha
-				scale = 1.0,      -- AtlasScale
+				scale = 1.0, -- AtlasScale
 				smallScale = 1.0, -- AtlasScale
-				boss_description_scale = 0.9, -- AtlasBossDescScale
-				showBossDesc = true, -- AtlasBossDesc
 				showBossPotrait = true,
-				lock = false,     -- AtlasLocked
+				lock = false, -- AtlasLocked
 				rightClick = false, -- AtlasRightClick
-				contrClclick = false, -- AtlasCtrl
-				clamp = true,     -- AtlasClamped
+				clamp = true, -- AtlasClamped
 				showAcronyms = true, -- AtlasAcronyms
 			},
 			dropdowns = {

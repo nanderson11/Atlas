@@ -128,20 +128,6 @@ local function getOptions()
 										Atlas_Refresh()
 									end,
 								},
-								frames_controlClick = {
-									order = 14,
-									type = "toggle",
-									name = L["ATLAS_OPTIONS_CTRL"],
-									desc = L["ATLAS_OPTIONS_CTRL_TIP"],
-									width = "double",
-									get = function()
-										return addon.db.profile.options.frames.controlClick
-									end,
-									set = function(info, value)
-										addon.db.profile.options.frames.controlClick = value
-										Atlas_Refresh()
-									end,
-								},
 								frames_showBossPotrait = {
 									order = 15,
 									type = "toggle",
@@ -194,21 +180,6 @@ local function getOptions()
 							type = "group",
 							name = L["Scale and Transparency"],
 							args = {
-								frames_boss_description_scale = {
-									order = 21,
-									type = "range",
-									name = L["ATLAS_OPTIONS_BOSS_DESC_SCALE"],
-									min = 0.01,
-									max = 1.75,
-									bigStep = 0.01,
-									isPercent = true,
-									get = function()
-										return addon.db.profile.options.frames.boss_description_scale
-									end,
-									set = function(info, value)
-										addon.db.profile.options.frames.boss_description_scale = value
-									end,
-								},
 								atlasFrame = {
 									type = "header",
 									name = L["ATLAS_OPTIONS_FRAME"],

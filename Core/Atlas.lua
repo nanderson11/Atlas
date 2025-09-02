@@ -336,8 +336,6 @@ local function searchText(text)
 		end
 		i = i + 1
 	end
-
-	ATLAS_CUR_LINES = i - 1
 end
 
 function addon:SearchAndRefresh(text)
