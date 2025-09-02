@@ -323,7 +323,7 @@ local function bossButtonUpdate(button, encounterID, instanceID, b_iconImage, mo
 end
 
 local function searchText(text)
-	local zoneID = ATLAS_DROPDOWNS[profile.options.dropdowns.module][profile.options.dropdowns.zone]
+	local zoneID = ATLAS_DROPDOWNS[profile.options.dropdowns.module][profile.options.dropdowns.zone] or ATLAS_DROPDOWNS[1][1]
 	local mapdata = AtlasMaps
 	local base = mapdata[zoneID]
 
@@ -342,23 +342,32 @@ local function searchText(text)
 		if (data[i][2] == nil) then
 			ATLAS_SCROLL_LIST[i] = {
 				type = "String",
-				data = data[i][1]
+				data = { text = data[i][1] }
 			}
 		elseif (type(data[i][2]) == "number" and not data[i][3]) then
 			ATLAS_SCROLL_LIST[i] = {
 				type = "Boss",
-				data = { data[i][1], data[i][2] }
+				data = {
+					text = data[i][1],
+					encounterID = data[i][2],
+					instanceID = base.JournalInstanceID or 0,
+					module = base.Module or base.ALModule or nil
+				}
 			}
 		elseif (type(data[i][2]) == "string") then
 			local achievementID = strmatch(data[i][2], "ac=(%d+)")
 			ATLAS_SCROLL_LIST[i] = {
 				type = "Achievement",
-				data = tonumber(achievementID)
+				data = { achievementID = tonumber(achievementID) }
 			}
 		elseif (data[i][3] and data[i][3] ~= "") then
 			ATLAS_SCROLL_LIST[i] = {
 				type = "Item",
-				data = { data[i][1], data[i][2], data[i][4] }
+				data = {
+					text = data[i][1],
+					itemID = data[i][2],
+					fallbackName = data[i][4],
+				}
 			}
 		end
 		i = i + 1
@@ -399,15 +408,6 @@ function addon:SearchLFG_Enter(button)
 		GameTooltip:SetText(L["Find group for this instance"].."\n"..RED_FONT_COLOR_CODE..L["LFG is unavailable until level 10"]);
 	else
 		GameTooltip:SetText(L["Find group for this instance"]);
-	end
-end
-
-local function parse_entry_strings(typeStr, id, preStr, index, lineplusoffset)
-	if (typeStr == "item") then
-		local itemID = id
-		local itemName = C_Item.GetItemInfo(itemID)
-		itemName = itemName or C_Item.GetItemInfo(itemID) or preStr or ""
-		if (itemName) then _G["AtlasEntry"..index.."_Text"]:SetText(ATLAS_SCROLL_LIST[lineplusoffset]..itemName); end
 	end
 end
 
@@ -1710,8 +1710,8 @@ function addon:OnEnable()
 	ScrollUtil.InitScrollBoxListWithScrollBar(ScrollBox, ScrollBar, ScrollView)
 
 	local function Initializer(frame, data)
-		frame.info = data
-		frame:Init(data)
+		frame.data = data.data
+		frame:Init(data.data)
 	end
 
 	local function CustomFactory(factory, data)
