@@ -26,7 +26,6 @@ local FOLDER_NAME, private = ...
 private.addon_name         = "Atlas_BattleforAzeroth"
 private.module_name        = "BattleforAzeroth"
 
-local BZ                   = Atlas_GetLocaleLibBabble("LibBabble-SubZone-3.0")
 local L                    = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local ALC                  = LibStub("AceLocale-3.0"):GetLocale("Atlas")
 local Atlas                = LibStub("AceAddon-3.0"):GetAddon("Atlas")
@@ -37,6 +36,14 @@ BfA.db                     = db
 
 local function Atlas_GetBossName(bossname, encounterID, creatureIndex)
 	return Atlas:GetBossName(bossname, encounterID, creatureIndex, private.module_name)
+end
+
+-- Use https://wago.tools/db2/areatable for ids
+local z = C_Map.GetAreaInfo
+-- Use https://wago.tools/db2/JournalInstance for ids
+local function i(id)
+	local temp = EJ_GetInstanceInfo(id)
+	return temp
 end
 
 local BLUE = "|cff6666ff"
@@ -57,8 +64,8 @@ db.AtlasMaps = {
 	-- /////////////////////////////////
 	-- Battle of Dazar'alor, Raid
 	BattleofDazaralorA = { -- The Zocalo, Horde
-		ZoneName = { BZ["Battle of Dazar'alor"]..ALC["MapA"] },
-		Location = { BZ["Tiragarde Sound"] },
+		ZoneName = { i(1176)..ALC["MapA"] },
+		Location = { z(8567)..L["Slash"]..z(8499) },
 		DungeonID = 1942,
 		DungeonHeroicID = 1943,
 		DungeonMythicID = 1944,
@@ -83,8 +90,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Mestrah", 2341, 2), },
 	},
 	BattleofDazaralorB = { -- Port of Zandalar, Alliance
-		ZoneName = { BZ["Battle of Dazar'alor"]..ALC["MapB"] },
-		Location = { BZ["Tiragarde Sound"] },
+		ZoneName = { i(1176)..ALC["MapB"] },
+		Location = { z(8567)..L["Slash"]..z(8499) },
 		DungeonID = 1942,
 		DungeonHeroicID = 1943,
 		DungeonMythicID = 1944,
@@ -108,8 +115,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Death Specter", 2340, 2), },
 	},
 	BattleofDazaralorC = { -- Halls of Opulence
-		ZoneName = { BZ["Battle of Dazar'alor"]..ALC["MapC"] },
-		Location = { BZ["Tiragarde Sound"] },
+		ZoneName = { i(1176)..ALC["MapC"] },
+		Location = { z(8567)..L["Slash"]..z(8499) },
 		DungeonID = 1942,
 		DungeonHeroicID = 1943,
 		DungeonMythicID = 1944,
@@ -124,8 +131,8 @@ db.AtlasMaps = {
 		{ WHIT.." 5) "..Atlas_GetBossName("Opulence", 2342), 2342 },
 	},
 	BattleofDazaralorD = { -- Loa's Sanctum
-		ZoneName = { BZ["Battle of Dazar'alor"]..ALC["MapD"] },
-		Location = { BZ["Tiragarde Sound"] },
+		ZoneName = { i(1176)..ALC["MapD"] },
+		Location = { z(8567)..L["Slash"]..z(8499) },
 		DungeonID = 1942,
 		DungeonHeroicID = 1943,
 		DungeonMythicID = 1944,
@@ -145,8 +152,8 @@ db.AtlasMaps = {
 
 	},
 	BattleofDazaralorE = { -- Heart of the Empire
-		ZoneName = { BZ["Battle of Dazar'alor"]..ALC["MapE"] },
-		Location = { BZ["Tiragarde Sound"] },
+		ZoneName = { i(1176)..ALC["MapE"] },
+		Location = { z(8567)..L["Slash"]..z(8499) },
 		DungeonID = 1942,
 		DungeonHeroicID = 1943,
 		DungeonMythicID = 1944,
@@ -166,8 +173,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Rastari Honorguard", 2335, 6), },
 	},
 	BattleofDazaralorF = {
-		ZoneName = { BZ["Battle of Dazar'alor"]..ALC["MapF"] },
-		Location = { BZ["Tiragarde Sound"] },
+		ZoneName = { i(1176)..ALC["MapF"] },
+		Location = { z(8567)..L["Slash"]..z(8499) },
 		DungeonID = 1942,
 		DungeonHeroicID = 1943,
 		DungeonMythicID = 1944,
@@ -184,8 +191,8 @@ db.AtlasMaps = {
 	},
 	-- Crucible of Storms, Raid
 	CrucibleofStormsA = {
-		ZoneName = { BZ["Crucible of Storms"]..ALC["MapA"] },
-		Location = { BZ["Stormsong Valley"] },
+		ZoneName = { i(1177)..ALC["MapA"] },
+		Location = { z(9042) },
 		DungeonID = 1952,
 		DungeonHeroicID = 1953,
 		DungeonMythicID = 1954,
@@ -202,8 +209,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Fa'thuul the Feared", 2328, 2) },
 	},
 	CrucibleofStormsB = {
-		ZoneName = { BZ["Crucible of Storms"]..ALC["MapB"] },
-		Location = { BZ["Stormsong Valley"] },
+		ZoneName = { i(1177)..ALC["MapB"] },
+		Location = { z(9042) },
 		DungeonID = 1952,
 		DungeonHeroicID = 1953,
 		DungeonMythicID = 1954,
@@ -218,8 +225,8 @@ db.AtlasMaps = {
 	},
 	-- Freehold
 	Freehold = {
-		ZoneName = { BZ["Freehold"] },
-		Location = { BZ["Tiragarde Sound"] },
+		ZoneName = { i(1001) },
+		Location = { z(8567) },
 		DungeonID = 1672,
 		DungeonHeroicID = 1704,
 		--		DungeonMythicID = 1704,
@@ -237,8 +244,8 @@ db.AtlasMaps = {
 	},
 	-- Operation: Mechagon
 	OperationMechagonA = {
-		ZoneName = { BZ["Operation: Mechagon"]..ALC["MapA"] },
-		Location = { BZ["Mechagon"] },
+		ZoneName = { i(1178)..ALC["MapA"] },
+		Location = { z(10290) },
 		DungeonMythicID = 2006,
 		WorldMapID = 1490,
 		JournalInstanceID = 1178,
@@ -257,8 +264,8 @@ db.AtlasMaps = {
 		{ WHIT.." 4) "..Atlas_GetBossName("HK-8 Aerial Oppression Unit", 2355), 2355 }, -- MapID: 1490
 	},
 	OperationMechagonB = {
-		ZoneName = { BZ["Operation: Mechagon"]..ALC["MapB"] },
-		Location = { BZ["Mechagon"] },
+		ZoneName = { i(1178)..ALC["MapB"] },
+		Location = { z(10290) },
 		DungeonMythicID = 2006,
 		WorldMapID = 1490,
 		JournalInstanceID = 1178,
@@ -273,8 +280,8 @@ db.AtlasMaps = {
 	},
 	-- Shrine of the Storm
 	ShrineoftheStormA = {
-		ZoneName = { BZ["Shrine of the Storm"]..ALC["MapA"] },
-		Location = { BZ["Stormsong Valley"] },
+		ZoneName = { i(1036)..ALC["MapA"] },
+		Location = { z(9042) },
 		DungeonID = 1774,
 		DungeonHeroicID = 1710,
 		--		DungeonMythicID = 1710,
@@ -292,8 +299,8 @@ db.AtlasMaps = {
 		{ WHIT.." 4) "..Atlas_GetBossName("Vol'zith the Whisperer", 2156), 2156 },
 	},
 	ShrineoftheStormB = {
-		ZoneName = { BZ["Shrine of the Storm"]..ALC["MapB"] },
-		Location = { BZ["Stormsong Valley"] },
+		ZoneName = { i(1036)..ALC["MapB"] },
+		Location = { z(9042) },
 		DungeonID = 1774,
 		DungeonHeroicID = 1710,
 		--		DungeonMythicID = 1710,
@@ -307,8 +314,8 @@ db.AtlasMaps = {
 	},
 	-- Siege of Boralus
 	SiegeofBoralus = {
-		ZoneName = { BZ["Siege of Boralus"] },
-		Location = { BZ["Tiragarde Sound"] },
+		ZoneName = { i(1023) },
+		Location = { z(8567) },
 		--		DungeonID = 0,
 		DungeonHeroicID = 1700,
 		--		DungeonMythicID = 0,
@@ -325,8 +332,8 @@ db.AtlasMaps = {
 	},
 	-- Tol Dagor
 	TolDagorA = {
-		ZoneName = { BZ["Tol Dagor"]..ALC["MapA"] },
-		Location = { BZ["Tol Dagor"] },
+		ZoneName = { i(1002)..ALC["MapA"] },
+		Location = { z(8978) },
 		DungeonID = 1713,
 		DungeonHeroicID = 1714,
 		--		DungeonMythicID = 1714,
@@ -339,8 +346,8 @@ db.AtlasMaps = {
 		{ WHIT.." 4) "..Atlas_GetBossName("Overseer Korgus", 2096),       2096 },
 	},
 	TolDagorB = {
-		ZoneName = { BZ["Tol Dagor"]..ALC["MapB"] },
-		Location = { BZ["Tol Dagor"] },
+		ZoneName = { i(1002)..ALC["MapB"] },
+		Location = { z(8978) },
 		DungeonID = 1713,
 		DungeonHeroicID = 1714,
 		--		DungeonMythicID = 1714,
@@ -353,8 +360,8 @@ db.AtlasMaps = {
 	},
 	-- Waycrest Manor
 	WaycrestManorA = {
-		ZoneName = { BZ["Waycrest Manor"]..ALC["MapA"] },
-		Location = { BZ["Drustvar"] },
+		ZoneName = { i(1021)..ALC["MapA"] },
+		Location = { z(8721) },
 		DungeonID = 1705,
 		DungeonHeroicID = 1706,
 		--		DungeonMythicID = 1706,
@@ -374,8 +381,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Bile Oozeling", 2127, 3),    2127 },
 	},
 	WaycrestManorB = {
-		ZoneName = { BZ["Waycrest Manor"]..ALC["MapB"] },
-		Location = { BZ["Drustvar"] },
+		ZoneName = { i(1021)..ALC["MapB"] },
+		Location = { z(8721) },
 		DungeonID = 1705,
 		DungeonHeroicID = 1706,
 		--		DungeonMythicID = 1706,
@@ -396,8 +403,8 @@ db.AtlasMaps = {
 	-- /////////////////////////////////
 	-- Atal'Dazar
 	AtalDazar = {
-		ZoneName = { BZ["Atal'Dazar"] },
-		Location = { BZ["Zuldazar"] },
+		ZoneName = { i(968) },
+		Location = { z(8499) },
 		DungeonID = 1668,
 		DungeonHeroicID = 1772,
 		DungeonMythicID = 1669,
@@ -414,8 +421,8 @@ db.AtlasMaps = {
 	},
 	-- Kings' Rest
 	KingsRest = {
-		ZoneName = { BZ["Kings' Rest"] },
-		Location = { BZ["Zuldazar"] },
+		ZoneName = { i(1041) },
+		Location = { z(8499) },
 		DungeonID = 1784,
 		DungeonHeroicID = 1785,
 		--		DungeonMythicID = 1785,
@@ -433,8 +440,8 @@ db.AtlasMaps = {
 	},
 	-- The MOTHERLODE!!
 	TheMOTHERLODE = {
-		ZoneName = { BZ["The MOTHERLODE!!"] },
-		Location = { BZ["Zuldazar"] },
+		ZoneName = { i(1012) },
+		Location = { z(8499) },
 		DungeonID = 1707,
 		DungeonHeroicID = 1776,
 		DungeonMythicID = 1708,
@@ -448,8 +455,8 @@ db.AtlasMaps = {
 	},
 	-- Temple of Sethraliss
 	TempleofSethraliss = {
-		ZoneName = { BZ["Temple of Sethraliss"] },
-		Location = { BZ["Vol'dun"] },
+		ZoneName = { i(1030) },
+		Location = { z(8501) },
 		DungeonID = 1694,
 		DungeonHeroicID = 1775,
 		DungeonMythicID = 1695,
@@ -469,8 +476,8 @@ db.AtlasMaps = {
 	},
 	-- Uldir
 	UldirA = {
-		ZoneName = { BZ["Uldir"]..ALC["MapA"] },
-		Location = { BZ["Nazmir"] },
+		ZoneName = { i(1031)..ALC["MapA"] },
+		Location = { z(8500) },
 		DungeonID = 1887,
 		DungeonHeroicID = 1888,
 		DungeonMythicID = 1889,
@@ -502,8 +509,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Bloodthirsty Crawg", 2195, 4), },
 	},
 	UldirB = {
-		ZoneName = { BZ["Uldir"]..ALC["MapB"] },
-		Location = { BZ["Nazmir"] },
+		ZoneName = { i(1031)..ALC["MapB"] },
+		Location = { z(8500) },
 		DungeonID = 1887,
 		DungeonHeroicID = 1888,
 		DungeonMythicID = 1889,
@@ -520,8 +527,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Coalesced Blood", 2168, 3), },
 	},
 	UldirC = {
-		ZoneName = { BZ["Uldir"]..ALC["MapC"] },
-		Location = { BZ["Nazmir"] },
+		ZoneName = { i(1031)..ALC["MapC"] },
+		Location = { z(8500) },
 		DungeonID = 1887,
 		DungeonHeroicID = 1888,
 		DungeonMythicID = 1889,
@@ -538,8 +545,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Viral Contagion", 2167, 4), },
 	},
 	UldirD = {
-		ZoneName = { BZ["Uldir"]..ALC["MapD"] },
-		Location = { BZ["Nazmir"] },
+		ZoneName = { i(1031)..ALC["MapD"] },
+		Location = { z(8500) },
 		DungeonID = 1887,
 		DungeonHeroicID = 1888,
 		DungeonMythicID = 1889,
@@ -554,8 +561,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Corruption Corpuscle", 2146, 2), },
 	},
 	UldirE = {
-		ZoneName = { BZ["Uldir"]..ALC["MapE"] },
-		Location = { BZ["Nazmir"] },
+		ZoneName = { i(1031)..ALC["MapE"] },
+		Location = { z(8500) },
 		DungeonID = 1887,
 		DungeonHeroicID = 1888,
 		DungeonMythicID = 1889,
@@ -572,8 +579,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Nerubian Voidweaver", 2169, 3), },
 	},
 	UldirF = {
-		ZoneName = { BZ["Uldir"]..ALC["MapF"] },
-		Location = { BZ["Nazmir"] },
+		ZoneName = { i(1031)..ALC["MapF"] },
+		Location = { z(8500) },
 		DungeonID = 1887,
 		DungeonHeroicID = 1888,
 		DungeonMythicID = 1889,
@@ -587,8 +594,8 @@ db.AtlasMaps = {
 		{ WHIT.." 5) "..Atlas_GetBossName("Vectis", 2166), 2166 },
 	},
 	UldirG = {
-		ZoneName = { BZ["Uldir"]..ALC["MapG"] },
-		Location = { BZ["Nazmir"] },
+		ZoneName = { i(1031)..ALC["MapG"] },
+		Location = { z(8500) },
 		DungeonID = 1887,
 		DungeonHeroicID = 1888,
 		DungeonMythicID = 1889,
@@ -606,8 +613,8 @@ db.AtlasMaps = {
 	},
 	-- The Underrot
 	TheUnderrot = {
-		ZoneName = { BZ["The Underrot"] },
-		Location = { BZ["Nazmir"] },
+		ZoneName = { i(1022) },
+		Location = { z(8500) },
 		DungeonID = 1711,
 		DungeonHeroicID = 1777,
 		DungeonMythicID = 1712,
@@ -623,8 +630,8 @@ db.AtlasMaps = {
 
 	-- The Eternal Palace
 	TheEternalPalaceA = {
-		ZoneName = { BZ["The Eternal Palace"]..ALC["MapA"] },
-		Location = { BZ["Nazjatar"] },
+		ZoneName = { i(1179)..ALC["MapA"] },
+		Location = { z(10052) },
 		DungeonID = 2014,
 		DungeonHeroicID = 2014,
 		DungeonMythicID = 2016,
@@ -637,8 +644,8 @@ db.AtlasMaps = {
 		{ BLUE.." B) "..ALC["Connection"],                                   10002 },
 	},
 	TheEternalPalaceB = {
-		ZoneName = { BZ["The Eternal Palace"]..ALC["MapB"] },
-		Location = { BZ["Nazjatar"] },
+		ZoneName = { i(1179)..ALC["MapB"] },
+		Location = { z(10052) },
 		DungeonID = 2014,
 		DungeonHeroicID = 2014,
 		DungeonMythicID = 2016,
@@ -675,8 +682,8 @@ db.AtlasMaps = {
 
 	-- Ny'alotha
 	NyalothaA = {
-		ZoneName = { BZ["Ny'alotha, the Waking City"]..ALC["MapA"] },
-		Location = { BZ["Uldum"]..L["Slash"]..BZ["Vale of Eternal Blossoms"] },
+		ZoneName = { i(1180)..ALC["MapA"] },
+		Location = { z(5034)..L["Slash"]..z(5840) },
 		DungeonID = 2033,
 		DungeonHeroicID = 2034,
 		DungeonMythicID = 2035,
@@ -710,8 +717,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Void Hunter", 2364, 3),              2364 },
 	},
 	NyalothaB = {
-		ZoneName = { BZ["Ny'alotha, the Waking City"]..ALC["MapB"] },
-		Location = { BZ["Uldum"]..L["Slash"]..BZ["Vale of Eternal Blossoms"] },
+		ZoneName = { i(1180)..ALC["MapB"] },
+		Location = { z(5034)..L["Slash"]..z(5840) },
 		DungeonID = 2033,
 		DungeonHeroicID = 2034,
 		DungeonMythicID = 2035,
@@ -732,8 +739,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Blood of Ny'alotha", 2374, 3),        2374 },
 	},
 	NyalothaC = {
-		ZoneName = { BZ["Ny'alotha, the Waking City"]..ALC["MapC"] },
-		Location = { BZ["Uldum"]..L["Slash"]..BZ["Vale of Eternal Blossoms"] },
+		ZoneName = { i(1180)..ALC["MapC"] },
+		Location = { z(5034)..L["Slash"]..z(5840) },
 		DungeonID = 2033,
 		DungeonHeroicID = 2034,
 		DungeonMythicID = 2035,
@@ -997,12 +1004,12 @@ db.AtlasMaps_NPC_DB = {
 	The table value is map's key-name.
 ]]
 db.AssocDefaults = {
-	[BZ["Battle of Dazar'alor"]] = "BattleofDazaralorA",
-	[BZ["Crucible of Storms"]] = "CrucibleofStormsA",
-	[BZ["Shrine of the Storm"]] = "ShrineoftheStormA",
-	[BZ["Tol Dagor"]] = "TolDagorA",
-	[BZ["Waycrest Manor"]] = "WaycrestManorA",
-	[BZ["Uldir"]] = "UldirA",
+	[i(1176)] = "BattleofDazaralorA",
+	[i(1177)] = "CrucibleofStormsA",
+	[i(1036)] = "ShrineoftheStormA",
+	[i(1002)] = "TolDagorA",
+	[i(1021)] = "WaycrestManorA",
+	[i(1031)] = "UldirA",
 }
 
 --[[
@@ -1020,27 +1027,27 @@ db.AssocDefaults = {
 	},
 ]]
 db.SubZoneData = {
-	[BZ["Battle of Dazar'alor"]] = {
+	[i(1176)] = {
 		["BattleofDazaralorA"] = {
-			BZ["The Zocalo"],
-			BZ["Dazar'alor"],
-			BZ["Terrace of the Speakers"],
-			BZ["Grand Bazaar"],
-			BZ["Bay of Kings"],
-			BZ["Path of the Ancestors"],
+			z(10370),
+			z(10371),
+			z(10373),
+			z(10374),
+			z(10376),
+			z(10384),
 		},
 		["BattleofDazaralorB"] = {
-			BZ["Port of Zandalar"],
+			z(10375),
 		},
 		["BattleofDazaralorC"] = {
-			BZ["Halls of Opulence"],
+			z(10383),
 		},
 		["BattleofDazaralorD"] = {
-			BZ["Loa's Sanctum"],
-			BZ["Walk of Kings"],
+			z(10385),
+			z(10386),
 		},
 		["BattleofDazaralorE"] = {
-			BZ["The Heart of the Empire"],
+			z(10387),
 		},
 	},
 }
@@ -1058,25 +1065,19 @@ db.SubZoneData = {
 	Not for localization.
 ]]
 db.OutdoorZoneToAtlas = {
-	[BZ["Tiragarde Sound"]] = "Freehold",
-	[BZ["Tol Dagor"]] = "TolDagorA",
-	[BZ["Stormsong Valley"]] = "ShrineoftheStormA",
-	--	[BZ["Mechagon"]] = 				"OperationMechagon",
-	[BZ["Drustvar"]] = "WaycrestManorA",
-	[BZ["Zuldazar"]] = "AtalDazar",
-	[BZ["Vol'dun"]] = "TempleofSethraliss",
-	[BZ["Nazmir"]] = "TheUnderrot",
-	--	[BZ["Nazjatar"]] = 				"TheEternalPalace",
-	[BZ["Boralus Harbor"]] = "SiegeofBoralus",
+	[z(8567)] = "Freehold",
+	[z(8978)] = "TolDagorA",
+	[z(9042)] = "ShrineoftheStormA",
+	[z(8721)] = "WaycrestManorA",
+	[z(8499)] = "AtalDazar",
+	[z(8501)] = "TempleofSethraliss",
+	[z(8500)] = "TheUnderrot",
+	[z(8717)] = "SiegeofBoralus",
 }
 
-db.EntToInstMatches = {
-	--	["TheNightholdEnt"] = 			{"TheNightholdA", "TheNightholdB", "TheNightholdC", "TheNightholdD", "TheNightholdE", "TheNightholdF", "TheNightholdG" },
-}
+db.EntToInstMatches = {}
 
-db.InstToEntMatches = {
-	--	["TheArcway"] = 			{"TheArcwayEnt"},
-}
+db.InstToEntMatches = {}
 
 db.MapSeries = {
 	["CrucibleofStormsA"] = { "CrucibleofStormsA", "CrucibleofStormsB" },
@@ -1103,9 +1104,7 @@ db.MapSeries = {
 	["NyalothaA"] = { "NyalothaA", "NyalothaB", "NyalothaC" },
 }
 
-db.SubZoneAssoc = {
-	--	["BlackRookHoldA"] = 			BZ["Black Rook Hold"],
-}
+db.SubZoneAssoc = {}
 
 db.DropDownLayouts_Order = {
 	[ATLAS_DDL_CONTINENT] = {

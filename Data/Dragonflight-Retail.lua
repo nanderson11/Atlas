@@ -26,7 +26,6 @@ local FOLDER_NAME, private = ...
 private.addon_name = "Atlas_Dragonflight"
 private.module_name = "Dragonflight"
 
-local BZ = Atlas_GetLocaleLibBabble("LibBabble-SubZone-3.0")
 local ALC = LibStub("AceLocale-3.0"):GetLocale("Atlas")
 local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
 local DF = Atlas:NewModule(private.module_name)
@@ -62,8 +61,8 @@ db.AtlasMaps = {
 	-- ///////////////////////////////////////
 	-- Instances
 	AlgetharAcademy = {
-		ZoneName = { BZ["Algeth'ar Academy"] },
-		Location = { BZ["Thaldraszus"] },
+		ZoneName = { i(1201) },
+		Location = { z(13647) },
 		DungeonID = 2366,
 		DungeonHeroicID = 2367,
 		DungeonMythicID = 2383,
@@ -78,8 +77,8 @@ db.AtlasMaps = {
 		{ WHIT.." 4) "..Atlas_GetBossName("Echo of Doragosa", 2514),  2514 },
 	},
 	AzureVault = {
-		ZoneName = { BZ["The Azure Vault"] },
-		Location = { BZ["The Azure Span"] },
+		ZoneName = { i(1203) },
+		Location = { z(13646) },
 		DungeonID = 2332,
 		DungeonHeroicID = 2333,
 		DungeonMythicID = 2334,
@@ -94,8 +93,8 @@ db.AtlasMaps = {
 		{ WHIT.." 4) "..Atlas_GetBossName("Umbrelskul", 2508),           2508 },
 	},
 	BrackenhideHollow = {
-		ZoneName = { BZ["Brackenhide Hollow"] },
-		Location = { BZ["The Azure Span"] },
+		ZoneName = { i(1196) },
+		Location = { z(13646) },
 		DungeonID = 2362,
 		DungeonHeroicID = 2363,
 		DungeonMythicID = 2379,
@@ -114,7 +113,7 @@ db.AtlasMaps = {
 	},
 	DawnoftheInfinite = {
 		ZoneName = { i(1209) },
-		Location = { BZ["Thaldraszus"] },
+		Location = { z(13647) },
 		-- DungeonHeroicID = 1, -- TBD: DawnoftheInfinite gets split into two heroics
 		DungeonMythicID = 2430,
 		WorldMapID = 2190,
@@ -136,8 +135,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Time-Displaced Trooper", 2538, 3), 2538 },
 	},
 	HallsofInfusion = {
-		ZoneName = { BZ["Halls of Infusion"] },
-		Location = { BZ["Thaldraszus"] },
+		ZoneName = { i(1204) },
+		Location = { z(13647) },
 		DungeonID = 2364,
 		DungeonHeroicID = 2365,
 		DungeonMythicID = 2381,
@@ -153,8 +152,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Primalist Infuser", 2511, 2),  2511 },
 	},
 	Neltharus = {
-		ZoneName = { BZ["Neltharus"] },
-		Location = { BZ["The Waking Shores"] },
+		ZoneName = { i(1199) },
+		Location = { z(13644) },
 		DungeonID = 2356,
 		DungeonHeroicID = 2357,
 		DungeonMythicID = 2358,
@@ -167,8 +166,8 @@ db.AtlasMaps = {
 		{ WHIT.." 4) "..Atlas_GetBossName("Warlord Sargha", 2501),           2501 },
 	},
 	NokhudOffensive = {
-		ZoneName = { BZ["The Nokhud Offensive"] },
-		Location = { BZ["Ohn'ahran Plains"] },
+		ZoneName = { i(1198) },
+		Location = { z(13645) },
 		DungeonID = 2368,
 		DungeonHeroicID = 2369,
 		DungeonMythicID = 2377,
@@ -186,8 +185,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Nokhud Stormcaster", 2477, 2), 2477 },
 	},
 	RubyLifePoolsA = {
-		ZoneName = { BZ["Ruby Life Pools"]..ALC["MapA"] },
-		Location = { BZ["The Waking Shores"] },
+		ZoneName = { i(1202)..ALC["MapA"] },
+		Location = { z(13644) },
 		DungeonID = 2361,
 		DungeonHeroicID = 2360,
 		DungeonMythicID = 2375,
@@ -199,8 +198,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Infused Whelp", 2488, 2),     2488 },
 	},
 	RubyLifePoolsB = {
-		ZoneName = { BZ["Ruby Life Pools"]..ALC["MapB"] },
-		Location = { BZ["The Waking Shores"] },
+		ZoneName = { i(1202)..ALC["MapB"] },
+		Location = { z(13644) },
 		DungeonID = 2361,
 		DungeonHeroicID = 2360,
 		DungeonMythicID = 2375,
@@ -215,8 +214,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Erkhart Stormvein", 2503, 2),          2503 },
 	},
 	UldamanLegacyofTyr = {
-		ZoneName = { BZ["Uldaman: Legacy of Tyr"] },
-		Location = { BZ["Badlands"] },
+		ZoneName = { i(1197) },
+		Location = { z(3) },
 		DungeonID = 2352,
 		DungeonHeroicID = 2353,
 		DungeonMythicID = 2354,
@@ -235,8 +234,8 @@ db.AtlasMaps = {
 		{ WHIT.." 5) "..Atlas_GetBossName("Chrono-Lord Deios", 2479),       2479 },
 	},
 	VaultoftheIncarnates = {
-		ZoneName = { BZ["Vault of the Incarnates"] },
-		Location = { BZ["Thaldraszus"] },
+		ZoneName = { i(1200) },
+		Location = { z(13647) },
 		DungeonID = 2390,
 		DungeonHeroicID = 2389,
 		DungeonMythicID = 2388,
@@ -323,7 +322,7 @@ db.AtlasMaps = {
 	},
 	AmirdrassilA = {
 		ZoneName = { i(1207)..ALC["MapA"] },
-		Location = { BZ["Emerald Dream"] },
+		Location = { z(14529) },
 		DungeonID = 2502,
 		DungeonHeroicID = 2503,
 		DungeonMythicID = 2504,
@@ -352,7 +351,7 @@ db.AtlasMaps = {
 	},
 	AmirdrassilB = {
 		ZoneName = { i(1207)..ALC["MapB"] },
-		Location = { BZ["Emerald Dream"] },
+		Location = { z(14529) },
 		DungeonID = 2502,
 		DungeonHeroicID = 2503,
 		DungeonMythicID = 2504,
@@ -473,9 +472,7 @@ db.AtlasMaps_NPC_DB = {
 	Table index is zone name, it need to be localized value, but we will handle the localization with BabbleSubZone library.
 	The table value is map's key-name.
 ]]
-db.AssocDefaults = {
-	--	[BZ["Black Rook Hold"]] = 		"BlackRookHoldA",
-}
+db.AssocDefaults = {}
 
 --[[
 	SubZoneData{}
@@ -491,16 +488,7 @@ db.AssocDefaults = {
 		},
 	},
 ]]
-db.SubZoneData = {
-	--	[BZ["Trial of Valor"]] = {
-	--		["TrialofValorA"] = {
-	--
-	--		},
-	--		["TrialofValorB"] = {
-	--
-	--		},
-	--	},
-}
+db.SubZoneData = {}
 
 --[[
 	OutdoorZoneToAtlas{}
@@ -514,17 +502,11 @@ db.SubZoneData = {
 	Duplicates are commented out.
 	Not for localization.
 ]]
-db.OutdoorZoneToAtlas = {
-	--	[BZ["Dalaran"]] = 			"AssaultonVioletHold",
-}
+db.OutdoorZoneToAtlas = {}
 
-db.EntToInstMatches = {
-	--	["TheNightholdEnt"] = 			{"TheNightholdA", "TheNightholdB", "TheNightholdC", "TheNightholdD", "TheNightholdE", "TheNightholdF", "TheNightholdG" },
-}
+db.EntToInstMatches = {}
 
-db.InstToEntMatches = {
-	--	["TheArcway"] = 			{"TheArcwayEnt"},
-}
+db.InstToEntMatches = {}
 
 db.MapSeries = {
 	["RubyLifePoolsA"] = { "RubyLifePoolsA", "RubyLifePoolsB" },
@@ -533,9 +515,7 @@ db.MapSeries = {
 	["AmirdrassilB"] = { "AmirdrassilA", "AmirdrassilB" },
 }
 
-db.SubZoneAssoc = {
-	--	["BlackRookHoldA"] = 			BZ["Black Rook Hold"],
-}
+db.SubZoneAssoc = {}
 
 db.DropDownLayouts_Order = {
 	[ATLAS_DDL_CONTINENT] = {

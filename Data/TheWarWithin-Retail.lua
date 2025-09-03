@@ -457,9 +457,7 @@ db.AtlasMaps_NPC_DB = {
 	Table index is zone name, it need to be localized value, but we will handle the localization with BabbleSubZone library.
 	The table value is map's key-name.
 ]]
-db.AssocDefaults = {
-	--	[BZ["Black Rook Hold"]] = 		"BlackRookHoldA",
-}
+db.AssocDefaults = {}
 
 --[[
 	SubZoneData{}
@@ -475,16 +473,7 @@ db.AssocDefaults = {
 		},
 	},
 ]]
-db.SubZoneData = {
-	--	[BZ["Trial of Valor"]] = {
-	--		["TrialofValorA"] = {
-	--
-	--		},
-	--		["TrialofValorB"] = {
-	--
-	--		},
-	--	},
-}
+db.SubZoneData = {}
 
 --[[
 	OutdoorZoneToAtlas{}
@@ -498,17 +487,11 @@ db.SubZoneData = {
 	Duplicates are commented out.
 	Not for localization.
 ]]
-db.OutdoorZoneToAtlas = {
-	--	[BZ["Dalaran"]] = 			"AssaultonVioletHold",
-}
+db.OutdoorZoneToAtlas = {}
 
-db.EntToInstMatches = {
-	--	["TheNightholdEnt"] = 			{"TheNightholdA", "TheNightholdB", "TheNightholdC", "TheNightholdD", "TheNightholdE", "TheNightholdF", "TheNightholdG" },
-}
+db.EntToInstMatches = {}
 
-db.InstToEntMatches = {
-	--	["TheArcway"] = 			{"TheArcwayEnt"},
-}
+db.InstToEntMatches = {}
 
 db.MapSeries = {
 	["OperationFloodgateA"] = { "OperationFloodgateA", "OperationFloodgateB" },
@@ -517,9 +500,7 @@ db.MapSeries = {
 	["ManaforgeOmegaB"] = { "ManaforgeOmegaA", "ManaforgeOmegaB" },
 }
 
-db.SubZoneAssoc = {
-	--	["BlackRookHoldA"] = 			BZ["Black Rook Hold"],
-}
+db.SubZoneAssoc = {}
 
 db.DropDownLayouts_Order = {
 	[ATLAS_DDL_CONTINENT] = {

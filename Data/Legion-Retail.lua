@@ -39,6 +39,14 @@ local function Atlas_GetBossName(bossname, encounterID, creatureIndex)
 	return Atlas:GetBossName(bossname, encounterID, creatureIndex, private.module_name)
 end
 
+-- Use https://wago.tools/db2/areatable for ids
+local z = C_Map.GetAreaInfo
+-- Use https://wago.tools/db2/JournalInstance for ids
+local function i(id)
+	local temp = EJ_GetInstanceInfo(id)
+	return temp
+end
+
 local BLUE = "|cff6666ff"
 local GREN = "|cff66cc33"
 local GREY = "|cff999999"
@@ -54,7 +62,7 @@ local INDENT = "      "
 db.AtlasMaps = {
 	--    [1188] = { mapFile = "ArgusRaid", [1] = 910, [2] = 911, [3] = 912, [4] = 913, [5] = 914, [6] = 915, [7] = 916, [8] = 917, [9] = 918, [10] = 919, [11] = 920, [0] = 909},
 	AntorustheBurningThroneA = {
-		ZoneName = { BZ["Antorus, the Burning Throne"]..ALC["MapA"] },
+		ZoneName = { i(946)..ALC["MapA"] },
 		Location = { BZ["Antoran Wastes"] },
 		DungeonID = 1640,
 		DungeonHeroicID = 1641,
@@ -72,7 +80,7 @@ db.AtlasMaps = {
 		{ WHIT.." 3) "..Atlas_GetBossName("Antoran High Command", 1997),  1997 },
 	},
 	AntorustheBurningThroneB = {
-		ZoneName = { BZ["Antorus, the Burning Throne"]..ALC["MapB"] },
+		ZoneName = { i(946)..ALC["MapB"] },
 		Location = { BZ["Antoran Wastes"] },
 		DungeonID = 1640,
 		DungeonHeroicID = 1641,
@@ -88,7 +96,7 @@ db.AtlasMaps = {
 		{ WHIT.." 3) "..Atlas_GetBossName("Antoran High Command", 1997), 1997 },
 	},
 	AntorustheBurningThroneC = {
-		ZoneName = { BZ["Antorus, the Burning Throne"]..ALC["MapC"] },
+		ZoneName = { i(946)..ALC["MapC"] },
 		Location = { BZ["Antoran Wastes"] },
 		DungeonID = 1640,
 		DungeonHeroicID = 1641,
@@ -104,7 +112,7 @@ db.AtlasMaps = {
 		{ WHIT.." 4) "..Atlas_GetBossName("Portal Keeper Hasabel", 1985), 1985 },
 	},
 	AntorustheBurningThroneD = {
-		ZoneName = { BZ["Antorus, the Burning Throne"]..ALC["MapD"] },
+		ZoneName = { i(946)..ALC["MapD"] },
 		Location = { BZ["Antoran Wastes"] },
 		DungeonID = 1640,
 		DungeonHeroicID = 1641,
@@ -120,7 +128,7 @@ db.AtlasMaps = {
 		{ WHIT.." 5) "..Atlas_GetBossName("Eonar the Life-Binder", 2025), 2025 },
 	},
 	AntorustheBurningThroneE = {
-		ZoneName = { BZ["Antorus, the Burning Throne"]..ALC["MapE"] },
+		ZoneName = { i(946)..ALC["MapE"] },
 		Location = { BZ["Antoran Wastes"] },
 		DungeonID = 1640,
 		DungeonHeroicID = 1641,
@@ -137,7 +145,7 @@ db.AtlasMaps = {
 		{ WHIT.." 7) "..Atlas_GetBossName("Kin'garoth", 2004),            2004 },
 	},
 	AntorustheBurningThroneF = {
-		ZoneName = { BZ["Antorus, the Burning Throne"]..ALC["MapF"] },
+		ZoneName = { i(946)..ALC["MapF"] },
 		Location = { BZ["Antoran Wastes"] },
 		DungeonID = 1640,
 		DungeonHeroicID = 1641,
@@ -155,7 +163,7 @@ db.AtlasMaps = {
 		{ WHIT.."10) "..Atlas_GetBossName("Aggramar", 1984),              1984 },
 	},
 	AntorustheBurningThroneG = {
-		ZoneName = { BZ["Antorus, the Burning Throne"]..ALC["MapG"] },
+		ZoneName = { i(946)..ALC["MapG"] },
 		Location = { BZ["Antoran Wastes"] },
 		DungeonID = 1640,
 		DungeonHeroicID = 1641,
@@ -170,7 +178,7 @@ db.AtlasMaps = {
 		{ WHIT.."11) "..Atlas_GetBossName("Argus the Unmaker", 2031), 2031 },
 	},
 	AssaultonVioletHold = {
-		ZoneName = { BZ["Assault on Violet Hold"] },
+		ZoneName = { i(777) },
 		Location = { BZ["Dalaran"] },
 		DungeonID = 1208,
 		DungeonHeroicID = 1209,
@@ -195,9 +203,8 @@ db.AtlasMaps = {
 		{ "Mythic: Assault on Violet Hold",                                 "ac=10800" },
 		{ "Mythic: Assault on Violet Hold Guild Run",                       "ac=10860" },
 	},
-	--    [1081] = { mapFile = "BlackRookHoldDungeon", [1] = 751, [2] = 752, [3] = 753, [4] = 754, [5] = 755, [6] = 756},
 	BlackRookHoldA = {
-		ZoneName = { BZ["Black Rook Hold"]..ALC["MapA"] },
+		ZoneName = { i(740)..ALC["MapA"] },
 		Location = { BZ["Val'sharah"] },
 		DungeonID = 1204,
 		DungeonHeroicID = 1205,
@@ -225,7 +232,7 @@ db.AtlasMaps = {
 		{ "Mythic: Black Rook Hold Guild Run",                                        "ac=10862" },
 	},
 	BlackRookHoldB = {
-		ZoneName = { BZ["Black Rook Hold"]..ALC["MapB"] },
+		ZoneName = { i(740)..ALC["MapB"] },
 		Location = { BZ["Val'sharah"] },
 		DungeonID = 1204,
 		DungeonHeroicID = 1205,
@@ -250,7 +257,7 @@ db.AtlasMaps = {
 		{ "Mythic: Black Rook Hold Guild Run",                                "ac=10862" },
 	},
 	BlackRookHoldC = {
-		ZoneName = { BZ["Black Rook Hold"]..ALC["MapC"] },
+		ZoneName = { i(740)..ALC["MapC"] },
 		Location = { BZ["Val'sharah"] },
 		DungeonID = 1204,
 		DungeonHeroicID = 1205,
@@ -278,7 +285,7 @@ db.AtlasMaps = {
 		{ "Mythic: Black Rook Hold Guild Run",                                                "ac=10862" },
 	},
 	BlackRookHoldD = {
-		ZoneName = { BZ["Black Rook Hold"]..ALC["MapD"] },
+		ZoneName = { i(740)..ALC["MapD"] },
 		Location = { BZ["Val'sharah"] },
 		DungeonID = 1204,
 		DungeonHeroicID = 1205,
@@ -301,7 +308,7 @@ db.AtlasMaps = {
 	},
 	--    [1146] = { mapFile = "TombofSargerasDungeon", [1] = 845, [2] = 846, [3] = 847, [4] = 848, [5] = 849},
 	CathedralofEternalNightA = {
-		ZoneName = { BZ["Cathedral of Eternal Night"]..ALC["MapA"] },
+		ZoneName = { i(900)..ALC["MapA"] },
 		Location = { BZ["Broken Shore"] },
 		DungeonHeroicID = 1488,
 		DungeonMythicID = 1488,
@@ -323,7 +330,7 @@ db.AtlasMaps = {
 		{ "Mythic: Cathedral of Eternal Night",                       "ac=11702" },
 	},
 	CathedralofEternalNightB = {
-		ZoneName = { BZ["Cathedral of Eternal Night"]..ALC["MapB"] },
+		ZoneName = { i(900)..ALC["MapB"] },
 		Location = { BZ["Broken Shore"] },
 		DungeonHeroicID = 1488,
 		DungeonMythicID = 1488,
@@ -345,7 +352,7 @@ db.AtlasMaps = {
 		{ "Mythic: Cathedral of Eternal Night",             "ac=11702" },
 	},
 	CathedralofEternalNightC = {
-		ZoneName = { BZ["Cathedral of Eternal Night"]..ALC["MapC"] },
+		ZoneName = { i(900)..ALC["MapC"] },
 		Location = { BZ["Broken Shore"] },
 		DungeonHeroicID = 1488,
 		DungeonMythicID = 1488,
@@ -367,7 +374,7 @@ db.AtlasMaps = {
 		{ "Mythic: Cathedral of Eternal Night",                             "ac=11702" },
 	},
 	CathedralofEternalNightD = {
-		ZoneName = { BZ["Cathedral of Eternal Night"]..ALC["MapD"] },
+		ZoneName = { i(900)..ALC["MapD"] },
 		Location = { BZ["Broken Shore"] },
 		DungeonHeroicID = 1488,
 		DungeonMythicID = 1488,
@@ -389,9 +396,8 @@ db.AtlasMaps = {
 		{ "Heroic: Cathedral of Eternal Night",                 "ac=11701" },
 		{ "Mythic: Cathedral of Eternal Night",                 "ac=11702" },
 	},
-	--    [1087] = { mapFile = "SuramarNoblesDistrict", [1] = 762, [2] = 763, [0] = 761},
 	CourtofStarsA = {
-		ZoneName = { BZ["Court of Stars"]..ALC["MapA"] },
+		ZoneName = { i(800)..ALC["MapA"] },
 		Location = { BZ["Suramar"] },
 		--DungeonID = 1319,
 		DungeonMythicID = 1318,
@@ -416,7 +422,7 @@ db.AtlasMaps = {
 		{ "Mythic: Court of Stars Guild Run",                                 "ac=10865" },
 	},
 	CourtofStarsB = {
-		ZoneName = { BZ["Court of Stars"]..ALC["MapB"] },
+		ZoneName = { i(800)..ALC["MapB"] },
 		Location = { BZ["Suramar"] },
 		--DungeonID = 1319,
 		DungeonMythicID = 1318,
@@ -428,7 +434,7 @@ db.AtlasMaps = {
 		{ BLUE.." B-C) "..ALC["Connection"], 10002 },
 	},
 	DarkheartThicket = {
-		ZoneName = { BZ["Darkheart Thicket"] },
+		ZoneName = { i(762) },
 		Location = { BZ["Val'sharah"] },
 		DungeonID = 1201,
 		DungeonHeroicID = 1202,
@@ -454,7 +460,7 @@ db.AtlasMaps = {
 		{ "Mythic: Darkheart Thicket Guild Run",                         "ac=10857" },
 	},
 	EyeofAzshara = {
-		ZoneName = { BZ["Eye of Azshara"] },
+		ZoneName = { i(716) },
 		Location = { BZ["Azsuna"] },
 		DungeonID = 1174,
 		DungeonHeroicID = 1175,
@@ -483,9 +489,8 @@ db.AtlasMaps = {
 		{ "Mythic: Eye of Azshara",                                               "ac=10782" },
 		{ "Mythic: Eye of Azshara Guild Run",                                     "ac=10856" },
 	},
-	--    [1041] = { mapFile = "HallsofValor", [1] = 704, [2] = 705, [0] = 703},
 	HallsofValorA = {
-		ZoneName = { BZ["Halls of Valor"]..ALC["MapA"] },
+		ZoneName = { i(721)..ALC["MapA"] },
 		Location = { BZ["Stormheim"] },
 		DungeonID = 1193,
 		DungeonHeroicID = 1194,
@@ -508,7 +513,7 @@ db.AtlasMaps = {
 		{ "Mythic: Halls of Valor Guild Run",                                    "ac=10858" },
 	},
 	HallsofValorB = {
-		ZoneName = { BZ["Halls of Valor"]..ALC["MapB"] },
+		ZoneName = { i(721)..ALC["MapB"] },
 		Location = { BZ["Stormheim"] },
 		DungeonID = 1193,
 		DungeonHeroicID = 1194,
@@ -532,7 +537,7 @@ db.AtlasMaps = {
 		{ "Mythic: Halls of Valor Guild Run",                                        "ac=10858" },
 	},
 	HallsofValorC = {
-		ZoneName = { BZ["Halls of Valor"]..ALC["MapC"] },
+		ZoneName = { i(721)..ALC["MapC"] },
 		Location = { BZ["Stormheim"] },
 		DungeonID = 1193,
 		DungeonHeroicID = 1194,
@@ -557,9 +562,8 @@ db.AtlasMaps = {
 		{ "Mythic: Halls of Valor",                                     "ac=10789" },
 		{ "Mythic: Halls of Valor Guild Run",                           "ac=10858" },
 	},
-	--    [1042] = { mapFile = "HelheimDungeonDock", [1] = 707, [2] = 708, [0] = 706},
 	MawofSoulsA = {
-		ZoneName = { BZ["Maw of Souls"]..ALC["MapA"] },
+		ZoneName = { i(727)..ALC["MapA"] },
 		Location = { BZ["Stormheim"] },
 		DungeonID = 1191,
 		DungeonHeroicID = 1192,
@@ -581,7 +585,7 @@ db.AtlasMaps = {
 		{ "Mythic: Maw of Souls Guild Run",                                               "ac=10863" },
 	},
 	MawofSoulsB = {
-		ZoneName = { BZ["Maw of Souls"]..ALC["MapB"] },
+		ZoneName = { i(727)..ALC["MapB"] },
 		Location = { BZ["Stormheim"] },
 		DungeonID = 1191,
 		DungeonHeroicID = 1192,
@@ -604,7 +608,7 @@ db.AtlasMaps = {
 		{ "Mythic: Maw of Souls Guild Run",                  "ac=10863" },
 	},
 	NeltharionsLair = {
-		ZoneName = { BZ["Neltharion's Lair"] },
+		ZoneName = { i(767) },
 		Location = { BZ["Highmountain"] },
 		DungeonID = 1206,
 		DungeonHeroicID = 1207,
@@ -633,7 +637,7 @@ db.AtlasMaps = {
 		{ "Mythic: Neltharion's Lair Guild Run",                                        "ac=10859" },
 	},
 	ReturntoKarazhanEnt = {
-		ZoneName = { BZ["Return to Karazhan"]..ALC["L-Parenthesis"]..ALC["Entrance"]..ALC["R-Parenthesis"] },
+		ZoneName = { i(860)..ALC["L-Parenthesis"]..ALC["Entrance"]..ALC["R-Parenthesis"] },
 		Location = { BZ["Deadwind Pass"] },
 		DungeonHeroicID = 1475, -- 1474: Upper Return to Karazhan, 1475: Lower Return to Karazhan
 		DungeonMythicID = 1475,
@@ -645,20 +649,20 @@ db.AtlasMaps = {
 		--MinGearLevel = "825",
 		Module = "Atlas_Legion",
 		NextMap = "ReturntoKarazhanA",
-		{ BLUE.." A) "..BZ["Karazhan"]..ALC["L-Parenthesis"]..ALC["Front"]..ALC["R-Parenthesis"],           10001 },
-		{ BLUE.." B) "..BZ["Karazhan"]..ALC["L-Parenthesis"]..ALC["Back"]..ALC["R-Parenthesis"],            10002 },
-		{ BLUE.." C) "..BZ["Return to Karazhan"]..ALC["L-Parenthesis"]..ALC["Upper"]..ALC["R-Parenthesis"], 10003 },
-		{ GREN.." 1') "..Atlas:GetCreatureName(L["Mage Darius"], 18255),                                    18255 },
-		{ GREN.." 2') "..format(ALC["Stairs to %s"], BZ["The Master's Cellar"]),                            10004 },
-		{ GREN.." 3') "..format(ALC["Stairs to %s"], BZ["The Master's Cellar"]),                            10005 },
-		{ GREN.." 4') "..L["Charred Bone Fragment"],                                                        10006 },
-		{ GREN.." 5') "..ALC["Meeting Stone"],                                                              10007 },
-		{ GREN.." 6') "..ALC["Graveyard"],                                                                  10008 },
-		{ GREN.." 7') "..Atlas:GetCreatureName(L["Lydia Accoste"], 66255),                                  66255 },
+		{ BLUE.." A) "..BZ["Karazhan"]..ALC["L-Parenthesis"]..ALC["Front"]..ALC["R-Parenthesis"], 10001 },
+		{ BLUE.." B) "..BZ["Karazhan"]..ALC["L-Parenthesis"]..ALC["Back"]..ALC["R-Parenthesis"],  10002 },
+		{ BLUE.." C) "..i(860)..ALC["L-Parenthesis"]..ALC["Upper"]..ALC["R-Parenthesis"],         10003 },
+		{ GREN.." 1') "..Atlas:GetCreatureName(L["Mage Darius"], 18255),                          18255 },
+		{ GREN.." 2') "..format(ALC["Stairs to %s"], BZ["The Master's Cellar"]),                  10004 },
+		{ GREN.." 3') "..format(ALC["Stairs to %s"], BZ["The Master's Cellar"]),                  10005 },
+		{ GREN.." 4') "..L["Charred Bone Fragment"],                                              10006 },
+		{ GREN.." 5') "..ALC["Meeting Stone"],                                                    10007 },
+		{ GREN.." 6') "..ALC["Graveyard"],                                                        10008 },
+		{ GREN.." 7') "..Atlas:GetCreatureName(L["Lydia Accoste"], 66255),                        66255 },
 	},
 	--    [1115] = { mapFile = "LegionKarazhanDungeon", [1] = 809, [2] = 810, [3] = 811, [4] = 812, [5] = 813, [6] = 814, [7] = 815, [8] = 816, [9] = 817, [10] = 818, [11] = 819, [12] = 820, [13] = 821, [14] = 822},
 	ReturntoKarazhanA = {
-		ZoneName = { BZ["Return to Karazhan"]..ALC["MapA"] },
+		ZoneName = { i(860)..ALC["MapA"] },
 		Location = { BZ["Deadwind Pass"] },
 		DungeonHeroicID = 1475, -- 1474: Upper Return to Karazhan, 1475: Lower Return to Karazhan
 		DungeonMythicID = 1475,
@@ -680,7 +684,7 @@ db.AtlasMaps = {
 		{ GREN.." 2') "..Atlas:GetCreatureName(L["Soul Fragment"], 115105),     115105 },
 	},
 	ReturntoKarazhanB = {
-		ZoneName = { BZ["Return to Karazhan"]..ALC["MapB"] },
+		ZoneName = { i(860)..ALC["MapB"] },
 		Location = { BZ["Deadwind Pass"] },
 		DungeonHeroicID = 1475, -- 1474: Upper Return to Karazhan, 1475: Lower Return to Karazhan
 		DungeonMythicID = 1475,
@@ -699,7 +703,7 @@ db.AtlasMaps = {
 		{ WHIT.." 4) "..Atlas_GetBossName("Maiden of Virtue", 1825),        1825 },
 	},
 	ReturntoKarazhanC = {
-		ZoneName = { BZ["Return to Karazhan"]..ALC["MapC"] },
+		ZoneName = { i(860)..ALC["MapC"] },
 		Location = { BZ["Deadwind Pass"] },
 		DungeonHeroicID = 1475, -- 1474: Upper Return to Karazhan, 1475: Lower Return to Karazhan
 		DungeonMythicID = 1475,
@@ -718,7 +722,7 @@ db.AtlasMaps = {
 		{ GREN.." 4') "..Atlas:GetCreatureName(L["Soul Fragment"], 115103), 115103 },
 	},
 	ReturntoKarazhanD = {
-		ZoneName = { BZ["Return to Karazhan"]..ALC["MapD"] },
+		ZoneName = { i(860)..ALC["MapD"] },
 		Location = { BZ["Deadwind Pass"] },
 		DungeonHeroicID = 1475, -- 1474: Upper Return to Karazhan, 1475: Lower Return to Karazhan
 		DungeonMythicID = 1475,
@@ -740,7 +744,7 @@ db.AtlasMaps = {
 		{ GREN.." 6') "..Atlas:GetCreatureName(L["Soul Fragment"], 115101), 115101 },
 	},
 	ReturntoKarazhanE = {
-		ZoneName = { BZ["Return to Karazhan"]..ALC["MapE"] },
+		ZoneName = { i(860)..ALC["MapE"] },
 		Location = { BZ["Deadwind Pass"] },
 		DungeonHeroicID = 1475, -- 1474: Upper Return to Karazhan, 1475: Lower Return to Karazhan
 		DungeonMythicID = 1475,
@@ -760,7 +764,7 @@ db.AtlasMaps = {
 		{ BLUE.." J) "..format(ALC["Portal to %s"], BZ["Guardian's Library"]),                                              10003 },
 	},
 	ReturntoKarazhanF = {
-		ZoneName = { BZ["Return to Karazhan"]..ALC["MapF"] },
+		ZoneName = { i(860)..ALC["MapF"] },
 		Location = { BZ["Deadwind Pass"] },
 		DungeonHeroicID = 1474, -- 1474: Upper Return to Karazhan, 1475: Lower Return to Karazhan
 		DungeonMythicID = 1474,
@@ -779,7 +783,7 @@ db.AtlasMaps = {
 		{ BLUE.." K) "..ALC["Portal"],                              10002 },
 	},
 	ReturntoKarazhanG = {
-		ZoneName = { BZ["Return to Karazhan"]..ALC["MapG"] },
+		ZoneName = { i(860)..ALC["MapG"] },
 		Location = { BZ["Deadwind Pass"] },
 		DungeonHeroicID = 1474, -- 1474: Upper Return to Karazhan, 1475: Lower Return to Karazhan
 		DungeonMythicID = 1474,
@@ -798,7 +802,7 @@ db.AtlasMaps = {
 		{ WHIT.." 9) "..Atlas_GetBossName("Mana Devourer", 1818), 1818 },
 	},
 	ReturntoKarazhanH = {
-		ZoneName = { BZ["Return to Karazhan"]..ALC["MapH"] },
+		ZoneName = { i(860)..ALC["MapH"] },
 		Location = { BZ["Deadwind Pass"] },
 		DungeonHeroicID = 1474, -- 1474: Upper Return to Karazhan, 1475: Lower Return to Karazhan
 		DungeonMythicID = 1474,
@@ -819,7 +823,7 @@ db.AtlasMaps = {
 		{ INDENT..GREY..ALC["Upper floor"] },
 	},
 	ReturntoKarazhanI = {
-		ZoneName = { BZ["Return to Karazhan"]..ALC["MapI"] },
+		ZoneName = { i(860)..ALC["MapI"] },
 		Location = { BZ["Deadwind Pass"] },
 		DungeonHeroicID = 1474, -- 1474: Upper Return to Karazhan, 1475: Lower Return to Karazhan
 		DungeonMythicID = 1474,
@@ -851,7 +855,7 @@ db.AtlasMaps = {
 		{ WHIT..ALC["Lower"] },
 		{ INDENT..BLUE.." B) "..BZ["Terrace of Order"],                                                                                                    10002 },
 		{ INDENT..BLUE.." C) "..BZ["The Arcway"],                                                                                                          10003 },
-		{ INDENT..BLUE.." D) "..BZ["The Nighthold"],                                                                                                       10004 },
+		{ INDENT..BLUE.." D) "..i(786),                                                                                                                    10004 },
 		{ INDENT..PURP.." A) "..ALC["Transport"],                                                                                                          10005 },
 		{ INDENT..PURP.." B) "..L["Portal to Shal'Aran"],                                                                                                  10006 },
 		{ INDENT..WHIT.." 1) "..ALC["Meeting Stone"],                                                                                                      10007 },
@@ -886,7 +890,7 @@ db.AtlasMaps = {
 	},
 	--    [1094] = { mapFile = "NightmareRaid", [1] = 777, [2] = 778, [3] = 779, [4] = 780, [5] = 781, [6] = 782, [7] = 783, [8] = 784, [9] = 785, [10] = 786, [11] = 787, [12] = 788, [13] = 789},
 	TheEmeraldNightmareA = {
-		ZoneName = { BZ["The Emerald Nightmare"]..ALC["MapA"] },
+		ZoneName = { i(768)..ALC["MapA"] },
 		Location = { BZ["Val'sharah"] },
 		DungeonID = 1348,
 		DungeonHeroicID = 1349,
@@ -910,7 +914,7 @@ db.AtlasMaps = {
 		{ "The Emerald Nightmare Guild Run",                  "ac=10866" },
 	},
 	TheEmeraldNightmareB = {
-		ZoneName = { BZ["The Emerald Nightmare"]..ALC["MapB"] },
+		ZoneName = { i(768)..ALC["MapB"] },
 		Location = { BZ["Core of the Nightmare"] },
 		DungeonID = 1348,
 		DungeonHeroicID = 1349,
@@ -932,7 +936,7 @@ db.AtlasMaps = {
 		{ INDENT..GREY..L["Teleport to Moonglade"] },
 	},
 	TheEmeraldNightmareC = {
-		ZoneName = { BZ["The Emerald Nightmare"]..ALC["MapC"] },
+		ZoneName = { i(768)..ALC["MapC"] },
 		Location = { BZ["Un'Goro Crater"] },
 		DungeonID = 1348,
 		DungeonHeroicID = 1349,
@@ -955,7 +959,7 @@ db.AtlasMaps = {
 		{ "The Emerald Nightmare Guild Run",                                       "ac=10866" },
 	},
 	TheEmeraldNightmareD = {
-		ZoneName = { BZ["The Emerald Nightmare"]..ALC["MapD"] },
+		ZoneName = { i(768)..ALC["MapD"] },
 		Location = { BZ["Mulgore"] },
 		DungeonID = 1348,
 		DungeonHeroicID = 1349,
@@ -978,7 +982,7 @@ db.AtlasMaps = {
 		{ "The Emerald Nightmare Guild Run",                          "ac=10866" },
 	},
 	TheEmeraldNightmareE = {
-		ZoneName = { BZ["The Emerald Nightmare"]..ALC["MapE"] },
+		ZoneName = { i(768)..ALC["MapE"] },
 		Location = { BZ["Grizzly Hills"] },
 		DungeonID = 1348,
 		DungeonHeroicID = 1349,
@@ -1001,7 +1005,7 @@ db.AtlasMaps = {
 		{ "The Emerald Nightmare Guild Run",              "ac=10866" },
 	},
 	TheEmeraldNightmareF = {
-		ZoneName = { BZ["The Emerald Nightmare"]..ALC["MapF"] },
+		ZoneName = { i(768)..ALC["MapF"] },
 		Location = { BZ["The Emerald Dreamway"] },
 		DungeonID = 1348,
 		DungeonHeroicID = 1349,
@@ -1024,7 +1028,7 @@ db.AtlasMaps = {
 		{ "The Emerald Nightmare Guild Run",                             "ac=10866" },
 	},
 	TheEmeraldNightmareG = {
-		ZoneName = { BZ["The Emerald Nightmare"]..ALC["MapG"] },
+		ZoneName = { i(768)..ALC["MapG"] },
 		Location = { BZ["Moonglade"] },
 		DungeonID = 1348,
 		DungeonHeroicID = 1349,
@@ -1048,7 +1052,7 @@ db.AtlasMaps = {
 		{ "The Emerald Nightmare Guild Run",                 "ac=10866" },
 	},
 	TheEmeraldNightmareH = {
-		ZoneName = { BZ["The Emerald Nightmare"]..ALC["MapH"] },
+		ZoneName = { i(768)..ALC["MapH"] },
 		Location = { BZ["Rift of Aln"] },
 		DungeonID = 1348,
 		DungeonHeroicID = 1349,
@@ -1071,7 +1075,7 @@ db.AtlasMaps = {
 		{ "The Emerald Nightmare Guild Run",               "ac=10866" },
 	},
 	TheNightholdEnt = {
-		ZoneName = { BZ["The Nighthold"]..ALC["L-Parenthesis"]..ALC["Entrance"]..ALC["R-Parenthesis"] },
+		ZoneName = { i(786)..ALC["L-Parenthesis"]..ALC["Entrance"]..ALC["R-Parenthesis"] },
 		Location = { BZ["Sanctum of Order"] },
 		DungeonID = 1351,
 		DungeonHeroicID = 1352,
@@ -1086,7 +1090,7 @@ db.AtlasMaps = {
 		{ WHIT..ALC["Lower"] },
 		{ INDENT..BLUE.." B) "..BZ["Terrace of Order"],                                                                                                    10002 },
 		{ INDENT..BLUE.." C) "..BZ["The Arcway"],                                                                                                          10003 },
-		{ INDENT..BLUE.." D) "..BZ["The Nighthold"],                                                                                                       10004 },
+		{ INDENT..BLUE.." D) "..i(786),                                                                                                                    10004 },
 		{ INDENT..PURP.." A) "..ALC["Transport"],                                                                                                          10005 },
 		{ INDENT..PURP.." B) "..L["Portal to Shal'Aran"],                                                                                                  10006 },
 		{ INDENT..WHIT.." 1) "..ALC["Meeting Stone"],                                                                                                      10007 },
@@ -1095,7 +1099,7 @@ db.AtlasMaps = {
 	},
 	--    [1088] = { mapFile = "SuramarRaid", [1] = 764, [2] = 765, [3] = 766, [4] = 767, [5] = 768, [6] = 769, [7] = 770, [8] = 771, [9] = 772},
 	TheNightholdA = {
-		ZoneName = { BZ["The Nighthold"]..ALC["MapA"] },
+		ZoneName = { i(786)..ALC["MapA"] },
 		Location = { BZ["Suramar"] },
 		DungeonID = 1351,
 		DungeonHeroicID = 1352,
@@ -1128,7 +1132,7 @@ db.AtlasMaps = {
 		{ "The Nighthold Guild Run",                                                                                                               "ac=10868" },
 	},
 	TheNightholdB = {
-		ZoneName = { BZ["The Nighthold"]..ALC["MapB"] },
+		ZoneName = { i(786)..ALC["MapB"] },
 		Location = { BZ["Suramar"] },
 		DungeonID = 1351,
 		DungeonHeroicID = 1352,
@@ -1173,7 +1177,7 @@ db.AtlasMaps = {
 		{ "The Nighthold Guild Run",                                                                                                                                       "ac=10868" },
 	},
 	TheNightholdC = {
-		ZoneName = { BZ["The Nighthold"]..ALC["MapC"] },
+		ZoneName = { i(786)..ALC["MapC"] },
 		Location = { BZ["Suramar"] },
 		DungeonID = 1351,
 		DungeonHeroicID = 1352,
@@ -1197,7 +1201,7 @@ db.AtlasMaps = {
 		{ "The Nighthold Guild Run",                                                                 "ac=10868" },
 	},
 	TheNightholdD = {
-		ZoneName = { BZ["The Nighthold"]..ALC["MapD"] },
+		ZoneName = { i(786)..ALC["MapD"] },
 		Location = { BZ["Suramar"] },
 		DungeonID = 1351,
 		DungeonHeroicID = 1352,
@@ -1220,7 +1224,7 @@ db.AtlasMaps = {
 		{ "The Nighthold Guild Run",                            "ac=10868" },
 	},
 	TheNightholdE = {
-		ZoneName = { BZ["The Nighthold"]..ALC["MapE"] },
+		ZoneName = { i(786)..ALC["MapE"] },
 		Location = { BZ["Suramar"] },
 		DungeonID = 1351,
 		DungeonHeroicID = 1352,
@@ -1239,7 +1243,7 @@ db.AtlasMaps = {
 		{ INDENT..GREY..format(ALC["Portal to %s"], BZ["The Font of Night"])..ALC["L-Parenthesis"]..Atlas_GetBossName("Gul'dan", 1737)..ALC["R-Parenthesis"] },
 	},
 	TheNightholdF = {
-		ZoneName = { BZ["The Nighthold"]..ALC["MapF"] },
+		ZoneName = { i(786)..ALC["MapF"] },
 		Location = { BZ["Suramar"] },
 		DungeonID = 1351,
 		DungeonHeroicID = 1352,
@@ -1264,7 +1268,7 @@ db.AtlasMaps = {
 		{ "The Nighthold Guild Run",                                                                                                                         "ac=10868" },
 	},
 	TheNightholdG = {
-		ZoneName = { BZ["The Nighthold"]..ALC["MapG"] },
+		ZoneName = { i(786)..ALC["MapG"] },
 		Location = { BZ["Suramar"] },
 		DungeonID = 1351,
 		DungeonHeroicID = 1352,
@@ -1301,7 +1305,7 @@ db.AtlasMaps = {
 	},
 	--    [1147] = { mapFile = "TombRaid", [1] = 850, [2] = 851, [3] = 852, [4] = 853, [5] = 854, [6] = 855, [7] = 856},
 	TombofSargerasA = {
-		ZoneName = { BZ["Tomb of Sargeras"]..ALC["MapA"], BZ["Tomb of Sargeras"] },
+		ZoneName = { i(875)..ALC["MapA"], i(875) },
 		Location = { BZ["Broken Shore"] },
 		DungeonID = 1525,
 		DungeonHeroicID = 1526,
@@ -1327,7 +1331,7 @@ db.AtlasMaps = {
 		{ "Mythic: Kil'jaeden Guild Run",                               "ac=11784" },
 	},
 	TombofSargerasB = {
-		ZoneName = { BZ["Tomb of Sargeras"]..ALC["MapB"], BZ["Tomb of Sargeras"] },
+		ZoneName = { i(875)..ALC["MapB"], i(875) },
 		Location = { BZ["Broken Shore"] },
 		DungeonID = 1525,
 		DungeonHeroicID = 1526,
@@ -1352,7 +1356,7 @@ db.AtlasMaps = {
 		{ "Mythic: Kil'jaeden Guild Run",                               "ac=11784" },
 	},
 	TombofSargerasC = {
-		ZoneName = { BZ["Tomb of Sargeras"]..ALC["MapC"], BZ["Tomb of Sargeras"] },
+		ZoneName = { i(875)..ALC["MapC"], i(875) },
 		Location = { BZ["Broken Shore"] },
 		DungeonID = 1525,
 		DungeonHeroicID = 1526,
@@ -1376,7 +1380,7 @@ db.AtlasMaps = {
 		{ "Mythic: Kil'jaeden Guild Run",                    "ac=11784" },
 	},
 	TombofSargerasD = {
-		ZoneName = { BZ["Tomb of Sargeras"]..ALC["MapD"], BZ["Tomb of Sargeras"] },
+		ZoneName = { i(875)..ALC["MapD"], i(875) },
 		Location = { BZ["Broken Shore"] },
 		DungeonID = 1525,
 		DungeonHeroicID = 1526,
@@ -1399,7 +1403,7 @@ db.AtlasMaps = {
 		{ "Mythic: Kil'jaeden Guild Run",                              "ac=11784" },
 	},
 	TombofSargerasE = {
-		ZoneName = { BZ["Tomb of Sargeras"]..ALC["MapE"], BZ["Tomb of Sargeras"] },
+		ZoneName = { i(875)..ALC["MapE"], i(875) },
 		Location = { BZ["Broken Shore"] },
 		DungeonID = 1525,
 		DungeonHeroicID = 1526,
@@ -1421,7 +1425,7 @@ db.AtlasMaps = {
 		{ "Mythic: Kil'jaeden Guild Run",                               "ac=11784" },
 	},
 	TombofSargerasF = {
-		ZoneName = { BZ["Tomb of Sargeras"]..ALC["MapF"], BZ["Tomb of Sargeras"] },
+		ZoneName = { i(875)..ALC["MapF"], i(875) },
 		Location = { BZ["Broken Shore"] },
 		DungeonID = 1525,
 		DungeonHeroicID = 1526,
@@ -1443,7 +1447,7 @@ db.AtlasMaps = {
 		{ "Mythic: Kil'jaeden Guild Run",                         "ac=11784" },
 	},
 	TombofSargerasG = {
-		ZoneName = { BZ["Tomb of Sargeras"]..ALC["MapG"], BZ["Tomb of Sargeras"] },
+		ZoneName = { i(875)..ALC["MapG"], i(875) },
 		Location = { BZ["Broken Shore"] },
 		DungeonID = 1525,
 		DungeonHeroicID = 1526,
@@ -1466,7 +1470,7 @@ db.AtlasMaps = {
 	},
 	--    [1114] = { mapFile = "HelheimRaid", [1] = 807, [2] = 808, [0] = 806},
 	TrialofValorA = {
-		ZoneName = { BZ["Trial of Valor"]..ALC["MapA"] },
+		ZoneName = { i(861)..ALC["MapA"] },
 		Location = { BZ["Stormheim"] },
 		DungeonID = 1411,
 		WorldMapID = 807,
@@ -1488,7 +1492,7 @@ db.AtlasMaps = {
 		{ "Heroic: Trial of Valor",                         "ac=11426" },
 	},
 	TrialofValorB = {
-		ZoneName = { BZ["Trial of Valor"]..ALC["MapB"] },
+		ZoneName = { i(861)..ALC["MapB"] },
 		Location = { BZ["Stormheim"] },
 		DungeonID = 1411,
 		WorldMapID = 808,
@@ -1517,7 +1521,7 @@ db.AtlasMaps = {
 	},
 	--    [1045] = { mapFile = "VaultOfTheWardens", [1] = 710, [2] = 711, [3] = 712},
 	VaultoftheWardensA = {
-		ZoneName = { BZ["Vault of the Wardens"]..ALC["MapA"] },
+		ZoneName = { i(707)..ALC["MapA"] },
 		Location = { BZ["Azsuna"] },
 		DungeonID = 1043,
 		DungeonHeroicID = 1044,
@@ -1538,7 +1542,7 @@ db.AtlasMaps = {
 		{ "Mythic: Vault of the Wardens Guild Run",                    "ac=10861" },
 	},
 	VaultoftheWardensB = {
-		ZoneName = { BZ["Vault of the Wardens"]..ALC["MapB"] },
+		ZoneName = { i(707)..ALC["MapB"] },
 		Location = { BZ["Azsuna"] },
 		DungeonID = 1043,
 		DungeonHeroicID = 1044,
@@ -1563,7 +1567,7 @@ db.AtlasMaps = {
 		{ "Mythic: Vault of the Wardens Guild Run",                                           "ac=10861" },
 	},
 	VaultoftheWardensC = {
-		ZoneName = { BZ["Vault of the Wardens"]..ALC["MapC"] },
+		ZoneName = { i(707)..ALC["MapC"] },
 		Location = { BZ["Azsuna"] },
 		DungeonID = 1043,
 		DungeonHeroicID = 1044,
@@ -2082,17 +2086,17 @@ db.AtlasMaps_NPC_DB = {
 	The table value is map's key-name.
 ]]
 db.AssocDefaults = {
-	[BZ["Black Rook Hold"]] = "BlackRookHoldA",
-	[BZ["Court of Stars"]] = "CourtofStarsA",
-	[BZ["Halls of Valor"]] = "HallsofValorA",
-	[BZ["Maw of Souls"]] = "MawofSoulsA",
-	[BZ["The Emerald Nightmare"]] = "TheEmeraldNightmareA",
-	[BZ["The Nighthold"]] = "TheNightholdA",
-	[BZ["Vault of the Wardens"]] = "VaultoftheWardensA",
-	[BZ["Trial of Valor"]] = "TrialofValorA",
+	[i(740)] = "BlackRookHoldA",
+	[i(800)] = "CourtofStarsA",
+	[i(721)] = "HallsofValorA",
+	[i(727)] = "MawofSoulsA",
+	[i(768)] = "TheEmeraldNightmareA",
+	[i(786)] = "TheNightholdA",
+	[i(707)] = "VaultoftheWardensA",
+	[i(861)] = "TrialofValorA",
 	[BZ["Karazhan"]] = "ReturntoKarazhanEnt", -- not sure if we should use "Return to Karazhan"
-	[BZ["Cathedral of Eternal Night"]] = "CathedralofEternalNightA",
-	[BZ["Antorus, the Burning Throne"]] = "AntorustheBurningThroneA",
+	[i(900)] = "CathedralofEternalNightA",
+	[i(946)] = "AntorustheBurningThroneA",
 }
 
 --[[
@@ -2110,7 +2114,7 @@ db.AssocDefaults = {
 	},
 ]]
 db.SubZoneData = {
-	[BZ["Black Rook Hold"]] = {
+	[i(740)] = {
 		["BlackRookHoldA"] = {
 			BZ["The Ravenscrypt"],
 			BZ["The Grand Sepulcher"],
@@ -2133,7 +2137,7 @@ db.SubZoneData = {
 			BZ["The Raven's Crown"],
 		},
 	},
-	[BZ["Court of Stars"]] = {
+	[i(800)] = {
 		["CourtofStarsA"] = {
 			BZ["Moonlit Landing"],
 			BZ["Midnight Court"],
@@ -2143,7 +2147,7 @@ db.SubZoneData = {
 			BZ["The Jeweled Estate"],
 		},
 	},
-	[BZ["Halls of Valor"]] = {
+	[i(721)] = {
 		["HallsofValorA"] = {
 			BZ["The High Gate"],
 			BZ["Hearth of Revelry"],
@@ -2155,10 +2159,10 @@ db.SubZoneData = {
 		},
 		["HallsofValorC"] = {
 			BZ["Hall of Glory"],
-			BZ["Halls of Valor"],
+			i(721),
 		},
 	},
-	[BZ["Maw of Souls"]] = {
+	[i(727)] = {
 		["MawofSoulsA"] = {
 			BZ["Helmouth Cliffs"],
 		},
@@ -2166,7 +2170,7 @@ db.SubZoneData = {
 			BZ["The Naglfar"],
 		},
 	},
-	[BZ["The Emerald Nightmare"]] = {
+	[i(768)] = {
 		["TheEmeraldNightmareA"] = {
 			BZ["Clutch of Corruption"],
 		},
@@ -2191,13 +2195,8 @@ db.SubZoneData = {
 		["TheEmeraldNightmareH"] = {
 			BZ["Rift of Aln"],
 		},
-		-- BZ["The Emerald Dream"],
-		-- BZ["Bough Shadow"],
-		-- BZ["Seradane"],
-		-- BZ["Twilight Grove"],
-		-- BZ["Dream Bough"],
 	},
-	[BZ["The Nighthold"]] = {
+	[i(786)] = {
 		-- Skorpyron, Chronomatic Anomaly, Trilliax
 		["TheNightholdA"] = {
 			BZ["Arcing Depths"],
@@ -2219,8 +2218,6 @@ db.SubZoneData = {
 		["TheNightholdD"] = {
 			BZ["Captain's Quarters"],
 		},
-		--		["TheNightholdE"] = {
-		--		},
 		-- Grand Magistrix Elisande
 		["TheNightholdF"] = {
 			BZ["Elisande's Secret Quarters"],
@@ -2230,7 +2227,7 @@ db.SubZoneData = {
 			BZ["The Font of Night"],
 		},
 	},
-	[BZ["Vault of the Wardens"]] = {
+	[i(707)] = {
 		["VaultoftheWardensA"] = {
 			BZ["Chamber of Night"],
 			BZ["The Warden's Court"],
@@ -2247,7 +2244,7 @@ db.SubZoneData = {
 			BZ["Vault of the Betrayer"],
 		},
 	},
-	[BZ["Cathedral of Eternal Night"]] = {
+	[i(900)] = {
 		["CathedralofEternalNightA"] = {
 			BZ["Hall of the Moon"],
 		},
@@ -2261,12 +2258,8 @@ db.SubZoneData = {
 		["CathedralofEternalNightD"] = {
 			BZ["Sacristy of Elune"],
 		},
-		--			BZ["Chapel of Tranquil Song"],
-		--			BZ["Chapel of Moonlight"],
-		--			BZ["Chapel of Sentinels"],
-		--			BZ["Chapel of Tears"],
 	},
-	[BZ["Tomb of Sargeras"]] = {
+	[i(875)] = {
 		["TombofSargerasA"] = {
 			BZ["Conclave of Torment"],
 			BZ["Chamber of the Moon"],
@@ -2295,20 +2288,9 @@ db.SubZoneData = {
 		["TombofSargerasG"] = {
 			BZ["The Twisting Nether"],
 		},
-		--			BZ["Sunken Stair"],
-		--			BZ["Belac's Cells"],
-		--			BZ["Forgotten Approach"],
 
 	},
-	--	[BZ["Trial of Valor"]] = {
-	--		["TrialofValorA"] = {
-	--
-	--		},
-	--		["TrialofValorB"] = {
-	--
-	--		},
-	--	},
-	[BZ["Antorus, the Burning Throne"]] = {
+	[i(946)] = {
 		["AntorustheBurningThroneA"] = {
 		},
 		["AntorustheBurningThroneB"] = {
@@ -2439,64 +2421,64 @@ db.MapSeries = {
 }
 
 db.SubZoneAssoc = {
-	["BlackRookHoldA"] = BZ["Black Rook Hold"],
-	["BlackRookHoldB"] = BZ["Black Rook Hold"],
-	["BlackRookHoldC"] = BZ["Black Rook Hold"],
-	["BlackRookHoldD"] = BZ["Black Rook Hold"],
-	["CourtofStarsA"] = BZ["Court of Stars"],
-	["CourtofStarsB"] = BZ["Court of Stars"],
-	["HallsofValorA"] = BZ["Halls of Valor"],
-	["HallsofValorB"] = BZ["Halls of Valor"],
-	["HallsofValorC"] = BZ["Halls of Valor"],
-	["MawofSoulsA"] = BZ["Maw of Souls"],
-	["MawofSoulsB"] = BZ["Maw of Souls"],
-	["TheEmeraldNightmareA"] = BZ["The Emerald Nightmare"],
-	["TheEmeraldNightmareB"] = BZ["The Emerald Nightmare"],
-	["TheEmeraldNightmareC"] = BZ["The Emerald Nightmare"],
-	["TheEmeraldNightmareD"] = BZ["The Emerald Nightmare"],
-	["TheEmeraldNightmareE"] = BZ["The Emerald Nightmare"],
-	["TheEmeraldNightmareF"] = BZ["The Emerald Nightmare"],
-	["TheEmeraldNightmareG"] = BZ["The Emerald Nightmare"],
-	["TheEmeraldNightmareH"] = BZ["The Emerald Nightmare"],
-	["TheNightholdEnt"] = BZ["The Nighthold"],
-	["TheNightholdA"] = BZ["The Nighthold"],
-	["TheNightholdB"] = BZ["The Nighthold"],
-	["TheNightholdC"] = BZ["The Nighthold"],
-	["TheNightholdD"] = BZ["The Nighthold"],
-	["TheNightholdE"] = BZ["The Nighthold"],
-	["TheNightholdF"] = BZ["The Nighthold"],
-	["TrialofValorA"] = BZ["Trial of Valor"],
-	["TrialofValorB"] = BZ["Trial of Valor"],
-	["VaultoftheWardensA"] = BZ["Vault of the Wardens"],
-	["VaultoftheWardensB"] = BZ["Vault of the Wardens"],
-	["VaultoftheWardensC"] = BZ["Vault of the Wardens"],
-	["ReturntoKarazhanA"] = BZ["Return to Karazhan"],
-	["ReturntoKarazhanB"] = BZ["Return to Karazhan"],
-	["ReturntoKarazhanC"] = BZ["Return to Karazhan"],
-	["ReturntoKarazhanD"] = BZ["Return to Karazhan"],
-	["ReturntoKarazhanE"] = BZ["Return to Karazhan"],
-	["ReturntoKarazhanF"] = BZ["Return to Karazhan"],
-	["ReturntoKarazhanG"] = BZ["Return to Karazhan"],
-	["ReturntoKarazhanH"] = BZ["Return to Karazhan"],
-	["ReturntoKarazhanI"] = BZ["Return to Karazhan"],
-	["CathedralofEternalNightA"] = BZ["Cathedral of Eternal Night"],
-	["CathedralofEternalNightB"] = BZ["Cathedral of Eternal Night"],
-	["CathedralofEternalNightC"] = BZ["Cathedral of Eternal Night"],
-	["CathedralofEternalNightD"] = BZ["Cathedral of Eternal Night"],
-	["TombofSargerasA"] = BZ["Tomb of Sargeras"],
-	["TombofSargerasB"] = BZ["Tomb of Sargeras"],
-	["TombofSargerasC"] = BZ["Tomb of Sargeras"],
-	["TombofSargerasD"] = BZ["Tomb of Sargeras"],
-	["TombofSargerasE"] = BZ["Tomb of Sargeras"],
-	["TombofSargerasF"] = BZ["Tomb of Sargeras"],
-	["TombofSargerasG"] = BZ["Tomb of Sargeras"],
-	["AntorustheBurningThroneA"] = BZ["Antorus, the Burning Throne"],
-	["AntorustheBurningThroneB"] = BZ["Antorus, the Burning Throne"],
-	["AntorustheBurningThroneC"] = BZ["Antorus, the Burning Throne"],
-	["AntorustheBurningThroneD"] = BZ["Antorus, the Burning Throne"],
-	["AntorustheBurningThroneE"] = BZ["Antorus, the Burning Throne"],
-	["AntorustheBurningThroneF"] = BZ["Antorus, the Burning Throne"],
-	["AntorustheBurningThroneG"] = BZ["Antorus, the Burning Throne"],
+	["BlackRookHoldA"] = i(740),
+	["BlackRookHoldB"] = i(740),
+	["BlackRookHoldC"] = i(740),
+	["BlackRookHoldD"] = i(740),
+	["CourtofStarsA"] = i(800),
+	["CourtofStarsB"] = i(800),
+	["HallsofValorA"] = i(721),
+	["HallsofValorB"] = i(721),
+	["HallsofValorC"] = i(721),
+	["MawofSoulsA"] = i(727),
+	["MawofSoulsB"] = i(727),
+	["TheEmeraldNightmareA"] = i(768),
+	["TheEmeraldNightmareB"] = i(768),
+	["TheEmeraldNightmareC"] = i(768),
+	["TheEmeraldNightmareD"] = i(768),
+	["TheEmeraldNightmareE"] = i(768),
+	["TheEmeraldNightmareF"] = i(768),
+	["TheEmeraldNightmareG"] = i(768),
+	["TheEmeraldNightmareH"] = i(768),
+	["TheNightholdEnt"] = i(786),
+	["TheNightholdA"] = i(786),
+	["TheNightholdB"] = i(786),
+	["TheNightholdC"] = i(786),
+	["TheNightholdD"] = i(786),
+	["TheNightholdE"] = i(786),
+	["TheNightholdF"] = i(786),
+	["TrialofValorA"] = i(861),
+	["TrialofValorB"] = i(861),
+	["VaultoftheWardensA"] = i(707),
+	["VaultoftheWardensB"] = i(707),
+	["VaultoftheWardensC"] = i(707),
+	["ReturntoKarazhanA"] = i(860),
+	["ReturntoKarazhanB"] = i(860),
+	["ReturntoKarazhanC"] = i(860),
+	["ReturntoKarazhanD"] = i(860),
+	["ReturntoKarazhanE"] = i(860),
+	["ReturntoKarazhanF"] = i(860),
+	["ReturntoKarazhanG"] = i(860),
+	["ReturntoKarazhanH"] = i(860),
+	["ReturntoKarazhanI"] = i(860),
+	["CathedralofEternalNightA"] = i(900),
+	["CathedralofEternalNightB"] = i(900),
+	["CathedralofEternalNightC"] = i(900),
+	["CathedralofEternalNightD"] = i(900),
+	["TombofSargerasA"] = i(875),
+	["TombofSargerasB"] = i(875),
+	["TombofSargerasC"] = i(875),
+	["TombofSargerasD"] = i(875),
+	["TombofSargerasE"] = i(875),
+	["TombofSargerasF"] = i(875),
+	["TombofSargerasG"] = i(875),
+	["AntorustheBurningThroneA"] = i(946),
+	["AntorustheBurningThroneB"] = i(946),
+	["AntorustheBurningThroneC"] = i(946),
+	["AntorustheBurningThroneD"] = i(946),
+	["AntorustheBurningThroneE"] = i(946),
+	["AntorustheBurningThroneF"] = i(946),
+	["AntorustheBurningThroneG"] = i(946),
 }
 
 db.DropDownLayouts_Order = {

@@ -26,7 +26,6 @@ local FOLDER_NAME, private = ...
 private.addon_name = "Atlas_Shadowlands"
 private.module_name = "Shadowlands"
 
-local BZ = Atlas_GetLocaleLibBabble("LibBabble-SubZone-3.0")
 local ALC = LibStub("AceLocale-3.0"):GetLocale("Atlas")
 local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
 local SDL = Atlas:NewModule(private.module_name)
@@ -36,6 +35,14 @@ SDL.db = db
 
 local function Atlas_GetBossName(bossname, encounterID, creatureIndex)
 	return Atlas:GetBossName(bossname, encounterID, creatureIndex, private.module_name)
+end
+
+-- Use https://wago.tools/db2/areatable for ids
+local z = C_Map.GetAreaInfo
+-- Use https://wago.tools/db2/JournalInstance for ids
+local function i(id)
+	local temp = EJ_GetInstanceInfo(id)
+	return temp
 end
 
 local BLUE = "|cff6666ff"
@@ -55,8 +62,8 @@ db.AtlasMaps = {
 	-- Instances
 	-- Plaguefall
 	PlaguefallA = {
-		ZoneName = { BZ["Plaguefall"]..ALC["MapA"] },
-		Location = { BZ["Maldraxxus"] },
+		ZoneName = { i(1183)..ALC["MapA"] },
+		Location = { z(11462) },
 		DungeonID = 2069,
 		DungeonHeroicID = 2062,
 		DungeonMythicID = 2111,
@@ -73,8 +80,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Brood Assassin", 2423, 2),    2423 },
 	},
 	PlaguefallB = {
-		ZoneName = { BZ["Plaguefall"]..ALC["MapB"] },
-		Location = { BZ["Maldraxxus"] },
+		ZoneName = { i(1183)..ALC["MapB"] },
+		Location = { z(11462) },
 		DungeonID = 2069,
 		DungeonHeroicID = 2062,
 		DungeonMythicID = 2111,
@@ -87,8 +94,8 @@ db.AtlasMaps = {
 	},
 	-- Mists of Tirna Scithe
 	MistsofTirnaScithe = {
-		ZoneName = { BZ["Mists of Tirna Scithe"] },
-		Location = { BZ["Ardenweald"] },
+		ZoneName = { i(1184) },
+		Location = { z(11510) },
 		DungeonID = 2072,
 		DungeonHeroicID = 2073,
 		DungeonMythicID = 2110,
@@ -102,8 +109,8 @@ db.AtlasMaps = {
 	},
 	-- Halls of Atonement
 	HallsofAtonement = {
-		ZoneName = { BZ["Halls of Atonement"] },
-		Location = { BZ["Revendreth"] },
+		ZoneName = { i(1185) },
+		Location = { z(10413) },
 		DungeonID = 2074,
 		DungeonHeroicID = 2075,
 		DungeonMythicID = 2109,
@@ -119,8 +126,8 @@ db.AtlasMaps = {
 	},
 	-- De Other Side
 	DeOtherSideA = {
-		ZoneName = { BZ["De Other Side"]..ALC["MapA"] },
-		Location = { BZ["Ardenweald"] },
+		ZoneName = { i(1188)..ALC["MapA"] },
+		Location = { z(11510) },
 		DungeonID = 2080,
 		DungeonHeroicID = 2081,
 		DungeonMythicID = 2108,
@@ -131,8 +138,8 @@ db.AtlasMaps = {
 		{ WHIT.." 1) "..Atlas_GetBossName("Dealer Xy'exa", 2398), 2398 },
 	},
 	DeOtherSideB = {
-		ZoneName = { BZ["De Other Side"]..ALC["MapB"] },
-		Location = { BZ["Ardenweald"] },
+		ZoneName = { i(1188)..ALC["MapB"] },
+		Location = { z(11510) },
 		DungeonID = 2080,
 		DungeonHeroicID = 2081,
 		DungeonMythicID = 2108,
@@ -144,8 +151,8 @@ db.AtlasMaps = {
 		{ WHIT.." 2) "..Atlas_GetBossName("Hakkar the Soulflayer", 2408), 2408 },
 	},
 	DeOtherSideC = {
-		ZoneName = { BZ["De Other Side"]..ALC["MapC"] },
-		Location = { BZ["Ardenweald"] },
+		ZoneName = { i(1188)..ALC["MapC"] },
+		Location = { z(11510) },
 		DungeonID = 2080,
 		DungeonHeroicID = 2081,
 		DungeonMythicID = 2108,
@@ -159,8 +166,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Millhouse Manastorm", 2409, 2),   2409 },
 	},
 	DeOtherSideD = {
-		ZoneName = { BZ["De Other Side"]..ALC["MapD"] },
-		Location = { BZ["Ardenweald"] },
+		ZoneName = { i(1188)..ALC["MapD"] },
+		Location = { z(11510) },
 		DungeonID = 2080,
 		DungeonHeroicID = 2081,
 		DungeonMythicID = 2108,
@@ -172,8 +179,8 @@ db.AtlasMaps = {
 	},
 	-- Sanguine Depths
 	SanguineDepthsA = {
-		ZoneName = { BZ["Sanguine Depths"]..ALC["MapA"] },
-		Location = { BZ["Revendreth"] },
+		ZoneName = { i(1189)..ALC["MapA"] },
+		Location = { z(10413) },
 		DungeonID = 2082,
 		DungeonHeroicID = 2083,
 		DungeonMythicID = 2112,
@@ -186,8 +193,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Fleeting Manifestation", 2415, 2), 2415 },
 	},
 	SanguineDepthsB = {
-		ZoneName = { BZ["Sanguine Depths"]..ALC["MapB"] },
-		Location = { BZ["Revendreth"] },
+		ZoneName = { i(1189)..ALC["MapB"] },
+		Location = { z(10413) },
 		DungeonID = 2082,
 		DungeonHeroicID = 2083,
 		DungeonMythicID = 2112,
@@ -200,8 +207,8 @@ db.AtlasMaps = {
 	},
 	-- Spires of Ascension
 	SpiresofAscensionA = {
-		ZoneName = { BZ["Spires of Ascension"]..ALC["MapA"] },
-		Location = { BZ["Bastion"] },
+		ZoneName = { i(1186)..ALC["MapA"] },
+		Location = { z(10534) },
 		DungeonID = 2076,
 		DungeonHeroicID = 2077,
 		DungeonMythicID = 2113,
@@ -214,8 +221,8 @@ db.AtlasMaps = {
 		{ WHIT.." 2) "..Atlas_GetBossName("Ventunax", 2416),  2416 },
 	},
 	SpiresofAscensionB = {
-		ZoneName = { BZ["Spires of Ascension"]..ALC["MapB"] },
-		Location = { BZ["Bastion"] },
+		ZoneName = { i(1186)..ALC["MapB"] },
+		Location = { z(10534) },
 		DungeonID = 2076,
 		DungeonHeroicID = 2077,
 		DungeonMythicID = 2113,
@@ -228,8 +235,8 @@ db.AtlasMaps = {
 	},
 	-- Tazavesh
 	TazaveshA = {
-		ZoneName = { BZ["Tazavesh, the Veiled Market"]..ALC["MapA"] },
-		Location = { BZ["The In-Between"] },
+		ZoneName = { i(1194)..ALC["MapA"] },
+		Location = { z(13433) },
 		-- DungeonHeroicID = 1, -- TBD: Tazavesh gets split into two heroics
 		DungeonMythicID = 2225,
 		WorldMapID = 1989,
@@ -251,8 +258,8 @@ db.AtlasMaps = {
 		{ WHIT.." 8) "..Atlas_GetBossName("So'leah", 2455),              2455 },
 	},
 	TazaveshB = {
-		ZoneName = { BZ["Tazavesh, the Veiled Market"]..ALC["MapB"] },
-		Location = { BZ["The In-Between"] },
+		ZoneName = { i(1194)..ALC["MapB"] },
+		Location = { z(13433) },
 		-- DungeonHeroicID = 1, -- TBD: Tazavesh gets split into two heroics
 		DungeonMythicID = 2225,
 		WorldMapID = 1995,
@@ -262,8 +269,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Vault Purifier", 2448, 2), 2448 },
 	},
 	TazaveshC = {
-		ZoneName = { BZ["Tazavesh, the Veiled Market"]..ALC["MapC"] },
-		Location = { BZ["The In-Between"] },
+		ZoneName = { i(1194)..ALC["MapC"] },
+		Location = { z(13433) },
 		-- DungeonHeroicID = 1, -- TBD: Tazavesh gets split into two heroics
 		DungeonMythicID = 2225,
 		WorldMapID = 1996,
@@ -274,8 +281,8 @@ db.AtlasMaps = {
 	},
 	-- Theater of Pain
 	TheaterofPainA = {
-		ZoneName = { BZ["Theater of Pain"]..ALC["MapA"] },
-		Location = { BZ["Maldraxxus"] },
+		ZoneName = { i(1187)..ALC["MapA"] },
+		Location = { z(11462) },
 		DungeonID = 2078,
 		DungeonHeroicID = 2079,
 		DungeonMythicID = 2115,
@@ -291,8 +298,8 @@ db.AtlasMaps = {
 		{ WHIT.." 2) "..Atlas_GetBossName("Mordretha, the Endless Empress", 2417), 2417 },
 	},
 	TheaterofPainB = {
-		ZoneName = { BZ["Theater of Pain"]..ALC["MapB"] },
-		Location = { BZ["Maldraxxus"] },
+		ZoneName = { i(1187)..ALC["MapB"] },
+		Location = { z(11462) },
 		DungeonID = 2078,
 		DungeonHeroicID = 2079,
 		DungeonMythicID = 2115,
@@ -304,8 +311,8 @@ db.AtlasMaps = {
 		{ WHIT.." 3) "..Atlas_GetBossName("Xav the Unfallen", 2390), 2390 },
 	},
 	TheaterofPainC = {
-		ZoneName = { BZ["Theater of Pain"]..ALC["MapC"] },
-		Location = { BZ["Maldraxxus"] },
+		ZoneName = { i(1187)..ALC["MapC"] },
+		Location = { z(11462) },
 		DungeonID = 2078,
 		DungeonHeroicID = 2079,
 		DungeonMythicID = 2115,
@@ -317,8 +324,8 @@ db.AtlasMaps = {
 		{ WHIT.." 4) "..Atlas_GetBossName("Kul'tharok", 2389), 2389 },
 	},
 	TheaterofPainD = {
-		ZoneName = { BZ["Theater of Pain"]..ALC["MapD"] },
-		Location = { BZ["Maldraxxus"] },
+		ZoneName = { i(1187)..ALC["MapD"] },
+		Location = { z(11462) },
 		DungeonID = 2078,
 		DungeonHeroicID = 2079,
 		DungeonMythicID = 2115,
@@ -331,8 +338,8 @@ db.AtlasMaps = {
 	},
 	-- The Necrotic Wake
 	TheNecroticWakeA = {
-		ZoneName = { BZ["The Necrotic Wake"]..ALC["MapA"] },
-		Location = { BZ["Bastion"] },
+		ZoneName = { i(1182)..ALC["MapA"] },
+		Location = { z(10534) },
 		DungeonID = 2070,
 		DungeonHeroicID = 2071,
 		DungeonMythicID = 2114,
@@ -351,8 +358,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Reanimated Crossbowman", 2391, 5), 2391 },
 	},
 	TheNecroticWakeB = {
-		ZoneName = { BZ["The Necrotic Wake"]..ALC["MapB"] },
-		Location = { BZ["Bastion"] },
+		ZoneName = { i(1182)..ALC["MapB"] },
+		Location = { z(10534) },
 		DungeonID = 2070,
 		DungeonHeroicID = 2071,
 		DungeonMythicID = 2114,
@@ -371,8 +378,8 @@ db.AtlasMaps = {
 	-- Raids
 	-- Castle Nathria
 	CastleNathria = {
-		ZoneName = { BZ["Castle Nathria"] },
-		Location = { BZ["Revendreth"] },
+		ZoneName = { i(1190) },
+		Location = { z(10413) },
 		DungeonID = 2095,
 		DungeonHeroicID = 2094,
 		DungeonMythicID = 2093,
@@ -410,8 +417,8 @@ db.AtlasMaps = {
 	},
 	-- Sanctum of Domination
 	SanctumofDomination = {
-		ZoneName = { BZ["Sanctum of Domination"] },
-		Location = { BZ["The Maw"] },
+		ZoneName = { i(1193) },
+		Location = { z(11400) },
 		DungeonID = 2226,
 		DungeonHeroicID = 2227,
 		DungeonMythicID = 2228,
@@ -445,8 +452,8 @@ db.AtlasMaps = {
 	},
 	-- Sepulcher of the First Ones
 	SepulcheroftheFirstOnesA = {
-		ZoneName = { BZ["Sepulcher of the First Ones"]..ALC["MapA"] },
-		Location = { BZ["Zereth Mortis"] },
+		ZoneName = { i(1195)..ALC["MapA"] },
+		Location = { z(13536) },
 		DungeonID = 2288,
 		DungeonHeroicID = 2289,
 		DungeonMythicID = 2290,
@@ -462,8 +469,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Volatile Materium", 2458, 5),        2458 },
 	},
 	SepulcheroftheFirstOnesB = {
-		ZoneName = { BZ["Sepulcher of the First Ones"]..ALC["MapB"] },
-		Location = { BZ["Zereth Mortis"] },
+		ZoneName = { i(1195)..ALC["MapB"] },
+		Location = { z(13536) },
 		DungeonID = 2288,
 		DungeonHeroicID = 2289,
 		DungeonMythicID = 2290,
@@ -475,8 +482,8 @@ db.AtlasMaps = {
 		{ WHIT.." 2) "..Atlas_GetBossName("Dausegne, the Fallen Oracle", 2459), 2459 },
 	},
 	SepulcheroftheFirstOnesC = {
-		ZoneName = { BZ["Sepulcher of the First Ones"]..ALC["MapC"] },
-		Location = { BZ["Zereth Mortis"] },
+		ZoneName = { i(1195)..ALC["MapC"] },
+		Location = { z(13536) },
 		DungeonID = 2288,
 		DungeonHeroicID = 2289,
 		DungeonMythicID = 2290,
@@ -497,8 +504,8 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Defense Matrix Automa", 2461, 5),     2461 },
 	},
 	SepulcheroftheFirstOnesD = {
-		ZoneName = { BZ["Sepulcher of the First Ones"]..ALC["MapD"] },
-		Location = { BZ["Zereth Mortis"] },
+		ZoneName = { i(1195)..ALC["MapD"] },
+		Location = { z(13536) },
 		DungeonID = 2288,
 		DungeonHeroicID = 2289,
 		DungeonMythicID = 2290,
@@ -513,8 +520,8 @@ db.AtlasMaps = {
 		{ WHIT.." 7) "..Atlas_GetBossName("Halondrus the Reclaimer", 2463),        2463 },
 	},
 	SepulcheroftheFirstOnesE = {
-		ZoneName = { BZ["Sepulcher of the First Ones"]..ALC["MapE"] },
-		Location = { BZ["Zereth Mortis"] },
+		ZoneName = { i(1195)..ALC["MapE"] },
+		Location = { z(13536) },
 		DungeonID = 2288,
 		DungeonHeroicID = 2289,
 		DungeonMythicID = 2290,
@@ -526,8 +533,8 @@ db.AtlasMaps = {
 		{ WHIT.." 8) "..Atlas_GetBossName("Anduin Wrynn", 2469), 2469 },
 	},
 	SepulcheroftheFirstOnesF = {
-		ZoneName = { BZ["Sepulcher of the First Ones"]..ALC["MapF"] },
-		Location = { BZ["Zereth Mortis"] },
+		ZoneName = { i(1195)..ALC["MapF"] },
+		Location = { z(13536) },
 		DungeonID = 2288,
 		DungeonHeroicID = 2289,
 		DungeonMythicID = 2290,
@@ -650,9 +657,7 @@ db.AtlasMaps_NPC_DB = {
 	Table index is zone name, it need to be localized value, but we will handle the localization with BabbleSubZone library.
 	The table value is map's key-name.
 ]]
-db.AssocDefaults = {
-	--	[BZ["Black Rook Hold"]] = 		"BlackRookHoldA",
-}
+db.AssocDefaults = {}
 
 --[[
 	SubZoneData{}
@@ -668,16 +673,7 @@ db.AssocDefaults = {
 		},
 	},
 ]]
-db.SubZoneData = {
-	--	[BZ["Trial of Valor"]] = {
-	--		["TrialofValorA"] = {
-	--
-	--		},
-	--		["TrialofValorB"] = {
-	--
-	--		},
-	--	},
-}
+db.SubZoneData = {}
 
 --[[
 	OutdoorZoneToAtlas{}
@@ -691,17 +687,11 @@ db.SubZoneData = {
 	Duplicates are commented out.
 	Not for localization.
 ]]
-db.OutdoorZoneToAtlas = {
-	--	[BZ["Dalaran"]] = 			"AssaultonVioletHold",
-}
+db.OutdoorZoneToAtlas = {}
 
-db.EntToInstMatches = {
-	--	["TheNightholdEnt"] = 			{"TheNightholdA", "TheNightholdB", "TheNightholdC", "TheNightholdD", "TheNightholdE", "TheNightholdF", "TheNightholdG" },
-}
+db.EntToInstMatches = {}
 
-db.InstToEntMatches = {
-	--	["TheArcway"] = 			{"TheArcwayEnt"},
-}
+db.InstToEntMatches = {}
 
 db.MapSeries = {
 	["PlaguefallA"] = { "PlaguefallA", "PlaguefallB" },
@@ -728,9 +718,7 @@ db.MapSeries = {
 	["SepulcheroftheFirstOnesF"] = { "SepulcheroftheFirstOnesA", "SepulcheroftheFirstOnesB", "SepulcheroftheFirstOnesC", "SepulcheroftheFirstOnesD", "SepulcheroftheFirstOnesE", "SepulcheroftheFirstOnesF" },
 }
 
-db.SubZoneAssoc = {
-	--	["BlackRookHoldA"] = 			BZ["Black Rook Hold"],
-}
+db.SubZoneAssoc = {}
 
 db.DropDownLayouts_Order = {
 	[ATLAS_DDL_CONTINENT] = {
