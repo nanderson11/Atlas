@@ -7,6 +7,7 @@
 - Retail: Removed role mechanics from tooltips
 ### Fixed
 - Retail: Fixed empty boss portrait in BRD
+- Retail: Fixed minimum gear level tooltip not hiding
 - MoP: Fixed buttons not showing tooltip hints to open the journal
 
 ## 3.10.0 - August 18, 2025
