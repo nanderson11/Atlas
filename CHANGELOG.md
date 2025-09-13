@@ -1,8 +1,9 @@
 # Changelog
 
-## 3.11.0 -
+## 3.11.0 - September 13, 2025
 ### Changed
 - UI updates to the boss list, including a new scrollbar and only clickable entries will highlight when moused over
+- UI updates to the main dropdowns, so they match the visual style of dropdowns in each version of WoW
 ### Removed
 - Retail: Removed role mechanics from tooltips
 ### Fixed

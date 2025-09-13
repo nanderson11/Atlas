@@ -120,9 +120,8 @@ function addon:ToggleLegendPanel()
 	end
 end
 
--- Function used to initialize the map type dropdown menu
--- Cycle through Atlas_MapTypes to populate the dropdown
-function AtlasFrameDropDownType_Initialize()
+-- Called whenever the map type dropdown menu is shown
+function AtlasFrameDropDownType_OnShow()
 	wipe(ATLAS_DROPDOWN_TYPES)
 	local i = 1
 	local catName = addon.dropdowns.DropDownLayouts_Order[addon.db.profile.options.dropdowns.menuType]
@@ -135,74 +134,57 @@ function AtlasFrameDropDownType_Initialize()
 
 			if (q > 0) then
 				for p = 0, q do
-					ATLAS_DROPDOWN_TYPES[i + p] = {
-						text = subcatOrder[n]..format(" %d/%d", p + 1, q + 1),
-						func = AtlasFrameDropDownType_OnClick,
-					}
+					ATLAS_DROPDOWN_TYPES[i + p] = subcatOrder[n]..format(" %d/%d", p + 1, q + 1)
 				end
 			else
-				ATLAS_DROPDOWN_TYPES[i] = {
-					text = subcatOrder[n],
-					func = AtlasFrameDropDownType_OnClick,
-				}
+				ATLAS_DROPDOWN_TYPES[i] = subcatOrder[n]
 			end
 			i = i + q + 1
 		end
 	end
 	for j = 1, #Atlas_MapTypes, 1 do
-		ATLAS_DROPDOWN_TYPES[i] = {
-			text = Atlas_MapTypes[j],
-			value = Atlas_MapTypes[j],
-			func = AtlasFrameDropDownType_OnClick,
-		}
+		ATLAS_DROPDOWN_TYPES[i] = Atlas_MapTypes[j]
 		i = i + 1
 	end
 
-	for k = 1, #ATLAS_DROPDOWN_TYPES do
-		LibDD:UIDropDownMenu_AddButton(ATLAS_DROPDOWN_TYPES[k])
+	local function IsSelected(index) return index == addon.db.profile.options.dropdowns.module; end
+	local function SetSelection(index)
+		AtlasFrameDropDownType_OnClick(index);
 	end
-end
 
--- Called whenever the map type dropdown menu is shown
-function AtlasFrameDropDownType_OnShow()
-	local id = addon.db.profile.options.dropdowns.module or 1
-	LibDD:UIDropDownMenu_Initialize(AtlasFrameDropDownType, AtlasFrameDropDownType_Initialize)
-	LibDD:UIDropDownMenu_SetSelectedID(AtlasFrameDropDownType, id)
-	LibDD:UIDropDownMenu_SetWidth(AtlasFrameDropDownType, ATLAS_DROPDOWN_WIDTH)
-
-	LibDD:UIDropDownMenu_Initialize(AtlasFrameSmallDropDownType, AtlasFrameDropDownType_Initialize)
-	LibDD:UIDropDownMenu_SetSelectedID(AtlasFrameSmallDropDownType, id)
-	LibDD:UIDropDownMenu_SetWidth(AtlasFrameSmallDropDownType, ATLAS_DROPDOWN_WIDTH)
+	local function GeneratorFunction(dropdown, rootDescription)
+		for key, option in ipairs(ATLAS_DROPDOWN_TYPES) do
+			rootDescription:CreateRadio(option, IsSelected, SetSelection, key);
+		end
+	end
+	AtlasFrameDropDownType:SetupMenu(GeneratorFunction);
+	AtlasFrameSmallDropDownType:SetupMenu(GeneratorFunction);
 end
 
 -- Called whenever an item in the map type dropdown menu is clicked
 -- Sets the main dropdown menu contents to reflect the category of map selected
-function AtlasFrameDropDownType_OnClick(self)
-	local typeID = self:GetID()
+function AtlasFrameDropDownType_OnClick(typeID)
 	local profile = addon.db.profile
 
-	LibDD:UIDropDownMenu_SetSelectedID(AtlasFrameDropDownType, typeID)
-	LibDD:UIDropDownMenu_SetSelectedID(AtlasFrameSmallDropDownType, typeID)
-
 	profile.options.dropdowns.module = typeID
-	local dropdowns_catKey = self:GetText()
+	local dropdowns_catKey = AtlasFrameDropDownType:GetText()
 	local index = profile.dropdowns[dropdowns_catKey]
 	if (index and ATLAS_DROPDOWNS[typeID] and ATLAS_DROPDOWNS[typeID][index]) then
 		profile.options.dropdowns.zone = profile.dropdowns[dropdowns_catKey]
 	else
 		profile.options.dropdowns.zone = 1
 	end
+
 	AtlasFrameDropDown_OnShow()
 	Atlas_Refresh()
 end
 
--- Function used to initialize the main dropdown menu
--- Looks at the status of AtlasType to determine how to populate the list
-function AtlasFrameDropDown_Initialize()
+-- Called whenever the main dropdown menu is shown
+function AtlasFrameDropDown_OnShow()
 	if (ATLAS_DROPDOWNS[addon.db.profile.options.dropdowns.module]) then
+		local temp = {}
 		for k, v in pairs(ATLAS_DROPDOWNS[addon.db.profile.options.dropdowns.module]) do
-			local colortag
-			local info = LibDD:UIDropDownMenu_CreateInfo()
+			local colortag = ""
 
 			if (addon.db.profile.options.dropdowns.color and AtlasMaps[v].DungeonID) then
 				local minLevel, minRecLevel
@@ -245,18 +227,15 @@ function AtlasFrameDropDown_Initialize()
 				--colortag = ""
 			end
 
-			local zoneID           = AtlasMaps[v]
 			local zoneName         = AtlasMaps[v].ZoneName[1]
-
-			local parentZoneName   = AtlasMaps[v].ZoneName[2] or nil
 			local instanceID       = AtlasMaps[v].JournalInstanceID or nil
 			local DungeonID        = AtlasMaps[v].DungeonID or nil
 			local DungeonHeroicID  = AtlasMaps[v].DungeonHeroicID or nil
 			local DungeonMythicID  = AtlasMaps[v].DungeonMythicID or nil
 
-			local typeID, subtypeID, minLevel, maxLevel, minRecLevel, maxRecLevel, maxPlayers, minGearLevel
-			local typeIDH, subtypeIDH, minLevelH, maxLevelH, minRecLevelH, maxRecLevelH, maxPlayersH, minGearLevelH
-			local typeIDM, subtypeIDM, minLevelM, maxLevelM, minRecLevelM, maxRecLevelM, maxPlayersM, minGearLevelM
+			local typeID, subtypeID, minLevel, maxLevel
+			local typeIDH, subtypeIDH, minLevelH, maxLevelH
+			local typeIDM, subtypeIDM, minLevelM, maxLevelM
 			local colortagL, dungeon_difficulty
 			local icontext_heroic  = " |TInterface\\EncounterJournal\\UI-EJ-HeroicTextIcon:0:0|t"
 			local icontext_mythic  = " |TInterface\\AddOns\\Atlas\\Images\\UI-EJ-MythicTextIcon:0:0|t"
@@ -266,38 +245,17 @@ function AtlasFrameDropDown_Initialize()
 
 			if (DungeonID) then
 				if (GetLFGDungeonInfo) then
-					_, typeID, subtypeID, minLevel, maxLevel, _, minRecLevel, maxRecLevel, _, _, _, _, maxPlayers, _, _, _, _, _, _, minGearLevel = GetLFGDungeonInfo(DungeonID)
-				end
-
-				if (minRecLevel == 0) then
-					minRecLevel = minLevel
-				end
-				if (maxRecLevel == 0) then
-					maxRecLevel = maxLevel
+					_, typeID, subtypeID, minLevel, maxLevel = GetLFGDungeonInfo(DungeonID)
 				end
 			end
 			if (DungeonHeroicID) then
 				if (GetLFGDungeonInfo) then
-					_, typeIDH, subtypeIDH, minLevelH, maxLevelH, _, minRecLevelH, maxRecLevelH, _, _, _, _, maxPlayersH, _, _, _, _, _, _, minGearLevelH = GetLFGDungeonInfo(DungeonHeroicID)
-				end
-
-				if (minRecLevelH == 0) then
-					minRecLevelH = minRecLevel
-				end
-				if (maxRecLevelH == 0) then
-					maxRecLevelH = maxRecLevel
+					_, typeIDH, subtypeIDH, minLevelH, maxLevelH = GetLFGDungeonInfo(DungeonHeroicID)
 				end
 			end
 			if (DungeonMythicID) then
 				if (GetLFGDungeonInfo) then
-					_, typeIDM, subtypeIDM, minLevelM, maxLevelM, _, minRecLevelM, maxRecLevelM, _, _, _, _, maxPlayersM, _, _, _, _, _, _, minGearLevelM = GetLFGDungeonInfo(DungeonMythicID)
-				end
-
-				if (minRecLevelM == 0) then
-					minRecLevelM = minRecLevel
-				end
-				if (maxRecLevelM == 0) then
-					maxRecLevelM = maxRecLevel
+					_, typeIDM, subtypeIDM, minLevelM, maxLevelM = GetLFGDungeonInfo(DungeonMythicID)
 				end
 			end
 			if ((typeID and typeID == 2) or (typeIDH and typeIDH == 2) or (typeIDM and typeIDM == 2)) then
@@ -362,49 +320,47 @@ function AtlasFrameDropDown_Initialize()
 				tooltipTitle = tooltipTitle..levelString
 			end
 
-			info = {
+			temp[k] = {
 				text = zoneName,
 				colorCode = colortag,
-				func = AtlasFrameDropDown_OnClick,
 				tooltipTitle = tooltipTitle,
 				tooltipText = tooltipText,
-				tooltipOnButton = true,
 			}
-			LibDD:UIDropDownMenu_AddButton(info)
 		end
+
+		local function IsSelected(index) return index == addon.db.profile.options.dropdowns.zone; end
+		local function SetSelection(index)
+			AtlasFrameDropDown_OnClick(index);
+		end
+
+		local function GeneratorFunction(dropdown, rootDescription)
+			for key, option in ipairs(temp) do
+				local radio = rootDescription:CreateRadio(option.colorCode..option.text, IsSelected, SetSelection, key);
+				radio:SetTooltip(function(tooltip, elementDescription)
+					GameTooltip_SetTitle(tooltip, option.tooltipTitle);
+					GameTooltip_AddNormalLine(tooltip, option.tooltipText);
+				end);
+			end
+		end
+		AtlasFrameDropDown:SetupMenu(GeneratorFunction);
+		AtlasFrameSmallDropDown:SetupMenu(GeneratorFunction);
 	end
-end
-
--- Called whenever the main dropdown menu is shown
-function AtlasFrameDropDown_OnShow()
-	local id = addon.db.profile.options.dropdowns.zone or 1
-	LibDD:UIDropDownMenu_Initialize(AtlasFrameDropDown, AtlasFrameDropDown_Initialize)
-	LibDD:UIDropDownMenu_SetSelectedID(AtlasFrameDropDown, id)
-	LibDD:UIDropDownMenu_SetWidth(AtlasFrameDropDown, ATLAS_DROPDOWN_WIDTH)
-
-	LibDD:UIDropDownMenu_Initialize(AtlasFrameSmallDropDown, AtlasFrameDropDown_Initialize)
-	LibDD:UIDropDownMenu_SetSelectedID(AtlasFrameSmallDropDown, id)
-	LibDD:UIDropDownMenu_SetWidth(AtlasFrameSmallDropDown, ATLAS_DROPDOWN_WIDTH)
 end
 
 -- Called whenever an item in the main dropdown menu is clicked
 -- Sets the newly selected map as current and refreshes the frame
-function AtlasFrameDropDown_OnClick(self)
-	local mapID = self:GetID()
+function AtlasFrameDropDown_OnClick(mapID)
 	local profile = addon.db.profile
 	local typeID = profile.options.dropdowns.module
-	LibDD:UIDropDownMenu_SetSelectedID(AtlasFrameDropDown, mapID)
-	LibDD:UIDropDownMenu_SetSelectedID(AtlasFrameSmallDropDown, mapID)
 
 	profile.options.dropdowns.zone = mapID
-	profile.dropdowns[ATLAS_DROPDOWN_TYPES[typeID].text] = mapID
+	profile.dropdowns[ATLAS_DROPDOWN_TYPES[typeID]] = mapID
 	Atlas_Refresh()
 end
 
 -- When the switch button is clicked, we can basically assume that there's a match
 -- Find it, set it, then update menus and the maps
 function AtlasSwitchButton_OnClick()
-	local zoneID = ATLAS_DROPDOWNS[addon.db.profile.options.dropdowns.module][addon.db.profile.options.dropdowns.zone]
 	if (#ATLAS_INST_ENT_DROPDOWN == 1) then
 		-- One link, so we can just go there right away
 		AtlasSwitchDD_Set(1)

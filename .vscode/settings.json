@@ -161,7 +161,13 @@
 		"ScrollUtil",
 		"CreateDataProvider",
 		"CreateScrollBoxListLinearView",
-		"AtlasFrameBottomInset"
+		"AtlasFrameBottomInset",
+		"GameTooltip_SetTitle",
+		"GameTooltip_AddNormalLine",
+		"AtlasFrameDropDown",
+		"AtlasFrameSmallDropDown",
+		"AtlasFrameDropDownType",
+		"AtlasFrameSmallDropDownType"
 	],
 	"Lua.runtime.version": "Lua 5.1",
 	"Lua.runtime.builtin": {
