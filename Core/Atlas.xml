@@ -69,104 +69,6 @@
 					</OnClick>
 				</Scripts>
 			</Button>
-			<EditBox name="AtlasSearchEditBox" inherits="InputBoxTemplate" letters="80">
-				<Size>
-					<AbsDimension x="150" y="32"/>
-				</Size>
-				<Anchors>
-					<Anchor point="BOTTOMRIGHT">
-						<Offset>
-							<AbsDimension x="-210" y="4"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-				<Scripts>
-					<OnLoad>
-						self:SetAutoFocus(false);
-						self:SetTextInsets(0, 8, 0, 0);
-					</OnLoad>
-					<OnEnterPressed>
-						Atlas:SearchAndRefresh(self:GetText());
-						self:ClearFocus();
-					</OnEnterPressed>
-				</Scripts>
-			</EditBox>
-  			<Button name="AtlasSwitchButton" inherits="UIPanelButtonTemplate" parent="AtlasSearchEditBox">
-				<Size>
-					<AbsDimension x="120" y="24"/>
-				</Size>
-				<Anchors>
-					<Anchor point="RIGHT" relativePoint="LEFT">
-						<Offset>
-							<AbsDimension x="-6" y="0"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-				<Scripts>
-					<OnClick>
-						AtlasSwitchButton_OnClick();
-					</OnClick>
-				</Scripts>
-			</Button>
-			<Button name="AtlasSearchButton" inherits="UIPanelButtonTemplate" parent="AtlasSearchEditBox" text="ATLAS_STRING_SEARCH">
-				<Size>
-					<AbsDimension x="100" y="24"/>
-				</Size>
-				<Anchors>
-					<Anchor point="LEFT" relativePoint="RIGHT">
-						<Offset>
-							<AbsDimension x="1" y="0"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-				<Scripts>
-					<OnClick>
-						Atlas:SearchAndRefresh(AtlasSearchEditBox:GetText());
-						AtlasSearchEditBox:ClearFocus();
-					</OnClick>
-				</Scripts>
-			</Button>
-			<Button name="AtlasSearchClearButton" inherits="UIPanelButtonTemplate" parent="AtlasSearchEditBox" text="ATLAS_STRING_CLEAR">
-				<Size>
-					<AbsDimension x="100" y="24"/>
-				</Size>
-				<Anchors>
-					<Anchor point="LEFT" relativeTo="AtlasSearchButton" relativePoint="RIGHT">
-						<Offset>
-							<AbsDimension x="0" y="0"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-				<Scripts>
-					<OnClick>
-						AtlasSearchEditBox:SetText("");
-						Atlas:SearchAndRefresh(AtlasSearchEditBox:GetText());
-						AtlasSearchEditBox:ClearFocus();
-					</OnClick>
-				</Scripts>
-			</Button>
-			<Frame name="AtlasSearchContainer">
-				<Size>
-					<AbsDimension x="362" y="32" />
-				</Size>
-				<Anchors>
-					<Anchor point="TOPLEFT">
-						<Offset>
-							<AbsDimension x="540" y="-555"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-				<Layers>
-					<Layer level="ARTWORK">
-						<FontString name="AtlasNoSearch" inherits="GameFontDisableSmall" text="ATLAS_SEARCH_UNAVAIL">
-							<Anchors>
-								<Anchor point="CENTER" />
-							</Anchors>
-							<Color r="1" g="1" b="1" a="0.4"/>
-						</FontString>
-					</Layer>
-				</Layers>
-			</Frame>
 			<Button name="$parentMapZoneName" parentKey="ZoneName" inherits="AtlasFrameMapZoneNameTemplate"/>
 			<Button name="$parentNextMapButton" parentKey="NextMap" inherits="AtlasFrameNextMapButtonTemplate"/>
 			<Button name="$parentPrevMapButton" parentKey="PrevMap" inherits="AtlasFramePrevMapButtonTemplate"/>
@@ -311,6 +213,40 @@
 					</Anchor>
 				</Anchors>
 			</Frame>
+			<Button name="AtlasSwitchButton" inherits="UIPanelButtonTemplate" parent="AtlasFrameBottomInset">
+				<Size>
+					<AbsDimension x="120" y="24"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="2" y="-5"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						AtlasSwitchButton_OnClick();
+					</OnClick>
+				</Scripts>
+			</Button>
+			<EditBox name="AtlasSearchEditBox" inherits="SearchBoxTemplate" letters="40" parent="AtlasFrameBottomInset">
+				<Size>
+					<AbsDimension x="200" y="32"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativePoint="BOTTOMRIGHT">
+						<Offset>
+							<AbsDimension x="-2" y="-1"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnTextChanged inherit="append">
+						Atlas:SearchAndRefresh(self:GetText());
+					</OnTextChanged>
+				</Scripts>
+			</EditBox>
 		</Frames>
 		<Scripts>
 			<OnLoad>

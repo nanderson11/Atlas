@@ -400,8 +400,7 @@ local function simpleSearch(data, text)
 		if (type(i) == "number") then
 			fmatch = gmatch(strlower(data[i][1]), search_text)()
 			if (fmatch) then
-				new[n] = {}
-				new[n][1] = data[i][1]
+				new[n] = data[i]
 				n = n + 1
 			end
 		end
@@ -1268,20 +1267,7 @@ function Atlas_Refresh(mapID)
 	Atlas_MapRefresh()
 
 	ATLAS_DATA = base
-	ATLAS_SEARCH_METHOD = data.Search
-
-	if (data.Search == nil) then
-		ATLAS_SEARCH_METHOD = simpleSearch
-	end
-
-	if (data.Search ~= false) then
-		AtlasSearchEditBox:Show()
-		AtlasNoSearch:Hide()
-	else
-		AtlasSearchEditBox:Hide()
-		AtlasNoSearch:Show()
-		ATLAS_SEARCH_METHOD = nil
-	end
+	ATLAS_SEARCH_METHOD = data.Search and data.Search or simpleSearch
 
 	-- Populate the scroll frame entries list, the update func will do the rest
 	searchText("")

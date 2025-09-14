@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.12.0 -
+### Added
+- Search works as you type
+- Retail/MoP: Search returns clickable items instead of just text
+
 ## 3.11.0 - September 13, 2025
 ### Changed
 - UI updates to the boss list, including a new scrollbar and only clickable entries will highlight when moused over
