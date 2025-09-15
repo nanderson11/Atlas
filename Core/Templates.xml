@@ -210,10 +210,25 @@
 		<DisabledTexture file="Interface\Buttons\UI-SpellbookIcon-PrevPage-Disabled"/>
 	</Button>
 	<Button name="AtlasFrameAdventureJournalMapButtonTemplate" virtual="true" hidden="true">
-		<Size x="32" y="32"/>
+		<Size x="22" y="22"/>
 		<Anchors>
-			<Anchor point="TOPLEFT" relativeTo="$parentNextMapButton" relativePoint="TOPLEFT" x="-24" y="0"/>
+			<Anchor point="RIGHT" relativeTo="$parentNextMapButton" relativePoint="LEFT" x="-2" y="0"/>
 		</Anchors>
+        <Layers>
+            <Layer level="BORDER">
+                <Texture parentKey="Icon" file="Interface\Worldmap\UI-World-Icon">
+                    <Size x="22" y="22"/>
+                    <Anchors>
+                        <Anchor point="CENTER"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+			<Layer level="ARTWORK" textureSubLevel="-1">
+                <Texture inherits="ActionBarFlyoutButton-IconFrame"/>
+            </Layer>
+        </Layers>
+        <PushedTexture file="Interface\Buttons\UI-Quickslot-Depress"/>
+        <HighlightTexture file="Interface\Buttons\ButtonHilight-Square" alphaMode="ADD"/>
 		<Scripts>
 			<OnClick>
 				Atlas:AdventureJournal_MapButton_OnClick(self);
@@ -226,15 +241,27 @@
 				GameTooltip:Hide();
 			</OnLeave>
 		</Scripts>
-		<NormalTexture file="Interface\AddOns\Atlas\Images\UI-WorldMap-Icon"/>
-		<PushedTexture file="Interface\AddOns\Atlas\Images\UI-WorldMap-Icon"/>
-		<HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD" />
 	</Button>
-	<Button name="AtlasFrameAdventureJournalButtonTemplate" virtual="true" hidden="true" toplevel="true">
-		<Size x="32" y="32"/>
+	<Button name="AtlasFrameAdventureJournalButtonTemplate" virtual="true" hidden="true">
+		<Size x="22" y="22"/>
 		<Anchors>
-			<Anchor point="TOPLEFT" relativeTo="$parentAdventureJournalMapButton" relativePoint="TOPLEFT" x="-24" y="0"/>
+			<Anchor point="RIGHT" relativeTo="$parentAdventureJournalMapButton" relativePoint="LEFT" x="-4" y="0"/>
 		</Anchors>
+		<Layers>
+            <Layer level="BORDER">
+                <Texture parentKey="Icon" file="Interface\EncounterJournal\UI-EJ-PortraitIcon">
+                    <Size x="22" y="22"/>
+                    <Anchors>
+                        <Anchor point="CENTER"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="ARTWORK" textureSubLevel="-1">
+                <Texture inherits="ActionBarFlyoutButton-IconFrame"/>
+            </Layer>
+        </Layers>
+		<PushedTexture file="Interface\Buttons\UI-Quickslot-Depress"/>
+        <HighlightTexture file="Interface\Buttons\ButtonHilight-Square" alphaMode="ADD"/>
 		<Scripts>
 			<OnEnter>
 				Atlas:AdventureJournalButton_OnEnter(self);
@@ -246,15 +273,27 @@
 				GameTooltip:Hide();
 			</OnLeave>
 		</Scripts>
-		<NormalTexture file="Interface\AddOns\Atlas\Images\UI-EJ-PortraitIcon"/>
-		<PushedTexture file="Interface\AddOns\Atlas\Images\UI-EJ-PortraitIcon"/>
-		<HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD" />
 	</Button>
-	<Button name="AtlasFrameAtlasLootButtonTemplate" virtual="true" hidden="true" toplevel="true">
+	<Button name="AtlasFrameAtlasLootButtonTemplate" virtual="true" hidden="true" >
 		<Size x="22" y="22"/>
 		<Anchors>
-			<Anchor point="TOPLEFT" relativeTo="$parentAdventureJournalButton" relativePoint="TOPLEFT" x="-19" y="-5"/>
+			<Anchor point="RIGHT" relativeTo="$parentAdventureJournalButton" relativePoint="LEFT" x="-4" y="0"/>
 		</Anchors>
+		<Layers>
+            <Layer level="BORDER">
+                <Texture parentKey="Icon" file="Interface\Icons\INV_Box_01">
+                    <Size x="22" y="22"/>
+                    <Anchors>
+                        <Anchor point="CENTER"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="ARTWORK" textureSubLevel="-1">
+                <Texture inherits="ActionBarFlyoutButton-IconFrame"/>
+            </Layer>
+        </Layers>
+		<PushedTexture file="Interface\Buttons\UI-Quickslot-Depress"/>
+        <HighlightTexture file="Interface\Buttons\ButtonHilight-Square" alphaMode="ADD"/>
 		<Scripts>
 			<OnLoad>
 				self:RegisterForClicks("LeftButtonDown", "RightButtonDown");
@@ -270,13 +309,6 @@
 				GameTooltip:Hide();
 			</OnLeave>
 		</Scripts>
-		<NormalTexture file="Interface\Icons\INV_Box_01"/>
-		<HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD">
-			<Size x="32" y="32"/>
-			<Anchors>
-				<Anchor point="CENTER"/>
-			</Anchors>
-		</HighlightTexture>
 	</Button>
 	<Button name="AtlasFrameCollapseButtonTemplate" virtual="true">
 		<Size x="32" y="32"/>
