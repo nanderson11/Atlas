@@ -234,7 +234,7 @@
 			</DropdownButton>
 			<Frame name="AtlasFramePrevNextContainer" parent="AtlasFrameMapFrame">
 				<Size>
-					<AbsDimension x="70" y="32"/>
+					<AbsDimension x="68" y="32"/>
 				</Size>
 				<Anchors>
 					<Anchor point="TOP" relativePoint="BOTTOM">
@@ -377,7 +377,7 @@
 			</DropdownButton>
 			<Frame name="$parentPrevNextContainer">
 				<Size>
-					<AbsDimension x="70" y="32"/>
+					<AbsDimension x="68" y="32"/>
 				</Size>
 				<Anchors>
 					<Anchor point="TOP"  relativeTo="AtlasFrameSmallMapFrame" relativePoint="BOTTOM">

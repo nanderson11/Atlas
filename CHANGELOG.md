@@ -4,6 +4,8 @@
 ### Added
 - Search works as you type
 - Retail/MoP: Search returns clickable items instead of just text
+### Changed
+- UI updates to the bottom bar
 
 ## 3.11.0 - September 13, 2025
 ### Changed
