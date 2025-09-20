@@ -34,6 +34,7 @@ function Templates.CreateFrameDropDownType(name, parent)
 
 	f:SetPoint("TOPLEFT", parent, 65, -44)
 	f:SetWidth(ATLAS_DROPDOWN_WIDTH)
+	f:SetPropagateMouseMotion(true)
 
 	f.Label = f:CreateFontString(name.."Label", "BACKGROUND", "GameFontNormalSmall")
 	f.Label:SetText(ATLAS_STRING_SELECT_CAT)
@@ -50,6 +51,7 @@ function Templates.CreateFrameDropDown(name, parent)
 
 	f:SetPoint("LEFT", ref or nil, "RIGHT", 20, 0)
 	f:SetWidth(ATLAS_DROPDOWN_WIDTH)
+	f:SetPropagateMouseMotion(true)
 
 	f.Label = f:CreateFontString(name.."Label", "BACKGROUND", "GameFontNormalSmall")
 	f.Label:SetText(ATLAS_STRING_SELECT_MAP)

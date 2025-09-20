@@ -70,11 +70,6 @@
 				</Scripts>
 			</Button>
 			<Button name="$parentMapZoneName" parentKey="ZoneName" inherits="AtlasFrameMapZoneNameTemplate"/>
-			<Button name="$parentNextMapButton" parentKey="NextMap" inherits="AtlasFrameNextMapButtonTemplate"/>
-			<Button name="$parentPrevMapButton" parentKey="PrevMap" inherits="AtlasFramePrevMapButtonTemplate"/>
-			<Button name="$parentAdventureJournalMapButton" parentKey="AdventureJournalMap" inherits="AtlasFrameAdventureJournalMapButtonTemplate"/>
-			<Button name="$parentAdventureJournalButton" parentKey="AdventureJournal" inherits="AtlasFrameAdventureJournalButtonTemplate"/>
-			<Button name="$parentAtlasLootButton" parentKey="AtlasLoot" inherits="AtlasFrameAtlasLootButtonTemplate"/>
 			<Button name="$parentCollapseButton" inherits="AtlasFrameCollapseButtonTemplate"/>
 			<Frame name="$parentMapFrame" parentKey="MapFrame" inherits="InsetFrameTemplate">
 				<Size x="519" y="519"/>
@@ -213,23 +208,49 @@
 					</Anchor>
 				</Anchors>
 			</Frame>
-			<Button name="AtlasSwitchButton" inherits="UIPanelButtonTemplate" parent="AtlasFrameBottomInset">
+			<Button name="$parentSwitchButton" inherits="UIPanelButtonTemplate" hidden="true">
 				<Size>
-					<AbsDimension x="120" y="24"/>
+					<AbsDimension x="100" y="24"/>
 				</Size>
 				<Anchors>
-					<Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT">
+					<Anchor point="TOPLEFT" relativeTo="AtlasFrameMapFrame" relativePoint="BOTTOMLEFT">
 						<Offset>
 							<AbsDimension x="2" y="-5"/>
 						</Offset>
 					</Anchor>
 				</Anchors>
-				<Scripts>
-					<OnClick>
-						AtlasSwitchButton_OnClick();
-					</OnClick>
-				</Scripts>
 			</Button>
+			<DropdownButton name="$parentSwitchDropdown" inherits="WowStyle1DropdownTemplate" hidden="true">
+				<Size>
+					<AbsDimension x="100" y="24"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="AtlasFrameMapFrame" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="2" y="-5"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</DropdownButton>
+			<Frame name="AtlasFramePrevNextContainer" parent="AtlasFrameMapFrame">
+				<Size>
+					<AbsDimension x="70" y="32"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOP" relativePoint="BOTTOM">
+						<Offset>
+							<AbsDimension y="-2"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Frames>
+					<Button parentKey="PrevMap" inherits="AtlasFramePrevMapButtonTemplate" />
+					<Button parentKey="NextMap" inherits="AtlasFrameNextMapButtonTemplate" />
+				</Frames>
+			</Frame>
+			<Button name="$parentAdventureJournalMapButton" parentKey="AdventureJournalMap" inherits="AtlasFrameAdventureJournalMapButtonTemplate"/>
+			<Button name="$parentAdventureJournalButton" parentKey="AdventureJournal" inherits="AtlasFrameAdventureJournalButtonTemplate"/>
+			<Button name="$parentAtlasLootButton" parentKey="AtlasLoot" inherits="AtlasFrameAtlasLootButtonTemplate"/>
 			<EditBox name="AtlasSearchEditBox" inherits="SearchBoxTemplate" letters="40" parent="AtlasFrameBottomInset">
 				<Size>
 					<AbsDimension x="200" y="32"/>
@@ -252,8 +273,6 @@
 			<OnLoad>
 				Atlas.Templates.CreateFrameDropDownType(self:GetName().."DropDownType", self)
 				Atlas.Templates.CreateFrameDropDown(self:GetName().."DropDown", self)
-				local LibDD = LibStub:GetLibrary("LibUIDropDownMenu-4.0")
-				LibDD:Create_UIDropDownMenu("AtlasSwitchDD", self)
 				Atlas_OnLoad(self);
 			</OnLoad>
 			<OnShow>
@@ -302,11 +321,6 @@
 				<PushedTexture name="AtlasLockSmallPush"/>
 			</Button>
 			<Button name="$parentOptionsButton" inherits="AtlasFrameOptionsButtonTemplate" propagateMouseInput="Motion"/>
-			<Button name="$parentNextMapButton" parentKey="NextMap" inherits="AtlasFrameNextMapButtonTemplate" propagateMouseInput="Motion"/>
-			<Button name="$parentPrevMapButton" parentKey="PrevMap" inherits="AtlasFramePrevMapButtonTemplate" propagateMouseInput="Motion"/>
-			<Button name="$parentAdventureJournalMapButton" parentKey="AdventureJournalMap" inherits="AtlasFrameAdventureJournalMapButtonTemplate" propagateMouseInput="Motion"/>
-			<Button name="$parentAdventureJournalButton" parentKey="AdventureJournal" inherits="AtlasFrameAdventureJournalButtonTemplate" propagateMouseInput="Motion"/>
-			<Button name="$parentAtlasLootButton" parentKey="AtlasLoot" inherits="AtlasFrameAtlasLootButtonTemplate" propagateMouseInput="Motion"/>
 			<Button name="$parentExpandButton" inherits="AtlasFrameExpandButtonTemplate" propagateMouseInput="Motion"/>
 			<Button name="$parentMapZoneName" parentKey="ZoneName" inherits="AtlasFrameMapZoneNameTemplate" propagateMouseInput="Motion"/>
 			<Frame name="$parentMapFrame" parentKey="MapFrame" inherits="InsetFrameTemplate">
@@ -337,6 +351,53 @@
 					</Layer>
 				</Layers>
 			</Frame>
+			<Button name="$parentSwitchButton" inherits="UIPanelButtonTemplate" hidden="true" propagateMouseInput="Motion">
+				<Size>
+					<AbsDimension x="100" y="24"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="AtlasFrameSmallMapFrame" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="2" y="-5"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<DropdownButton name="$parentSwitchDropdown" inherits="WowStyle1DropdownTemplate" hidden="true" propagateMouseInput="Motion">
+				<Size>
+					<AbsDimension x="100" y="24"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="AtlasFrameSmallMapFrame" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="2" y="-5"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</DropdownButton>
+			<Frame name="$parentPrevNextContainer">
+				<Size>
+					<AbsDimension x="70" y="32"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOP"  relativeTo="AtlasFrameSmallMapFrame" relativePoint="BOTTOM">
+						<Offset>
+							<AbsDimension y="-2"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Frames>
+					<Button parentKey="PrevMap" inherits="AtlasFramePrevMapButtonTemplate" propagateMouseInput="Motion" />
+					<Button parentKey="NextMap" inherits="AtlasFrameNextMapButtonTemplate" propagateMouseInput="Motion" />
+				</Frames>
+			</Frame>
+			<Button name="$parentAdventureJournalMapButton" parentKey="AdventureJournalMap" inherits="AtlasFrameAdventureJournalMapButtonTemplate" propagateMouseInput="Motion">
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativeTo="AtlasFrameSmallMapFrame" relativePoint="BOTTOMRIGHT" x="-4" y="-8"/>
+				</Anchors>
+			</Button>
+			<Button name="$parentAdventureJournalButton" parentKey="AdventureJournal" inherits="AtlasFrameAdventureJournalButtonTemplate" propagateMouseInput="Motion"/>
+			<Button name="$parentAtlasLootButton" parentKey="AtlasLoot" inherits="AtlasFrameAtlasLootButtonTemplate" propagateMouseInput="Motion"/>
 		</Frames>
 		<Scripts>
 			<OnLoad>

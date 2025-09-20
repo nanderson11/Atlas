@@ -31,7 +31,7 @@
 		"AtlasFrameSmallAdventureJournalButton",
 		"AtlasFrameAdventureJournalMapButton",
 		"AtlasFrameSmallAdventureJournalMapButton",
-		"AtlasSwitchButton",
+		"AtlasFrameSwitchButton",
 		"AtlasFrameCloseButton",
 		"AtlasFrameLockButton",
 		"AtlasToggleFromWorldMap",
@@ -167,7 +167,13 @@
 		"AtlasFrameDropDown",
 		"AtlasFrameSmallDropDown",
 		"AtlasFrameDropDownType",
-		"AtlasFrameSmallDropDownType"
+		"AtlasFrameSmallDropDownType",
+		"AtlasFrameSwitchDropdown",
+		"AtlasFramePrevNextContainer",
+		"AtlasPrevNextDropdown",
+		"AtlasFrameSmallSwitchDropdown",
+		"AtlasFrameSmallSwitchButton",
+		"AtlasFrameSmallPrevNextContainer"
 	],
 	"Lua.runtime.version": "Lua 5.1",
 	"Lua.runtime.builtin": {

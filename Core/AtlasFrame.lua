@@ -32,7 +32,6 @@ local FOLDER_NAME, private = ...
 
 local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
-local LibDD = LibStub:GetLibrary("LibUIDropDownMenu-4.0")
 
 -- Simple function to toggle the Atlas frame's lock status and update it's appearance
 function addon:ToggleLock()
@@ -358,37 +357,10 @@ function AtlasFrameDropDown_OnClick(mapID)
 	Atlas_Refresh()
 end
 
--- When the switch button is clicked, we can basically assume that there's a match
--- Find it, set it, then update menus and the maps
-function AtlasSwitchButton_OnClick()
-	if (#ATLAS_INST_ENT_DROPDOWN == 1) then
-		-- One link, so we can just go there right away
-		AtlasSwitchDD_Set(1)
-	else
-		-- More than one link, so it's dropdown menu time
-		LibDD:ToggleDropDownMenu(1, nil, AtlasSwitchDD, "AtlasSwitchButton", 0, 0)
-	end
-end
-
-function AtlasSwitchDD_OnLoad()
-	for k, v in pairs(ATLAS_INST_ENT_DROPDOWN) do
-		local info = LibDD:UIDropDownMenu_CreateInfo()
-		info = {
-			text = AtlasMaps[v].ZoneName[1],
-			func = AtlasSwitchDD_OnClick,
-		}
-		LibDD:UIDropDownMenu_AddButton(info)
-	end
-end
-
-function AtlasSwitchDD_OnClick(self)
-	AtlasSwitchDD_Set(self:GetID())
-end
-
-function AtlasSwitchDD_Set(index)
+function AtlasSwitch_OnSet(index)
 	for k, v in pairs(ATLAS_DROPDOWNS) do
 		for k2, v2 in pairs(v) do
-			if (v2 == ATLAS_INST_ENT_DROPDOWN[index]) then
+			if (v2 == index) then
 				addon.db.profile.options.dropdowns.module = k
 				addon.db.profile.options.dropdowns.zone = k2
 
@@ -399,10 +371,4 @@ function AtlasSwitchDD_Set(index)
 			end
 		end
 	end
-end
-
-function AtlasSwitchDD_Sort(a, b)
-	local aa = AtlasMaps[a].ZoneName[1]
-	local bb = AtlasMaps[b].ZoneName[1]
-	return aa < bb
 end

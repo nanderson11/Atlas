@@ -50,7 +50,6 @@ _G.Atlas = addon
 
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local AceDB = LibStub("AceDB-3.0")
-local LibDD = LibStub:GetLibrary("LibUIDropDownMenu-4.0")
 
 local profile
 
@@ -1279,73 +1278,97 @@ function Atlas_Refresh(mapID)
 	-- Deal with the switch to entrance/instance button here
 	-- Only display if appropriate
 	-- See if we should display the button or not, and decide what it should say
-	local matchFound = {}
-	local isEntrance = false
-	for k, v in pairs(addon.assocs.EntToInstMatches) do
-		if (k == zoneID) then
-			matchFound = v
-			isEntrance = false
-			break
-		end
-	end
-	if (not matchFound[1]) then
-		for k, v in pairs(addon.assocs.InstToEntMatches) do
-			if (k == zoneID) then
-				matchFound = v
-				isEntrance = true
-				break
-			end
-		end
-	end
-	-- Below try to add the series maps into switch button's map list
-	if (not matchFound[1]) then
-		for k, v in pairs(addon.assocs.MapSeries) do
-			if (k == zoneID) then
-				matchFound = v
-				isEntrance = false
-				break
-			end
-		end
+	local matches = {}
+	local defaultText
+
+	if addon.assocs.EntToInstMatches[zoneID] then
+		matches = addon.assocs.EntToInstMatches[zoneID]
+		defaultText = ATLAS_INSTANCE_BUTTON
+	elseif addon.assocs.InstToEntMatches[zoneID] then
+		matches = addon.assocs.InstToEntMatches[zoneID]
+		defaultText = ATLAS_ENTRANCE_BUTTON
 	end
 
-	-- Set the button's text, populate the dropdown menu, and show or hide the button
-	if (matchFound[1]) then
-		ATLAS_INST_ENT_DROPDOWN = {}
-		for k, v in pairs(matchFound) do
-			tinsert(ATLAS_INST_ENT_DROPDOWN, v)
+	sort(matches, sortZonesAlpha)
+
+	if (#matches > 1) then
+		local function GeneratorFunction(dropdown, rootDescription)
+			for key, match in ipairs(matches) do
+				rootDescription:CreateButton(AtlasMaps[match].ZoneName[1], AtlasSwitch_OnSet, match)
+			end
 		end
-		sort(ATLAS_INST_ENT_DROPDOWN, AtlasSwitchDD_Sort)
-		if (isEntrance) then
-			AtlasSwitchButton:SetText(ATLAS_ENTRANCE_BUTTON)
-		else
-			AtlasSwitchButton:SetText(ATLAS_INSTANCE_BUTTON)
-		end
-		AtlasSwitchButton:Show()
-		LibDD:UIDropDownMenu_Initialize(AtlasSwitchDD, AtlasSwitchDD_OnLoad)
-	else
-		AtlasSwitchButton:Hide()
+
+		AtlasFrameSwitchDropdown:SetDefaultText(defaultText);
+		AtlasFrameSwitchDropdown:SetupMenu(GeneratorFunction);
+		AtlasFrameSwitchDropdown:Show();
+		AtlasFrameSwitchButton:Hide();
+		AtlasFrameSmallSwitchDropdown:SetDefaultText(defaultText);
+		AtlasFrameSmallSwitchDropdown:SetupMenu(GeneratorFunction);
+		AtlasFrameSmallSwitchDropdown:Show();
+		AtlasFrameSmallSwitchButton:Hide();
 	end
+
+	if (#matches == 1) then
+		AtlasFrameSwitchButton:SetText(defaultText)
+		AtlasFrameSwitchButton:SetScript("OnClick", function() AtlasSwitch_OnSet(matches[1]) end)
+		AtlasFrameSwitchButton:Show();
+		AtlasFrameSwitchDropdown:Hide();
+		AtlasFrameSmallSwitchButton:SetText(defaultText)
+		AtlasFrameSmallSwitchButton:SetScript("OnClick", function() AtlasSwitch_OnSet(matches[1]) end)
+		AtlasFrameSmallSwitchButton:Show();
+		AtlasFrameSmallSwitchDropdown:Hide();
+	end
+
+	if (#matches == 0) then
+		AtlasFrameSwitchButton:Hide();
+		AtlasFrameSwitchDropdown:Hide();
+		AtlasFrameSmallSwitchButton:Hide();
+		AtlasFrameSmallSwitchDropdown:Hide();
+	end
+
+	-- Below try to add the series maps into switch button's map list
+	--[[ if addon.assocs.MapSeries[zoneID] then
+		local function IsSelected(index) return index == ATLAS_DROPDOWNS[addon.db.profile.options.dropdowns.module][addon.db.profile.options.dropdowns.zone]; end
+		local function SetSelection(index)
+			AtlasSwitch_OnSet(index);
+		end
+
+		local function GeneratorFunction(dropdown, rootDescription)
+			for key, match in ipairs(addon.assocs.MapSeries[zoneID]) do
+				rootDescription:CreateRadio(AtlasMaps[match].ZoneName[1], IsSelected, SetSelection, match)
+			end
+		end
+
+		AtlasPrevNextDropdown:SetupMenu(GeneratorFunction);
+	end ]]
 
 	-- Handle the Prev / Next Map buttons' showing or hiding
-	if (base.NextMap) then
-		AtlasFrame.NextMap:Show()
-		AtlasFrame.NextMap.mapID = base.NextMap
-
-		AtlasFrameSmall.NextMap:Show()
-		AtlasFrameSmall.NextMap.mapID = base.NextMap
+	if (base.NextMap or base.PrevMap) then
+		AtlasFramePrevNextContainer:Show()
+		AtlasFrameSmallPrevNextContainer:Show()
 	else
-		AtlasFrame.NextMap:Hide()
-		AtlasFrameSmall.NextMap:Hide()
+		AtlasFramePrevNextContainer:Hide()
+		AtlasFrameSmallPrevNextContainer:Hide()
 	end
-	if (base.PrevMap) then
-		AtlasFrame.PrevMap:Show()
-		AtlasFrame.PrevMap.mapID = base.PrevMap
 
-		AtlasFrameSmall.PrevMap:Show()
-		AtlasFrameSmall.PrevMap.mapID = base.PrevMap
+	if (base.NextMap) then
+		AtlasFramePrevNextContainer.NextMap:Enable()
+		AtlasFramePrevNextContainer.NextMap.mapID = base.NextMap
+		AtlasFrameSmallPrevNextContainer.NextMap:Enable()
+		AtlasFrameSmallPrevNextContainer.NextMap.mapID = base.NextMap
 	else
-		AtlasFrame.PrevMap:Hide()
-		AtlasFrameSmall.PrevMap:Hide()
+		AtlasFramePrevNextContainer.NextMap:Disable()
+		AtlasFrameSmallPrevNextContainer.NextMap:Disable()
+	end
+
+	if (base.PrevMap) then
+		AtlasFramePrevNextContainer.PrevMap:Enable()
+		AtlasFramePrevNextContainer.PrevMap.mapID = base.PrevMap
+		AtlasFrameSmallPrevNextContainer.PrevMap:Enable()
+		AtlasFrameSmallPrevNextContainer.PrevMap.mapID = base.PrevMap
+	else
+		AtlasFramePrevNextContainer.PrevMap:Disable()
+		AtlasFrameSmallPrevNextContainer.PrevMap:Disable()
 	end
 end
 

@@ -33,7 +33,6 @@ private.constants = constants
 ATLAS_VERSION = C_AddOns.GetAddOnMetadata(private.addon_name, "Version")
 ATLAS_PLAYER_FACTION = UnitFactionGroup("player")
 ATLAS_DROPDOWNS = {}
-ATLAS_INST_ENT_DROPDOWN = {}
 ATLAS_SCROLL_LIST = {}
 ATLAS_DATA = {}
 ATLAS_SEARCH_METHOD = nil
