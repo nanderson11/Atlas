@@ -74,7 +74,8 @@ db.AtlasMaps = {
 		{ "Bomberman",                                                                                                      "ac=6479" },
 		{ "Conscriptinator",                                                                                                "ac=6476" },
 		{ "Mantid Swarm",                                                                                                   "ac=6945" },
-		{ "Gate of the Setting Sun",                                                                                        "ac=10010" },
+		-- Achievement doesn't exist until WoD
+		-- { "Gate of the Setting Sun",                                                                                        "ac=10010" },
 		{ "Heroic: Gate of the Setting Sun",                                                                                "ac=6759" },
 		{ "Heroic: Gate of the Setting Sun Guild Run",                                                                      "ac=6768" },
 		{ "Gate of the Setting Sun Challenger",                                                                             "ac=6894" },
@@ -369,7 +370,8 @@ db.AtlasMaps = {
 		{ "Return to Sender",                                     "ac=6485" },
 		{ "Run with the Wind",                                    "ac=6822" },
 		{ "Where's My Air Support?",                              "ac=6688" },
-		{ "Siege of Niuzao Temple",                               "ac=10011" },
+		-- Achievement doesn't exist until WoD
+		-- { "Siege of Niuzao Temple",                               "ac=10011" },
 		{ "Heroic: Siege of Niuzao Temple",                       "ac=6763" },
 		{ "Heroic: Siege of Niuzao Temple Guild Run",             "ac=6772" },
 		{ "Siege of Niuzao Temple Challenger",                    "ac=6898" },

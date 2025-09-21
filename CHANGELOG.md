@@ -7,6 +7,8 @@
 ### Changed
 - UI updates to the bottom bar
 - Retail: UI updates to the loot browser (accessible by right clicking on a boss portrait)
+### Fixed
+- MoP: Removed Gate of the Setting Sun and Siege of Niuzao Temple achievements that didn't get added until WoD
 
 ## 3.11.0 - September 13, 2025
 ### Changed
