@@ -23,10 +23,6 @@
 
 --]]
 
--- ////////////////////////////////////////////////////////////////////////////////////////
--- AtlasEJLootFrame.lootScroll to replace EncounterJournal.encounter.info.lootScroll
--- ////////////////////////////////////////////////////////////////////////////////////////
-
 local WoWClassicEra, WoWClassicTBC, WoWRetail
 local wowtocversion = select(4, GetBuildInfo())
 if wowtocversion < 20000 then
@@ -36,14 +32,6 @@ elseif wowtocversion > 19999 and wowtocversion < 90000 then
 else
 	WoWRetail = true
 end
-
--- ----------------------------------------------------------------------------
--- AddOn namespace.
--- ----------------------------------------------------------------------------
-local FOLDER_NAME, private = ...
-
-local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
-local LibDD = LibStub:GetLibrary("LibUIDropDownMenu-4.0")
 
 local ATLAS_EJ_DIFFICULTIES =
 {
@@ -100,50 +88,62 @@ end
 
 function Atlas_EncounterJournal_OnLoad(self)
 	if (WoWClassicEra or WoWClassicTBC) then return end
-	self:RegisterEvent("EJ_DIFFICULTY_UPDATE")
+	self:RegisterEvent("EJ_DIFFICULTY_UPDATE");
+	self:RegisterEvent("EJ_LOOT_DATA_RECIEVED");
 
-	-- ////////////////////////////////////////////////////////////////////////////////////////
-	-- AtlasEJLootFrame.lootScroll to replace EncounterJournal.encounter.info.lootScroll
-	-- ////////////////////////////////////////////////////////////////////////////////////////
-	self.lootScroll.update = Atlas_EncounterJournal_LootUpdate
-	self.lootScroll.scrollBar.doNotHide = true
-	self.lootScroll.dynamic = Atlas_EncounterJournal_LootCalcScroll
-	HybridScrollFrame_CreateButtons(self.lootScroll, "AtlasEncounterItemTemplate", 0, 0)
+	local view = CreateScrollBoxListLinearView();
+	view:SetElementExtentCalculator(function(dataIndex, elementData)
+		if elementData.header then
+			return BOSS_LOOT_BUTTON_HEIGHT;
+		elseif EncounterJournal.encounterID then
+			return BOSS_LOOT_BUTTON_HEIGHT;
+		else
+			return INSTANCE_LOOT_BUTTON_HEIGHT;
+		end
+	end);
+	view:SetElementFactory(function(factory, elementData)
+		if elementData.header then
+			factory("EncounterItemDividerTemplate", function(button, elementData)
+				button:Init(elementData);
+			end);
+		else
+			factory("AtlasEncounterItemTemplate", function(button, elementData)
+				button:Init(elementData);
+			end);
+		end
+	end);
 
-	LibDD:UIDropDownMenu_Initialize(self.lootScroll.lootFilter, Atlas_EncounterJournal_InitLootFilter, "MENU")
-	LibDD:UIDropDownMenu_Initialize(self.lootScroll.lootSlotFilter, Atlas_EncounterJournal_InitLootSlotFilter, "MENU")
-end
-
-function Atlas_EncounterJournal_OnLeave(self)
-	--	self:UnregisterEvent("EJ_LOOT_DATA_RECIEVED");
+	local scrollBox = AtlasEJLootFrame.lootScroll.ScrollBox;
+	local scrollBar = AtlasEJLootFrame.lootScroll.ScrollBar;
+	ScrollUtil.InitScrollBoxListWithScrollBar(scrollBox, scrollBar, view);
 end
 
 function Atlas_EncounterJournal_HasChangedContext(instanceID, instanceType, difficultyID)
 	if (instanceType == "none") then
 		-- we've gone from a dungeon to the open world
-		return EncounterJournal.lastInstance ~= nil
+		return EncounterJournal.lastInstance ~= nil;
 	elseif (instanceID ~= 0 and (instanceID ~= EncounterJournal.lastInstance or EncounterJournal.lastDifficulty ~= difficultyID)) then
 		-- dungeon or difficulty has changed
-		return true
+		return true;
 	end
-	return false
+	return false;
 end
 
 function Atlas_EncounterJournal_ResetDisplay(instanceID, instanceType, difficultyID)
 	if (instanceType == "none") then
-		EncounterJournal.lastInstance = nil
-		EncounterJournal.lastDifficulty = nil
-		EJSuggestFrame_OpenFrame()
+		EncounterJournal.lastInstance = nil;
+		EncounterJournal.lastDifficulty = nil;
+		MonthlyActivitiesFrame_OpenFrame();
 	else
-		EJ_ContentTab_Select(EncounterJournal.instanceSelect.dungeonsTab.id)
+		EJ_ContentTab_SelectAppropriateInstanceTab(instanceID);
 
-		EncounterJournal_DisplayInstance(instanceID)
-		EncounterJournal.lastInstance = instanceID
+		EncounterJournal_DisplayInstance(instanceID);
+		EncounterJournal.lastInstance = instanceID;
 		-- try to set difficulty to current instance difficulty
 		if (EJ_IsValidInstanceDifficulty(difficultyID)) then
-			EJ_SetDifficulty(difficultyID)
+			EJ_SetDifficulty(difficultyID);
 		end
-		EncounterJournal.lastDifficulty = difficultyID
+		EncounterJournal.lastDifficulty = difficultyID;
 	end
 end
 
@@ -155,143 +155,112 @@ function Atlas_EncounterJournal_OnShow(self)
 	MicroButtonPulseStop(EJMicroButton);
 
 	UpdateMicroButtons();
-	PlaySound(839);
+	PlaySound(SOUNDKIT.IG_CHARACTER_INFO_OPEN);
 	Atlas_EncounterJournal_LootUpdate();
-	Atlas_EncounterJournal_UpdateDifficulty();
 
 	--automatically navigate to the current dungeon if you are in one;
-	local mapID = C_Map.GetBestMapForUnit("player")
-	local instanceID = mapID and EJ_GetInstanceForMap(mapID) or 0
+	local currentMapID = select(8, GetInstanceInfo());
+	local instanceID = currentMapID and C_EncounterJournal.GetInstanceForGameMap(currentMapID) or nil;
 	local _, instanceType, difficultyID = GetInstanceInfo()
 	if (Atlas_EncounterJournal_HasChangedContext(instanceID, instanceType, difficultyID)) then
 		Atlas_EncounterJournal_ResetDisplay(instanceID, instanceType, difficultyID);
 	end
+
+	Atlas_EncounterJournal_InitLootFilter();
+	Atlas_EncounterJournal_InitLootSlotFilter();
+	Atlas_EncounterJournal_DifficultyInit();
 end
 
 function Atlas_EncounterJournal_OnEvent(self, event, ...)
-	if event == "EJ_DIFFICULTY_UPDATE" then
+	if event == "EJ_LOOT_DATA_RECIEVED" then
+		local itemID = ...
+		if itemID and not EJ_IsLootListOutOfDate() then
+			Atlas_EncounterJournal_LootCallback(itemID);
+		else
+			Atlas_EncounterJournal_LootUpdate();
+		end
+	elseif event == "EJ_DIFFICULTY_UPDATE" then
 		--fix the difficulty buttons
 		Atlas_EncounterJournal_UpdateDifficulty(...);
 	end
 end
 
 function Atlas_EncounterJournal_UpdateDifficulty(newDifficultyID)
-	for _, entry in pairs(ATLAS_EJ_DIFFICULTIES) do
-		if entry.difficultyID == newDifficultyID then
-			if (entry.size) then
-				AtlasEJLootFrame.lootScroll.difficulty:SetFormattedText(ENCOUNTER_JOURNAL_DIFF_TEXT, entry.size, entry.prefix);
-			else
-				AtlasEJLootFrame.lootScroll.difficulty:SetText(entry.prefix);
-			end
-			Atlas_EncounterJournal_Refresh();
-			break;
-		end
-	end
-end
-
-function Atlas_EncounterJournal_SetLootButton(item)
-	local itemInfo = C_EncounterJournal.GetLootInfoByIndex(item.index);
-	if (itemInfo and itemInfo.name) then
-		item.name:SetText(WrapTextInColorCode(itemInfo.name, itemInfo.itemQuality));
-		item.icon:SetTexture(itemInfo.icon);
-		if itemInfo.handError then
-			item.slot:SetText(INVALID_EQUIPMENT_COLOR:WrapTextInColorCode(itemInfo.slot));
-		else
-			item.slot:SetText(itemInfo.slot);
-		end
-		if itemInfo.weaponTypeError then
-			item.armorType:SetText(INVALID_EQUIPMENT_COLOR:WrapTextInColorCode(itemInfo.armorType));
-		else
-			item.armorType:SetText(itemInfo.slot);
-		end
-
-		local numEncounters = EJ_GetNumEncountersForLootByIndex(item.index);
-		if (numEncounters == 1) then
-			item.boss:SetFormattedText(BOSS_INFO_STRING, EJ_GetEncounterInfo(itemInfo.encounterID));
-		elseif (numEncounters == 2) then
-			local itemInfoSecond = C_EncounterJournal.GetLootInfoByIndex(item.index, 2);
-			local secondEncounterID = itemInfoSecond and itemInfoSecond.encounterID;
-			if (itemInfo.encounterID and secondEncounterID) then
-				item.boss:SetFormattedText(BOSS_INFO_STRING_TWO, EJ_GetEncounterInfo(itemInfo.encounterID), EJ_GetEncounterInfo(secondEncounterID));
-			end
-		elseif (numEncounters > 2) then
-			item.boss:SetFormattedText(BOSS_INFO_STRING_MANY, EJ_GetEncounterInfo(itemInfo.encounterID));
-		end
-
-		local itemName, _, quality = C_Item.GetItemInfo(itemInfo.link);
-		SetItemButtonQuality(item, quality, itemInfo.link);
-	else
-		item.name:SetText(L["ATLAS_REOPEN_LOOT_AGAIN"]);
-		item.icon:SetTexture("Interface\\Icons\\INV_Misc_QuestionMark");
-		item.slot:SetText("");
-		item.armorType:SetText("");
-		item.boss:SetText("");
-	end
-	item.encounterID = itemInfo and itemInfo.encounterID;
-	item.itemID = itemInfo and itemInfo.itemID;
-	item.link = itemInfo and itemInfo.link;
-	item:Show();
-	if item.showingTooltip then
-		Atlas_EncounterJournal_SetTooltip(item.link);
+	if tContains(ATLAS_EJ_DIFFICULTIES, newDifficultyID) then
+		Atlas_EncounterJournal_DifficultyInit();
+		Atlas_EncounterJournal_Refresh();
 	end
 end
 
 function Atlas_EncounterJournal_LootCallback(itemID)
-	local scrollFrame = AtlasEJLootFrame.lootScroll;
-
-	for i, item in ipairs(scrollFrame.buttons) do
-		if item.itemID == itemID and item:IsShown() then
-			Atlas_EncounterJournal_SetLootButton(item);
-		end
+	local scrollBox = AtlasEJLootFrame.lootScroll.ScrollBox;
+	local button = scrollBox:FindFrameByPredicate(function(button, elementData)
+		return button.itemID == itemID;
+	end);
+	if button then
+		button:Init(button:GetElementData());
 	end
 end
 
 function Atlas_EncounterJournal_LootUpdate()
 	Atlas_EncounterJournal_UpdateFilterString();
-	local scrollFrame = AtlasEJLootFrame.lootScroll;
-	local offset = HybridScrollFrame_GetOffset(scrollFrame);
-	local items = scrollFrame.buttons;
-	local item, index;
 
-	local numLoot = EJ_GetNumLoot();
-	local buttonSize = BOSS_LOOT_BUTTON_HEIGHT;
+	local scrollBox = AtlasEJLootFrame.lootScroll.ScrollBox;
 
-	for i = 1, #items do
-		item = items[i];
-		index = offset + i;
-		if index <= numLoot then
-			if (AtlasEJLootFrame.encounterID) then
-				item:SetHeight(BOSS_LOOT_BUTTON_HEIGHT);
-				item.boss:Hide();
-				item.bossTexture:Hide();
-				item.bosslessTexture:Show();
-			else
-				buttonSize = INSTANCE_LOOT_BUTTON_HEIGHT;
-				item:SetHeight(INSTANCE_LOOT_BUTTON_HEIGHT);
-				item.boss:Show();
-				item.bossTexture:Show();
-				item.bosslessTexture:Hide();
+	local dataProvider = CreateDataProvider();
+	local loot = {};
+	local perPlayerLoot = {};
+	local veryRareLoot = {};
+	local extremelyRareLoot = {};
+	local seasonalLoot = {};
+	local currentSeason = C_SeasonInfo.GetCurrentDisplaySeasonID();
+	local currentSeasonExpansion = C_SeasonInfo.GetCurrentDisplaySeasonExpansion();
+
+	for i = 1, EJ_GetNumLoot() do
+		local itemInfo = C_EncounterJournal.GetLootInfoByIndex(i);
+		if itemInfo.displaySeasonID then
+			-- The loot is flagged to be for a specific season, see if it matches the current one.
+			if itemInfo.displaySeasonID == currentSeason then
+				tinsert(seasonalLoot, i);
 			end
-			item.index = index;
-			Atlas_EncounterJournal_SetLootButton(item);
+		elseif itemInfo.displayAsPerPlayerLoot then
+			tinsert(perPlayerLoot, i);
+		elseif itemInfo.displayAsExtremelyRare then
+			tinsert(extremelyRareLoot, i);
+		elseif itemInfo.displayAsVeryRare then
+			tinsert(veryRareLoot, i);
 		else
-			item:Hide();
+			tinsert(loot, i);
 		end
 	end
 
-	local totalHeight = numLoot * buttonSize;
-	HybridScrollFrame_Update(scrollFrame, totalHeight, scrollFrame:GetHeight());
-end
-
-function Atlas_EncounterJournal_LootCalcScroll(offset)
-	local buttonHeight = BOSS_LOOT_BUTTON_HEIGHT;
-
-	if (not AtlasEJLootFrame.encounterID) then
-		buttonHeight = INSTANCE_LOOT_BUTTON_HEIGHT;
+	for _, val in ipairs(loot) do
+		dataProvider:Insert({ index = val });
 	end
 
-	local index = floor(offset / buttonHeight)
-	return index, offset - (index * buttonHeight);
+	local seasonalHeaderTitle;
+	local uiSeason = PVPUtil.GetCurrentSeasonNumber();
+	if #seasonalLoot > 0 and currentSeason and currentSeasonExpansion then
+		seasonalHeaderTitle = EXPANSION_SEASON_NAME:format(GetExpansionName(currentSeasonExpansion), uiSeason);
+	end
+
+	local lootCategories = {
+		{ loot = veryRareLoot,      headerTitle = EJ_ITEM_CATEGORY_VERY_RARE },
+		{ loot = extremelyRareLoot, headerTitle = EJ_ITEM_CATEGORY_EXTREMELY_RARE },
+		{ loot = perPlayerLoot,     headerTitle = BONUS_LOOT_TOOLTIP_TITLE,       helpText = BONUS_LOOT_TOOLTIP_BODY },
+		{ loot = seasonalLoot,      headerTitle = seasonalHeaderTitle },
+	};
+
+	for _, category in ipairs(lootCategories) do
+		if #category.loot > 0 then
+			dataProvider:Insert({ header = true, text = category.headerTitle, helpText = category.helpText });
+			for _, val in ipairs(category.loot) do
+				dataProvider:Insert({ index = val });
+			end
+		end
+	end
+
+	scrollBox:SetDataProvider(dataProvider);
 end
 
 function Atlas_EncounterJournal_Loot_OnUpdate(self)
@@ -312,77 +281,25 @@ function Atlas_EncounterJournal_SetTooltip(link)
 	local classID, specID = EJ_GetLootFilter();
 
 	if (specID == 0) then
-		local spec = GetSpecialization();
+		local spec = C_SpecializationInfo.GetSpecialization();
 		if (spec and classID == select(3, UnitClass("player"))) then
-			specID = GetSpecializationInfo(spec, nil, nil, nil, UnitSex("player"));
+			specID = C_SpecializationInfo.GetSpecializationInfo(spec, nil, nil, nil, UnitSex("player"));
 		else
 			specID = -1;
 		end
 	end
 
-	GameTooltip:SetAnchorType("ANCHOR_RIGHT");
-	-- This parameters are undocumented, but they do work
-	---@diagnostic disable-next-line: redundant-parameter
-	GameTooltip:SetHyperlink(link, classID, specID);
-	GameTooltip_ShowCompareItem();
+	local tooltipInfo = CreateBaseTooltipInfo("GetHyperlink", link, classID, specID);
+	tooltipInfo.compareItem = true;
+	GameTooltip:ProcessInfo(tooltipInfo);
 end
 
-function Atlas_EncounterJournal_Refresh(self)
+function Atlas_EncounterJournal_Refresh()
 	Atlas_EncounterJournal_LootUpdate();
 end
 
-function Atlas_EncounterJournal_SelectDifficulty(self, value)
-	EJ_SetDifficulty(value);
-end
-
-function Atlas_EncounterJournal_DifficultyInit(self, level)
-	local currDifficulty = EJ_GetDifficulty and EJ_GetDifficulty() or nil
-	local info = LibDD:UIDropDownMenu_CreateInfo();
-	for i = 1, #ATLAS_EJ_DIFFICULTIES do
-		local entry = ATLAS_EJ_DIFFICULTIES[i];
-		if EJ_IsValidInstanceDifficulty and EJ_IsValidInstanceDifficulty(entry.difficultyID) then
-			info.func = Atlas_EncounterJournal_SelectDifficulty;
-			if (entry.size) then
-				info.text = format(ENCOUNTER_JOURNAL_DIFF_TEXT, entry.size, entry.prefix);
-			else
-				info.text = entry.prefix;
-			end
-			info.arg1 = entry.difficultyID;
-			info.checked = currDifficulty == entry.difficultyID;
-			LibDD:UIDropDownMenu_AddButton(info);
-		end
-	end
-end
-
-function Atlas_EncounterJournal_OnFilterChanged(self)
-	LibDD:CloseDropDownMenus(1);
+function Atlas_EncounterJournal_OnFilterChanged()
 	Atlas_EncounterJournal_LootUpdate();
-end
-
-function Atlas_EncounterJournal_SetClassAndSpecFilter(self, classID, specID)
-	EJ_SetLootFilter(classID, specID);
-	Atlas_EncounterJournal_OnFilterChanged(self);
-end
-
-function Atlas_EncounterJournal_RefreshSlotFilterText(self)
-	local text = ALL_INVENTORY_SLOTS;
-	local slotFilter = C_EncounterJournal.GetSlotFilter();
-	if slotFilter ~= Enum.ItemSlotFilterType.NoFilter then
-		for _, filter in pairs(Enum.ItemSlotFilterType) do
-			if (filter == slotFilter) then
-				text = SlotFilterToSlotName[filter];
-				break;
-			end
-		end
-	end
-
-	AtlasEJLootFrame.lootScroll.slotFilter:SetText(text);
-end
-
-function Atlas_EncounterJournal_SetSlotFilter(self, slot)
-	C_EncounterJournal.SetSlotFilter(slot);
-	Atlas_EncounterJournal_RefreshSlotFilterText(self);
-	Atlas_EncounterJournal_OnFilterChanged(self);
 end
 
 function Atlas_EncounterJournal_UpdateFilterString()
@@ -401,123 +318,97 @@ function Atlas_EncounterJournal_UpdateFilterString()
 	if name then
 		AtlasEJLootFrame.lootScroll.classClearFilter.text:SetText(format(EJ_CLASS_FILTER, name));
 		AtlasEJLootFrame.lootScroll.classClearFilter:Show();
-		AtlasEJLootFrame.lootScroll:SetHeight(360);
+		AtlasEJLootFrame.lootScroll.ScrollBox:SetHeight(318);
 	else
 		AtlasEJLootFrame.lootScroll.classClearFilter:Hide();
-		AtlasEJLootFrame.lootScroll:SetHeight(382);
+		AtlasEJLootFrame.lootScroll.ScrollBox:SetHeight(340);
 	end
 end
 
-local CLASS_DROPDOWN = 1;
 function Atlas_EncounterJournal_InitLootFilter(self, level)
-	local filterClassID, filterSpecID = EJ_GetLootFilter and EJ_GetLootFilter() or nil
-	local sex = UnitSex("player");
-	local classDisplayName, classTag, classID;
-	local info = LibDD:UIDropDownMenu_CreateInfo();
-	info.keepShownOnClick = nil;
+	local dropdown = AtlasEJLootFrame.lootScroll.filter;
 
-	if (L_UIDROPDOWNMENU_MENU_VALUE == CLASS_DROPDOWN) then
-		info.text = ALL_CLASSES;
-		info.checked = (filterClassID == 0);
-		info.arg1 = 0;
-		info.arg2 = 0;
-		info.func = Atlas_EncounterJournal_SetClassAndSpecFilter;
-		LibDD:UIDropDownMenu_AddButton(info, level);
-
-		local numClasses = GetNumClasses();
-		for i = 1, numClasses do
-			classDisplayName, classTag, classID = GetClassInfo(i);
-			info.text = classDisplayName;
-			info.checked = (filterClassID == classID);
-			info.arg1 = classID;
-			info.arg2 = 0;
-			info.func = Atlas_EncounterJournal_SetClassAndSpecFilter;
-			LibDD:UIDropDownMenu_AddButton(info, level);
-		end
+	local function GetClassFilter()
+		local filterClassID, _ = EJ_GetLootFilter();
+		return filterClassID;
+	end
+	local function GetSpecFilter()
+		local _, filterSpecID = EJ_GetLootFilter();
+		return filterSpecID;
+	end
+	local function Atlas_EncounterJournal_SetClassAndSpecFilter(classID, specID)
+		EJ_SetLootFilter(classID, specID);
+		Atlas_EncounterJournal_OnFilterChanged();
 	end
 
-	if (level == 1) then
-		info.text = CLASS;
-		info.func = nil;
-		info.notCheckable = true;
-		info.hasArrow = true;
-		info.value = CLASS_DROPDOWN;
-		LibDD:UIDropDownMenu_AddButton(info, level)
-
-		if (filterClassID > 0) then
-			classID = filterClassID;
-
-			local classInfo = C_CreatureInfo.GetClassInfo(filterClassID);
-			if classInfo then
-				classDisplayName = classInfo.className;
-				classTag = classInfo.classFile;
-			end
-		else
-			classDisplayName, classTag, classID = UnitClass("player");
-		end
-		info.text = classDisplayName;
-		info.notCheckable = true;
-		info.arg1 = nil;
-		info.arg2 = nil;
-		info.func = nil;
-		info.hasArrow = false;
-		LibDD:UIDropDownMenu_AddButton(info, level);
-
-		info.notCheckable = nil;
-		local numSpecs = C_SpecializationInfo.GetNumSpecializationsForClassID(classID);
-		for i = 1, numSpecs do
-			local specID, specName = GetSpecializationInfoForClassID(classID, i, sex);
-			info.leftPadding = 10;
-			info.text = specName;
-			info.checked = (filterSpecID == specID);
-			info.arg1 = classID;
-			info.arg2 = specID;
-			info.func = Atlas_EncounterJournal_SetClassAndSpecFilter;
-			LibDD:UIDropDownMenu_AddButton(info, level);
-		end
-
-		info.text = ALL_SPECS;
-		info.leftPadding = 10;
-		info.checked = (classID == filterClassID) and (filterSpecID == 0);
-		info.arg1 = classID;
-		info.arg2 = 0;
-		info.func = Atlas_EncounterJournal_SetClassAndSpecFilter;
-		LibDD:UIDropDownMenu_AddButton(info, level);
-	end
+	dropdown:SetWidth(160);
+	ClassMenu.InitClassSpecDropdown(dropdown, GetClassFilter, GetSpecFilter, Atlas_EncounterJournal_SetClassAndSpecFilter)
 end
 
-function Atlas_EncounterJournal_InitLootSlotFilter(self, level)
+local function GetLootSlotsPresent()
 	local slotFilter = C_EncounterJournal.GetSlotFilter();
-
-	local info = LibDD:UIDropDownMenu_CreateInfo();
-	info.text = ALL_INVENTORY_SLOTS;
-	info.checked = slotFilter == Enum.ItemSlotFilterType.NoFilter;
-	info.arg1 = Enum.ItemSlotFilterType.NoFilter;
-	info.func = Atlas_EncounterJournal_SetSlotFilter;
-	LibDD:UIDropDownMenu_AddButton(info);
-
 	C_EncounterJournal.ResetSlotFilter();
+
 	local isLootSlotPresent = {};
-	local numLoot = EJ_GetNumLoot();
-	for i = 1, numLoot do
-		local itemInfo = C_EncounterJournal.GetLootInfoByIndex(i);
+	for index = 1, EJ_GetNumLoot() do
+		local itemInfo = C_EncounterJournal.GetLootInfoByIndex(index);
 		local filterType = itemInfo and itemInfo.filterType;
-		if (filterType) then
+		if filterType then
 			isLootSlotPresent[filterType] = true;
 		end
 	end
 	C_EncounterJournal.SetSlotFilter(slotFilter);
-	for _, filter in pairs(Enum.ItemSlotFilterType) do
-		if ((isLootSlotPresent[filter] or filter == slotFilter) and filter ~= Enum.ItemSlotFilterType.NoFilter) then
-			info.text = SlotFilterToSlotName[filter];
-			info.checked = slotFilter == filter;
-			info.arg1 = filter;
-			LibDD:UIDropDownMenu_AddButton(info);
-		end
-	end
+	return isLootSlotPresent;
 end
 
-function Atlas_EncounterJournal_ButtonOnClick(self, object)
-	LibDD:ToggleDropDownMenu(1, nil, object, self, 5, 0);
-	PlaySound(852);
+function Atlas_EncounterJournal_InitLootSlotFilter(self, level)
+	local slotFilter = C_EncounterJournal.GetSlotFilter();
+	local dropdown = AtlasEJLootFrame.lootScroll.slotFilter;
+
+	local function IsSelected(filter)
+		return C_EncounterJournal.GetSlotFilter() == filter;
+	end
+
+	local function SetSelected(filter)
+		C_EncounterJournal.SetSlotFilter(filter);
+		Atlas_EncounterJournal_OnFilterChanged();
+	end
+
+	dropdown:SetupMenu(function(dropdown, rootDescription)
+		rootDescription:CreateRadio(ALL_INVENTORY_SLOTS, IsSelected, SetSelected, Enum.ItemSlotFilterType.NoFilter);
+
+		local isLootSlotPresent = GetLootSlotsPresent();
+		for filter, name in pairs(SlotFilterToSlotName) do
+			if isLootSlotPresent[filter] or filter == slotFilter then
+				rootDescription:CreateRadio(name, IsSelected, SetSelected, filter);
+			end
+		end
+	end);
+end
+
+function Atlas_EncounterJournal_DifficultyInit()
+	local dropdown = AtlasEJLootFrame.lootScroll.difficulty;
+
+	local function IsSelected(difficultyID)
+		return EJ_GetDifficulty() == difficultyID;
+	end
+
+	local function SetSelected(difficultyID)
+		EJ_SetDifficulty(difficultyID);
+		Atlas_EncounterJournal_OnFilterChanged();
+	end
+
+	dropdown:SetupMenu(function(dropdown, rootDescription)
+		for index, difficulty in ipairs(ATLAS_EJ_DIFFICULTIES) do
+			if EJ_IsValidInstanceDifficulty(difficulty.difficultyID) then
+				local text;
+				if (difficulty.size) then
+					text = format(ENCOUNTER_JOURNAL_DIFF_TEXT, difficulty.size, difficulty.prefix);
+				else
+					text = difficulty.prefix;
+				end
+				rootDescription:CreateRadio(text, IsSelected, SetSelected, difficulty.difficultyID);
+			end
+		end
+	end);
 end

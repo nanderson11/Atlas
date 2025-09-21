@@ -6,6 +6,7 @@
 - Retail/MoP: Search returns clickable items instead of just text
 ### Changed
 - UI updates to the bottom bar
+- Retail: UI updates to the loot browser (accessible by right clicking on a boss portrait)
 
 ## 3.11.0 - September 13, 2025
 ### Changed
