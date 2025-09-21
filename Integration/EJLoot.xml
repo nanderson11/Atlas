@@ -49,7 +49,7 @@
 		<Scripts>
 			<OnEnter>
 				GameTooltip:SetOwner(self, "ANCHOR_LEFT");
-				Atlas_EncounterJournal_SetTooltip(self.link);
+				Atlas_EncounterJournal_SetTooltip(self.link, self.itemID);
 				self.showingTooltip = true;
 				self:SetScript("OnUpdate", Atlas_EncounterJournal_Loot_OnUpdate);
 			</OnEnter>
@@ -88,7 +88,7 @@
 		</Layers>
 		<Frames>
 			<Button name="$parentCloseButton" inherits="UIPanelCloseButton">
-				<Size x="24" y="24"/>
+				<Size x="32" y="32"/>
 				<Anchors>
 					<Anchor point="TOPRIGHT" relativeTo="$parent" x="8" y="8"/>
 				</Anchors>

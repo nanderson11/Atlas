@@ -2,6 +2,7 @@
 
 ## 3.12.0 -
 ### Added
+- MoP: Added loot browser that's slightly better than the Dungeon Journal by allowing you to filter by spec in addition to class (accessible by right clicking on a boss portrait)
 - Search works as you type
 - Retail/MoP: Search returns clickable items instead of just text
 ### Changed

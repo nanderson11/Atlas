@@ -385,7 +385,7 @@
 						if (EJ_GetEncounterInfo) then
 							GameTooltip:AddLine(ATLAS_OPEN_ADVENTURE, 0.5, 0.5, 1, true);
 						end
-						if (C_AdventureJournal) then
+						if (C_AdventureJournal or EJ_GetEncounterInfo) then
 							GameTooltip:AddLine(ATLAS_TOGGLE_LOOT, 0.5, 0.5, 1, true);
 						end
 					end
@@ -534,7 +534,18 @@
 				self:RegisterForClicks("LeftButtonDown", "RightButtonDown");
 			</OnLoad>
 			<OnClick>
-				if (button == "LeftButton") then
+				if (button == "RightButton") then
+					if (AtlasFrameSmall:IsVisible()) then
+						Atlas:ToggleLegendPanel();
+					end
+					if (AtlasEJLootFrame:IsShown()) then
+						AtlasEJLootFrame:Hide();
+					else
+						Atlas:AdventureJournal_EncounterButton_OnClick(self.instanceID, self.encounterID, true);
+						ToggleEncounterJournal();
+						Atlas_EncounterJournal_DisplayLoot(self.instanceID, self.encounterID);
+					end
+				elseif (button == "LeftButton") then
 					Atlas:AdventureJournal_EncounterButton_OnClick(self.instanceID, self.encounterID);
 				end
 			</OnClick>

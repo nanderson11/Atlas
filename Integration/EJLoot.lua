@@ -23,16 +23,6 @@
 
 --]]
 
-local WoWClassicEra, WoWClassicTBC, WoWRetail
-local wowtocversion = select(4, GetBuildInfo())
-if wowtocversion < 20000 then
-	WoWClassicEra = true
-elseif wowtocversion > 19999 and wowtocversion < 90000 then
-	WoWClassicTBC = true
-else
-	WoWRetail = true
-end
-
 local ATLAS_EJ_DIFFICULTIES =
 {
 	{ size = "5",                            prefix = PLAYER_DIFFICULTY1,           difficultyID = 1 },
@@ -52,7 +42,7 @@ local ATLAS_EJ_DIFFICULTIES =
 }
 
 local SlotFilterToSlotName = {}
-if WoWRetail then
+if (select(4, GetBuildInfo()) > 40000) then
 	SlotFilterToSlotName = {
 		[Enum.ItemSlotFilterType.Head] = INVTYPE_HEAD,
 		[Enum.ItemSlotFilterType.Neck] = INVTYPE_NECK,
@@ -76,7 +66,6 @@ local BOSS_LOOT_BUTTON_HEIGHT = 45
 local INSTANCE_LOOT_BUTTON_HEIGHT = 64
 
 function Atlas_EJ_ResetLootFilter()
-	if (WoWClassicEra or WoWClassicTBC) then return end
 	EJ_ResetLootFilter()
 end
 
@@ -87,9 +76,14 @@ function Atlas_EncounterJournal_DisplayLoot(instanceID, encounterId)
 end
 
 function Atlas_EncounterJournal_OnLoad(self)
-	if (WoWClassicEra or WoWClassicTBC) then return end
+	if (select(4, GetBuildInfo()) < 40000) then return end
 	self:RegisterEvent("EJ_DIFFICULTY_UPDATE");
 	self:RegisterEvent("EJ_LOOT_DATA_RECIEVED");
+
+	-- On retail, the close button is too big, make it smaller
+	if (select(4, GetBuildInfo()) > 90000) then
+		AtlasEJLootFrameCloseButton:SetSize(24, 24);
+	end
 
 	local view = CreateScrollBoxListLinearView();
 	view:SetElementExtentCalculator(function(dataIndex, elementData)
@@ -213,8 +207,8 @@ function Atlas_EncounterJournal_LootUpdate()
 	local veryRareLoot = {};
 	local extremelyRareLoot = {};
 	local seasonalLoot = {};
-	local currentSeason = C_SeasonInfo.GetCurrentDisplaySeasonID();
-	local currentSeasonExpansion = C_SeasonInfo.GetCurrentDisplaySeasonExpansion();
+	local currentSeason = C_SeasonInfo and C_SeasonInfo.GetCurrentDisplaySeasonID() or 0;
+	local currentSeasonExpansion = C_SeasonInfo and C_SeasonInfo.GetCurrentDisplaySeasonExpansion() or 0;
 
 	for i = 1, EJ_GetNumLoot() do
 		local itemInfo = C_EncounterJournal.GetLootInfoByIndex(i);
@@ -239,7 +233,7 @@ function Atlas_EncounterJournal_LootUpdate()
 	end
 
 	local seasonalHeaderTitle;
-	local uiSeason = PVPUtil.GetCurrentSeasonNumber();
+	local uiSeason = PVPUtil and PVPUtil.GetCurrentSeasonNumber() or 0;
 	if #seasonalLoot > 0 and currentSeason and currentSeasonExpansion then
 		seasonalHeaderTitle = EXPANSION_SEASON_NAME:format(GetExpansionName(currentSeasonExpansion), uiSeason);
 	end
@@ -273,25 +267,30 @@ function Atlas_EncounterJournal_Loot_OnUpdate(self)
 	end
 end
 
-function Atlas_EncounterJournal_SetTooltip(link)
+function Atlas_EncounterJournal_SetTooltip(link, itemID)
 	if (not link) then
 		return;
 	end
 
-	local classID, specID = EJ_GetLootFilter();
+	if (GameTooltip.ProcessInfo) then
+		local classID, specID = EJ_GetLootFilter();
 
-	if (specID == 0) then
-		local spec = C_SpecializationInfo.GetSpecialization();
-		if (spec and classID == select(3, UnitClass("player"))) then
-			specID = C_SpecializationInfo.GetSpecializationInfo(spec, nil, nil, nil, UnitSex("player"));
-		else
-			specID = -1;
+		if (specID == 0) then
+			local spec = C_SpecializationInfo.GetSpecialization();
+			if (spec and classID == select(3, UnitClass("player"))) then
+				specID = C_SpecializationInfo.GetSpecializationInfo(spec, nil, nil, nil, UnitSex("player"));
+			else
+				specID = -1;
+			end
 		end
-	end
 
-	local tooltipInfo = CreateBaseTooltipInfo("GetHyperlink", link, classID, specID);
-	tooltipInfo.compareItem = true;
-	GameTooltip:ProcessInfo(tooltipInfo);
+		local tooltipInfo = CreateBaseTooltipInfo("GetHyperlink", link, classID, specID);
+		tooltipInfo.compareItem = true;
+		GameTooltip:ProcessInfo(tooltipInfo);
+	else
+		GameTooltip:SetItemByID(itemID);
+		GameTooltip_ShowCompareItem(GameTooltip)
+	end
 end
 
 function Atlas_EncounterJournal_Refresh()
@@ -374,6 +373,7 @@ function Atlas_EncounterJournal_InitLootSlotFilter(self, level)
 		Atlas_EncounterJournal_OnFilterChanged();
 	end
 
+	dropdown:SetWidth(100);
 	dropdown:SetupMenu(function(dropdown, rootDescription)
 		rootDescription:CreateRadio(ALL_INVENTORY_SLOTS, IsSelected, SetSelected, Enum.ItemSlotFilterType.NoFilter);
 
@@ -398,6 +398,7 @@ function Atlas_EncounterJournal_DifficultyInit()
 		Atlas_EncounterJournal_OnFilterChanged();
 	end
 
+	dropdown:SetWidth(140);
 	dropdown:SetupMenu(function(dropdown, rootDescription)
 		for index, difficulty in ipairs(ATLAS_EJ_DIFFICULTIES) do
 			if EJ_IsValidInstanceDifficulty(difficulty.difficultyID) then
