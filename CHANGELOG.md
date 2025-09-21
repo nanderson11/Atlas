@@ -1,6 +1,6 @@
 # Changelog
 
-## 3.12.0 -
+## 3.12.0 - September 21, 2025
 ### Added
 - MoP: Added loot browser that's slightly better than the Dungeon Journal by allowing you to filter by spec in addition to class (accessible by right clicking on a boss portrait)
 - Search works as you type
@@ -9,8 +9,10 @@
 - UI updates to the bottom bar
 - Retail: UI updates to the loot browser (accessible by right clicking on a boss portrait)
 ### Fixed
-- MoP: Removed Gate of the Setting Sun and Siege of Niuzao Temple achievements that didn't get added until WoD
-- MoP: Fix error when opening UBRS map
+- MoP: Removed Gate of the Setting Sun, Siege of Niuzao Temple and Ulduar achievements that didn't get added until later
+- MoP: Fixed error when opening UBRS map
+- MoP: Fixed RFD, RFK and BFD using their Retail maps when they should be using Classic maps
+- MoP: Fixed Vanilla and WOTLK raids having dungeon journal buttons when those raids aren't yet in the dungeon journal
 
 ## 3.11.0 - September 13, 2025
 ### Changed
