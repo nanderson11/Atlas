@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.12.1 -
+### Added
+- Atlas can now be opened in combat
+### Changed
+- MoP: Updated TOC to 5.5.1
+
 ## 3.12.0 - September 21, 2025
 ### Added
 - MoP: Added loot browser that's slightly better than the Dungeon Journal by allowing you to filter by spec in addition to class (accessible by right clicking on a boss portrait)

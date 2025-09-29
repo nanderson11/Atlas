@@ -132,7 +132,8 @@
 		"GetExpansionName",
 		"CreateBaseTooltipInfo",
 		"AtlasEJLootFrameCloseButton",
-		"GameTooltip_ShowCompareItem"
+		"GameTooltip_ShowCompareItem",
+		"CLOSE"
 	],
 	"Lua.runtime.version": "Lua 5.1",
 	"Lua.runtime.builtin": {

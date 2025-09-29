@@ -189,7 +189,7 @@ function addon:AdventureJournal_MapButton_OnClick(frame)
 
 	local uiMapID = frame.mapID
 
-	HideUIPanel(AtlasFrame)
+	AtlasFrame:Hide()
 	WorldMapFrame.fromJournal = true
 	ShowUIPanel(WorldMapFrame)
 	if (uiMapID) then
