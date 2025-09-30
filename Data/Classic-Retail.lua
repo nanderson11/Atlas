@@ -1029,37 +1029,6 @@ db.AtlasMaps = {
 		{ ORNG.." 5) "..Atlas_GetBossName("Zerillis")..ALC["L-Parenthesis"]..ALC["Rare"]..ALC["Comma"]..ALC["Wanders"]..ALC["R-Parenthesis"],  10004 },
 		{ GREN.." 1') "..L["Elder Wildmane"]..ALC["L-Parenthesis"]..ALC["Lunar Festival"]..ALC["R-Parenthesis"],                               10005 },
 	},
-	-- Add Classic UBRS for Cataclysm and Mists
-	CL_BlackrockSpireUpper = {
-		ZoneName = { BZ["Blackrock Mountain"]..ALC["Colon"]..BZ["Upper Blackrock Spire"] },
-		Location = { BZ["Searing Gorge"]..ALC["Slash"]..BZ["Burning Steppes"] },
-		DungeonID = 43,
-		LevelRange = "56-60",
-		PlayerLimit = { 5 },
-		Acronym = L["UBRS"],
-		WorldMapID = 616,
-		JournalInstanceID = 559,
-		Module = "Atlas_ClassicWoW",
-		{ BLUE.." A) "..ALC["Entrance"] },
-		{ BLUE.." B) "..BZ["Blackrock Spire"]..ALC["L-Parenthesis"]..ALC["Lower"]..ALC["R-Parenthesis"] },
-		{ BLUE.."C-E) "..ALC["Connection"] },
-		{ WHIT.." 1) "..Atlas_GetBossName("Pyroguard Emberseer") },
-		{ WHIT.." 2) "..Atlas_GetBossName("Solakar Flamewreath") },
-		{ WHIT..INDENT..L["Father Flame"] },
-		{ WHIT.." 3) "..L["Darkstone Tablet"] },
-		{ WHIT..INDENT..L["Doomrigger's Coffer"] },
-		{ WHIT.." 4) "..Atlas_GetBossName("Jed Runewatcher")..ALC["L-Parenthesis"]..ALC["Rare"]..ALC["R-Parenthesis"] },
-		{ WHIT.." 5) "..Atlas_GetBossName("Goraluk Anvilcrack") },
-		{ WHIT.." 6) "..Atlas_GetBossName("Warchief Rend Blackhand") },
-		{ WHIT..INDENT..Atlas_GetBossName("Gyth") },
-		{ WHIT.." 7) "..L["Awbee"] },
-		{ WHIT.." 8) "..Atlas_GetBossName("The Beast") },
-		{ WHIT..INDENT..Atlas_GetBossName("Lord Valthalak"),                                                          ALC["L-Parenthesis"]..ALC["Summon"]..ALC["R-Parenthesis"] },
-		{ WHIT..INDENT..L["Finkle Einhorn"] },
-		{ WHIT.." 9) "..Atlas_GetBossName("General Drakkisath") },
-		{ WHIT..INDENT..L["Drakkisath's Brand"] },
-		{ WHIT.."10) "..BZ["Blackwing Lair"] },
-	},
 }
 
 
@@ -2023,12 +1992,3 @@ db.DropDownLayouts = {
 		},
 	},
 }
-
-local wowversion = select(4, GetBuildInfo())
-if wowversion > 40000 and wowversion < 60000 then
-	tinsert(db.DropDownLayouts[ATLAS_DDL_CONTINENT][ATLAS_DDL_CONTINENT_EASTERN], "CL_BlackrockSpireUpper");
-	tinsert(db.DropDownLayouts[ATLAS_DDL_EXPANSION][ATLAS_DDL_EXPANSION_OLD], "CL_BlackrockSpireUpper");
-	tinsert(db.DropDownLayouts[ATLAS_DDL_LEVEL][ATLAS_DDL_LEVEL_10TO30], "CL_BlackrockSpireUpper");
-	tinsert(db.DropDownLayouts[ATLAS_DDL_PARTYSIZE][ATLAS_DDL_PARTYSIZE_5], "CL_BlackrockSpireUpper");
-	tinsert(db.DropDownLayouts[ATLAS_DDL_TYPE][ATLAS_DDL_TYPE_INSTANCE], "CL_BlackrockSpireUpper");
-end

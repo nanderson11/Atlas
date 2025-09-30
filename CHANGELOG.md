@@ -1,10 +1,13 @@
 # Changelog
 
-## 3.12.1 -
+## 3.12.1 - September 29, 2025
 ### Added
 - Atlas can now be opened in combat
+- MoP: Add boss portraits and buttons for UBRS
 ### Changed
 - MoP: Updated TOC to 5.5.1
+### Fixed
+- MoP: Fix journal and journal map buttons for UBRS
 
 ## 3.12.0 - September 21, 2025
 ### Added

@@ -1064,26 +1064,26 @@ db.AtlasMaps = {
 		LevelRange = "56-60",
 		PlayerLimit = { 5 },
 		Acronym = L["UBRS"],
-		WorldMapID = 616,
-		JournalInstanceID = 559,
+		WorldMapID = 255,
+		JournalInstanceID = 229,
 		Module = "Atlas_ClassicWoW",
 		{ BLUE.." A) "..ALC["Entrance"] },
 		{ BLUE.." B) "..BZ["Blackrock Spire"]..ALC["L-Parenthesis"]..ALC["Lower"]..ALC["R-Parenthesis"] },
 		{ BLUE.."C-E) "..ALC["Connection"] },
-		{ WHIT.." 1) "..Atlas_GetBossName("Pyroguard Emberseer") },
-		{ WHIT.." 2) "..Atlas_GetBossName("Solakar Flamewreath") },
+		{ WHIT.." 1) "..Atlas_GetBossName("Pyroguard Emberseer", 397),                                                 397 },
+		{ WHIT.." 2) "..Atlas_GetBossName("Solakar Flamewreath", 398),                                                 398 },
 		{ WHIT..INDENT..L["Father Flame"] },
 		{ WHIT.." 3) "..L["Darkstone Tablet"] },
 		{ WHIT..INDENT..L["Doomrigger's Coffer"] },
 		{ WHIT.." 4) "..Atlas_GetBossName("Jed Runewatcher")..ALC["L-Parenthesis"]..ALC["Rare"]..ALC["R-Parenthesis"] },
 		{ WHIT.." 5) "..Atlas_GetBossName("Goraluk Anvilcrack") },
-		{ WHIT.." 6) "..Atlas_GetBossName("Warchief Rend Blackhand") },
+		{ WHIT.." 6) "..Atlas_GetBossName("Warchief Rend Blackhand", 399),                                             399 },
 		{ WHIT..INDENT..Atlas_GetBossName("Gyth") },
 		{ WHIT.." 7) "..L["Awbee"] },
-		{ WHIT.." 8) "..Atlas_GetBossName("The Beast") },
+		{ WHIT.." 8) "..Atlas_GetBossName("The Beast", 400),                                                           400 },
 		{ WHIT..INDENT..Atlas_GetBossName("Lord Valthalak")..ALC["L-Parenthesis"]..ALC["Summon"]..ALC["R-Parenthesis"] },
 		{ WHIT..INDENT..L["Finkle Einhorn"] },
-		{ WHIT.." 9) "..Atlas_GetBossName("General Drakkisath") },
+		{ WHIT.." 9) "..Atlas_GetBossName("General Drakkisath", 401),                                                  401 },
 		{ WHIT..INDENT..L["Drakkisath's Brand"] },
 		{ WHIT.."10) "..BZ["Blackwing Lair"] },
 	},
@@ -1211,6 +1211,13 @@ db.AtlasMaps_NPC_DB = {
 		{ "1'", 10011, 135, 106 },
 		{ "2'", 10012, 345, 45 },
 		{ "3'", 10013, 396, 152 },
+	},
+	CL_BlackrockSpireUpper = {
+		{ 1, 397, 37,  319 }, -- Pyroguard Emberseer
+		{ 2, 398, 112, 390 }, -- Solakar Flamewreath
+		{ 3, 399, 405, 90 }, -- Warchief Rend Blackhand
+		{ 4, 400, 470, 350 }, -- The Beast
+		{ 5, 401, 185, 430 }, -- General Drakkisath
 	},
 	ScarletHalls = {
 		{ 1,    10002, 230, 384 }, -- Commander Lindon
