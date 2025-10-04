@@ -1,6 +1,8 @@
 # Changelog
 
 ## 3.12.2 -
+### Added
+- Retail: Added achievements to TBC instances
 ### Fixed
 - MoP: Fix possible error on boss kill
 
