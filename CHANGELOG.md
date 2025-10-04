@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.12.2 -
+### Fixed
+- MoP: Fix possible error on boss kill
+
 ## 3.12.1 - September 29, 2025
 ### Added
 - Atlas can now be opened in combat

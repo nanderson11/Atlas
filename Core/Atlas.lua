@@ -1684,7 +1684,7 @@ function addon:BOSS_KILL(_, encounterID)
 	if (t) then
 		while (t[i]) do
 			local button = _G["AtlasMapBossButton"..i]
-			if button then
+			if button and button.DefeatedOpacity then
 				local complete = C_EncounterJournal.IsEncounterComplete(button.encounterID);
 				button.DefeatedOpacity:SetShown(complete);
 				button.DefeatedOverlay:SetShown(complete);
@@ -1692,7 +1692,7 @@ function addon:BOSS_KILL(_, encounterID)
 			end
 
 			button = _G["AtlasMapBossButtonS"..i]
-			if button then
+			if button and button.DefeatedOpacity then
 				local complete = C_EncounterJournal.IsEncounterComplete(button.encounterID);
 				button.DefeatedOpacity:SetShown(complete);
 				button.DefeatedOverlay:SetShown(complete);
