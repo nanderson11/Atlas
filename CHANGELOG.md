@@ -8,6 +8,7 @@
 - MoP: Changed TBC maps to the retail versions, which are generally the same but have a few questgivers that were added in Cataclysm
 ### Fixed
 - MoP: Fix possible error on boss kill
+- Vanilla: Fix a few instances not getting a difficulty color in the dropdowns
 
 ## 3.12.1 - September 29, 2025
 ### Added

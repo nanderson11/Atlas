@@ -193,6 +193,12 @@ function AtlasFrameDropDown_OnShow()
 				if (minRecLevel == 0) then
 					minRecLevel = minLevel
 				end
+
+				if (not minRecLevel and AtlasMaps[v].ActivityID) then
+					local info = C_LFGList.GetActivityInfoTable(AtlasMaps[v].ActivityID[2])
+					minRecLevel = info.minLevelSuggestion == 0 and info.minLevel or info.minLevelSuggestion
+				end
+
 				local dungeon_difficulty = addon:GetDungeonDifficultyColor(minRecLevel)
 				colortag = addon:FormatColor(dungeon_difficulty)
 			elseif (addon.db.profile.options.dropdowns.color and AtlasMaps[v].DungeonHeroicID) then
