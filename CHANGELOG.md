@@ -1,12 +1,14 @@
 # Changelog
 
-## 3.12.2 -
+## 3.12.2 - October 7, 2025
 ### Added
 - Retail: Added achievements to TBC instances
 - MoP: Added boss portraits and buttons to non-raid TBC instances
 ### Changed
 - MoP: Changed TBC maps to the retail versions, which are generally the same but have a few questgivers that were added in Cataclysm
+- Retail: Updated TOC to 11.2.5
 ### Fixed
+- Retail: Fix error on load
 - MoP: Fix possible error on boss kill
 - Vanilla: Fix a few instances not getting a difficulty color in the dropdowns
 

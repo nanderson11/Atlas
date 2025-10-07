@@ -1629,9 +1629,7 @@ function addon:OnEnable()
 		ScrollBar:SetPoint("BOTTOMLEFT", ScrollBox, "BOTTOMRIGHT", -3, -7)
 	end
 
-	local DataProvider = CreateDataProvider()
 	local ScrollView = CreateScrollBoxListLinearView()
-	ScrollView:SetDataProvider(DataProvider)
 
 	ScrollUtil.InitScrollBoxListWithScrollBar(ScrollBox, ScrollBar, ScrollView)
 
@@ -1648,6 +1646,9 @@ function addon:OnEnable()
 	ScrollView:SetElementFactory(CustomFactory)
 
 	ScrollBar:SetHideIfUnscrollable(true)
+
+	local DataProvider = CreateDataProvider()
+	ScrollView:SetDataProvider(DataProvider)
 
 	AtlasFrameBottomInset.ScrollBox = ScrollBox
 
