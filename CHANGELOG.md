@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.12.3 - October 22, 2025
+### Changed
+- Classic Era: Updated TOC to 1.15.8
+
 ## 3.12.2 - October 7, 2025
 ### Added
 - Retail: Added achievements to TBC instances
