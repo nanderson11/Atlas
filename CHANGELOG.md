@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.12.4 - October 29, 2025
+### Changed
+- MoP: Updated TOC to 5.5.2
+
 ## 3.12.3 - October 22, 2025
 ### Changed
 - Classic Era: Updated TOC to 1.15.8
