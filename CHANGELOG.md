@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.12.5 -
+### Added
+- Added new translations for some languages
+
 ## 3.12.4 - October 29, 2025
 ### Changed
 - MoP: Updated TOC to 5.5.2
