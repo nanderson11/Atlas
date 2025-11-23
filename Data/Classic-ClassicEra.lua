@@ -935,7 +935,7 @@ db.AtlasMaps = {
 		{ GREN..INDENT..L["Lorekeeper Kildrath"] },
 		{ GREN..INDENT..L["Lorekeeper Mykos"] },
 		{ GREN..INDENT..L["Shen'dralar Provisioner"] },
-		{ GREN..INDENT..L["Skeletal Remains of Kariel Winthalus"] },
+		{ GREN..INDENT..L["Skeletal Remains of Telmius Dreamseeker"] },
 	},
 	CL_MaraudonEnt = {
 		ZoneName = { BZ["Maraudon"]..ALC["L-Parenthesis"]..ALC["Entrance"]..ALC["R-Parenthesis"] },
