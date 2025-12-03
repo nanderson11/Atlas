@@ -1,8 +1,10 @@
 # Changelog
 
-## 3.12.5 -
+## 3.12.5 - December 3, 2025
 ### Added
 - Added new translations for some languages
+### Changed
+- Retail: Updated TOC to 11.2.7
 ### Fixed
 - Classic Era: Updated some NPC names that had changed
 
