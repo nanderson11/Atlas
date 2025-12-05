@@ -272,5 +272,5 @@ L["West"] = "Oeste"
 L["Yarley <Armorer>"] = "Yarley <Armero>"
 L["Zaladormu"] = "Zaladormu"
 
-L["Find group for this instance"] = "Buscar grupo para esta instancia"
-L["LFG is unavailable until level 10"] = "LFG no está disponible hasta el nivel 10"
+L["Find group for this instance"] = "Buscar grupo para esta estancia"
+L["LFG is unavailable until level 10"] = "BG no está disponible hasta el nivel 10"
