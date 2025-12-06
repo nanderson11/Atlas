@@ -391,3 +391,6 @@ L["Tunnel"] = "Túnel"
 L["West"] = "Oeste"
 L["Yarley <Armorer>"] = "Yarley <Armoraria>"
 L["Zaladormu"] = "Zaladormu"
+
+L["Find group for this instance"] = "Procurando grupo para esta instância"
+L["LFG is unavailable until level 10"] = "PG não está disponível até o nível 10"
