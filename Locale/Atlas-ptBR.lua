@@ -293,7 +293,7 @@ L["Key"] = "Chave"
 --[[ L["Love is in the Air"] = "Love is in the Air"--]]
 --[[Translation missing --]]
 --[[ L["Lower"] = "Lower"--]]
-L["L-Parenthesis"] = "("
+L["L-Parenthesis"] = " ("
 --[[Translation missing --]]
 --[[ L["Lunar Festival"] = "Lunar Festival"--]]
 L["MapA"] = "[A]"

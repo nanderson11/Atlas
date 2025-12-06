@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.12.6 -
+### Changed
+- Updated translations
+
 ## 3.12.5 - December 3, 2025
 ### Added
 - Added new translations for some languages
