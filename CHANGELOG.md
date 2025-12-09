@@ -1,6 +1,6 @@
 # Changelog
 
-## 3.12.6 -
+## 3.12.6 - December 9, 2025
 ### Changed
 - MoP: Updated TOC to 5.5.3
 - Updated translations
