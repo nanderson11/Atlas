@@ -2,6 +2,7 @@
 
 ## 3.12.6 -
 ### Changed
+- MoP: Updated TOC to 5.5.3
 - Updated translations
 
 ## 3.12.5 - December 3, 2025
