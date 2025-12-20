@@ -496,7 +496,7 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..L["Stratholme Courier"],                                                                                                        10002 },
 		{ WHIT..INDENT..L["Fras Siabi"] },
 		{ WHIT.." 2) "..Atlas_GetBossName("Atiesh")..ALC["L-Parenthesis"]..ALC["Summon"]..ALC["R-Parenthesis"] },
-		{ WHIT.." 3) "..Atlas_GetBossName("Hearthsinger Forresten", 443)..ALC["L-Parenthesis"]..ALC["Varies"]..ALC["R-Parenthesis"],                    10003, 443 },
+		{ WHIT.." 3) "..Atlas_GetBossName("Hearthsinger Forresten", 443)..ALC["L-Parenthesis"]..ALC["Varies"]..ALC["R-Parenthesis"],                    443 },
 		{ WHIT.." 4) "..Atlas_GetBossName("The Unforgiven", 450),                                                                                       450 },
 		{ WHIT.." 5) "..L["Elder Farwhisper"]..ALC["L-Parenthesis"]..ALC["Lunar Festival"]..ALC["R-Parenthesis"],                                       10007 },
 		{ WHIT.." 6) "..Atlas_GetBossName("Timmy the Cruel", 445),                                                                                      445 },

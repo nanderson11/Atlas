@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.12.7 - December 20, 2025
+### Added
+- Retail: Added boss info for Postmaster Malown in Stratholme - Crusaders' Square
+### Changed
+- Updated translations
+### Fixed
+- Removed random item tooltip on Hearthsinger Forresten
+- Retail/MoP: Fixed locations of Timmy the Cruel and Hearthsinger Forresten
+
 ## 3.12.6 - December 9, 2025
 ### Changed
 - MoP: Updated TOC to 5.5.3
