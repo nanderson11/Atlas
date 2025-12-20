@@ -250,7 +250,7 @@ L["Basement"] = "Porão"
 --[[ L["BINDING_NAME_ATLAS_OPTIONS"] = "Toggle Options"--]]
 --[[Translation missing --]]
 --[[ L["BINDING_NAME_ATLAS_TOGGLE"] = "Toggle Atlas"--]]
-L["Blacksmithing Plans"] = "Planos de Ferraria"
+L["Blacksmithing Plans"] = "Instruções de Ferraria"
 --[[Translation missing --]]
 --[[ L["Bodley"] = "Bodley"--]]
 --[[Translation missing --]]
