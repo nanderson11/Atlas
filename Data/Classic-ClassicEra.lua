@@ -262,7 +262,7 @@ db.AtlasMaps = {
 		{ WHIT.." 6) "..Atlas_GetBossName("Flamegor", 1534),                1534 },
 		{ WHIT.." 7) "..Atlas_GetBossName("Chromaggus", 1535),              1535 },
 		{ WHIT.." 8) "..Atlas_GetBossName("Nefarian", 1536),                1536 },
-		{ WHIT.." 9)"..L["Master Elemental Shaper Krixix"] },
+		{ WHIT.." 9) "..L["Master Elemental Shaper Krixix"] },
 	},
 	CL_GnomereganEnt = {
 		ZoneName = { BZ["Gnomeregan"]..ALC["L-Parenthesis"]..ALC["Entrance"]..ALC["R-Parenthesis"] },
