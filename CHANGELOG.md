@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.12.8 -
+### Fixed
+- Classic Era: Fixed blank line in UBRS
+
 ## 3.12.7 - December 20, 2025
 ### Added
 - Retail: Added boss info for Postmaster Malown in Stratholme - Crusaders' Square

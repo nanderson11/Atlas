@@ -234,7 +234,7 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Gyth") },
 		{ WHIT.." 7) "..L["Awbee"] },
 		{ WHIT.." 8) "..Atlas_GetBossName("The Beast") },
-		{ WHIT..INDENT..Atlas_GetBossName("Lord Valthalak"),                                                          ALC["L-Parenthesis"]..ALC["Summon"]..ALC["R-Parenthesis"] },
+		{ WHIT..INDENT..Atlas_GetBossName("Lord Valthalak")..ALC["L-Parenthesis"]..ALC["Summon"]..ALC["R-Parenthesis"] },
 		{ WHIT..INDENT..L["Finkle Einhorn"] },
 		{ WHIT.." 9) "..Atlas_GetBossName("General Drakkisath") },
 		{ WHIT..INDENT..L["Drakkisath's Brand"] },
