@@ -5614,7 +5614,7 @@ lib:SetCurrentTranslations
 	["Sunken Path"] = "Caminho Submerso",
 	["Sunken Shallows"] = "Praia Inundada",
 	["Sunken Stair"] = "Escadaria Submersa",
-	["Sunken Temple"] = "Sunken Temple",
+	["Sunken Temple"] = "Templo Submerso",
 	["Sunken Temple Entrance"] = "Entrada do Templo Submerso",
 	["SunkenTemple"] = "Templo Submerso",
 	["Sunreaver Pavilion"] = "Pavilhão Fendessol",
@@ -8250,3 +8250,4 @@ lib:SetCurrentTranslations
 	["Zun'watha"] = "Zun'watha",
 	["Zuuldaia Ruins"] = "Ruínas Zuuldaia"
 }
+
