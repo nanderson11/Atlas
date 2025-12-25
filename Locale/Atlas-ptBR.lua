@@ -258,8 +258,8 @@ L["Blacksmithing Plans"] = "Instruções de Ferraria"
 --[[Translation missing --]]
 --[[ L["Brewfest"] = "Brewfest"--]]
 L["Child"] = "Criança"
-L["Colon"] = ":"
-L["Comma"] = ","
+L["Colon"] = ": "
+L["Comma"] = ", "
 L["Connection"] = "Conexão"
 L["East"] = "Leste"
 L["Elevator"] = "Elevador"
