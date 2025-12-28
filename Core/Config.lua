@@ -31,22 +31,9 @@ local FOLDER_NAME, private = ...
 local addon                = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L                    = LibStub("AceLocale-3.0"):GetLocale(private.addon_name);
 
--- Determine WoW TOC Version
-local WoWClassicEra, WoWClassicTBC, WoWWOTLKC, WoWRetail
-local wowversion           = select(4, GetBuildInfo())
-if wowversion < 20000 then
-	WoWClassicEra = true
-elseif wowversion < 30000 then
-	WoWClassicTBC = true
-elseif wowversion < 40000 then
-	WoWWOTLKC = true
-elseif wowversion > 90000 then
-	WoWRetail = true
-end
-
-local AceConfigReg = LibStub("AceConfigRegistry-3.0")
-local AceConfigDialog = LibStub("AceConfigDialog-3.0")
-local AceDBOptions = LibStub("AceDBOptions-3.0")
+local AceConfigReg         = LibStub("AceConfigRegistry-3.0")
+local AceConfigDialog      = LibStub("AceConfigDialog-3.0")
+local AceDBOptions         = LibStub("AceDBOptions-3.0")
 
 local optGetter, optSetter
 do

@@ -1,6 +1,8 @@
 # Changelog
 
-## 3.12.8 -
+## 3.13.0 - December 28, 2025
+### Added
+- Anniversary: Added support for TBC
 ### Fixed
 - Classic Era: Fixed blank line in UBRS
 
