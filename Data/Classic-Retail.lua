@@ -428,7 +428,7 @@ db.AtlasMaps = {
 		{ WHIT.." 2) "..Atlas_GetBossName("The Unforgiven", 450),                                                          450 },
 		{ WHIT.." 3) "..Atlas_GetBossName("Postmaster Malown", 2633),                                                      2633 },
 		{ ORNG..INDENT..Atlas_GetBossName("Skul")..ALC["L-Parenthesis"]..ALC["Rare"]..ALC["R-Parenthesis"] },
-		{ GREN..INDENT..L["Fras Siabi's Postbox"] },
+		{ GREN..INDENT..L["Ezra Grimm's Postbox"] },
 		{ WHIT.." 4) "..Atlas_GetBossName("Timmy the Cruel", 445),                                                         445 },
 		{ WHIT.." 5) "..Atlas_GetBossName("Commander Malor", 749),                                                         749 },
 		{ WHIT.." 6) "..Atlas_GetBossName("Willey Hopebreaker", 446),                                                      446 },

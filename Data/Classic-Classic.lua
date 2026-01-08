@@ -433,7 +433,7 @@ db.AtlasMaps = {
 		{ WHIT.." 7) "..Atlas_GetBossName("Balnazzar", 449),                                                               449 },
 		{ ORNG.." 1) "..L["Stratholme Courier"],                                                                           10002 },
 		{ ORNG..INDENT..Atlas_GetBossName("Skul")..ALC["L-Parenthesis"]..ALC["Rare"]..ALC["R-Parenthesis"] },
-		{ GREN..INDENT..L["Fras Siabi's Postbox"] },
+		{ GREN..INDENT..L["Ezra Grimm's Postbox"] },
 		{ ORNG.." 3) "..Atlas_GetBossName("Risen Hammersmith")..ALC["L-Parenthesis"]..ALC["Summon"]..ALC["R-Parenthesis"], 10004 },
 		{ GREN..INDENT..ALC["Blacksmithing Plans"] },
 		{ GREN.." 1') "..L["King's Square Postbox"],                                                                       10005 },

@@ -494,7 +494,7 @@ db.AtlasMaps = {
 		{ BLUE.." B) "..ALC["Entrance"]..ALC["L-Parenthesis"]..L["Side"]..ALC["R-Parenthesis"] },
 		{ WHIT.." 1) "..Atlas_GetBossName("Skul")..ALC["L-Parenthesis"]..ALC["Rare"]..ALC["R-Parenthesis"] },
 		{ WHIT..INDENT..L["Stratholme Courier"],                                                                                                             10002 },
-		{ WHIT..INDENT..L["Fras Siabi"] },
+		{ WHIT..INDENT..L["Ezra Grimm"] },
 		{ WHIT.." 2) "..Atlas_GetBossName("Atiesh")..ALC["L-Parenthesis"]..ALC["Summon"]..ALC["R-Parenthesis"] },
 		{ WHIT.." 3) "..Atlas_GetBossName("Hearthsinger Forresten", 443)..ALC["L-Parenthesis"]..ALC["Varies"]..ALC["R-Parenthesis"],                         443 },
 		{ WHIT.." 4) "..Atlas_GetBossName("The Unforgiven", 450),                                                                                            450 },
@@ -526,7 +526,7 @@ db.AtlasMaps = {
 		{ GREN.." 3') "..L["Festival Lane Postbox"] },
 		{ GREN.." 4') "..L["Elders' Square Postbox"] },
 		{ GREN.." 5') "..L["King's Square Postbox"] },
-		{ GREN.." 6') "..L["Fras Siabi's Postbox"] },
+		{ GREN.." 6') "..L["Ezra Grimm's Postbox"] },
 		{ GREN..L["3rd Box Opened: Postmaster Malown"] },
 	},
 	CL_TheDeadminesEnt = {
