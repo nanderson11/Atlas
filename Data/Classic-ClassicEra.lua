@@ -491,7 +491,7 @@ db.AtlasMaps = {
 		Module = "Atlas_ClassicWoW",
 		{ ORNG..ALC["Key"]..ALC["Colon"]..L["Various Postbox Keys"]..ALC["L-Parenthesis"]..Atlas_GetBossName("Postmaster Malown")..ALC["R-Parenthesis"] },
 		{ BLUE.." A) "..ALC["Entrance"]..ALC["L-Parenthesis"]..ALC["Front"]..ALC["R-Parenthesis"] },
-		{ BLUE.." B) "..ALC["Entrance"]..ALC["L-Parenthesis"]..ALC["Side"]..ALC["R-Parenthesis"] },
+		{ BLUE.." B) "..ALC["Entrance"]..ALC["L-Parenthesis"]..L["Side"]..ALC["R-Parenthesis"] },
 		{ WHIT.." 1) "..Atlas_GetBossName("Skul")..ALC["L-Parenthesis"]..ALC["Rare"]..ALC["R-Parenthesis"] },
 		{ WHIT..INDENT..L["Stratholme Courier"],                                                                                                        10002 },
 		{ WHIT..INDENT..L["Fras Siabi"] },
