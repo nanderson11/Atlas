@@ -350,7 +350,7 @@ local function getOptions()
 end
 
 local function openOptions()
-	Settings.OpenToCategory("Atlas");
+	Settings.OpenToCategory(addon.settingsID);
 end
 
 function addon:OpenOptions()
@@ -362,11 +362,9 @@ local function giveProfiles()
 end
 
 function addon:SetupOptions()
-	self.optionsFrames = {}
-
 	-- setup options table
 	AceConfigReg:RegisterOptionsTable(addon.LocName, getOptions)
-	self.optionsFrames.General = AceConfigDialog:AddToBlizOptions(addon.LocName, nil, nil, "general")
+	self.optionsFrame, self.settingsID = AceConfigDialog:AddToBlizOptions(addon.LocName, nil, nil, "general")
 
 	self:RegisterModuleOptions("Profiles", giveProfiles, L["Profile Options"])
 
@@ -382,5 +380,5 @@ end
 -- Output: None.
 function addon:RegisterModuleOptions(name, optionTbl, displayName)
 	moduleOptions[name] = optionTbl
-	self.optionsFrames[name] = AceConfigDialog:AddToBlizOptions(addon.LocName, displayName, addon.LocName, name)
+	AceConfigDialog:AddToBlizOptions(addon.LocName, displayName, addon.LocName, name)
 end
