@@ -1,5 +1,16 @@
 # Changelog
 
+## 3.14.0 - January 19, 2026
+### Added
+- Retail: Added support for Midnight (no new maps yet)
+### Changed
+- Updated libraries
+- Updated translations
+### Fixed
+- TBC: Fixed Hellfire Ramparts not using the Classic map
+- TBC: Fixed Caverns of Time (Entrance) not using the TBC map
+- Era: Fix level range of Maraudon
+
 ## 3.13.0 - December 28, 2025
 ### Added
 - Anniversary: Added support for TBC

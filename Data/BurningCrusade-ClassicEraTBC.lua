@@ -389,7 +389,7 @@ db.AtlasMaps = {
 		{ WHIT.." 2) "..Atlas_GetBossName("Broggok", 556),                                                               556 },
 		{ WHIT.." 3) "..Atlas_GetBossName("Keli'dan the Breaker", 557),                                                  557 },
 	},
-	HCHellfireRamparts = {
+	CL_HCHellfireRamparts = {
 		ZoneName = { BZ["Hellfire Citadel"]..ALC["Colon"]..BZ["Hellfire Ramparts"] },
 		Location = { BZ["Hellfire Peninsula"] },
 		DungeonID = 136,
@@ -718,7 +718,7 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Grand Astromancer Capernian", 1576, 4)..ALC["L-Parenthesis"]..Atlas_GetClassName("MAGE")..ALC["R-Parenthesis"] },
 		{ WHIT..INDENT..Atlas_GetBossName("Lord Sanguinar", 1576, 3)..ALC["L-Parenthesis"]..Atlas_GetClassName("PALADIN")..ALC["R-Parenthesis"] },
 	},
-	WL_CoTEnt = {
+	CL_CoTEnt = {
 		ZoneName = { BZ["Caverns of Time"]..ALC["L-Parenthesis"]..ALC["Entrance"]..ALC["R-Parenthesis"] },
 		Acronym = L["CoT"],
 		Location = { BZ["Tanaris"] },
@@ -728,7 +728,6 @@ db.AtlasMaps = {
 		{ BLUE.." B) "..BZ["Hyjal Summit"],                                                                               10002 },
 		{ BLUE.." C) "..BZ["Old Hillsbrad Foothills"],                                                                    10003 },
 		{ BLUE.." D) "..BZ["The Black Morass"],                                                                           10004 },
-		{ BLUE.." E) "..BZ["The Culling of Stratholme"],                                                                  10005 },
 		{ WHIT.." 1') "..ALC["Steward of Time <Keepers of Time>"],                                                        10010 },
 		{ WHIT.." 2') "..ALC["Alexston Chrome <Tavern of Time>"],                                                         10011 },
 		{ WHIT.." 3') "..ALC["Graveyard"],                                                                                10012 },
@@ -1315,7 +1314,7 @@ db.OutdoorZoneToAtlas = {
 	[BZ["Deadwind Pass"]] = "CL_KarazhanEnt",
 	[BZ["Isle of Quel'Danas"]] = "CL_SunwellPlateau",
 	[BZ["Netherstorm"]] = "TempestKeepEnt",
-	[BZ["Tanaris"]] = "WL_CoTEnt",
+	[BZ["Tanaris"]] = "CL_CoTEnt",
 	[BZ["Ghostlands"]] = "ZulAman",
 }
 
@@ -1323,10 +1322,10 @@ db.OutdoorZoneToAtlas = {
 db.EntToInstMatches = {
 	["CL_AuchindounEnt"] = { "CL_AuchManaTombs", "CL_AuchAuchenaiCrypts", "CL_AuchSethekkHalls", "CL_AuchShadowLabyrinth" },
 	["CL_CoilfangReservoirEnt"] = { "CL_CFRTheSlavePens", "CL_CFRTheUnderbog", "CL_CFRTheSteamvault", "CL_CFRSerpentshrineCavern" },
-	["HellfireCitadelEnt"] = { "CL_HCBloodFurnace", "HCHellfireRamparts", "CL_HCMagtheridonsLair", "CL_HCTheShatteredHalls" },
+	["HellfireCitadelEnt"] = { "CL_HCBloodFurnace", "CL_HCHellfireRamparts", "CL_HCMagtheridonsLair", "CL_HCTheShatteredHalls" },
 	["CL_KarazhanEnt"] = { "CL_KarazhanStart", "CL_KarazhanEnd" },
 	["TempestKeepEnt"] = { "CL_TempestKeepArcatraz", "CL_TempestKeepBotanica", "CL_TempestKeepMechanar", "CL_TempestKeepTheEye" },
-	["WL_CoTEnt"] = { "CoTBlackMorass", "CoTHyjal", "CoTOldHillsbrad", "CoTOldStratholme" },
+	["CL_CoTEnt"] = { "CoTBlackMorass", "CoTHyjal", "CoTOldHillsbrad", "CoTOldStratholme" },
 }
 
 -- Instance maps to entrance maps
@@ -1340,7 +1339,7 @@ db.InstToEntMatches = {
 	["CL_CFRTheSteamvault"] = { "CL_CoilfangReservoirEnt" },
 	["CL_CFRSerpentshrineCavern"] = { "CL_CoilfangReservoirEnt" },
 	["CL_HCBloodFurnace"] = { "HellfireCitadelEnt" },
-	["HCHellfireRamparts"] = { "HellfireCitadelEnt" },
+	["CL_HCHellfireRamparts"] = { "HellfireCitadelEnt" },
 	["CL_HCMagtheridonsLair"] = { "HellfireCitadelEnt" },
 	["CL_HCTheShatteredHalls"] = { "HellfireCitadelEnt" },
 	["CL_KarazhanStart"] = { "CL_KarazhanEnt" },
@@ -1350,10 +1349,10 @@ db.InstToEntMatches = {
 	["CL_TempestKeepBotanica"] = { "TempestKeepEnt" },
 	["CL_TempestKeepMechanar"] = { "TempestKeepEnt" },
 	["CL_TempestKeepTheEye"] = { "TempestKeepEnt" },
-	["CoTBlackMorass"] = { "WL_CoTEnt" },
-	["CoTHyjal"] = { "WL_CoTEnt" },
-	["CoTOldHillsbrad"] = { "WL_CoTEnt" },
-	["CoTOldStratholme"] = { "WL_CoTEnt" },
+	["CoTBlackMorass"] = { "CL_CoTEnt" },
+	["CoTHyjal"] = { "CL_CoTEnt" },
+	["CoTOldHillsbrad"] = { "CL_CoTEnt" },
+	["CoTOldStratholme"] = { "CL_CoTEnt" },
 }
 
 -- Defines the instance which have multiple maps
@@ -1398,7 +1397,7 @@ db.DropDownLayouts = {
 			"ZulAman",
 		},
 		[ATLAS_DDL_CONTINENT_KALIMDOR] = {
-			"WL_CoTEnt",
+			"CL_CoTEnt",
 			"CoTBlackMorass",
 			"CoTHyjal",
 			"CoTOldHillsbrad",
@@ -1421,7 +1420,7 @@ db.DropDownLayouts = {
 			"CL_GruulsLair",
 			"HellfireCitadelEnt",
 			"CL_HCBloodFurnace",
-			"HCHellfireRamparts",
+			"CL_HCHellfireRamparts",
 			"CL_HCMagtheridonsLair",
 			"CL_HCTheShatteredHalls",
 			"TempestKeepEnt",
@@ -1449,7 +1448,7 @@ db.DropDownLayouts = {
 			"CL_GruulsLair",
 			"HellfireCitadelEnt",
 			"CL_HCBloodFurnace",
-			"HCHellfireRamparts",
+			"CL_HCHellfireRamparts",
 			"CL_HCMagtheridonsLair",
 			"CL_HCTheShatteredHalls",
 			"CL_KarazhanEnd",
@@ -1462,7 +1461,7 @@ db.DropDownLayouts = {
 			"CL_TempestKeepBotanica",
 			"CL_TempestKeepMechanar",
 			"CL_TempestKeepTheEye",
-			"WL_CoTEnt",
+			"CL_CoTEnt",
 			"CoTBlackMorass",
 			"CoTHyjal",
 			"CoTOldHillsbrad",
@@ -1482,7 +1481,7 @@ db.DropDownLayouts = {
 			"CL_CoilfangReservoirEnt",
 			"HellfireCitadelEnt",
 			"CL_HCBloodFurnace",
-			"HCHellfireRamparts",
+			"CL_HCHellfireRamparts",
 			"CL_HCTheShatteredHalls",
 			"CL_MagistersTerrace",
 			"TempestKeepEnt",
@@ -1496,7 +1495,7 @@ db.DropDownLayouts = {
 			"CL_KarazhanEnt",
 			"CL_KarazhanStart",
 			"CL_KarazhanEnd",
-			"WL_CoTEnt",
+			"CL_CoTEnt",
 			"CoTBlackMorass",
 			"CoTHyjal",
 			"CoTOldHillsbrad",
@@ -1515,7 +1514,7 @@ db.DropDownLayouts = {
 			"CL_CFRTheUnderbog",
 			"CL_CoilfangReservoirEnt",
 			"CL_HCBloodFurnace",
-			"HCHellfireRamparts",
+			"CL_HCHellfireRamparts",
 			"CL_HCTheShatteredHalls",
 			"HellfireCitadelEnt",
 			"CL_MagistersTerrace",
@@ -1523,7 +1522,7 @@ db.DropDownLayouts = {
 			"CL_TempestKeepBotanica",
 			"TempestKeepEnt",
 			"CL_TempestKeepMechanar",
-			"WL_CoTEnt",
+			"CL_CoTEnt",
 			"CoTBlackMorass",
 			"CoTHyjal",
 			"CoTOldHillsbrad",
@@ -1564,7 +1563,7 @@ db.DropDownLayouts = {
 			"CL_CFRTheUnderbog",
 			"CL_GruulsLair",
 			"CL_HCBloodFurnace",
-			"HCHellfireRamparts",
+			"CL_HCHellfireRamparts",
 			"CL_HCMagtheridonsLair",
 			"CL_HCTheShatteredHalls",
 			"CL_KarazhanEnd",
@@ -1587,7 +1586,7 @@ db.DropDownLayouts = {
 			"HellfireCitadelEnt",
 			"CL_KarazhanEnt",
 			"TempestKeepEnt",
-			"WL_CoTEnt",
+			"CL_CoTEnt",
 		},
 	},
 }
