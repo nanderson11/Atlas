@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.14.1 - February 10, 2026
+### Changed
+- Retail: Updated TOC to 12.0.1
+
 ## 3.14.0 - January 19, 2026
 ### Added
 - Retail: Added support for Midnight (no new maps yet)
