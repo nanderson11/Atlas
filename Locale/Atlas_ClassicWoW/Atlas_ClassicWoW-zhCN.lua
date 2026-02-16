@@ -53,6 +53,7 @@ L["Anub'Rekhan"] = "阿努布雷坎"
 L["Anub'shiah"] = "阿努希尔"
 L["Aoren Sunglow <The Reliquary>"] = "奥伦·日冕 <神圣遗物学会>"
 L["AQ"] = "安其拉"
+L["AQ10"] = "安其拉（10人团队）"
 L["AQ20"] = "安其拉（20人团队）"
 L["AQ40"] = "安其拉（40人团队）"
 L["Arcanist Doan"] = "奥法师杜安"
@@ -556,8 +557,7 @@ L["Stratholme Courier"] = "斯坦索姆信使"
 L["Sulfuron Harbinger"] = "萨弗隆先驱者"
 L["Summoner's Tomb"] = "召唤者之墓"
 L["Tablet of Ryun'Eh"] = "雷乌纳石板"
-L["Tablet of Will"] = [=[意志石板
-]=]
+L["Tablet of Will"] = "意志石板"
 L["Taragaman the Hungerer"] = "饥饿者塔拉加曼"
 L["Targorr the Dread"] = "可怕的塔格尔"
 L["Techbot"] = "尖端机器人"
@@ -572,10 +572,8 @@ L["The Black Forge"] = "黑熔炉"
 L["The Bug Family"] = "安其拉三宝"
 L["The Deed to Brill"] = "布瑞尔地契"
 L["The Deed to Caer Darrow"] = "凯尔达隆地契"
-L["The Deed to Southshore"] = [=[南海镇地契
-]=]
-L["The Deed to Tarren Mill"] = [=[塔伦米尔地契
-]=]
+L["The Deed to Southshore"] = "南海镇地契"
+L["The Deed to Tarren Mill"] = "塔伦米尔地契"
 L["The Discs of Norgannon"] = "诺甘农圆盘"
 L["The Four Horsemen"] = "天启四骑士"
 L["The Grim Guzzler"] = "黑铁酒吧"
