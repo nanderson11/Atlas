@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.14.2 - February 16, 2026
+### Fixed
+- TBC: Removed The Culling of Stratholme map
+
 ## 3.14.1 - February 10, 2026
 ### Changed
 - Retail: Updated TOC to 12.0.1

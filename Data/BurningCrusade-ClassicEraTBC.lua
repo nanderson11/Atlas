@@ -866,28 +866,6 @@ db.AtlasMaps = {
 		{ GREN..INDENT..L["Jay Lemieux"] },
 		{ GREN..INDENT..L["Young Blanchy"] },
 	},
-	CoTOldStratholme = {
-		ZoneName = { BZ["Caverns of Time"]..ALC["Colon"]..BZ["The Culling of Stratholme"] },
-		Location = { BZ["Tanaris"] },
-		DungeonID = 209,
-		DungeonHeroicID = 210,
-		Acronym = L["CoT-Strat"],
-		WorldMapID = 130,
-		JournalInstanceID = 279,
-		Module = "Atlas_BurningCrusade",
-		{ PURP..ALC["Event"]..ALC["Colon"]..L["The Culling of Stratholme"] },
-		{ BLUE.." A) "..ALC["Entrance"],                                                                                    10001 },
-		{ BLUE.." B) "..ALC["Exit"]..ALC["L-Parenthesis"]..ALC["Portal"]..ALC["R-Parenthesis"],                             10002 },
-		{ ORNG.." X) "..L["Scourge Invasion Points"],                                                                       10003 },
-		{ WHIT..INDENT..ALC["Wave 5"]..ALC["Colon"]..Atlas_GetBossName("Meathook", 611),                                    611 },
-		{ WHIT..INDENT..ALC["Wave 10"]..ALC["Colon"]..Atlas_GetBossName("Salramm the Fleshcrafter", 612),                   612 },
-		{ WHIT.." 3) "..Atlas_GetBossName("Chrono-Lord Epoch", 613),                                                        613 },
-		{ WHIT.." 4) "..Atlas_GetBossName("Infinite Corruptor")..ALC["L-Parenthesis"]..ALC["Heroic"]..ALC["R-Parenthesis"], 10004 },
-		{ GREN..INDENT..L["Guardian of Time"] },
-		{ WHIT.." 5) "..Atlas_GetBossName("Mal'Ganis", 614),                                                                614 },
-		{ GREN..INDENT..L["Chromie"] },
-		{ GREN.." 1') "..L["Chromie"],                                                                                      10005 },
-	},
 	ZulAman = {
 		ZoneName = { BZ["Zul'Aman"] },
 		Location = { BZ["Ghostlands"] },
@@ -1325,7 +1303,7 @@ db.EntToInstMatches = {
 	["HellfireCitadelEnt"] = { "CL_HCBloodFurnace", "CL_HCHellfireRamparts", "CL_HCMagtheridonsLair", "CL_HCTheShatteredHalls" },
 	["CL_KarazhanEnt"] = { "CL_KarazhanStart", "CL_KarazhanEnd" },
 	["TempestKeepEnt"] = { "CL_TempestKeepArcatraz", "CL_TempestKeepBotanica", "CL_TempestKeepMechanar", "CL_TempestKeepTheEye" },
-	["CL_CoTEnt"] = { "CoTBlackMorass", "CoTHyjal", "CoTOldHillsbrad", "CoTOldStratholme" },
+	["CL_CoTEnt"] = { "CoTBlackMorass", "CoTHyjal", "CoTOldHillsbrad" },
 }
 
 -- Instance maps to entrance maps
@@ -1352,7 +1330,6 @@ db.InstToEntMatches = {
 	["CoTBlackMorass"] = { "CL_CoTEnt" },
 	["CoTHyjal"] = { "CL_CoTEnt" },
 	["CoTOldHillsbrad"] = { "CL_CoTEnt" },
-	["CoTOldStratholme"] = { "CL_CoTEnt" },
 }
 
 -- Defines the instance which have multiple maps
@@ -1401,7 +1378,6 @@ db.DropDownLayouts = {
 			"CoTBlackMorass",
 			"CoTHyjal",
 			"CoTOldHillsbrad",
-			"CoTOldStratholme",
 		},
 		[ATLAS_DDL_CONTINENT_OUTLAND] = {
 			"CL_AuchAuchenaiCrypts",
@@ -1526,7 +1502,6 @@ db.DropDownLayouts = {
 			"CoTBlackMorass",
 			"CoTHyjal",
 			"CoTOldHillsbrad",
-			"CoTOldStratholme",
 		},
 		[ATLAS_DDL_PARTYSIZE_10] = {
 			"CL_KarazhanEnd",
@@ -1577,7 +1552,6 @@ db.DropDownLayouts = {
 			"CoTBlackMorass",
 			"CoTHyjal",
 			"CoTOldHillsbrad",
-			"CoTOldStratholme",
 		},
 		[ATLAS_DDL_TYPE_ENTRANCE] = {
 			"CL_AuchindounEnt",
