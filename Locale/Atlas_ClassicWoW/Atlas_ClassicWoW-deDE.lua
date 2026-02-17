@@ -654,10 +654,10 @@ L["Zeya"] = "Zeya"
 L["ZF"] = "ZF"
 L["Zul'Farrak Dead Hero"] = "Toter Held aus Zul'Farrak"
 
--- L["Bat"] = "Bat"
--- L["Snake"] = "Snake"
--- L["Spider"] = "Spider"
--- L["Raptor"] = "Raptor"
--- L["Tiger"] = "Tiger"
--- L["Panther"] = "Panther"
--- L["Undead"] = "Undead"
+["Bat"] = "Fledermaus",
+["Snake"] = "Schlange",
+["Spider"] = "Spinne",
+["Raptor"] = "Raptor",
+["Tiger"] = "Tiger",
+["Panther"] = "Panther",
+["Undead"] = "Untoter",
