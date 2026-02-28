@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.15.0 -
+### Added
+- Retail: Added Midnight maps
+### Fixed
+- Retail/MoP: Fixed problems when opening the Encounter Journal
+
 ## 3.14.2 - February 16, 2026
 ### Fixed
 - TBC: Removed The Culling of Stratholme map

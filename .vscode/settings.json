@@ -133,7 +133,8 @@
 		"CreateBaseTooltipInfo",
 		"AtlasEJLootFrameCloseButton",
 		"GameTooltip_ShowCompareItem",
-		"CLOSE"
+		"CLOSE",
+		"EncounterJournal_OpenJournal"
 	],
 	"Lua.runtime.version": "Lua 5.1",
 	"Lua.runtime.builtin": {
