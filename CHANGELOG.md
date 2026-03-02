@@ -3,6 +3,8 @@
 ## 3.15.0 - March 2, 2026
 ### Added
 - Retail: Added Midnight maps
+### Changed
+- Updated translations
 ### Fixed
 - Retail/MoP: Fixed problems when opening the Encounter Journal
 
