@@ -1,6 +1,6 @@
 # Changelog
 
-## 3.15.0 -
+## 3.15.0 - March 2, 2026
 ### Added
 - Retail: Added Midnight maps
 ### Fixed
