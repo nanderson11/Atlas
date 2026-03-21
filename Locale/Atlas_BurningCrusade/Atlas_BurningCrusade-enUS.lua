@@ -394,6 +394,7 @@ L["Wravien <The Mage>"] = "Wravien <The Mage>"
 L["Yarley <Armorer>"] = "Yarley <Armorer>"
 L["Yazzai"] = "Yazzai"
 L["Yor"] = "Yor"
+L["Yor <Void Hound of Shaffar>"] = true
 L["Young Blanchy"] = "Young Blanchy"
 L["Ythyar"] = "Ythyar"
 L["Zaladormu"] = "Zaladormu"
