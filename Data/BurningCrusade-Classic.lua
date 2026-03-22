@@ -123,7 +123,7 @@ db.AtlasMaps = {
 		ActivityID = { 2, 823 },
 		Module = "Atlas_BurningCrusade",
 		{ ORNG..REPUTATION..ALC["Colon"]..BF["The Consortium"] },
-		{ ORNG..ALC["Key"]..ALC["Colon"]..ALIL["The Eye of Haramad"]..ALC["L-Parenthesis"]..ALC["Exalted"]..ALC["Comma"]..Atlas_GetBossName("Yor")..ALC["R-Parenthesis"] },
+		{ ORNG..ALC["Key"]..ALC["Colon"]..L["The Eye of Haramad"]..ALC["L-Parenthesis"]..ALC["Exalted"]..ALC["Comma"]..Atlas_GetBossName("Yor")..ALC["R-Parenthesis"] },
 		{ BLUE.." A) "..ALC["Entrance"],                                                                                                                               10001 },
 		{ GREN..INDENT..L["Artificer Morphalius"] },
 		{ GREN..INDENT..L["Mamdy the \"Ologist\""] },
@@ -955,7 +955,7 @@ db.AtlasMaps = {
 		{ GREN..INDENT..L["Young Blanchy"] },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-		{ " The Escape From Durnholde",                                                                                         "ac=652" },
+		{ "The Escape From Durnholde",                                                                                          "ac=652" },
 		{ "Heroic: The Escape From Durnholde",                                                                                  "ac=673" },
 	},
 	CoTOldStratholme = {

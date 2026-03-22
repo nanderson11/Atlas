@@ -107,6 +107,8 @@ db.AtlasMaps = {
 		JournalInstanceID = 228,
 		ActivityID = { 2, 811 },
 		Module = "Atlas_ClassicWoW",
+		{ ORNG..ALC["Key"]..ALC["Colon"]..L["Relic Coffer Key"] },
+		{ ORNG..ALC["Key"]..ALC["Colon"]..L["Dark Keeper Key"] },
 		{ BLUE.." A) "..ALC["Entrance"],                                                                                                                   10001 },
 		{ WHIT.." 1) "..Atlas_GetBossName("Lord Roccor", 370)..ALC["L-Parenthesis"]..ALC["Wanders"]..ALC["R-Parenthesis"],                                 370 },
 		{ WHIT.." 2) "..Atlas_GetBossName("Kharan Mighthammer") },
