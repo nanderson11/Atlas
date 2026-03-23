@@ -342,7 +342,7 @@ L["Nat Pagle"] = "Nat Pagle"
 L["Nathanos Marris"] = "Nathanos Marris"
 L["Naturalist Bite"] = "Naturaliste Morsure"
 --[[Translation missing --]]
---[[ L["Nazan"] = ""--]]
+--[[ L["Nazan <Vazruden's Mount>"] = ""--]]
 --[[Translation missing --]]
 --[[ L["Nethermancer Sepethrea"] = ""--]]
 --[[Translation missing --]]

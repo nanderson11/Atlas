@@ -631,7 +631,7 @@ db.AtlasMaps = {
 		{ WHIT.." 1) "..Atlas_GetBossName("Watchkeeper Gargolmar", 527),                                                 527 },
 		{ WHIT.." 2) "..Atlas_GetBossName("Omor the Unscarred", 528),                                                    528 },
 		{ WHIT.." 3) "..Atlas_GetBossName("Vazruden the Herald", 529),                                                   529 },
-		{ WHIT..INDENT..Atlas_GetBossName("Nazan") },
+		{ WHIT..INDENT..Atlas_GetBossName("Nazan <Vazruden's Mount>") },
 		{ GREN..INDENT..L["Reinforced Fel Iron Chest"] },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
