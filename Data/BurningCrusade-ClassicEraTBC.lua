@@ -146,6 +146,7 @@ db.AtlasMaps = {
 		{ ORNG..REPUTATION..ALC["Colon"]..BF["Lower City"] },
 		{ BLUE.." A) "..ALC["Entrance"],                                                                           10001 },
 		{ WHIT.." 1) "..Atlas_GetBossName("Darkweaver Syth", 541),                                                 541 },
+		{ GREY..INDENT..L["Lakka"] },
 		{ WHIT.." 2) "..Atlas_GetBossName("Anzu", 542)..ALC["L-Parenthesis"]..ALC["Heroic"]..ALC["R-Parenthesis"], 542 },
 		{ GREY..INDENT..L["The Saga of Terokk"] },
 		{ WHIT.." 3) "..Atlas_GetBossName("Talon King Ikiss", 543),                                                543 },
