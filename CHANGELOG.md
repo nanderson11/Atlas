@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.15.1 -
+### Fixed
+- TBC: Fixed Atlas LFG button not correctly filtering LFG
+
 ## 3.15.0 - March 2, 2026
 ### Added
 - Retail: Added Midnight maps

@@ -349,15 +349,23 @@ function addon:SearchLFG()
 	-- Open LFG to the group browser
 	ShowLFGParentFrame(2);
 
-	-- Set Category
-	UIDropDownMenu_SetSelectedValue(LFGBrowseFrame.CategoryDropDown, AtlasFrameLFGButton.ActivityID[1]);
-	UIDropDownMenu_Initialize(LFGBrowseFrame.CategoryDropDown, LFGBrowseCategoryDropDown_Initialize);
+	if (select(4, GetBuildInfo()) < 20000) then
+		-- Set Category
+		UIDropDownMenu_SetSelectedValue(LFGBrowseFrame.CategoryDropDown, AtlasFrameLFGButton.ActivityID[1]);
+		UIDropDownMenu_Initialize(LFGBrowseFrame.CategoryDropDown, LFGBrowseCategoryDropDown_Initialize);
 
-	-- Set Activity
-	LFGBrowseActivityDropDown_ValueReset(LFGBrowseFrame.ActivityDropDown);
-	UIDropDownMenu_ClearAll(LFGBrowseFrame.ActivityDropDown);
-	UIDropDownMenu_Initialize(LFGBrowseFrame.ActivityDropDown, LFGBrowseActivityDropDown_Initialize);
-	LFGBrowseActivityDropDown_ValueSetSelected(LFGBrowseFrame.ActivityDropDown, AtlasFrameLFGButton.ActivityID[2], true);
+		-- Set Activity
+		LFGBrowseActivityDropDown_ValueReset(LFGBrowseFrame.ActivityDropDown);
+		UIDropDownMenu_ClearAll(LFGBrowseFrame.ActivityDropDown);
+		UIDropDownMenu_Initialize(LFGBrowseFrame.ActivityDropDown, LFGBrowseActivityDropDown_Initialize);
+		LFGBrowseActivityDropDown_ValueSetSelected(LFGBrowseFrame.ActivityDropDown, AtlasFrameLFGButton.ActivityID[2], true);
+	else
+		-- Set Category
+		LFGBrowseFrame.CategoryDropdown:SetValue(AtlasFrameLFGButton.ActivityID[1]);
+
+		-- Set Activity
+		LFGBrowseFrame.ActivityDropdown:ValueSetSelected(AtlasFrameLFGButton.ActivityID[2], true);
+	end
 
 	-- Start search
 	LFGBrowse_DoSearch();
