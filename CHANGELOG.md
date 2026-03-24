@@ -1,8 +1,9 @@
 # Changelog
 
-## 3.15.1 -
+## 3.15.1 - March 24, 2026
 ### Fixed
 - TBC: Fixed Atlas LFG button not correctly filtering LFG
+- TBC: Fixed error when sorting instances by type
 
 ## 3.15.0 - March 2, 2026
 ### Added
