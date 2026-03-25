@@ -120,7 +120,7 @@ db.AtlasMaps = {
 		JournalInstanceID = 250,
 		Module = "Atlas_BurningCrusade",
 		{ ORNG..REPUTATION..ALC["Colon"]..BF["The Consortium"] },
-		{ ORNG..L["Key"]..ALC["Colon"]..L["The Eye of Haramad"]..ALC["L-Parenthesis"]..ALC["Exalted"]..ALC["Comma"]..Atlas_GetBossName("Yor")..ALC["R-Parenthesis"] },
+		{ ORNG..ALC["Key"]..ALC["Colon"]..L["The Eye of Haramad"]..ALC["L-Parenthesis"]..ALC["Exalted"]..ALC["Comma"]..Atlas_GetBossName("Yor")..ALC["R-Parenthesis"] },
 		{ BLUE.." A) "..ALC["Entrance"],                                                                                                                               10001 },
 		{ GREN..INDENT..L["Artificer Morphalius"] },
 		{ GREN..INDENT..L["Mamdy the \"Ologist\""] },
