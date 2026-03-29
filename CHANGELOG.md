@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.15.2 -
+### Fixed
+- Fixed some text not always getting translated (thanks m0ezes)
+
 ## 3.15.1 - March 24, 2026
 ### Fixed
 - TBC: Fixed Atlas LFG button not correctly filtering LFG
