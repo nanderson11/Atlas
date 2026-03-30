@@ -361,6 +361,7 @@ local function startLFGSearch(categoryID, activityID)
 		LFGBrowseFrame.CategoryDropdown:SetValue(categoryID);
 
 		-- Set Activity
+		LFGBrowseFrame.ActivityDropdown:Reset()
 		LFGBrowseFrame.ActivityDropdown:ValueSetSelected(activityID, true);
 	end
 
