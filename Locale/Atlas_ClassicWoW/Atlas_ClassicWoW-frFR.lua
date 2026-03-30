@@ -28,7 +28,6 @@ if not L then return end
 
 L["\"Ambassador\" Dagg'thol"] = "\"Ambassadeur\" Dagg'thol"
 L["3rd Box Opened: Postmaster Malown"] = "3ème boîte ouverte: Postier Malown"
-L["Abandonded Mole Machine"] = "Taupe mécanique abandonnée"
 L["Abandoned Mole Machine"] = "Taupe mécanique abandonnée"
 L["Abomination Wing"] = "Quartier des Constructions"
 L["Acride <Scarshield Legion>"] = "Acride <Légion du Bouclier balafré>"

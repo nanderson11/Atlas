@@ -28,7 +28,6 @@ if not L then return end
 
 L["\"Ambassador\" Dagg'thol"] = "達格索大使"
 L["3rd Box Opened: Postmaster Malown"] = "第三個郵箱被開啟: 郵差瑪羅恩"
-L["Abandonded Mole Machine"] = "棄置的鑽地機"
 L["Abandoned Mole Machine"] = "棄置的鑽地機"
 L["Abomination Wing"] = "構造區"
 L["Acride <Scarshield Legion>"] = "裂盾滲透者 <裂盾軍團>"

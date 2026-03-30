@@ -27,8 +27,7 @@ local L = LibStub("AceLocale-3.0"):NewLocale("Atlas_ClassicWoW", "deDE");
 if not L then return end
 
 L["\"Ambassador\" Dagg'thol"] = "\"Botschafter\" Dagg'thol"
-L["3rd Box Opened: Postmaster Malown"] = "3.Box geöffnet: Postmeister Malown"
-L["Abandonded Mole Machine"] = "Verlassene Maulwurfmaschine"
+L["3rd Box Opened: Postmaster Malown"] = "3. Box geöffnet: Postmeister Malown"
 L["Abandoned Mole Machine"] = "Verlassene Maulwurfmaschine"
 L["Abomination Wing"] = "Das Konstruktviertel"
 L["Acride <Scarshield Legion>"] = "Acride <Schmetterschildlegion>"
