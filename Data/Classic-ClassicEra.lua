@@ -488,7 +488,7 @@ db.AtlasMaps = {
 		DungeonID = 39,
 		LevelRange = "56-60",
 		PlayerLimit = { 5 },
-		-- ActivityID = { 2, 803 }, -- skip for now because there's both live and UD options
+		ActivityID = { 2, 816, 1603 },
 		Module = "Atlas_ClassicWoW",
 		{ ORNG.." "..ALC["Key"]..ALC["Colon"]..L["Various Postbox Keys"]..ALC["L-Parenthesis"]..Atlas_GetBossName("Postmaster Malown")..ALC["R-Parenthesis"] },
 		{ BLUE.." A) "..ALC["Entrance"]..ALC["L-Parenthesis"]..ALC["Front"]..ALC["R-Parenthesis"] },

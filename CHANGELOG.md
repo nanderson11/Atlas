@@ -1,6 +1,8 @@
 # Changelog
 
 ## 3.15.2 -
+### Added
+- TBC/Era: Added ability for the LFG button to go to multiple instances (ex. Stratholme)
 ### Fixed
 - Fixed some text not always getting translated (thanks m0ezes)
 
