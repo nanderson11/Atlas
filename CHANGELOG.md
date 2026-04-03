@@ -1,8 +1,9 @@
 # Changelog
 
-## 3.15.2 -
+## 3.15.2 - April 3, 2026
 ### Added
-- TBC/Era: Added ability for the Atlas LFG button to go to multiple instances (ex. Stratholme)
+- TBC: Added Atlas LFG button to TBC instances (thanks m0ezes)
+- TBC/Era: Added ability for the Atlas LFG button to go to multiple instances (ex. heroic instances or Stratholme)
 ### Fixed
 - Fixed some text not always getting translated (thanks m0ezes)
 - TBC: Fixed Atlas LFG button not resetting the filter when starting a new search
