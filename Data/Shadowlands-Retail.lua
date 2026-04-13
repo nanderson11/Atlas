@@ -29,7 +29,7 @@ private.module_name = "Shadowlands"
 local BZ = Atlas_GetLocaleLibBabble("LibBabble-SubZone-3.0")
 local ALC = LibStub("AceLocale-3.0"):GetLocale("Atlas")
 local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
-local SDL = Atlas:NewModule(private.module_name)
+local SDL = Atlas:GetModule(private.module_name, true) or Atlas:NewModule(private.module_name)
 
 local db = {}
 SDL.db = db

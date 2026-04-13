@@ -28,7 +28,7 @@ private.module_name = "Midnight"
 
 local ALC = LibStub("AceLocale-3.0"):GetLocale("Atlas")
 local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
-local Midnight = Atlas:NewModule(private.module_name)
+local Midnight = Atlas:GetModule(private.module_name, true) or Atlas:NewModule(private.module_name)
 
 local db = {}
 Midnight.db = db

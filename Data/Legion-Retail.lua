@@ -30,7 +30,7 @@ local BZ = Atlas_GetLocaleLibBabble("LibBabble-SubZone-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local ALC = LibStub("AceLocale-3.0"):GetLocale("Atlas")
 local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
-local Legion = Atlas:NewModule(private.module_name)
+local Legion = Atlas:GetModule(private.module_name, true) or Atlas:NewModule(private.module_name)
 
 local db = {}
 Legion.db = db

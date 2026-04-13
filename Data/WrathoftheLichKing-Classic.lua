@@ -31,7 +31,7 @@ local BF = Atlas_GetLocaleLibBabble("LibBabble-Faction-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local ALC = LibStub("AceLocale-3.0"):GetLocale("Atlas")
 local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
-local WoLK = Atlas:NewModule(private.module_name)
+local WoLK = Atlas:GetModule(private.module_name, true) or Atlas:NewModule(private.module_name)
 
 local db = {}
 WoLK.db = db

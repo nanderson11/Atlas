@@ -31,7 +31,7 @@ local BF = Atlas_GetLocaleLibBabble("LibBabble-Faction-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local ALC = LibStub("AceLocale-3.0"):GetLocale("Atlas")
 local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
-local addon = Atlas:NewModule(private.module_name)
+local addon = Atlas:GetModule(private.module_name, true) or Atlas:NewModule(private.module_name)
 
 local function Atlas_GetBossName(bossname, encounterID, creatureIndex)
 	local BB = Atlas_GetLocaleLibBabble("LibBabble-Boss-3.0")

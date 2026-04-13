@@ -28,7 +28,7 @@ private.module_name = "TheWarWithin"
 
 local ALC = LibStub("AceLocale-3.0"):GetLocale("Atlas")
 local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
-local TWW = Atlas:NewModule(private.module_name)
+local TWW = Atlas:GetModule(private.module_name, true) or Atlas:NewModule(private.module_name)
 
 local db = {}
 TWW.db = db
