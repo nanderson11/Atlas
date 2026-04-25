@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.15.3 - April 25, 2026
+Retail: Updated TOC to 12.0.5
+
 ## 3.15.2 - April 3, 2026
 ### Added
 - TBC: Added Atlas LFG button to TBC instances (thanks m0ezes)
