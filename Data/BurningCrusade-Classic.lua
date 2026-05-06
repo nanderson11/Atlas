@@ -1613,6 +1613,7 @@ db.DropDownLayouts = {
 			"TempestKeepArcatraz",
 			"TempestKeepBotanica",
 			"TempestKeepMechanar",
+			"TempestKeepTheEye",
 			"BlackTempleBasement",
 			"BlackTempleStart",
 			"BlackTempleTop",

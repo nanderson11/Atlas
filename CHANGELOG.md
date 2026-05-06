@@ -1,6 +1,11 @@
 # Changelog
 
+## 3.15.4 - May 6, 2026
+### Fixed
+- TBC/MoP: Fixed Tempest Keep raid not showing up when sorting the list by level
+
 ## 3.15.3 - April 25, 2026
+### Changed
 Retail: Updated TOC to 12.0.5
 
 ## 3.15.2 - April 3, 2026
