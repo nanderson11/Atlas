@@ -1,6 +1,8 @@
 # Changelog
 
 ## 3.15.5 - June 4, 2026
+### Fixed
+- Retail: Fixed the maps and Encounter Journal entries that Dire Maul buttons go to
 ### Changed
 - MoP: Updated TOC to 5.5.4
 - MoP: Enabled Encounter Journal button for SoO
