@@ -1,4 +1,4 @@
-## Interface: 50503
+## Interface: 50504
 
 ## Title: Atlas
 ## Title-deDE: Atlas
@@ -24,8 +24,21 @@
 ## Notes-zhCN: |cff00CC33副本地图浏览器|r
 ## Notes-zhTW: Atlas 地圖集主程式
 
+## Category-enUS: Map
+## Category-deDE: Karte
+## Category-esES: Mapa
+## Category-esMX: Mapa
+## Category-frFR: Carte
+## Category-itIT: Mappa
+## Category-koKR: 지도
+## Category-ptBR: Mapa
+## Category-ruRU: Карта
+## Category-zhCN: 地图
+## Category-zhTW: 地圖
+
 ## Author: nanderson11
 ## Version: @project-version@
+## Group: Atlas
 ## X-Website: https://github.com/nanderson11/Atlas
 ## X-Category: Map
 ## X-License: GPLv2
@@ -33,6 +46,7 @@
 ## X-Localizations: enUS, deDE, esES, esMX, frFR, ruRU, zhTW, zhCN, ptBR, koKR
 ## X-Curse-Project-ID: 1115649
 ## OptionalDeps: LibStub, CallbackHandler-1.0, Ace3, LibBabble-Boss-3.0, LibBabble-SubZone-3.0, LibBabble-Faction-3.0, LibDBIcon-1.0
+## IconTexture: Interface\WorldMap\WorldMap-Icon
 ## SavedVariables: AtlasDB
 
 Data\Constants.lua

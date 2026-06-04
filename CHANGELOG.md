@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.15.5 - June 4, 2026
+### Changed
+- MoP: Updated TOC to 5.5.4
+- MoP: Enabled Encounter Journal button for SoO
+
 ## 3.15.4 - May 6, 2026
 ### Fixed
 - TBC/MoP: Fixed Tempest Keep raid not showing up when sorting the list by level
