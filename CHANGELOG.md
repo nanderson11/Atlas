@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.15.6 - June 16, 2026
+### Changed
+Retail: Updated TOC to 12.0.7
+
 ## 3.15.5 - June 4, 2026
 ### Fixed
 - Retail: Fixed the maps and Encounter Journal entries that Dire Maul buttons go to
