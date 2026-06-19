@@ -275,6 +275,20 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Dusk Crystal", 2740, 3),          2740 },
 		{ WHIT..INDENT..Atlas_GetBossName("Dawn Crystal", 2740, 4),          2740 },
 	},
+	Sporefall = {
+		ZoneName = { i(1305) },
+		Location = { z(15355) },
+		DungeonID = 3214,
+		DungeonHeroicID = 3265,
+		DungeonMythicID = 3266,
+		WorldMapID = 2427,
+		JournalInstanceID = 1305,
+		Module = "Atlas_Midnight",
+		{ WHIT.." 1) "..Atlas_GetBossName("Rotmire", 2711),       2711 },
+		{ WHIT..INDENT..Atlas_GetBossName("Sporecap", 2711, 2),   2711 },
+		{ WHIT..INDENT..Atlas_GetBossName("Shroomling", 2711, 3), 2711 },
+		{ WHIT..INDENT..Atlas_GetBossName("Fungling", 2711, 4),   2711 },
+	},
 }
 
 --[[ /////////////////////////////////////////
@@ -347,6 +361,9 @@ db.AtlasMaps_NPC_DB = {
 		{ 1, 2739, 265, 232 },
 		{ 2, 2740, 264, 99 },
 	},
+	Sporefall = {
+		{ 1, 2711, 294, 266 },
+	}
 }
 
 --[[
@@ -458,6 +475,7 @@ db.DropDownLayouts = {
 			"VoidspireB",
 			"Dreamrift",
 			"MarchOnQuelDanas",
+			"Sporefall",
 		}
 	},
 	[ATLAS_DDL_EXPANSION] = {
@@ -474,6 +492,7 @@ db.DropDownLayouts = {
 			"VoidspireB",
 			"Dreamrift",
 			"MarchOnQuelDanas",
+			"Sporefall",
 		},
 	},
 	[ATLAS_DDL_LEVEL] = {
@@ -490,6 +509,7 @@ db.DropDownLayouts = {
 			"VoidspireB",
 			"Dreamrift",
 			"MarchOnQuelDanas",
+			"Sporefall",
 		},
 	},
 	[ATLAS_DDL_PARTYSIZE] = {
@@ -508,12 +528,14 @@ db.DropDownLayouts = {
 			"VoidspireB",
 			"Dreamrift",
 			"MarchOnQuelDanas",
+			"Sporefall",
 		},
 		[ATLAS_DDL_PARTYSIZE_20TO40] = {
 			"VoidspireA",
 			"VoidspireB",
 			"Dreamrift",
 			"MarchOnQuelDanas",
+			"Sporefall",
 		},
 	},
 	[ATLAS_DDL_TYPE] = {
@@ -530,6 +552,7 @@ db.DropDownLayouts = {
 			"VoidspireB",
 			"Dreamrift",
 			"MarchOnQuelDanas",
+			"Sporefall",
 		},
 	},
 }

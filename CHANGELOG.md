@@ -1,8 +1,12 @@
 # Changelog
 
+## 3.15.7 - June 19, 2026
+### Added
+- Retail: Added Sporefall
+
 ## 3.15.6 - June 16, 2026
 ### Changed
-Retail: Updated TOC to 12.0.7
+- Retail: Updated TOC to 12.0.7
 
 ## 3.15.5 - June 4, 2026
 ### Fixed
@@ -17,7 +21,7 @@ Retail: Updated TOC to 12.0.7
 
 ## 3.15.3 - April 25, 2026
 ### Changed
-Retail: Updated TOC to 12.0.5
+- Retail: Updated TOC to 12.0.5
 
 ## 3.15.2 - April 3, 2026
 ### Added
