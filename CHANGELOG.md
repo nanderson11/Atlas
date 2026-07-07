@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.15.8 - July 7, 2026
+### Changed
+- TBC: Updated TOC to 2.5.6
+
 ## 3.15.7 - June 19, 2026
 ### Added
 - Retail: Added Sporefall
