@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.15.9 - July 21, 2026
+### Changed
+- Era: Added category, group and icon to TOC
+- Era: Updated TOC to 1.15.9
+### Fixed
+- Era: Fixed error when using the Atlas LFG button
+
 ## 3.15.8 - July 7, 2026
 ### Changed
 - TBC: Updated TOC to 2.5.6
