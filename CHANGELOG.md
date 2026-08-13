@@ -4,6 +4,8 @@
 ### Changed
 - Retail: Updated TOC to 12.1.0
 - Updated libraries
+### Fixed
+- Retail: Fix error when mousing over adventure journal button
 
 ## 3.15.9 - July 21, 2026
 ### Changed

@@ -140,7 +140,7 @@ function addon:AdventureJournalButton_OnEnter(frame)
 	local instanceID = frame.instanceID
 	if (not instanceID) then return end
 
-	if (MouseIsOver(frame)) then
+	if ((InputUtil and InputUtil.IsMouseOver and InputUtil.IsMouseOver(frame)) or (MouseIsOver and MouseIsOver(frame))) then
 		if (EJ_GetInstanceInfo(instanceID)) then
 			EJ_SelectInstance(instanceID)
 
