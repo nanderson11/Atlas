@@ -3,6 +3,7 @@
 ## 3.15.10 - August 12, 2026
 ### Changed
 - Retail: Updated TOC to 12.1.0
+- Updated libraries
 
 ## 3.15.9 - July 21, 2026
 ### Changed

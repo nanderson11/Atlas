@@ -1,24 +1,11 @@
 --[[
-	Krowi's World Map Buttons License
-		Copyright ©2020 The contents of this library, excluding third-party resources, are
-		copyrighted to their authors with all rights reserved.
-
-		This library is free to use and the authors hereby grants you the following rights:
-
-		1. 	You may make modifications to this library for private use only, you
-			may not publicize any portion of this library. The only exception being you may
-			upload to the github website.
-
-		2. 	Do not modify the name of this library, including the library folders.
-
-		3. 	This copyright notice shall be included in all copies or substantial
-			portions of the Software.
-
-		All rights not explicitly addressed in this license are reserved by
-		the copyright holders.
+    Copyright (c) 2020 Krowi
+    Licensed under the terms of the LICENSE file in this repository.
 ]]
 
-local lib, oldminor = LibStub:NewLibrary('Krowi_WorldMapButtons-1.4', 8);
+---@diagnostic disable: undefined-global
+
+local lib, oldminor = LibStub:NewLibrary('Krowi_WorldMapButtons-1.4', 10);
 
 if not lib then
 	return;
@@ -71,15 +58,6 @@ local function HookDefaultButtons()
 	lib.HookedDefaultButtons = true;
 end
 
-local function PatchWrathClassic()
-	if lib.HasNoOverlay and WorldMapFrame.RefreshOverlayFrames == nil then
-		WorldMapFrame.RefreshOverlayFrames = function()
-		end
-	end
-
-	PatchWrathClassic = function() end;
-end
-
 local function AddButton(button)
 	local xOffset, yOffset;
 	if lib.IsMainline then
@@ -89,7 +67,7 @@ local function AddButton(button)
 	end
 	button.relativeFrame = WorldMapFrame:GetCanvasContainer();
 	button:SetPoint("TOPRIGHT", button.relativeFrame, lib.IsMainline and -lib.XOffset or -xOffset, lib.IsMainline and yOffset or lib.YOffset);
-	hooksecurefunc(WorldMapFrame, lib.HasNoOverlay and "OnMapChanged" or "RefreshOverlayFrames", function()
+	hooksecurefunc(WorldMapFrame, "OnMapChanged", function()
 		button:Refresh();
 		lib.SetPoints();
 	end);
@@ -107,8 +85,6 @@ function lib:Add(templateName, templateType)
 	if not self.HookedDefaultButtons then
 		HookDefaultButtons();
 	end
-
-	PatchWrathClassic();
 
 	local button = CreateFrame(templateType, "Krowi_WorldMapButtons" .. (#self.Buttons + 1), lib.HasNoOverlay and WorldMapFrame.ScrollContainer or WorldMapFrame, templateName);
 
