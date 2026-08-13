@@ -1269,7 +1269,7 @@ function Atlas_Refresh(mapID)
 		return
 	end
 
-	if WoWRetail then
+	if WoWRetail or WoWClassic then
 		if (AtlasEJLootFrame:IsShown()) then
 			AtlasEJLootFrame:Hide()
 		end
