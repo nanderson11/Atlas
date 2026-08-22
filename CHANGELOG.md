@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.16.0 - August 21, 2026
+### Added
+- Retail: Added 12.1 maps
+### Changed
+- Updated translations (thanks anon1231823)
+
 ## 3.15.10 - August 12, 2026
 ### Changed
 - Retail: Updated TOC to 12.1.0
