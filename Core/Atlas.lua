@@ -24,9 +24,11 @@
 --]]
 
 -- Determine WoW TOC Version
-local WoWClassicEra, WoWClassic, WoWRetail
+local WoWForever, WoWClassicEra, WoWClassic, WoWRetail
 local wowversion = select(4, GetBuildInfo())
-if wowversion < 40000 then
+if wowversion > 16000 and wowversion < 20000 then
+	WoWForever = true
+elseif wowversion < 40000 then
 	WoWClassicEra = true
 elseif wowversion > 40000 and wowversion < 90000 then
 	WoWClassic = true
@@ -250,7 +252,7 @@ local function bossButtonCleanUp(button)
 end
 
 local function bossButtonUpdate(button, encounterID, instanceID, b_iconImage, moduleData)
-	if (WoWClassicEra) then return end
+	if (WoWClassicEra or WoWForever) then return end
 
 	button:SetID(encounterID)
 	button.encounterID = encounterID
@@ -635,13 +637,7 @@ function addon:GetDungeonDifficultyColor(minRecLevel)
 		return color
 	end
 
-	local greenLevel
-	if (WoWClassicEra or WoWClassic) then
-		greenLevel = GetQuestGreenRange()
-	else
-		greenLevel = UnitQuestTrivialLevelRange('player')
-	end
-
+	local greenLevel = GetQuestGreenRange and GetQuestGreenRange() or UnitQuestTrivialLevelRange('player')
 	local lDiff = minRecLevel - UnitLevel("player")
 	if (lDiff >= 0) then
 		for i = 1.00, 0.10, -0.10 do
@@ -1498,7 +1494,7 @@ function Atlas_AutoSelect()
 end
 
 function addon:DungeonMinGearLevelToolTip(self)
-	if (WoWClassicEra or WoWClassic) then return end
+	if (WoWClassicEra or WoWClassic or WoWForever) then return end
 	local currGearLevel = GetAverageItemLevel()
 	local str = format(ITEM_LEVEL, currGearLevel)
 
@@ -1619,7 +1615,7 @@ function addon:OnEnable()
 	AtlasFrameSmallCloseButton:SetPropagateMouseMotion(true)
 
 	-- On retail, adjust the position of the lock button
-	if (WoWRetail) then
+	if (WoWRetail or WoWForever) then
 		AtlasFrameLockButton:SetPoint("RIGHT", "AtlasFrameCloseButton", "LEFT", 6, 0)
 		AtlasFrameSmallLockButton:SetPoint("RIGHT", "AtlasFrameSmallCloseButton", "LEFT", 6, 0)
 	end
@@ -1630,7 +1626,7 @@ function addon:OnEnable()
 	ScrollBox:SetSize(456, 389)
 
 	local ScrollBar
-	if WoWRetail then
+	if WoWRetail or WoWForever then
 		ScrollBar = CreateFrame("EventFrame", nil, AtlasFrameBottomInset, "MinimalScrollBar")
 		ScrollBar:SetPoint("TOPLEFT", ScrollBox, "TOPRIGHT")
 		ScrollBar:SetPoint("BOTTOMLEFT", ScrollBox, "BOTTOMRIGHT")

@@ -1,6 +1,8 @@
 # Changelog
 
 ## 3.16.1 - September 25, 2026
+### Added
+- Forever: Added support for Forever
 ### Changed
 - Updated libraries
 
