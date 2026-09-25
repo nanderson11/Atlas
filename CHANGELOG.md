@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.16.1 - September 25, 2026
+### Changed
+- Updated libraries
+
 ## 3.16.0 - August 21, 2026
 ### Added
 - Retail: Added 12.1 maps
