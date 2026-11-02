@@ -365,6 +365,19 @@ db.AtlasMaps = {
 		{ WHIT..INDENT..Atlas_GetBossName("Bubblefin Frostscale", 2849, 3),  2849 },
 		{ WHIT..INDENT..Atlas_GetBossName("Bubblefin Berserker", 2849, 4),   2849 },
 	},
+	TheUnbindingOfKithix = {
+		ZoneName = { i(1324) },
+		Location = { z(16365) },
+		DungeonID = 3262,
+		DungeonHeroicID = 3396,
+		DungeonMythicID = 3397,
+		WorldMapID = 2669,
+		JournalInstanceID = 1324,
+		Module = "Atlas_Midnight",
+		{ WHIT.." 1) "..Atlas_GetBossName("Kith'ix", 2896),          2896 },
+		{ WHIT..INDENT..Atlas_GetBossName("Venomous Hulk", 2896, 2), 2896 },
+		{ WHIT..INDENT..Atlas_GetBossName("Voidweaver", 2896, 3),    2896 },
+	},
 }
 
 --[[ /////////////////////////////////////////
@@ -457,7 +470,10 @@ db.AtlasMaps_NPC_DB = {
 	},
 	TideboundGrotto = {
 		{ 1, 2849, 274, 315 },
-	}
+	},
+	TheUnbindingOfKithix = {
+		{ 1, 2896, 181, 168 },
+	},
 }
 
 --[[
@@ -573,6 +589,7 @@ db.DropDownLayouts = {
 			"Sporefall",
 			"VenomousAbyss",
 			"TideboundGrotto",
+			"TheUnbindingOfKithix",
 		}
 	},
 	[ATLAS_DDL_EXPANSION] = {
@@ -593,6 +610,7 @@ db.DropDownLayouts = {
 			"Sporefall",
 			"VenomousAbyss",
 			"TideboundGrotto",
+			"TheUnbindingOfKithix",
 		},
 	},
 	[ATLAS_DDL_LEVEL] = {
@@ -613,6 +631,7 @@ db.DropDownLayouts = {
 			"Sporefall",
 			"VenomousAbyss",
 			"TideboundGrotto",
+			"TheUnbindingOfKithix",
 		},
 	},
 	[ATLAS_DDL_PARTYSIZE] = {
@@ -635,6 +654,7 @@ db.DropDownLayouts = {
 			"Sporefall",
 			"VenomousAbyss",
 			"TideboundGrotto",
+			"TheUnbindingOfKithix",
 		},
 		[ATLAS_DDL_PARTYSIZE_20TO40] = {
 			"VoidspireA",
@@ -644,6 +664,7 @@ db.DropDownLayouts = {
 			"Sporefall",
 			"VenomousAbyss",
 			"TideboundGrotto",
+			"TheUnbindingOfKithix",
 		},
 	},
 	[ATLAS_DDL_TYPE] = {
@@ -664,6 +685,7 @@ db.DropDownLayouts = {
 			"Sporefall",
 			"VenomousAbyss",
 			"TideboundGrotto",
+			"TheUnbindingOfKithix",
 		},
 	},
 }

@@ -1,6 +1,8 @@
 # Changelog
 
-## 3.16.2 -
+## 3.16.2 - November 2, 2026
+### Added
+- Retail: Added The Unbinding of Kith'ix
 ### Changed
 - Retail: Updated TOC to 12.1.5
 
