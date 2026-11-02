@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.16.2 -
+### Changed
+- Retail: Updated TOC to 12.1.5
+
 ## 3.16.1 - September 25, 2026
 ### Added
 - Forever: Added support for Forever
